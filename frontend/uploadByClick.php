@@ -1,6 +1,6 @@
 <?php 
 include "conexao.php";
-session_destroy();
+//session_destroy();
 session_start();
 $target_dir = "uploads/";
 $target_file = $target_dir . md5(date("h:i:sa")).basename($_FILES["fileToUpload"]["name"]);
