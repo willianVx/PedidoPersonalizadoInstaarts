@@ -59,7 +59,6 @@ function iap_custom_box_html($post)
 	  </table>
 	    </div>
     </div>
-
     <div class="impressao">
  		<div class="table-responsive">
 		  <h2>Impressão</h2>         
@@ -95,7 +94,6 @@ function iap_custom_box_html($post)
 	  </table>
 	    </div>
     </div>
-
     <div class="impressaoUV">
  		<div class="table-responsive">
 		  <h2>Impressão UV</h2>         

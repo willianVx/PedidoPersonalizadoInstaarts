@@ -1,5 +1,6 @@
 <?php 
 /**
+ *Author: Willian de Oliveira
  * Plugin Name: Instaarts - Pedidos personalizados
  * Plugin URI: http://instaarts.com.br
  * Description: Esse plugin implementa a ferramenta da Adobe (Creative SDK) para edição de imagens, mais menu onde o usuário pode fazer seu pedido personalizado escolhendo tamanho, acabamento e moldura. 
@@ -48,8 +49,7 @@ function iap_load_JavaScripts(){
 	wp_enqueue_script('bar');
 }
 
-
-
+				
 
 
 
