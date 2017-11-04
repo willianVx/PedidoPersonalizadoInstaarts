@@ -18,6 +18,7 @@ require 'iap-pedido-pt.php';
 require 'iap-pedido-fields.php';
 require 'iap-pedido-bd-connection.php';
 
+
 //adiciona adobe creative sdk na página share
 function iap_referal_init()
 {
@@ -39,7 +40,6 @@ function iap_register_scripts(){
 	wp_register_script('config', plugins_url('frontend/config.js', __FILE__), 'jquery', 1.0, true);
 	wp_register_script('bar', plugins_url('frontend/bar.js', __FILE__), 'jquery', 1.0, true);
 }
-
 add_action('wp_enqueue_scripts', 'iap_load_JavaScripts');
 
 function iap_load_JavaScripts(){
@@ -48,8 +48,3 @@ function iap_load_JavaScripts(){
 	wp_enqueue_script('config');
 	wp_enqueue_script('bar');
 }
-
-				
-
-
-
