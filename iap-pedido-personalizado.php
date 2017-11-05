@@ -36,6 +36,8 @@ function iap_register_scripts(){
 	wp_register_script('index', plugins_url('frontend/index.js', __FILE__), 'jquery', 1.0, true);
 	wp_register_script('config', plugins_url('frontend/config.js', __FILE__), 'jquery', 1.0, true);
 	wp_register_script('bar', plugins_url('frontend/bar.js', __FILE__), 'jquery', 1.0, true);
+
+	wp_localize_script('calculaPreco', 'ajax_object', array('ajax_url' => admin_url('admin-ajax.php'), 'outro_valor' => 1234));
 }
 add_action('wp_enqueue_scripts', 'iap_load_JavaScripts');
 function iap_load_JavaScripts(){
@@ -44,3 +46,4 @@ function iap_load_JavaScripts(){
 	wp_enqueue_script('config');
 	wp_enqueue_script('bar');
 }
+

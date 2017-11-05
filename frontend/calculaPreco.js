@@ -618,7 +618,7 @@ jQuery(function($){
 
         $.ajax({
             type: "POST",
-            data: {action: 'wp_ajax_iap_db_install_data', 
+            data: {action: 'iap_db_install_data', 
             preco: preco,
             largura: x,
             altura: y,
@@ -630,7 +630,7 @@ jQuery(function($){
                 console.log("Enviando!!");
             },
             success: function(data) {
-               console.log(data);
+               console.log("zueraCast");
             }
         });
     });
