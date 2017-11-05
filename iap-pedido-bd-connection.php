@@ -47,16 +47,19 @@ function iap_db_install() {
 }
 
 function iap_db_install_data() {
+	
+
+	/*
 	global $wpdb;
 		
 	$table_name = $wpdb->prefix . 'instaarts_Pedido';
 	
-	if (isset($_REQUEST['preco'])) {
-		$moldura = $_REQUEST['moldura'];
-			$acabamento = $_REQUEST['acabamento'];
-			$x = $_REQUEST['largura'];
-			$y = $_REQUEST['altura'];
-			$preco = $_REQUEST['preco'];
+	if (isset($_POST['preco'])) {
+		$moldura = $_POST['moldura'];
+			$acabamento = $_POST['acabamento'];
+			$x = $_POST['largura'];
+			$y = $_POST['altura'];
+			$preco = $_POST['preco'];
 			//$imagemOriginal = $_SESSION["imagemOriginal"];
 			$imagemOriginal ="dragoesFazendoTeste.jpg";
 
@@ -73,7 +76,8 @@ function iap_db_install_data() {
 			) 
 		);	
 	}
-	
+	die();
+	*/
 }
 
 register_activation_hook( __FILE__, 'iap_db_install' );

@@ -36,3 +36,24 @@
 add_action('wp_ajax_iap_db_install_data', 'iap_db_install_data');
 add_action('wp_ajax_nopriv_iap_db_install_data', 'iap_db_install_data');
 */
+// Actions to send mail
+add_action('wp_ajax_sendMyMail', 'sendMyMail');
+add_action('wp_ajax_nopriv_sendMyMail', 'sendMyMail');
+
+// Sending the email
+function sendMyMail() {
+  global $wpdb;
+
+  $message = "Form data:\n\n Name: {$_POST['name']}";
+  if (wp_mail('email@email.com', 
+              'Title', 
+              $message, 
+              array('Cc:email@copy.com'), 
+              array())) {
+  	echo 'success';
+  } else {
+  	echo 'error';
+  }
+
+  die();
+}

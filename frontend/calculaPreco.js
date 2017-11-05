@@ -608,7 +608,8 @@ $(document).ready(function(){
             });
     });
 });
-*/
+
+
 jQuery(function($){
     $("#comprar-botao").click(function(){
         console.log(nome_moldura);
@@ -618,7 +619,8 @@ jQuery(function($){
 
         $.ajax({
             type: "POST",
-            data: {action: 'iap_db_install_data', 
+            data: {
+            action: 'iap_db_install_data', 
             preco: preco,
             largura: x,
             altura: y,
@@ -632,6 +634,24 @@ jQuery(function($){
             success: function(data) {
                console.log("zueraCast");
             }
+        });
+    });
+});
+*/
+
+jQuery(function($){
+    $("#comprar-botao").click(function(){
+        alert("oi!!");
+      $.ajax({
+          type:"POST",
+          url: "wp-admin/admin-ajax.php",
+          data: {
+          action: 'sendMyMail',
+          name: "teste"  
+         },  
+         success: function(data){
+          console.log(data)
+         }
         });
     });
 });
