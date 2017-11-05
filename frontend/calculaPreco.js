@@ -641,16 +641,20 @@ jQuery(function($){
 
 jQuery(function($){
     $("#comprar-botao").click(function(){
-        alert("oi!!");
+        var num = "oi como vai vc?";
       $.ajax({
           type:"POST",
-          url: "wp-admin/admin-ajax.php",
+          url: comprar.ajax_url,
           data: {
-          action: 'sendMyMail',
-          name: "teste"  
+          action: 'iap_order', 
+          moldura: nome_moldura,
+          acabamento: nome_acabamento,
+          largura: x,
+          altura: y,
+          preco: preco
          },  
          success: function(data){
-          console.log(data)
+          console.log(data);
          }
         });
     });

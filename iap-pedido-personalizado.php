@@ -45,5 +45,9 @@ function iap_load_JavaScripts(){
 	wp_enqueue_script('index');
 	wp_enqueue_script('config');
 	wp_enqueue_script('bar');
+
+	wp_localize_script( 'calculaPreco', 'comprar', array(
+		'ajax_url' => admin_url( 'admin-ajax.php' )
+	));
 }
 
