@@ -589,6 +589,7 @@ function semMoldura(){
     document.getElementById("s-moldura").innerHTML = "Sem Moldura";
 }
 //upload de acabamento, moldura e preco 
+/*
 $(document).ready(function(){
     $("#comprar-botao").click(function(){
         console.log(nome_moldura);
@@ -596,7 +597,7 @@ $(document).ready(function(){
         console.log(x,y);
         console.log(preco);
 
-        $.post("order.php",{
+        $.post("",{
                 moldura: nome_moldura,
                 acabamento: nome_acabamento,
                 largura: x,
@@ -605,5 +606,32 @@ $(document).ready(function(){
             },function(data,status){
                 console.log(data);
             });
+    });
+});
+*/
+jQuery(function($){
+    $("#comprar-botao").click(function(){
+        console.log(nome_moldura);
+        console.log(nome_acabamento);
+        console.log(x,y);
+        console.log(preco);
+
+        $.ajax({
+            type: "POST",
+            data: {action: 'wp_ajax_iap_db_install_data', 
+            preco: preco,
+            largura: x,
+            altura: y,
+            moldura: nome_moldura,
+            acabamento: nome_acabamento
+            },
+            url: './wp-admin/admin-ajax.php',
+            beforeSend: function() {
+                console.log("Enviando!!");
+            },
+            success: function(data) {
+               console.log(data);
+            }
+        });
     });
 });

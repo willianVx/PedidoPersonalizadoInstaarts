@@ -1,7 +1,6 @@
 <?php 
 //cria banco de dados para armazenar informações do pedido --> como: largura, altura, link da imagem original sem edição e link da imagem editada no servidor da amazon
 $jal_db_version = '1.0';
-
 session_start();
 function iap_db_install() {
 	global $wpdb;
@@ -46,24 +45,41 @@ function iap_db_install() {
 	add_option( 'jal_db_version', $jal_db_version );
 	}
 }
-/*
+
 function iap_db_install_data() {
 	global $wpdb;
 		
 	$table_name = $wpdb->prefix . 'instaarts_Pedido';
 	
-	$wpdb->insert( 
-		$table_name, 
-		array( 
-			'largura' => '10cm', 
-			'altura' => '15cm', 
-			'linkOriginal' => 'uploads/imagem.jpg', 
-			'linkAmazon' => 'amazonServer/imagem2.jpg'
-		) 
-	);
+	if (isset($_POST['preco'])) {
+		$moldura = $_POST['moldura'];
+			$acabamento = $_POST['acabamento'];
+			$x = $_POST['largura'];
+			$y = $_POST['altura'];
+			$preco = $_POST['preco'];
+			//$imagemOriginal = $_SESSION["imagemOriginal"];
+			$imagemOriginal ="dragoesFazendoTeste.jpg";
+
+		$wpdb->insert( 
+			$table_name, 
+			array( 
+				'largura' => $x, 
+				'altura' => $y,
+				'acabamento' => $acabamento,
+				'moldura'    => $moldura,
+				'preco'		 => $preco,	
+				'linkOriginal' => $imagemOriginal, 
+				'linkAmazon' => 'amazonServer/imagem2.jpg'
+			) 
+		);	
+	}
+	
 }
-*/
+
 register_activation_hook( __FILE__, 'iap_db_install' );
 //register_activation_hook( __FILE__, 'iap_db_install_data' );
 add_action('init', 'iap_db_install');
 //add_action('init', 'iap_db_install_data');
+
+add_action('wp_ajax_iap_db_install_data', 'iap_db_install_data');
+add_action('wp_ajax_nopriv_iap_db_install_data', 'iap_db_install_data');
