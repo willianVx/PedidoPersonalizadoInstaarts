@@ -639,22 +639,3 @@ jQuery(function($){
 });
 */
 
-jQuery(function($){
-    $("#comprar-botao").click(function(){
-      $.ajax({
-          type:"POST",
-          url: comprar.ajax_url,
-          data: {
-          action: 'iap_order', 
-          moldura: nome_moldura,
-          acabamento: nome_acabamento,
-          largura: x,
-          altura: y,
-          preco: preco
-         },  
-         success: function(data){
-         console.log(data);
-         }
-        });
-    });
-});

@@ -6,6 +6,27 @@ $(document).ready(function() {
 	var originalImageSrc; // assigned when image file is dropped
 	var currentImage; // assigned when the Edit button is clicked
 
+	// manda os dados do pedido para o servidor via ajax 
+	jQuery(function($){
+    $("#comprar-botao").click(function(){  
+      console.log(originalImageSrc);
+      $.ajax({
+          type:"POST",
+          url: comprar.ajax_url,
+          data: {
+          action: 'iap_order', 
+          moldura: nome_moldura,
+          acabamento: nome_acabamento,
+          largura: x,
+          altura: y,
+          preco: preco
+         },  
+         success: function(data){
+         console.log(data);
+         }
+        });
+    	});
+	});
 	// Image Editor configuration
 	var csdkImageEditor = new Aviary.Feather({
 		apiKey: configObj.apiKey,
