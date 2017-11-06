@@ -9,12 +9,6 @@
 			$y = $_POST['altura'];
 			$preco = $_POST['preco'];
 
-		 	echo $moldura;
-		 	echo $acabamento;
-		 	echo $x;
-		 	echo $y;
-		 	echo $preco;
-
 			//$imagemOriginal = $_SESSION["imagemOriginal"];
 			$imagemOriginal ="dragoesFazendoTeste.jpg";
 
@@ -32,6 +26,7 @@
 							'linkAmazon' => 'amazonServer/imagem2.jpg'
 						)
 			);	
+			echo "Pedido enviado com Sucesso!";
 		}
 
 	}
@@ -41,27 +36,3 @@
 
 add_action('wp_ajax_iap_order', 'iap_order');
 add_action('wp_ajax_nopriv_iap_order', 'iap_order');
-
-// Actions to send mail
-/*
-add_action('wp_ajax_sendMyMail', 'sendMyMail');
-add_action('wp_ajax_nopriv_sendMyMail', 'sendMyMail');
-
-// Sending the email
-function sendMyMail() {
-  global $wpdb;
-
-  $message = "Form data:\n\n Name: {$_POST['name']}";
-  if (wp_mail('email@email.com', 
-              'Title', 
-              $message, 
-              array('Cc:email@copy.com'), 
-              array())) {
-  	echo 'success';
-  } else {
-  	echo 'error';
-  }
-
-  die();
-}
-*/

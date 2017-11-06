@@ -597,7 +597,7 @@ $(document).ready(function(){
         console.log(x,y);
         console.log(preco);
 
-        $.post("",{
+        $.post("order.php",{
                 moldura: nome_moldura,
                 acabamento: nome_acabamento,
                 largura: x,
@@ -641,7 +641,6 @@ jQuery(function($){
 
 jQuery(function($){
     $("#comprar-botao").click(function(){
-        var num = "oi como vai vc?";
       $.ajax({
           type:"POST",
           url: comprar.ajax_url,
@@ -654,7 +653,7 @@ jQuery(function($){
           preco: preco
          },  
          success: function(data){
-          console.log(data);
+         console.log(data);
          }
         });
     });
