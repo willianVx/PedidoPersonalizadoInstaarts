@@ -10,7 +10,10 @@ $(document).ready(function() {
 	jQuery(function($){
     $("#comprar-botao").click(function(){  
       console.log(originalImageSrc);
-      $.ajax({
+      if (typeof originalImageSrc == 'undefined') {
+      	alert("Escolha uma imagem clicando sobre a área indicada!")
+      }else{
+      	$.ajax({
           type:"POST",
           url: comprar.ajax_url,
           data: {
@@ -25,6 +28,8 @@ $(document).ready(function() {
          console.log(data);
          }
         });
+      }
+      
     	});
 	});
 	// Image Editor configuration
