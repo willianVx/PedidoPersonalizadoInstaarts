@@ -19,6 +19,7 @@ require 'iap-pedido-fields.php';
 require 'iap-pedido-bd-connection.php';
 
 require 'frontend/order.php';
+require 'frontend/uploadByClick.php';
 //adiciona adobe creative sdk na página share
 function iap_referal_init()
 {

@@ -54,10 +54,10 @@ get_header();
             </div>
             <div class="modal-body">
               <p>Sua Imagem deve estar nos formatos: JPEG ou PNG</p>
-            <form action="uploadByClick.php" method="post" id="myForm" enctype="multipart/form-data">
+            <form action="" method="post" id="myForm" enctype="multipart/form-data">
               Click no Botão para escolhar a imagem:
               <input type="file" name="fileToUpload" id="fileToUpload"><br>
-              <input type="submit" value="Usar essa Imagem" name="submit" class="btn btn-success " value="upload image">
+              <input id="testeSubir" type="submit" value="Usar essa Imagem" name="submit" class="btn btn-success " value="upload image">
             </form>
             </div>
             <br>
@@ -251,7 +251,6 @@ get_header();
                                   </label>
                                 </div>
                               </div>
-
                              <div class="col-sm-3 m-thumb" onclick="brilhante()">
                                 <div class="thumbnail" id="brilhante-select-color">
                                   <label><img src="<?php echo plugins_url( 'img/brilhante.png', __FILE__ ); ?>" border="0"/>
@@ -260,8 +259,7 @@ get_header();
                                     </div>
                                   </label>
                                 </div>
-                              </div>
-                              
+                              </div>                         
                               <div class="col-sm-3 m-thumb" onclick="fosco()">
                                 <div class="thumbnail" id="fosco-select-color">
                                   <label><img src="<?php echo plugins_url( 'img/fosco.png', __FILE__ ); ?>" border="0"/>
@@ -280,11 +278,8 @@ get_header();
                                   </label>
                                 </div>
                               </div>
-
                             </div>
-
                             <div id="tUv">
-
                             <div class="col-sm-3 m-thumb" onclick="uvPs()">
                                 <div class="thumbnail" id="uv-select-color">
                                   <label><img src="<?php echo plugins_url( 'img/uvps.png', __FILE__ ); ?>" border="0"/>
@@ -341,7 +336,6 @@ get_header();
                 </div>
               </nav>
                     <div id="bMoldura">
-                      
                       <div id="m-contemporanea">
                                 <div class="col-md-4 t-thumb" onclick="atenas()">
                                   <div class="thumbnail" id="atenas-select-color">
