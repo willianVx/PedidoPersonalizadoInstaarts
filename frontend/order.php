@@ -10,7 +10,7 @@
 			$preco = $_POST['preco'];
 
 			//$imagemOriginal = $_SESSION["imagemOriginal"];
-			$imagemOriginal ="dragoesFazendoTeste.jpg";
+			$imagemOriginal ="teste";
 
 			global $wpdb;
 			$table_name = $wpdb->prefix . 'instaarts_Pedido';
@@ -28,6 +28,7 @@
 			);	
 			echo "Pedido enviado com Sucesso!";
 		}
+
 
 	}
 
