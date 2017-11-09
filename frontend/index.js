@@ -29,7 +29,6 @@ $(document).ready(function() {
          }
         });
       }
-      
     	});
 	});
 	// Image Editor configuration

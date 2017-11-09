@@ -19,6 +19,7 @@ require 'iap-pedido-fields.php';
 require 'iap-pedido-bd-connection.php';
 
 require 'frontend/order.php';
+require 'frontend/uploadByClick.php';
 //adiciona adobe creative sdk na página share
 function iap_referal_init()
 {
@@ -47,6 +48,9 @@ function iap_load_JavaScripts(){
 	wp_enqueue_script('bar');
 
 	wp_localize_script( 'calculaPreco', 'comprar', array(
+		'ajax_url' => admin_url( 'admin-ajax.php' )
+	));
+	wp_localize_script( 'index', 'imagem', array(
 		'ajax_url' => admin_url( 'admin-ajax.php' )
 	));
 }
