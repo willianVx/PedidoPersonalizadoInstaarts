@@ -1,5 +1,5 @@
 <?php 
-<<<<<<< HEAD
+
 function iap_image_upload(){
 $target_dir = "uploads/";
 $target_file = $target_dir . md5(date("h:i:sa")).basename($_FILES["fileToUpload"]["name"]);
@@ -63,7 +63,7 @@ $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 }
 add_action('wp_ajax_iap_image_upload', 'iap_image_upload');
 add_action('wp_ajax_nopriv_iap_image_upload', 'iap_image_upload');
-=======
+
 //session_destroy();
 function iap_imageUpload(){
 
@@ -124,4 +124,4 @@ function iap_imageUpload(){
 
 add_action('wp_ajax_iap_imageUpload', 'iap_imageUpload');
 add_action('wp_ajax_nopriv_iap_imageUpload', 'iap_imageUpload');
->>>>>>> cf1e078af84a20cea70e52d42f538a6fa5b2fbfd
+
