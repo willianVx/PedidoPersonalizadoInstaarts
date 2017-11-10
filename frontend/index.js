@@ -6,11 +6,10 @@ $(document).ready(function() {
 	var originalImageSrc; // assigned when image file is dropped
 	var currentImage; // assigned when the Edit button is clicked
 
-	
 	// manda os dados do pedido para o servidor via ajax 
 	jQuery(function($){
     $("#comprar-botao").click(function(){  
-      console.log(imageElement.attr('src'));
+      console.log(originalImageSrc);
       if (typeof originalImageSrc == 'undefined') {
       	alert("Escolha uma imagem clicando sobre a área indicada!")
       }else{
@@ -73,13 +72,28 @@ $(document).ready(function() {
 			alert("Nada para limpar");
 		}
 	});
-	
+	// Download
+	/*
+	$('#download-image-button').click(function(e) {
+		e.preventDefault();
+		if (imageElement.attr('src')) {
+			downloadImage();
+		}
+		else {
+			alert("Nothing to download.");
+		}
+	});
+	*/
 	// Drop
 	//// Prevent defaults on drag/drop events
 	dropArea.on('drag dragstart dragend dragover dragenter dragleave drop', function(e) {
 		if (e.preventDefault) e.preventDefault(); 
 		if (e.stopPropagation) e.stopPropagation(); 
 	})
+	/*.on('click', function(e) {
+		//Click anywhere in Droparea to upload file
+	  	$('#fileToUpload').click();
+	})*/
 	.on('drop', function(e) {
 		// Get the dropped file
 		var file = e.originalEvent.dataTransfer.files[0];
@@ -145,4 +159,59 @@ $(document).ready(function() {
 		});
 
 	}
-	
+	/*function downloadImage() {
+		var url = currentImage ? currentImage.src : originalImageSrc;
+		var link = document.createElement("a");
+		
+		link.href = url;
+		// Download attr 
+		//// Only honored for links within same origin, 
+		//// therefore won't work once img has been edited (i.e., S3 URLs)
+		link.download = 'my-pic';
+		link.click();
+	}*/
+	//send data to PHP By Drop 
+	function upload(files){
+				var formData = new FormData(),
+					xhr = new XMLHttpRequest(),
+					x;
+				for(x=0; x<files.length; x = x + 1){
+					formData.append('file[]', files[x]);
+				}	
+				xhr.onload = function(){
+					var data = this.responseText;
+				}
+				xhr.open('post', 'upload.php');
+				xhr.send(formData);
+	}
+	//upload by drop (quando o usuario arrasta a imagem para o dropzone)
+	(function TheDrop(){
+				var dropzone = document.getElementById('drop-area');
+				dropzone.ondrop = function(e){
+					e.preventDefault();
+					this.className = 'drop-zone';
+					upload(e.dataTransfer.files);
+				};
+			}());
+});
+	//send data to PHP by click and set progress bar 
+
+$(function(){
+	$('#myForm').ajaxForm({
+		beforeSend:function(){
+			$(".progress").show();
+		},
+		uploadProgress:function(event,position,total,percentComplete){
+			$(".progress-bar").width(percentComplete+"%");
+			$(".sr-only").html(percentComplete+"%");
+		},
+		success:function(){
+			$(".progress").hide();
+		},
+		complete:function(){
+			//$("#response").html(event);
+			console.log(event);
+		}
+	});
+	$(".progress").hide();
+});
