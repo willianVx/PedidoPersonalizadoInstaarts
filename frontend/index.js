@@ -9,7 +9,7 @@ $(document).ready(function() {
 	// manda os dados do pedido para o servidor via ajax 
 	jQuery(function($){
     $("#comprar-botao").click(function(){  
-      console.log(originalImageSrc);
+	  console.log(originalImageSrc);
       if (typeof originalImageSrc == 'undefined') {
       	alert("Escolha uma imagem clicando sobre a área indicada!")
       }else{
@@ -40,7 +40,7 @@ $(document).ready(function() {
 		onSave: function(imageID, newURL) {
 			currentImage.src = newURL;
 			csdkImageEditor.close();
-			console.log(currentImage);
+			console.log(currentImage.src);
 		},
 		onError: function(errorObj) {
 			console.log(errorObj.code);
@@ -157,7 +157,6 @@ $(document).ready(function() {
 			image: currentImage.id,
 			//url: currentImage.src
 		});
-
 	}
 	/*function downloadImage() {
 		var url = currentImage ? currentImage.src : originalImageSrc;
@@ -194,8 +193,8 @@ $(document).ready(function() {
 				};
 			}());
 });
+/*
 	//send data to PHP by click and set progress bar 
-
 $(function(){
 	$('#myForm').ajaxForm({
 		beforeSend:function(){
@@ -214,4 +213,4 @@ $(function(){
 		}
 	});
 	$(".progress").hide();
-});
+});*/

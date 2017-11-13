@@ -53,11 +53,16 @@
             </div>
             <div class="modal-body">
               <p>Sua Imagem deve estar nos formatos: JPEG ou PNG</p>
-            <form action="" method="post" id="sendImage" enctype="multipart/form-data">
+
+
+            <form method="post" action="" id="myForm" enctype="multipart/form-data">
               Click no Botão para escolhar a imagem:
               <input type="file" name="fileToUpload" id="fileToUpload"><br>
-              <input type="submit" value="Usar essa Imagem" name="submit" class="btn btn-success " value="upload image">
-            </form>
+              <input type="submit" name="submit" value="upload-image" class="btn btn-success">
+              <input type="hidden" name="email-submission" value="1" />
+              </form>
+
+
             </div>
             <br>
             <div class="progress">
