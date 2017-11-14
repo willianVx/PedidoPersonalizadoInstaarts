@@ -40,7 +40,7 @@ add_action('wp_ajax_nopriv_iap_order', 'iap_order');
 
 
 function my_theme_send_email() {
-	  if ( isset( $_POST['email-submission'] ) && '1' == $_POST['email-submission'] ) {
+	  if ( isset( $_POST['image-submission'] ) && '1' == $_POST['image-submission'] ) {
 	    // Send the email...
 	    echo "Funcionou, é tetra!!";
 	  } // end if 
