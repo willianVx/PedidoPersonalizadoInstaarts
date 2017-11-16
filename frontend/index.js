@@ -6,6 +6,28 @@ $(document).ready(function() {
 	var originalImageSrc; // assigned when image file is dropped
 	var currentImage; // assigned when the Edit button is clicked
 
+
+	/*
+	jQuery(function($){
+		$("#myForm").submit(function(event){
+			event.preventDefault();
+			$.ajax({
+				type: "POST",
+				url:  imagem.ajax_url,
+				data:{
+					action: iap_image_upload,
+					nome: "exemplo.jpg",
+					tamanho: "200",
+					tipo: "jpg", 
+				},
+				success: function(data){
+					console.log(data);
+				}
+			});
+		});
+		
+	});
+*/
 	// manda os dados do pedido para o servidor via ajax 
 	jQuery(function($){
     $("#comprar-botao").click(function(){  
@@ -193,8 +215,9 @@ $(document).ready(function() {
 				};
 			}());
 });
-/*
-	//send data to PHP by click and set progress bar 
+
+	//send data to PHP by click and set progress bar
+/*	 
 $(function(){
 	$('#myForm').ajaxForm({
 		beforeSend:function(){
