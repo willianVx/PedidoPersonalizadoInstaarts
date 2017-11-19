@@ -11,7 +11,9 @@
 			//$imagemOriginal = $_SESSION["imagemOriginal"];
 			$imagemOriginal = "pq deus?";
 			global $wpdb;
-			$table_name = $wpdb->prefix . 'instaarts_Pedido';
+			$table_name = $wpdb->prefix . 'instaarts_Pedido_ok';
+			date_default_timezone_set('America/Sao_Paulo');
+			$data = date('l jS \of F Y h:i:s A');
 			$wpdb->insert( 
 						$table_name, 
 						array(			
@@ -21,7 +23,8 @@
 							'moldura' => $moldura,
 							'preco' => $preco,
 							'linkOriginal' => $imagemOriginal, 
-							'linkAmazon' => "tristeza.png"
+							'linkAmazon' => "tristeza.png",
+							'data'       => $data
 						)
 			);	
 			echo "Pedido enviado com Sucesso!";
@@ -34,9 +37,43 @@
 add_action('wp_ajax_iap_order', 'iap_order');
 add_action('wp_ajax_nopriv_iap_order', 'iap_order');
 
+/*
 
+function iap_image_upload(){
+	 $target_dir = "uploads/";
+	 $target_file = $target_dir . md5(date("h:i:sa")).basename($_FILES["fileToUpload"]["name"]);
+	 $uploadOk = 1;
+	 $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+
+	  if ( isset( $_POST['image-submission'] ) && '1' == $_POST['image-submission'] ) {
+	  		echo "imagem enviada!";
+	  		$check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+	  		$nomeOriginal = $_FILES["fileToUpload"]["name"];
+			$tamanho = $_FILES["fileToUpload"]["size"];
+			$tipo = $_FILES["fileToUpload"]["type"];
+
+	 global $wpdb;
+			$table_name = $wpdb->prefix . 'instaarts_imagem';
+			$wpdb->insert( 
+						$table_name, 
+						array(			
+							'nomeOriginal' => "$nomeOriginal", 
+							'nomeServidor' => "$target_file", 
+							'tamanho' => "$tamanho",
+							'tipo' => "$tipo"							
+						)
+			);		
+	}else{
+		echo "escolha uma imagem por favor!";
+	}		
+		
+}
+	
+
+	add_action('init', 'iap_image_upload');
+	add_action('wp_ajax_nopriv_iap_image_upload', 'iap_image_upload');
 function iap_image_upload() {
-	  $target_dir = "uploads/";
+	  $target_dir = wp_upload_dir();
 	  $target_file = $target_dir . md5(date("h:i:sa")).basename($_FILES["fileToUpload"]["name"]);
 	  $uploadOk = 1;
 	  $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
@@ -76,16 +113,9 @@ function iap_image_upload() {
 							'tipo' => $tipo							
 						)
 			);
-
             } else {
                 echo "Sorry, there was an error uploading your file.";
             }
         }
 
-
-	} // end my_theme_send_email
-	add_action('init', 'iap_image_upload');
-	add_action('init', 'iap_image_upload');
-
-
-	
+	}	*/

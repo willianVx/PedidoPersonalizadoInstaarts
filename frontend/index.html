@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+  <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
   <script src="http://malsup.github.com/jquery.form.js"></script>
   <script type="text/javascript" src="https://dme0ih8comzn4.cloudfront.net/imaging/v3/editor.js"></script>
   <?php
@@ -14,34 +14,34 @@
   ?>
 </head>
 <body class="container" onload="formulaTotal()">
-	<div class="row">
-		<div class="col-md-2">
-			<div class="row">
-				<div class="col-md-12">
-					<button id="edit-image-button" class="btn btn-primary btn-block button-panel">
-						<span class="glyphicon glyphicon-pencil pull-left padleft" aria-hidden="true"></span> Editar
-					</button>
-				</div>			
-				<div class="col-md-12">
-					<button id="reset-image-button" class="btn btn-warning btn-block button-panel">
-						<span class="glyphicon glyphicon-repeat pull-left padleft" aria-hidden="true"></span> Voltar
-					</button>
-				</div>
-				<div class="col-md-12">
-					<button id="clear-image-button" class="btn btn-danger btn-block button-panel">
-						<span class="glyphicon glyphicon-remove pull-left padleft" aria-hidden="true"></span> Limpar
-					</button>
-				</div>
-			</div>
-		</div>
+  <div class="row">
+    <div class="col-md-2">
+      <div class="row">
+        <div class="col-md-12">
+          <button id="edit-image-button" class="btn btn-primary btn-block button-panel">
+            <span class="glyphicon glyphicon-pencil pull-left padleft" aria-hidden="true"></span> Editar
+          </button>
+        </div>      
+        <div class="col-md-12">
+          <button id="reset-image-button" class="btn btn-warning btn-block button-panel">
+            <span class="glyphicon glyphicon-repeat pull-left padleft" aria-hidden="true"></span> Voltar
+          </button>
+        </div>
+        <div class="col-md-12">
+          <button id="clear-image-button" class="btn btn-danger btn-block button-panel">
+            <span class="glyphicon glyphicon-remove pull-left padleft" aria-hidden="true"></span> Limpar
+          </button>
+        </div>
+      </div>
+    </div>
 
-		<div class="col-md-10">
-			<!--<input id="click-upload" type="file" >-->
-			<div id="drop-area" class="drop-zone" data-toggle="modal" data-target="#modalUpload">
-				<span><img src="<?php echo plugins_url( 'img/imagem-1.jpg', __FILE__ ); ?>" border="0"/></span>
-				<p>Click para fazer o Upload da sua imagem</p></span>
-			</div>
-			<img id="editable-image" class="img-responsive img-upload">
+    <div class="col-md-10">
+      <!--<input id="click-upload" type="file" >-->
+      <div id="drop-area" class="drop-zone" data-toggle="modal" data-target="#modalUpload">
+        <span><img src="<?php echo plugins_url( 'img/imagem-1.jpg', __FILE__ ); ?>" border="0"/></span>
+        <p>Click para fazer o Upload da sua imagem</p></span>
+      </div>
+      <img id="editable-image" class="img-responsive img-upload">
       <div class="container">
       <!-- Modal upload de arquivos por click -->
       <div class="modal fade" id="modalUpload" role="dialog">
@@ -74,8 +74,8 @@
         </div>
       </div>
     </div>
-	<div class="hud-produtos">	
-	  <div class="somaProdutos well well-sm">
+  <div class="hud-produtos">  
+    <div class="somaProdutos well well-sm">
       <span id="s-tamanho" class="hud-calcularPreco">40x60cm </span><span class="badge">+</span>
       <span id="s-metacrilato" class="hud-calcularPreco">Metacrilato 3mm </span>
       <span id="s-moldura" class="hud-calcularPreco badge">Esolha sua moldura</span>
@@ -152,7 +152,7 @@
                         </div>
                       </div>
                     </div>
-    			</div>
+          </div>
               <!-- tamanho material e moldura -->
           <div class="container m_material col-sm-4">
               <!-- Trigger the modal with a button -->
@@ -508,26 +508,24 @@
           <button type="button" class="btn btn-default" data-dismiss="modal">Ok</button>
         </div>
       </div>
-      </div>	
+      </div>  
     </div>
   </div>
 </div>
     </div> 
   </div>
-	</div> <!-- end .row -->
-	
+  </div> <!-- end .row -->
+  
 <br>
 
 <style type="text/css">
 .padleft {
   padding: 0px 0px 0px 20px;
 }
-
 .button-panel {
   margin-bottom: 10px;
   border-radius: 0;
 }
-
 .drop-zone{
   border-style: solid;
   border-width: 1px; 

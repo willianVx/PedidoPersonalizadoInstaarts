@@ -6,8 +6,8 @@ function iap_db_install() {
 	global $wpdb;
 	global $jal_db_version;
 
-	$table_name = $wpdb->prefix . 'instaarts_Pedido';
-	$table_imagem = $wpdb->prefix . 'instaarts_imagem';
+	$table_name = $wpdb->prefix . 'instaarts_Pedido_ok';
+	$table_imagem = $wpdb->prefix . 'instaarts_imagem_ok';
 	
 	$_SESSION["tabelaPedido"] = "$table_name";
 
@@ -23,6 +23,7 @@ function iap_db_install() {
 		preco varchar(55) NOT NULL,
 		linkOriginal varchar(55) NOT NULL,
 		linkAmazon varchar(55) NOT NULL,
+		data varchar(55) NOT NULL,
 		PRIMARY KEY  (id)
 	) $charset_collate;";
 

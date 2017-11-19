@@ -1,4 +1,65 @@
 <?php 
+
+function iap_add_data_box()
+{
+    $screens = ['personal'];
+    foreach ($screens as $screen) {
+        add_meta_box(
+            'iap_data_box_id',           // Unique ID
+            'Pedidos',  // Box title
+            'iap_data_box_html',  // Content callback, must be of type callable
+            $screen                   // Post type
+        );
+    }
+}
+add_action('add_meta_boxes', 'iap_add_data_box');
+
+function iap_data_box_html($post)
+{
+    ?>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+ 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+ 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  	
+  		<table class="table table-hover table-striped table-bordered">
+  			<tr>
+  				<td>ID</td>
+  				<td>Largura</td>
+  				<td>Altura</td>
+  				<td>Acabamento</td>
+  				<td>Moldura</td>
+  				<td>Preço</td>
+  				<td>nome da imagem</td>
+  				<td>link da imagem editada</td>
+  				<td>Data e hora</td>
+  			</tr>
+  			<?php 
+  				global $wpdb;
+				$table_name = $wpdb->prefix . 'instaarts_Pedido_ok';
+
+				    $result = $wpdb->get_results ( "SELECT * FROM $table_name" );
+				    foreach ( $result as $print )   {
+				    ?>
+				    <tr>
+				    <td><?php echo $print->id;?></td>
+				    <td><?php echo $print->largura;?></td>
+				    <td><?php echo $print->altura;?></td>
+				    <td><?php echo $print->acabamento;?></td>
+				    <td><?php echo $print->moldura;?></td>
+				    <td><?php echo $print->preco;?></td>
+				    <td><?php echo $print->linkOriginal;?></td>
+				    <td><?php echo $print->linkAmazon;?></td>
+				    <td><?php echo $print->data;?></td>
+				    </tr>
+				        <?php }
+				  			 ?>
+  		</table>
+    
+    <?php
+}
+
+
+
 function iap_add_custom_box()
 {
     $screens = ['personal'];

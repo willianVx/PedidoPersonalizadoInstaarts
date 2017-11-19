@@ -2,7 +2,6 @@
 //session_destroy();
 function iap_imageUpload(){
 
-    session_start();
         $target_dir = "uploads/";
         $target_file = $target_dir . md5(date("h:i:sa")).basename($_FILES["fileToUpload"]["name"]);
         $uploadOk = 1;
