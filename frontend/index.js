@@ -6,7 +6,6 @@ $(document).ready(function() {
 	var originalImageSrc; // assigned when image file is dropped
 	var currentImage; // assigned when the Edit button is clicked
 
-
 	/*
 	jQuery(function($){
 		$("#myForm").submit(function(event){
@@ -24,33 +23,74 @@ $(document).ready(function() {
 					console.log(data);
 				}
 			});
-		});
-		
+		});	
+			
 	});
-*/
+	*/
+
 	// manda os dados do pedido para o servidor via ajax 
 	jQuery(function($){
     $("#comprar-botao").click(function(){  
+
+	  //imagemEditada = currentImage.src;
+
+	  //console.log(imagemEditada);
 	  console.log(originalImageSrc);
-      if (typeof originalImageSrc == 'undefined') {
-      	alert("Escolha uma imagem clicando sobre a área indicada!")
-      }else{
-      	$.ajax({
-          type:"POST",
-          url: comprar.ajax_url,
-          data: {
-          action: 'iap_order', 
-          moldura: nome_moldura,
-          acabamento: nome_acabamento,
-          largura: x,
-          altura: y,
-          preco: preco
-         },  
-         success: function(data){
-         console.log(data);
-         }
-        });
-      }
+
+	  if (typeof currentImage == 'undefined') {
+	  console.log("imagem sem edição");
+
+		   if (typeof originalImageSrc == 'undefined') {
+	      	alert("Escolha uma imagem clicando sobre a área indicada!")
+	      }else{
+	      	$.ajax({
+	          type:"POST",
+	          url: comprar.ajax_url,
+	          data: {
+	          action: 'iap_order', 
+	          moldura: nome_moldura,
+	          acabamento: nome_acabamento,
+	          largura: x,
+	          altura: y,
+	          preco: preco
+	         },  
+	         success: function(data){
+	         	console.log(data);
+	         },
+	         error: function(data){
+	         	console.log("algo deu errado!");
+	         	console.log(data);
+	         }
+	        });
+	      }
+
+
+	  }else{
+	  	console.log(currentImage.src);
+	  	imagem = "imagem editada";
+	  	$.ajax({
+	          type:"POST",
+	          url: comprar.ajax_url,
+	          data: {
+	          action: 'iap_order', 
+	          moldura: nome_moldura,
+	          acabamento: nome_acabamento,
+	          largura: x,
+	          altura: y,
+	          preco: preco,
+	          imagemAdobe: imagem	
+	         },  
+	         success: function(data){
+	         	console.log(data);
+	         },
+	         error: function(data){
+	         	console.log("algo deu errado!");
+	         	console.log(data);
+	         }
+	        });
+	  }
+
+     
     	});
 	});
 	// Image Editor configuration
