@@ -9,7 +9,7 @@
 			$y = $_POST['altura'];
 			$preco = $_POST['preco'];
 			//$imagemOriginal = $_SESSION["imagemOriginal"];
-			$imagemOriginal = "pq deus?";
+			$imagemOriginal = "teste.png";
 			global $wpdb;
 			$table_name = $wpdb->prefix . 'instaarts_Pedido_ok';
 			date_default_timezone_set('America/Sao_Paulo');
@@ -23,7 +23,7 @@
 							'moldura' => $moldura,
 							'preco' => $preco,
 							'linkOriginal' => $imagemOriginal, 
-							'linkAmazon' => "tristeza.png",
+							'linkAmazon' => "teste.png",
 							'data'       => $data
 						)
 			);	
