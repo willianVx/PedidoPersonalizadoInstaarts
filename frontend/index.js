@@ -96,8 +96,47 @@ $(document).ready(function() {
 		tools: ["overlays", "orientation", "crop", "resize", "focus", "vignette"],
 		onSave: function(imageID, newURL) {
 			currentImage.src = newURL;
+
+			//Do the Upload
+			if (submittingImage === true) return;
+			submittingImage = true;
+
+			var form_data = new FormData();
+			form_data.append("file", newURL);
+			form_data.append("action", "iap_imageTransfer");
+
+			//Mimc the loading
 			csdkImageEditor.close();
-			console.log(currentImage.src);
+			$("body").addClass("loading");
+
+			$.ajax({
+				type: "post",
+				url: ajax_object.ajax_url,
+				contentType: false,
+				processData: false,
+				cache: false,
+				data: form_data,
+				success: function(result) {
+					if (result == "0") {
+						alert(
+							"Ocorreu um erro em nosso sistema. Por favor, tente novamente mais tarde."
+						);
+					} else {
+						results = result.split("|", 2);
+						$("#edited_image_url").val(results[1]);
+						$("#edited_image_id").val(results[0]);
+					}
+					$("body").removeClass("loading");
+					submittingImage = false;
+				},
+				error: function(response) {
+					alert(
+						"Ocorreu um erro em nosso sistema. Por favor, atualize a página e tente novamente."
+					);
+					$("body").removeClass("loading");
+					submittingImage = false;
+				}
+			});
 		},
 		onError: function(errorObj) {
 			console.log(errorObj.code);
@@ -179,8 +218,7 @@ $(document).ready(function() {
 		if (submittingImage === true) return;
 		submittingImage = true;
 
-		var form_data = new FormData(),
-			target = $("body");
+		var form_data = new FormData();
 
 		if (
 			file !== undefined &&
@@ -201,7 +239,7 @@ $(document).ready(function() {
 		form_data.append("file", $(this).prop("files")[0]);
 		form_data.append("action", "iap_imageUpload");
 		form_data.append("wp-img-nonce", $("#wp-img-nonce").val());
-		target.addClass("running");
+
 		$.ajax({
 			type: "post",
 			url: ajax_object.ajax_url,
@@ -243,13 +281,13 @@ $(document).ready(function() {
 						$(".modal .close").click();
 						break;
 				}
-				target.removeClass("running");
 				submittingImage = false;
+				$("#progress-bar").css("width", "0%");
 			},
 			error: function(response) {
 				alert("Ocorreu um erro ao enviar a imagem. Por favor tente novamente.");
-				target.removeClass("running");
 				submittingImage = false;
+				$("#progress-bar").css("width", "0%");
 			}
 		});
 	});

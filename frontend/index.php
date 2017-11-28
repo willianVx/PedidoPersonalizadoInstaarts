@@ -608,6 +608,10 @@
   <br>
 
   <style type="text/css">
+    body {
+      min-height: 100vh;
+    }
+    
     .padleft {
       padding: 0px 0px 0px 20px;
     }
@@ -688,6 +692,22 @@
       position: relative;
       max-width: 1000px;
       max-height: 800px;
+      z-index: 10;
+    } 
+
+    body.loading {
+      position: relative;
+    }
+    body.loading:before {
+      content: ' ';
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background: rgba(0,0,0,0.5);
+      position: absolute;
+      z-index: 20;
+      display: block;
     }
   </style>
 </body>
