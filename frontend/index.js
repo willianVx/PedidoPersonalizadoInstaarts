@@ -1,6 +1,6 @@
 $(document).ready(function() {
 	// The visibility of these 2 elements is toggled by `toggleDragDrop()`
-	var imageElement = $('#editable-image').hide();
+	var imageElement = $("#editable-image").hide();
 	var dropArea = $("#drop-area");
 
 	var originalImageSrc; // assigned when image file is dropped
@@ -28,77 +28,72 @@ $(document).ready(function() {
 	});
 	*/
 
-	// manda os dados do pedido para o servidor via ajax 
-	jQuery(function($){
-    $("#comprar-botao").click(function(){  
+	// manda os dados do pedido para o servidor via ajax
+	jQuery(function($) {
+		$("#comprar-botao").click(function() {
+			//imagemEditada = currentImage.src;
 
-	  //imagemEditada = currentImage.src;
+			//console.log(imagemEditada);
+			console.log(originalImageSrc);
 
-	  //console.log(imagemEditada);
-	  console.log(originalImageSrc);
+			if (typeof currentImage == "undefined") {
+				console.log("imagem sem edição");
 
-	  if (typeof currentImage == 'undefined') {
-	  console.log("imagem sem edição");
-
-		   if (typeof originalImageSrc == 'undefined') {
-	      	alert("Escolha uma imagem clicando sobre a área indicada!")
-	      }else{
-	      	$.ajax({
-	          type:"POST",
-	          url: comprar.ajax_url,
-	          data: {
-	          action: 'iap_order', 
-	          moldura: nome_moldura,
-	          acabamento: nome_acabamento,
-	          largura: x,
-	          altura: y,
-	          preco: preco
-	         },  
-	         success: function(data){
-	         	console.log(data);
-	         },
-	         error: function(data){
-	         	console.log("algo deu errado!");
-	         	console.log(data);
-	         }
-	        });
-	      }
-
-
-	  }else{
-	  	console.log(currentImage.src);
-	  	imagem = "imagem editada";
-	  	$.ajax({
-	          type:"POST",
-	          url: comprar.ajax_url,
-	          data: {
-	          action: 'iap_order', 
-	          moldura: nome_moldura,
-	          acabamento: nome_acabamento,
-	          largura: x,
-	          altura: y,
-	          preco: preco,
-	          imagemAdobe: imagem	
-	         },  
-	         success: function(data){
-	         	console.log(data);
-	         },
-	         error: function(data){
-	         	console.log("algo deu errado!");
-	         	console.log(data);
-	         }
-	        });
-	  }
-
-     
-    	});
+				if (typeof originalImageSrc == "undefined") {
+					alert("Escolha uma imagem clicando sobre a área indicada!");
+				} else {
+					$.ajax({
+						type: "POST",
+						url: comprar.ajax_url,
+						data: {
+							action: "iap_order",
+							moldura: nome_moldura,
+							acabamento: nome_acabamento,
+							largura: x,
+							altura: y,
+							preco: preco
+						},
+						success: function(data) {
+							console.log(data);
+						},
+						error: function(data) {
+							console.log("algo deu errado!");
+							console.log(data);
+						}
+					});
+				}
+			} else {
+				console.log(currentImage.src);
+				imagem = "imagem editada";
+				$.ajax({
+					type: "POST",
+					url: comprar.ajax_url,
+					data: {
+						action: "iap_order",
+						moldura: nome_moldura,
+						acabamento: nome_acabamento,
+						largura: x,
+						altura: y,
+						preco: preco,
+						imagemAdobe: imagem
+					},
+					success: function(data) {
+						console.log(data);
+					},
+					error: function(data) {
+						console.log("algo deu errado!");
+						console.log(data);
+					}
+				});
+			}
+		});
 	});
 	// Image Editor configuration
 	var csdkImageEditor = new Aviary.Feather({
 		apiKey: configObj.apiKey,
 		theme: `light`,
-        language: `pt_BR`,
-        tools: ['overlays','orientation','crop','resize','focus','vignette'],
+		language: `pt_BR`,
+		tools: ["overlays", "orientation", "crop", "resize", "focus", "vignette"],
 		onSave: function(imageID, newURL) {
 			currentImage.src = newURL;
 			csdkImageEditor.close();
@@ -110,27 +105,28 @@ $(document).ready(function() {
 			console.log(errorObj.args);
 		}
 	});
-	
+
 	// Edit
-	$('#edit-image-button').click(function() {
+	$("#edit-image-button").click(function() {
 		launchImageEditor();
 	});
 	// Reset
-	$('#reset-image-button').click(function() {
-		if ($('#editable-image').attr('src') === originalImageSrc || !originalImageSrc) {
-			alert('Você ainda não fez alterações');
-		}
-		else {
-			$('#editable-image').attr('src', originalImageSrc);
+	$("#reset-image-button").click(function() {
+		if (
+			$("#editable-image").attr("src") === originalImageSrc ||
+			!originalImageSrc
+		) {
+			alert("Você ainda não fez alterações");
+		} else {
+			$("#editable-image").attr("src", originalImageSrc);
 		}
 	});
 	// Clear
-	$('#clear-image-button').click(function() {
-		if (imageElement.attr('src')) {
+	$("#clear-image-button").click(function() {
+		if (imageElement.attr("src")) {
 			clearImage();
 			toggleDragDrop();
-		}
-		else {
+		} else {
 			alert("Nada para limpar");
 		}
 	});
@@ -148,36 +144,116 @@ $(document).ready(function() {
 	*/
 	// Drop
 	//// Prevent defaults on drag/drop events
-	dropArea.on('drag dragstart dragend dragover dragenter dragleave drop', function(e) {
-		if (e.preventDefault) e.preventDefault(); 
-		if (e.stopPropagation) e.stopPropagation(); 
-	})
-	/*.on('click', function(e) {
+	dropArea
+		.on("drag dragstart dragend dragover dragenter dragleave drop", function(
+			e
+		) {
+			if (e.preventDefault) e.preventDefault();
+			if (e.stopPropagation) e.stopPropagation();
+		})
+		/*.on('click', function(e) {
 		//Click anywhere in Droparea to upload file
 	  	$('#fileToUpload').click();
 	})*/
-	.on('drop', function(e) {
-		// Get the dropped file
-		var file = e.originalEvent.dataTransfer.files[0];
-		validateFileType(file);
-	});  
-	dropArea.on('dragover', function(e){
-		this.className = 'drop-zone dragover';
+		.on("drop", function(e) {
+			// Get the dropped file
+			var file = e.originalEvent.dataTransfer.files[0];
+			validateFileType(file);
+		});
+	dropArea.on("dragover", function(e) {
+		this.className = "drop-zone dragover";
 		return false;
 	});
-	dropArea.on('dragleave', function(e){
-		this.className = 'drop-zone';
+	dropArea.on("dragleave", function(e) {
+		this.className = "drop-zone";
 		return false;
 	});
 	// Click
+	//Hold the submission
+	var submittingImage = false;
 	//// Takes file from file chooser
-	$('#fileToUpload').on('change', function(e){
-		var file = e.originalEvent.target.files[0];	
-		validateFileType(file);
+	$("#fileToUpload").on("change", function(e) {
+		var file = e.originalEvent.target.files[0];
+		//Do the Upload
+
+		if (submittingImage === true) return;
+		submittingImage = true;
+
+		var form_data = new FormData(),
+			target = $("body");
+
+		if (
+			file !== undefined &&
+			file["type"] != "image/png" &&
+			file["type"] != "image/jpg" &&
+			file["type"] != "image/jpeg"
+		) {
+			alert("A imagem precisa estar em formato JPG ou PNG");
+			submittingImage = false;
+			return;
+		}
+		if (file["size"] > "32000000") {
+			alert("A imagem não pode ser maior que 30 MB");
+			submittingImage = false;
+			return;
+		}
+
+		form_data.append("file", $(this).prop("files")[0]);
+		form_data.append("action", "iap_imageUpload");
+		form_data.append("wp-img-nonce", $("#wp-img-nonce").val());
+		target.addClass("running");
+		$.ajax({
+			type: "post",
+			url: ajax_object.ajax_url,
+			contentType: false,
+			processData: false,
+			cache: false,
+			data: form_data,
+			xhr: function() {
+				var myXhr = $.ajaxSettings.xhr();
+				// For handling the progress of the upload
+				myXhr.upload.onprogress = function(ev) {
+					if (ev.lengthComputable) {
+						var percentComplete = parseInt(ev.loaded / ev.total * 100);
+						$("#progress-bar").css("width", percentComplete + "%");
+					}
+				};
+				return myXhr;
+			},
+			success: function(result) {
+				switch (result) {
+					case "0":
+						alert(
+							"Ocorreu um erro ao enviar a imagem. Por favor tente novamente."
+						);
+						break;
+					case "1":
+						alert("A imagem precisa estar no formato JPG ou PNG.");
+						break;
+					case "2":
+						alert("A imagem não pode ser maior que 32 MB");
+						break;
+					default:
+						results = result.split("|", 2);
+						target.children("input[name=image_url]").val(results[1]);
+						target.children("input[name=img_id]").val(results[0]);
+						setImage(file);
+						$(".modal .close").click();
+						break;
+				}
+				target.removeClass("running");
+				submittingImage = false;
+			},
+			error: function(response) {
+				alert("Ocorreu um erro ao enviar a imagem. Por favor tente novamente.");
+				target.removeClass("running");
+				submittingImage = false;
+			}
+		});
 	});
 	// Checks if the file type is in the array of supported types
-	function fileIsSupported(file){
-		var supportedFileTypes = ['image/jpeg', 'image/png'];
+	function fileIsSupported(file) {
+		var supportedFileTypes = ["image/jpeg", "image/png"];
 		return supportedFileTypes.indexOf(file.type) >= 0 ? true : false;
 	}
 	// Toggle visibility of the drag/drop div and img element
@@ -186,12 +262,12 @@ $(document).ready(function() {
 		imageElement.toggle();
 	}
 	function setImage(file) {
-		imageElement.attr('src', window.URL.createObjectURL(file));
-		originalImageSrc = imageElement.attr('src');
+		imageElement.attr("src", window.URL.createObjectURL(file));
+		originalImageSrc = imageElement.attr("src");
 		upload(file);
 	}
 	function clearImage() {
-		imageElement.attr('src', '');
+		imageElement.attr("src", "");
 	}
 	function validateFileType(file) {
 		if (fileIsSupported(file)) {
@@ -199,24 +275,22 @@ $(document).ready(function() {
 			toggleDragDrop();
 			//launchImageEditor();
 			return true;
-		}
-		else {
-			alert('Por favor, tente nos formatos JPEG ou PNG');
+		} else {
+			alert("Por favor, tente nos formatos JPEG ou PNG");
 			return false;
 		}
 	}
 	function launchImageEditor() {
-
 		if (!originalImageSrc) {
-			alert('Faça o upload de alguma imagem primeiro!');
+			alert("Faça o upload de alguma imagem primeiro!");
 			return false;
 		}
 		// Get the image to be edited
 		// `[0]` gets the image itself, not the jQuery object
 
-		currentImage = $('#editable-image')[0];
+		currentImage = $("#editable-image")[0];
 		csdkImageEditor.launch({
-			image: currentImage.id,
+			image: currentImage.id
 			//url: currentImage.src
 		});
 	}
@@ -231,32 +305,32 @@ $(document).ready(function() {
 		link.download = 'my-pic';
 		link.click();
 	}*/
-	//send data to PHP By Drop 
-	function upload(files){
-				var formData = new FormData(),
-					xhr = new XMLHttpRequest(),
-					x;
-				for(x=0; x<files.length; x = x + 1){
-					formData.append('file[]', files[x]);
-				}	
-				xhr.onload = function(){
-					var data = this.responseText;
-				}
-				xhr.open('post', 'upload.php');
-				xhr.send(formData);
+	//send data to PHP By Drop
+	function upload(files) {
+		var formData = new FormData(),
+			xhr = new XMLHttpRequest(),
+			x;
+		for (x = 0; x < files.length; x = x + 1) {
+			formData.append("file[]", files[x]);
+		}
+		xhr.onload = function() {
+			var data = this.responseText;
+		};
+		xhr.open("post", "upload.php");
+		xhr.send(formData);
 	}
 	//upload by drop (quando o usuario arrasta a imagem para o dropzone)
-	(function TheDrop(){
-				var dropzone = document.getElementById('drop-area');
-				dropzone.ondrop = function(e){
-					e.preventDefault();
-					this.className = 'drop-zone';
-					upload(e.dataTransfer.files);
-				};
-			}());
+	(function TheDrop() {
+		var dropzone = document.getElementById("drop-area");
+		dropzone.ondrop = function(e) {
+			e.preventDefault();
+			this.className = "drop-zone";
+			upload(e.dataTransfer.files);
+		};
+	})();
 });
 
-	//send data to PHP by click and set progress bar
+//send data to PHP by click and set progress bar
 /*	 
 $(function(){
 	$('#myForm').ajaxForm({

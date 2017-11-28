@@ -5,7 +5,7 @@
  * Plugin URI: http://instaarts.com.br
  * Description: Esse plugin implementa a ferramenta da Adobe (Creative SDK) para edição de imagens, mais menu onde o usuário pode fazer seu pedido personalizado escolhendo tamanho, acabamento e moldura. 
  * Author URI: Willian De Oliveira 
- * Version: 1.3.2 BETA
+ * Version: 1.3.6 BETA
  * Licence: GPL2
  */
 
@@ -25,7 +25,7 @@ function iap_referal_init()
 {
 	if(is_page('share')){	
 		$dir = plugin_dir_path( __FILE__ );
-		include($dir."frontend/index.html");
+		include($dir."frontend/index.php");
 		die();
 	}
 }
@@ -39,6 +39,7 @@ function iap_register_scripts(){
 	wp_register_script('bar', plugins_url('frontend/bar.js', __FILE__), 'jquery', 1.0, true);
 
 	wp_localize_script('calculaPreco', 'ajax_object', array('ajax_url' => admin_url('admin-ajax.php'), 'outro_valor' => 1234));
+	wp_localize_script('index', 'ajax_object', array('ajax_url' => admin_url('admin-ajax.php')));
 }
 add_action('wp_enqueue_scripts', 'iap_load_JavaScripts');
 function iap_load_JavaScripts(){
