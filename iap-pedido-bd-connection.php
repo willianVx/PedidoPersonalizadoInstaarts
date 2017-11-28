@@ -21,8 +21,8 @@ function iap_db_install() {
 		acabamento varchar(55) NOT NULL,
 		moldura varchar(55) NOT NULL,
 		preco varchar(55) NOT NULL,
-		linkOriginal varchar(55) NOT NULL,
-		linkAmazon varchar(55) NOT NULL,
+		linkOriginal varchar(110) NOT NULL,
+		linkAmazon varchar(110) NOT NULL,
 		data varchar(55) NOT NULL,
 		PRIMARY KEY  (id)
 	) $charset_collate;";

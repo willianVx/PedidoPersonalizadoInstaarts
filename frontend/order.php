@@ -9,7 +9,7 @@
 			$y = $_POST['altura'];
 			$preco = $_POST['preco'];
 			//$imagemOriginal = $_SESSION["imagemOriginal"];
-			$imagemOriginal = "pq deus?";
+			$imagemOriginal = $_POST['imagem'];
 
 			if (isset($_POST['imagemAdobe'])) {
 				$imagemEditada = $_POST['imagemAdobe'];

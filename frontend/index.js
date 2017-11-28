@@ -34,7 +34,8 @@ $(document).ready(function() {
 			//imagemEditada = currentImage.src;
 
 			//console.log(imagemEditada);
-			console.log(originalImageSrc);
+			console.log(image_url.value);
+			var imagemOriginal = image_url.value;
 
 			if (typeof currentImage == "undefined") {
 				console.log("imagem sem edição");
@@ -51,7 +52,8 @@ $(document).ready(function() {
 							acabamento: nome_acabamento,
 							largura: x,
 							altura: y,
-							preco: preco
+							preco: preco,
+							imagem: imagemOriginal
 						},
 						success: function(data) {
 							console.log(data);
