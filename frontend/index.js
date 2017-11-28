@@ -235,9 +235,11 @@ $(document).ready(function() {
 						break;
 					default:
 						results = result.split("|", 2);
-						target.children("input[name=image_url]").val(results[1]);
-						target.children("input[name=img_id]").val(results[0]);
-						setImage(file);
+						$("#image_url").val(results[1]);
+						$("#image_id").val(results[0]);
+						imageElement.attr("src", results[1]);
+						originalImageSrc = imageElement.attr("src");
+						toggleDragDrop();
 						$(".modal .close").click();
 						break;
 				}

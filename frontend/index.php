@@ -38,6 +38,12 @@
     </div>
 
     <div class="col-md-10">
+    
+      <input type="hidden" name="image_url" id="image_url">
+      <input type="hidden" name="image_id" id="image_id">
+      <input type="hidden" name="edited_image_url" id="edited_image_url">
+      <input type="hidden" name="edited_image_id" id="edited_image_id">
+
       <!--<input id="click-upload" type="file" >-->
       <div id="drop-area" class="drop-zone" data-toggle="modal" data-target="#modalUpload">
         <span>
@@ -63,8 +69,6 @@
                   Click no Botão para escolhar a imagem:
                   <input type="file" name="fileToUpload" id="fileToUpload">
                   <br>
-                  <input type="hidden" name="image_url">
-                  <input type="hidden" name="image_id">
                   <!--<input type="submit" name="submit" value="upload-image" class="btn btn-success">-->
                   <input type="hidden" name="image-submission" value="1" />
                   <?php wp_nonce_field( 'wp-img-nonce-iap', 'wp-img-nonce' ); ?>
