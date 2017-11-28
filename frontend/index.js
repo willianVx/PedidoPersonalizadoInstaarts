@@ -36,6 +36,7 @@ $(document).ready(function() {
 			//console.log(imagemEditada);
 			console.log(image_url.value);
 			var imagemOriginal = image_url.value;
+			var editimage = edited_image_url.value;
 
 			if (typeof currentImage == "undefined") {
 				console.log("imagem sem edição");
@@ -65,8 +66,7 @@ $(document).ready(function() {
 					});
 				}
 			} else {
-				console.log(currentImage.src);
-				imagem = "imagem editada";
+				
 				$.ajax({
 					type: "POST",
 					url: comprar.ajax_url,
@@ -77,7 +77,8 @@ $(document).ready(function() {
 						largura: x,
 						altura: y,
 						preco: preco,
-						imagemAdobe: imagem
+						imagem: imagemOriginal,
+						imagemAdobe: editimage
 					},
 					success: function(data) {
 						console.log(data);
