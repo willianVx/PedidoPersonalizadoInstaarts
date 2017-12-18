@@ -23,7 +23,7 @@ require 'frontend/uploadByClick.php';
 //adiciona adobe creative sdk na página share
 function iap_referal_init()
 {
-	if(is_page('share')){	
+	if(is_page('Pedidos Personalizados')){	
 		$dir = plugin_dir_path( __FILE__ );
 		include($dir."frontend/index.php");
 		die();

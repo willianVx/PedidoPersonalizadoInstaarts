@@ -14,6 +14,7 @@
   ?>
 </head>
 <body class="container" onload="formulaTotal()">
+<div class="envelope">    
   <div class="row">
     <div class="col-md-2">
       <div class="row">
@@ -515,8 +516,12 @@
     </div> 
   </div>
   </div> <!-- end .row -->
-  
-<br>
+
+</div>
+  <?php
+  //call the wp foooter
+  get_footer();
+  ?>
 
 <style type="text/css">
 .padleft {
@@ -589,7 +594,3 @@
 </style>
 </body>
 </html>
-<?php
-//call the wp foooter
-get_footer();
-?>
