@@ -1,4 +1,4 @@
-$(document).ready(function() {
+jQuery(document).ready(function($) {
 	// The visibility of these 2 elements is toggled by `toggleDragDrop()`
 	var imageElement = $("#editable-image").hide();
 	var dropArea = $("#drop-area");
@@ -6,67 +6,21 @@ $(document).ready(function() {
 	var originalImageSrc; // assigned when image file is dropped
 	var currentImage; // assigned when the Edit button is clicked
 
-	/*
-	jQuery(function($){
-		$("#myForm").submit(function(event){
-			event.preventDefault();
-			$.ajax({
-				type: "POST",
-				url:  imagem.ajax_url,
-				data:{
-					action: iap_image_upload,
-					nome: "exemplo.jpg",
-					tamanho: "200",
-					tipo: "jpg", 
-				},
-				success: function(data){
-					console.log(data);
-				}
-			});
-		});	
-			
-	});
-	*/
-
 	// manda os dados do pedido para o servidor via ajax
-	jQuery(function($) {
-		$("#comprar-botao").click(function() {
-			//imagemEditada = currentImage.src;
+	$("#comprar-botao").click(function() {
+		//imagemEditada = currentImage.src;
 
-			//console.log(imagemEditada);
-			console.log(image_url.value);
-			var imagemOriginal = image_url.value;
-			var editimage = edited_image_url.value;
+		//console.log(imagemEditada);
+		console.log(image_url.value);
+		var imagemOriginal = image_url.value;
+		var editimage = edited_image_url.value;
 
-			if (typeof currentImage == "undefined") {
-				console.log("imagem sem edição");
+		if (typeof currentImage == "undefined") {
+			console.log("imagem sem edição");
 
-				if (typeof originalImageSrc == "undefined") {
-					alert("Escolha uma imagem clicando sobre a área indicada!");
-				} else {
-					$.ajax({
-						type: "POST",
-						url: comprar.ajax_url,
-						data: {
-							action: "iap_order",
-							moldura: nome_moldura,
-							acabamento: nome_acabamento,
-							largura: x,
-							altura: y,
-							preco: preco,
-							imagem: imagemOriginal
-						},
-						success: function(data) {
-							console.log(data);
-						},
-						error: function(data) {
-							console.log("algo deu errado!");
-							console.log(data);
-						}
-					});
-				}
+			if (typeof originalImageSrc == "undefined") {
+				alert("Escolha uma imagem clicando sobre a área indicada!");
 			} else {
-				
 				$.ajax({
 					type: "POST",
 					url: comprar.ajax_url,
@@ -77,23 +31,48 @@ $(document).ready(function() {
 						largura: x,
 						altura: y,
 						preco: preco,
-						imagem: imagemOriginal,
-						imagemAdobe: editimage
+						imagem: imagemOriginal
 					},
 					success: function(data) {
-						console.log(data);
+						if (data == "0") {
+							alert("Erro no processamento. Tente mais tarde.");
+						} else {
+							window.location = comprar.cart_url;
+						}
 					},
 					error: function(data) {
-						console.log("algo deu errado!");
-						console.log(data);
+						alert("Erro no processamento. Tente mais tarde.");
 					}
 				});
 			}
-		});
+		} else {
+			$.ajax({
+				type: "POST",
+				url: comprar.ajax_url,
+				data: {
+					action: "iap_order",
+					moldura: nome_moldura,
+					acabamento: nome_acabamento,
+					largura: x,
+					altura: y,
+					preco: preco,
+					imagem: imagemOriginal,
+					imagemAdobe: editimage
+				},
+				success: function(data) {
+					console.log(data);
+				},
+				error: function(data) {
+					console.log("algo deu errado!");
+					console.log(data);
+				}
+			});
+		}
 	});
+
 	// Image Editor configuration
 	var csdkImageEditor = new Aviary.Feather({
-		apiKey: configObj.apiKey,
+		apiKey: comprar.api_val,
 		theme: `light`,
 		language: `pt_BR`,
 		tools: ["overlays", "orientation", "crop", "resize", "focus", "vignette"],
@@ -172,18 +151,7 @@ $(document).ready(function() {
 			alert("Nada para limpar");
 		}
 	});
-	// Download
-	/*
-	$('#download-image-button').click(function(e) {
-		e.preventDefault();
-		if (imageElement.attr('src')) {
-			downloadImage();
-		}
-		else {
-			alert("Nothing to download.");
-		}
-	});
-	*/
+
 	// Drop
 	//// Prevent defaults on drag/drop events
 	dropArea
@@ -337,17 +305,7 @@ $(document).ready(function() {
 			//url: currentImage.src
 		});
 	}
-	/*function downloadImage() {
-		var url = currentImage ? currentImage.src : originalImageSrc;
-		var link = document.createElement("a");
-		
-		link.href = url;
-		// Download attr 
-		//// Only honored for links within same origin, 
-		//// therefore won't work once img has been edited (i.e., S3 URLs)
-		link.download = 'my-pic';
-		link.click();
-	}*/
+
 	//send data to PHP By Drop
 	function upload(files) {
 		var formData = new FormData(),
@@ -362,6 +320,7 @@ $(document).ready(function() {
 		xhr.open("post", "upload.php");
 		xhr.send(formData);
 	}
+
 	//upload by drop (quando o usuario arrasta a imagem para o dropzone)
 	(function TheDrop() {
 		var dropzone = document.getElementById("drop-area");
@@ -372,26 +331,3 @@ $(document).ready(function() {
 		};
 	})();
 });
-
-//send data to PHP by click and set progress bar
-/*	 
-$(function(){
-	$('#myForm').ajaxForm({
-		beforeSend:function(){
-			$(".progress").show();
-		},
-		uploadProgress:function(event,position,total,percentComplete){
-			$(".progress-bar").width(percentComplete+"%");
-			$(".sr-only").html(percentComplete+"%");
-		},
-		success:function(){
-			$(".progress").hide();
-		},
-		complete:function(){
-			//$("#response").html(event);
-			console.log(event);
-		}
-	});
-	$(".progress").hide();
-});
-*/

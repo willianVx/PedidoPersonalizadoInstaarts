@@ -1,21 +1,6 @@
-<!DOCTYPE html>
-<html>
+<?php get_header(); ?>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-  <script src="http://malsup.github.com/jquery.form.js"></script>
-  <script type="text/javascript" src="https://dme0ih8comzn4.cloudfront.net/imaging/v3/editor.js"></script>
-  <?php
-  get_header();
-  ?>
-</head>
-
-<body class="container" onload="formulaTotal()">
+<div class="container" onload="formulaTotal()">
   <div class="row">
     <div class="col-md-2">
       <div class="row">
@@ -710,9 +695,8 @@
       display: block;
     }
   </style>
-</body>
+</div>
 
-</html>
 <?php
 //call the wp foooter
 get_footer();

@@ -1,1 +1,0 @@
-var configObj = {apiKey: '<ebddf7a8e3164bf3baa8466e4a9e9480>'};
