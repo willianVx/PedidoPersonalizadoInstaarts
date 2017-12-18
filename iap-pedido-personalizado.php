@@ -18,14 +18,13 @@ require 'iap-pedido-pt.php';
 require 'iap-pedido-fields.php';
 require 'iap-pedido-bd-connection.php';
 
-<<<<<<< HEAD
-require 'frontend/order.php';
-require 'frontend/uploadByClick.php';
+//require 'frontend/order.php';
+//require 'frontend/uploadByClick.php';
 //adiciona adobe creative sdk na página share
 function iap_referal_init()
 {
 	if(is_page('Pedidos Personalizados')){	
-=======
+
 require 'inc/ajax.php';
 require 'inc/woo.php';
 
@@ -51,7 +50,6 @@ function iap_referal_init() {
 	if( is_single($produto->ID) ){	
 		//enfileira os scripts
 		add_action('wp_enqueue_scripts', 'iap_register_scripts');
->>>>>>> d1fc06a21add753288f0ff8528752c737b7481f3
 		$dir = plugin_dir_path( __FILE__ );
 		include($dir."frontend/index.php");
 		die();
@@ -87,5 +85,6 @@ function iap_register_scripts(){
 	);
 
 	wp_enqueue_script('iap-index');
-
+}
+}
 }
