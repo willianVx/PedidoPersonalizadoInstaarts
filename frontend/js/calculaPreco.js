@@ -603,6 +603,8 @@ function santiago() {
 	}
 	formulaTotal();
 }
+
+
 function formulaTotal() {
 	//alert(window.precoBase);
 	//alert(window.somaMoldura);

@@ -8,30 +8,18 @@
  * Version: 1.3.6 BETA
  * Licence: GPL2
  */
-
 //Exit if accessed directly
-
 //if (!define('ABSPATH')) {
 //	exit;
 //}
 require 'iap-pedido-pt.php';
 require 'iap-pedido-fields.php';
 require 'iap-pedido-bd-connection.php';
-
-//require 'frontend/order.php';
-//require 'frontend/uploadByClick.php';
-//adiciona adobe creative sdk na página share
-function iap_referal_init()
-{
-	if(is_page('Pedidos Personalizados')){	
-
 require 'inc/ajax.php';
 require 'inc/woo.php';
-
 /*
  * Verifica se o WooCommerce tá presente
  */
-
 if ( class_exists( 'WooCommerce' ) ) {
 	function iap_aviso_woocommerce() {
 		?>
@@ -43,7 +31,6 @@ if ( class_exists( 'WooCommerce' ) ) {
 	add_action( 'admin_notices', 'iap_aviso_woocommerce' );
 	return;
 }
-
 //Carrega Template na página do produto
 function iap_referal_init() {
 	$produto = get_page_by_title('Quadro Personalizado IAP', OBJECT, 'product');
@@ -56,13 +43,8 @@ function iap_referal_init() {
 	}
 }
 add_action( 'wp', 'iap_referal_init' );
-
-
-
 function iap_register_scripts(){
-
 	wp_enqueue_style( 'bootstrap', '//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css');
-	
 	//wp_enqueue_script( 'bootstrap-js', '//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js', array('jquery'));
 	wp_enqueue_script('jquery-form', '//malsup.github.com/jquery.form.js');
 	wp_enqueue_script('adobe-aviary', '//dme0ih8comzn4.cloudfront.net/imaging/v3/editor.js');
@@ -70,7 +52,6 @@ function iap_register_scripts(){
 	wp_enqueue_script('iap-bar', plugins_url('frontend/js/bar.js', __FILE__), 'jquery', 1.0, true);
 	
 	wp_register_script('iap-index', plugins_url('frontend/js/index.js', __FILE__), 'jquery', 1.0, true);
-
 	global $woocommerce;
 	$cart = '';
 	if (isset($woocommerce)) {
@@ -83,8 +64,5 @@ function iap_register_scripts(){
 		'cart_url' => $cart
 		)
 	);
-
 	wp_enqueue_script('iap-index');
-}
-}
 }

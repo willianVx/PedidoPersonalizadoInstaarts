@@ -51,7 +51,7 @@
                 <p>Sua Imagem deve estar nos formatos: JPEG ou PNG</p>
 
                 <form method="post" action="" id="myForm" enctype="multipart/form-data">
-                  Click no Botão para escolhar a imagem:
+                  Click no Botão para escolher a imagem:
                   <input type="file" name="fileToUpload" id="fileToUpload">
                   <br>
                   <!--<input type="submit" name="submit" value="upload-image" class="btn btn-success">-->
