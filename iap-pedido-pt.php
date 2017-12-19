@@ -10,7 +10,7 @@ function iap_register_post_type(){
 		'singular_name' => $singular,
 		'add_name'      => 'Configurar',
 		'add_new_item'  => 'Configurar '.$singular,
-		'edit'			=> 'Edit',
+		'edit'			=> 'Editar',
 		'edit_item'		=> 'Edit '.$singular,
 		'new_item'		=> 'Feedback '.$singular,
 		'view'			=> 'Visualizar '.$singular,
