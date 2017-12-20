@@ -38,6 +38,7 @@ jQuery(document).ready(function($) {
 							alert("Erro no processamento. Tente mais tarde.");
 						} else {
 							window.location = comprar.cart_url;
+							console.log(comprar.cart_url);
 						}
 					},
 					error: function(data) {
@@ -60,11 +61,15 @@ jQuery(document).ready(function($) {
 					imagemAdobe: editimage
 				},
 				success: function(data) {
-					console.log(data);
+					if (data == "0") {
+						alert("Erro no processamento. Tente mais tarde.");
+					} else {
+						window.location = comprar.cart_url;
+						console.log(comprar.cart_url);
+					}
 				},
 				error: function(data) {
-					console.log("algo deu errado!");
-					console.log(data);
+					alert("Erro no processamento. Tente mais tarde.");
 				}
 			});
 		}
@@ -93,7 +98,7 @@ jQuery(document).ready(function($) {
 
 			$.ajax({
 				type: "post",
-				url: ajax_object.ajax_url,
+				url: comprar.ajax_url,
 				contentType: false,
 				processData: false,
 				cache: false,
@@ -213,7 +218,7 @@ jQuery(document).ready(function($) {
 
 		$.ajax({
 			type: "post",
-			url: ajax_object.ajax_url,
+			url: comprar.ajax_url,
 			contentType: false,
 			processData: false,
 			cache: false,
