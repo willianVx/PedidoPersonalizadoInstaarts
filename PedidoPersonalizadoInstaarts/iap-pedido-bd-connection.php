@@ -1,4 +1,7 @@
 <?php 
+if ( ! defined( 'ABSPATH' ) ) {
+        exit; // Exit if accessed directly
+    }
 //cria banco de dados para armazenar informações do pedido --> como: largura, altura, link da imagem original sem edição e link da imagem editada no servidor da amazon
 $jal_db_version = '1.0';
 session_start();

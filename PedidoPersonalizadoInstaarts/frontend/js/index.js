@@ -104,6 +104,7 @@ jQuery(document).ready(function($) {
 				cache: false,
 				data: form_data,
 				success: function(result) {
+					setTamanho();
 					if (result == "0") {
 						alert(
 							"Ocorreu um erro em nosso sistema. Por favor, tente novamente mais tarde."
@@ -124,6 +125,7 @@ jQuery(document).ready(function($) {
 					submittingImage = false;
 				}
 			});
+			setTamanho();
 		},
 		onError: function(errorObj) {
 			console.log(errorObj.code);
@@ -135,6 +137,8 @@ jQuery(document).ready(function($) {
 	$("#edit-image-button").click(function() {
 		launchImageEditor();
 		console.log(image_url);
+		setTamanho();
+		//console.log(imageElement.naturalHeight);
 	});
 	// Reset
 	$("#reset-image-button").click(function() {
@@ -189,6 +193,7 @@ jQuery(document).ready(function($) {
 	//// Takes file from file chooser
 	$("#fileToUpload").on("change", function(e) {
 		var file = e.originalEvent.target.files[0];
+
 		//Do the Upload
 
 		if (submittingImage === true) return;
@@ -235,6 +240,7 @@ jQuery(document).ready(function($) {
 				return myXhr;
 			},
 			success: function(result) {
+				
 				switch (result) {
 					case "0":
 						alert(
@@ -265,6 +271,7 @@ jQuery(document).ready(function($) {
 				submittingImage = false;
 				$("#progress-bar").css("width", "0%");
 			}
+
 		});
 	});
 	// Checks if the file type is in the array of supported types
@@ -296,11 +303,13 @@ jQuery(document).ready(function($) {
 			return false;
 		}
 	}
+
 	function launchImageEditor() {
 		if (!originalImageSrc) {
 			alert("Faça o upload de alguma imagem primeiro!");
 			return false;
 		}
+
 		// Get the image to be edited
 		// `[0]` gets the image itself, not the jQuery object
 
@@ -335,4 +344,14 @@ jQuery(document).ready(function($) {
 			upload(e.dataTransfer.files);
 		};
 	})();
+
+	$("#b-tamanho").click(function(){
+		setTamanho();
+	});
+
+	function setTamanho(){
+			console.log(imageElement.width());
+			window.imgWidth = imageElement.width();
+			window.imgHeight = imageElement.height();
+	}
 });

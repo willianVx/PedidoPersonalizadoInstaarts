@@ -8,10 +8,10 @@
  * Version: 1.3.6 BETA
  * Licence: GPL2
  */
-//Exit if accessed directly
-//if (!define('ABSPATH')) {
-//	exit;
-//}
+if ( ! defined( 'ABSPATH' ) ) {
+        exit; // Exit if accessed directly
+    }
+    
 require 'iap-pedido-pt.php';
 require 'iap-pedido-fields.php';
 require 'iap-pedido-bd-connection.php';
@@ -45,6 +45,7 @@ function iap_referal_init() {
 add_action( 'wp', 'iap_referal_init' );
 function iap_register_scripts(){
 	wp_enqueue_style( 'bootstrap', '//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css');
+	wp_enqueue_style('estilo', plugins_url('PedidoPersonalizadoInstaarts/css/style.css'));
 	wp_enqueue_script('jquery-form', '//malsup.github.com/jquery.form.js');
 	wp_enqueue_script('adobe-aviary', '//dme0ih8comzn4.cloudfront.net/imaging/v3/editor.js');
 	wp_enqueue_script('iap-calculo', plugins_url('frontend/js/calculaPreco.js', __FILE__), 'jquery', 1.0, true);
@@ -66,4 +67,6 @@ function iap_register_scripts(){
 	wp_enqueue_script('iap-index');
 	
 	wp_enqueue_script('bootstrap-modal', plugins_url('frontend/js/bootstrap.js', __FILE__), 'jquery', 1.0, true);
+	wp_enqueue_script('validaTamanho', plugins_url('frontend/js/validaTamanho.js', __FILE__), 'jquery', 1.0, true);
+
 }

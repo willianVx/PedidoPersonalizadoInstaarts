@@ -1,3 +1,4 @@
+
 <?php get_header(); ?>
 
 <div class="container" onload="formulaTotal()">
@@ -44,7 +45,6 @@
       <img id="editable-image" class="img-responsive img-upload">
 
       <div class="container">
-
         <!-- Modal upload de arquivos por click -->
         <div class="modal fade" id="modalUpload" role="dialog" style="position: absolute; top: 10px;">
           <div class="modal-dialog modal-lg">
@@ -61,10 +61,9 @@
                   <input type="file" name="fileToUpload" id="fileToUpload">
                   <br>
                   <!--<input type="submit" name="submit" value="upload-image" class="btn btn-success">-->
-                  <input type="hidden" name="image-submission" value="1" />
+                  <input type="hidden" name="image-submission" value="1"/>
                   <?php wp_nonce_field( 'wp-img-nonce-iap', 'wp-img-nonce' ); ?>
                 </form>
-
               </div>
               <br>
               <div class="progress">
@@ -80,30 +79,31 @@
         </div>
       </div>
       <div class="hud-produtos">
-        <div class="somaProdutos well well-sm">
-          <span id="s-tamanho" class="hud-calcularPreco">40x60cm </span>
+
+        <div class="somaProdutos well">
+          <span id="s-tamanho" class="hud-calcularPreco">40x60cm</span>
           <span class="badge">+</span>
           <span id="s-metacrilato" class="hud-calcularPreco">Metacrilato 3mm </span>
           <span id="s-moldura" class="hud-calcularPreco badge">Esolha sua moldura</span>
           <span id="s-preco">R$ 343.60</span>
         </div>
 
-        <div class="col-lg-12">
-          <div class="col-lg-3">
-            <button type="button" class="btn btn-default btn-lg hud-botao" data-toggle="modal" data-target="#tamanho">Tamanho</button>
+        <div class="col-lg-12 col-sm-12 col-xs-12">
+          <div class="col-lg-3 col-sm-3 col-xs-6">
+            <button type="button" id="b-tamanho" class="btn btn-default btn-lg hud-botao" data-toggle="modal" data-target="#tamanho">Tamanho</button>
           </div>
 
-          <div class="col-lg-3">
+          <div class="col-lg-3 col-sm-3 col-xs-6">
             <!-- Trigger the modal with a button -->
             <button type="button" class="btn btn-default btn-lg hud-botao" data-toggle="modal" data-target="#material">Acabamento</button>
           </div>
 
-          <div class="col-lg-3">
+          <div class="col-lg-3 col-sm-3 col-xs-6">
              <!-- Trigger the modal with a button -->
             <button type="button" class="btn btn-default btn-lg hud-botao" data-toggle="modal" data-target="#moldura">Moldura</button>
           </div>
 
-          <div class="col-lg-3">
+          <div class="col-lg-3 col-sm-3 col-xs-6">
             <button id="comprar-botao" type="button" class="btn btn-success btn-lg hud-botao b-comprar">Comprar</button>
           </div>
         </div>
@@ -615,117 +615,6 @@
   <!-- end .row -->
 
   <br>
-
-  <style type="text/css">
-  .container-b{
-    position: relative;
-    top: 20px;
-  }
-    body {
-      min-height: 100vh;
-    }
-    p{
-      font-size: 75%;
-    }
-    
-    .padleft {
-      padding: 0px 0px 0px 20px;
-    }
-
-    .button-panel {
-      margin-bottom: 10px;
-      border-radius: 0;
-    }
-
-    .drop-zone {
-      border-style: solid;
-      border-width: 1px;
-      border-color: #b3b3b3;
-      border-radius: 12px;
-      text-align: center;
-      color: lightgray;
-      font-size: 24px;
-    }
-
-    .drop-zone.dragover {
-      opacity: 0.5;
-    }
-
-    #click-upload {
-      display: none;
-    }
-
-    .hud-botao {
-      position: relative;
-      top: 10px;
-    }
-
-    .b-comprar {
-      position: relative; 
-      margin-bottom: 250px;
-    }
-
-    .hud-calcularPreco {
-      position: relative;
-      padding: 1%;
-    }
-
-    .somaProdutos {
-      position: relative;
-      text-align: center;
-      width: 55%;
-      left: 35%;
-      top: 10px;
-      bottom: 20px;
-    }
-
-    .ok-modal-tamanho {
-      position: relative;
-      left: 540px;
-      bottom: 5px;
-    }
-
-    .thumbnail {
-      font-size: 10px;
-    }
-
-    .t-thumb {
-      position: relative;
-      width: 120px;
-    }
-
-    .m-thumb {
-      position: relative;
-      width: 150px;
-    }
-
-    .green {
-      border-style: solid;
-      border-color: green;
-    }
-
-    .img-upload {
-      position: relative;
-      max-width: 1000px;
-      max-height: 800px;
-      z-index: 10;
-    } 
-
-    body.loading {
-      position: relative;
-    }
-    body.loading:before {
-      content: ' ';
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      background: rgba(0,0,0,0.5);
-      position: absolute;
-      z-index: 20;
-      display: block;
-    }
-  </style>
 </div>
 
   <?php

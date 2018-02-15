@@ -1,4 +1,7 @@
 <?php 
+if ( ! defined( 'ABSPATH' ) ) {
+        exit; // Exit if accessed directly
+    }
 //configura as informações para a área administrativa do wordpress 
 function iap_register_post_type(){
 

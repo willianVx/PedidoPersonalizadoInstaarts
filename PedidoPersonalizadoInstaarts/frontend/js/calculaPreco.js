@@ -152,12 +152,15 @@ function tamanhoUsuario() {
 		alert(valor);
 	} else if (isNaN(y) || y < 10 || y > 200) {
 		alert(valor);
-	} else {
+	}else if (window.statusQuadrado = 0 || x != y) {
+			alert("Sua imagem é quadrada, largura e altura devem ser iguais");
+	}
+	 else {
 		document.getElementById("s-tamanho").innerHTML = x + "x" + y + "cm ";
 		formulaTotal();
 	}
 }
-/* 
+/* window.statusQuadrado = 0
     define material
 */
 
