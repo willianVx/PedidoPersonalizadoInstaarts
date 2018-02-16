@@ -2,8 +2,8 @@
     Funcoes definem o tamanho
 */
 // var material, x, y, moldura;
-var x = 40;
-var y = 60;
+var x = 20;
+var y = 18;
 //var moldura = 0;
 var somaMoldura = 0;
 
@@ -30,80 +30,66 @@ var nome_acabamento = " Metacrilato 3mm ";
 var preco = 343.6;
 
 function T12x18() {
-	//document.getElementById("s-tamanho").innerHTML = "12x18cm" + " ";
 	window.x = 12;
 	window.y = 18;
 	document.getElementById("s-tamanho").innerHTML = x + "x" + y + "cm ";
 	formulaTotal();
-	//var preco = (x * y * material/10000) + 40;
-	//document.getElementById("s-preco").innerHTML = "R$: " + preco.toFixed(2);
 }
 function T20x30() {
-	//document.getElementById("s-tamanho").innerHTML = "20x30cm" + " ";
 	window.x = 20;
 	window.y = 30;
 	document.getElementById("s-tamanho").innerHTML = x + "x" + y + "cm ";
 	formulaTotal();
 }
 function T30x45() {
-	//document.getElementById("s-tamanho").innerHTML = "30x45cm" + " ";
 	window.x = 30;
 	window.y = 45;
 	document.getElementById("s-tamanho").innerHTML = x + "x" + y + "cm ";
 	formulaTotal();
 }
 function T40x60() {
-	//document.getElementById("s-tamanho").innerHTML = "40x60cm" + " ";
 	window.x = 40;
 	window.y = 60;
 	document.getElementById("s-tamanho").innerHTML = x + "x" + y + "cm ";
 	formulaTotal();
 }
 function T60x90() {
-	//document.getElementById("s-tamanho").innerHTML = "60x90cm" + " ";
 	window.x = 60;
 	window.y = 90;
 	document.getElementById("s-tamanho").innerHTML = x + "x" + y + "cm ";
 	formulaTotal();
 }
 function T90x45() {
-	//document.getElementById("s-tamanho").innerHTML = "90x45cm" + " ";
 	window.x = 90;
 	window.y = 45;
 	document.getElementById("s-tamanho").innerHTML = x + "x" + y + "cm ";
 	formulaTotal();
 }
-
 function T20x20() {
-	//document.getElementById("s-tamanho").innerHTML = "20x20cm" + " ";
 	window.x = 20;
 	window.y = 20;
 	document.getElementById("s-tamanho").innerHTML = x + "x" + y + "cm ";
 	formulaTotal();
 }
 function T30x30() {
-	//document.getElementById("s-tamanho").innerHTML = "30x30cm" + " ";
 	window.x = 30;
 	window.y = 30;
 	document.getElementById("s-tamanho").innerHTML = x + "x" + y + "cm ";
 	formulaTotal();
 }
 function T45x45() {
-	//document.getElementById("s-tamanho").innerHTML = "45x45cm" + " ";
 	window.x = 45;
 	window.y = 45;
 	document.getElementById("s-tamanho").innerHTML = x + "x" + y + "cm ";
 	formulaTotal();
 }
 function T60x60() {
-	//document.getElementById("s-tamanho").innerHTML = "60x60cm" + " ";
 	window.x = 60;
 	window.y = 60;
 	document.getElementById("s-tamanho").innerHTML = x + "x" + y + "cm ";
 	formulaTotal();
 }
 function T90x90() {
-	//document.getElementById("s-tamanho").innerHTML = "90x90cm" + " ";
 	window.x = 90;
 	window.y = 90;
 	document.getElementById("s-tamanho").innerHTML = x + "x" + y + "cm ";
@@ -111,28 +97,24 @@ function T90x90() {
 }
 
 function T18x12() {
-	//document.getElementById("s-tamanho").innerHTML = "18x12cm" + " ";
 	window.x = 18;
 	window.y = 12;
 	document.getElementById("s-tamanho").innerHTML = x + "x" + y + "cm ";
 	formulaTotal();
 }
 function T20x30() {
-	//document.getElementById("s-tamanho").innerHTML = "20x30cm" + " ";
 	window.x = 20;
 	window.y = 30;
 	document.getElementById("s-tamanho").innerHTML = x + "x" + y + "cm ";
 	formulaTotal();
 }
 function T30x45() {
-	//document.getElementById("s-tamanho").innerHTML = "30x45cm" + " ";
 	window.x = 30;
 	window.y = 45;
 	document.getElementById("s-tamanho").innerHTML = x + "x" + y + "cm ";
 	formulaTotal();
 }
 function T40x60() {
-	//document.getElementById("s-tamanho").innerHTML = "40x60cm" + " ";
 	window.x = 40;
 	window.y = 60;
 	document.getElementById("s-tamanho").innerHTML = x + "x" + y + "cm ";
@@ -164,7 +146,7 @@ function tamanhoUsuario() {
     define material
 */
 
-//metacrilato dsa
+//metacrilato 
 function meta7() {
 	if (tipoMoldura == 3) {
 		if (somaMoldura != 0) {
@@ -185,8 +167,6 @@ function meta7() {
 	window.nome_acabamento = "Metacrilato 7mm";
 	window.precoBase = meta7mm;
 	document.getElementById("s-metacrilato").innerHTML = "Metacrilato 7mm" + " ";
-	/*var preco = ((x * y * material / 10000)+moldura)+40; 
-    document.getElementById("s-preco").innerHTML = preco;*/
 	formulaTotal();
 }
 function meta5() {
@@ -609,13 +589,12 @@ function santiago() {
 
 
 function formulaTotal() {
-	//alert(window.precoBase);
-	//alert(window.somaMoldura);
 	var precoBase = window.precoBase + window.somaMoldura;
 	var preco = x * y * precoBase / 10000 + 40;
 	document.getElementById("s-preco").innerHTML = "R$: " + preco.toFixed(2);
 	window.preco = preco;
 }
+
 function molduraTipo3() {
 	tipoMoldura = 3;
 	if (

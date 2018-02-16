@@ -2,7 +2,6 @@
 <?php get_header(); ?>
 <?php 
   $teste = new CalculaPreco;
-  $teste -> formula_pedido_instaarts('meta4mm', 0, 20, 30);
 ?>
 <div class="container" onload="formulaTotal()">
  
@@ -93,7 +92,7 @@
         -->
         <div class="col-lg-12 col-sm-12 col-xs-12">
           <div class="col-lg-3 col-sm-3 col-xs-6">
-            <button type="button" id="b-tamanho" class="btn btn-default btn-lg hud-botao" data-toggle="modal" data-target="#tamanho">Tamanho <span id="s-tamanho"> 40x60cm</span> </button>
+            <button type="button" id="b-tamanho" class="btn btn-default btn-lg hud-botao" data-toggle="modal" data-target="#tamanho">Tamanho <span id="s-tamanho"> 20x18cm</span> </button>
             
           </div>
 
@@ -108,7 +107,7 @@
           </div>
 
           <div class="col-lg-3 col-sm-3 col-xs-6">
-            <button id="comprar-botao" type="button" class="btn btn-success btn-lg hud-botao b-comprar">Comprar <span id="s-preco">R$ 343,60</span> </button>
+            <button id="comprar-botao" type="button" class="btn btn-success btn-lg hud-botao b-comprar">Comprar <span id="s-preco"><?php $teste -> formula_pedido_instaarts('meta3mm', 0, 20, 18); ?></span> </button>
             <span id="s-preco"></span>
           </div>
         </div>
@@ -116,11 +115,10 @@
         <div class="tamanhoMaterial" >
           <div class="b_tamanho col-sm-4">
             <!-- Trigger the modal with a button -->
-            
 
             <!-- Modal -->
             <div class="modal fade" id="tamanho" role="dialog" >
-              <div class="modal-dialog"">
+              <div class="modal-dialog">
                 <!-- Modal content-->
                 <div class="modal-content" style="position: relative; top: 200px;">
                   <div class="modal-header">
@@ -143,57 +141,38 @@
                     <div class="checkbox">
                       <form id="tamanhoPadrao">
                         <div id="retangulares" class="col-sm-4">
-                          <p>Retangulares</p>
-                          <label onclick="T12x18()">
-                            <input type="radio" name="tamanho" value="12x18"> 12x18</label>
+                          
+                          <label  id="tamanho1">
+                            <input type="radio" name="tamanho" value="20x18" checked> 20x18cm</label>
                           <br>
-                          <label onclick="T20x30()">
-                            <input type="radio" name="tamanho" value="20x30"> 20x30</label>
+                          <label id="tamanho2">
+                            <input type="radio" name="tamanho" value="30x27"> 30x27cm</label>
                           <br>
-                          <label onclick="T30x45()">
-                            <input type="radio" name="tamanho" value="30x45"> 30x45</label>
+                          <label id="tamanho3">
+                            <input type="radio" name="tamanho" value="40x36"> 40x36cm</label>
                           <br>
-                          <label onclick="T40x60()">
-                            <input type="radio" name="tamanho" value="40x60" checked> 40x60</label>
+                          <label id="tamanho4">
+                            <input type="radio" name="tamanho" value="50x45" > 50x45cm</label>
                           <br>
-                          <label onclick="T60x90()">
-                            <input type="radio" name="tamanho" value="60x90"> 60x90</label>
+                          <label id="tamanho5">
+                            <input type="radio" name="tamanho" value="60x54"> 60x54cm</label>
                           <br>
-                          <label onclick="T90x45()">
-                            <input type="radio" name="tamanho" value="90x45"> 90x45</label>
+                          <label id="tamanho6">
+                            <input type="radio" name="tamanho" value="70x64"> 70x64cm</label>
+                          <br>
+                          <label id="tamanho7">
+                            <input type="radio" name="tamanho" value="80x72"> 80x72cm</label>
+                          <br>
+                          <label id="tamanho8">
+                            <input type="radio" name="tamanho" value="90x82"> 90x82cm</label>
                           <br>
                         </div>
                         <div id="quadrados" class="col-sm-4">
-                          <p>Quadrados</p>
-                          <label onclick="T20x20()">
-                            <input type="radio" name="tamanho" value="20x20"> 20x20</label>
-                          <br>
-                          <label onclick="T30x30()">
-                            <input type="radio" name="tamanho" value="30x30"> 30x30</label>
-                          <br>
-                          <label onclick="T45x45()">
-                            <input type="radio" name="tamanho" value="45x45"> 45x45</label>
-                          <br>
-                          <label onclick="T60x60()">
-                            <input type="radio" name="tamanho" value="60x60"> 60x60</label>
-                          <br>
-                          <label onclick="T90x90()">
-                            <input type="radio" name="tamanho" value="90x90"> 90x90</label>
+                          
                           <br>
                         </div>
                         <div id="panoramicos" class="col-sm-4">
-                          <p>Panoramicos</p>
-                          <label onclick="T18x12()">
-                            <input type="radio" name="tamanho" value="18x12"> 18x12</label>
-                          <br>
-                          <label onclick="T20x30()">
-                            <input type="radio" name="tamanho" value="20x30"> 20x30</label>
-                          <br>
-                          <label onclick="T30x45()">
-                            <input type="radio" name="tamanho" value="30x45"> 30x45</label>
-                          <br>
-                          <label onclick="T40x60()">
-                            <input type="radio" name="tamanho" value="40x60"> 40x60</label>
+                          
                           <br>
                         </div>
 
@@ -243,7 +222,7 @@
                         </div>
                       </nav>
                       <div id="tMeta">
-                        <div class="col-sm-3 m-thumb" onclick="meta7()">
+                        <div class="col-sm-3 m-thumb" id="meta7mm">
                           <div class="thumbnail" id="meta7-select-color">
                             <label>
                               <img src="<?php echo plugins_url( 'img/meta7mm.png', __FILE__ ); ?>" border="0" />
@@ -253,7 +232,7 @@
                             </label>
                           </div>
                         </div>
-                        <div class="col-sm-3 m-thumb" onclick="meta5()">
+                        <div class="col-sm-3 m-thumb" id="meta5mm">
                           <div class="thumbnail" id="meta5-select-color">
                             <label>
                               <img src="<?php echo plugins_url( 'img/meta5mm.png', __FILE__ ); ?>" border="0" />
@@ -264,7 +243,7 @@
                           </div>
                         </div>
 
-                        <div class="col-sm-3 m-thumb" onclick="meta4()">
+                        <div class="col-sm-3 m-thumb" id="meta4mm">
                           <div class="thumbnail" id="meta4-select-color">
                             <label>
                               <img src="<?php echo plugins_url( 'img/meta4mm.png', __FILE__ ); ?>" border="0" />
@@ -275,7 +254,7 @@
                           </div>
                         </div>
 
-                        <div class="col-sm-3 m-thumb" onclick="meta3()">
+                        <div class="col-sm-3 m-thumb" id="meta3mm">
                           <div class="thumbnail" id="meta3-select-color">
                             <label>
                               <img src="<?php echo plugins_url( 'img/meta3mm.png', __FILE__ ); ?>" border="0" />
@@ -286,7 +265,7 @@
                           </div>
                         </div>
 
-                        <div class="col-sm-3 m-thumb" onclick="acm5()">
+                        <div class="col-sm-3 m-thumb" id="acm5mm">
                           <div class="thumbnail" id="acm-select-color">
                             <label>
                               <img src="<?php echo plugins_url( 'img/acm.png', __FILE__ ); ?>" border="0" />
@@ -301,7 +280,7 @@
 
                       <div id="tPapel">
 
-                        <div class="col-sm-3 m-thumb" onclick="papelAlgodao()">
+                        <div class="col-sm-3 m-thumb" id="papelAlgodao">
                           <div class="thumbnail" id="algodao-select-color">
                             <label>
                               <img src="<?php echo plugins_url( 'img/algodao.png', __FILE__ ); ?>" border="0" />
@@ -312,7 +291,7 @@
                           </div>
                         </div>
 
-                        <div class="col-sm-3 m-thumb" onclick="acetinato()">
+                        <div class="col-sm-3 m-thumb" id="papelAcetinato">
                           <div class="thumbnail" id="acetinato-select-color">
                             <label>
                               <img src="<?php echo plugins_url( 'img/acetinato.png', __FILE__ ); ?>" border="0" />
@@ -323,7 +302,7 @@
                           </div>
                         </div>
 
-                        <div class="col-sm-3 m-thumb" onclick="brilhante()">
+                        <div class="col-sm-3 m-thumb" id="papelBrilhante">
                           <div class="thumbnail" id="brilhante-select-color">
                             <label>
                               <img src="<?php echo plugins_url( 'img/brilhante.png', __FILE__ ); ?>" border="0" />
@@ -334,7 +313,7 @@
                           </div>
                         </div>
 
-                        <div class="col-sm-3 m-thumb" onclick="fosco()">
+                        <div class="col-sm-3 m-thumb" id="papelFosco">
                           <div class="thumbnail" id="fosco-select-color">
                             <label>
                               <img src="<?php echo plugins_url( 'img/fosco.png', __FILE__ ); ?>" border="0" />
@@ -344,7 +323,7 @@
                             </label>
                           </div>
                         </div>
-                        <div class="col-sm-3 m-thumb" onclick="canvas()">
+                        <div class="col-sm-3 m-thumb" id="papelCanvas">
                           <div class="thumbnail" id="canvas-select-color">
                             <label>
                               <img src="<?php echo plugins_url( 'img/canvas.png', __FILE__ ); ?>" border="0" />
@@ -359,7 +338,7 @@
 
                       <div id="tUv">
 
-                        <div class="col-sm-3 m-thumb" onclick="uvPs()">
+                        <div class="col-sm-3 m-thumb" id="uvPS">
                           <div class="thumbnail" id="uv-select-color">
                             <label>
                               <img src="<?php echo plugins_url( 'img/uvps.png', __FILE__ ); ?>" border="0" />
@@ -370,7 +349,7 @@
                           </div>
                         </div>
 
-                        <div class="col-sm-3 m-thumb" onclick="uvAcm()">
+                        <div class="col-sm-3 m-thumb" id="uvACM">
                           <div class="thumbnail" id="uvacm-select-color">
                             <label>
                               <img src="<?php echo plugins_url( 'img/uvacm.png', __FILE__ ); ?>" border="0" />
@@ -424,7 +403,7 @@
 
                         <div id="m-contemporanea">
                           <div class="col-md-4 t-thumb" onclick="atenas()">
-                            <div class="thumbnail" id="atenas-select-color">
+                            <div class="thumbnail" id="atenas-select-color" >
                               <label>
                                 <img src="<?php echo plugins_url( 'img/atenas.png', __FILE__ ); ?>" border="0" />
                                 <div>

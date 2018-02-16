@@ -18,6 +18,7 @@ require 'iap-pedido-bd-connection.php';
 require 'inc/ajax.php';
 require 'inc/woo.php';
 require 'calculadoraProdutosInsta/iap-get-preco.php';
+
 /*
  * Verifica se o WooCommerce tá presente
  */
@@ -71,5 +72,5 @@ function iap_register_scripts(){
 	
 	wp_enqueue_script('bootstrap-modal', plugins_url('frontend/js/bootstrap.js', __FILE__), 'jquery', 1.0, true);
 	wp_enqueue_script('validaTamanho', plugins_url('frontend/js/validaTamanho.js', __FILE__), 'jquery', 1.0, true);
-
+	wp_enqueue_script('config-preco', plugins_url('frontend/js/config-preco.js',__FILE__),'jquery', 1.0, true);
 }
