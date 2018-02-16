@@ -17,6 +17,7 @@ require 'iap-pedido-fields.php';
 require 'iap-pedido-bd-connection.php';
 require 'inc/ajax.php';
 require 'inc/woo.php';
+require 'calculadoraProdutosInsta/iap-get-preco.php';
 /*
  * Verifica se o WooCommerce tá presente
  */
@@ -31,6 +32,7 @@ if ( class_exists( 'WooCommerce' ) ) {
 	add_action( 'admin_notices', 'iap_aviso_woocommerce' );
 	return;
 }
+
 //Carrega Template na página do produto
 function iap_referal_init() {
 	$produto = get_page_by_title('Quadro Personalizado IAP', OBJECT, 'product');
@@ -42,6 +44,7 @@ function iap_referal_init() {
 		die();
 	}
 }
+
 add_action( 'wp', 'iap_referal_init' );
 function iap_register_scripts(){
 	wp_enqueue_style( 'bootstrap', '//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css');

@@ -1,6 +1,9 @@
 
 <?php get_header(); ?>
-
+<?php 
+  $teste = new CalculaPreco;
+  $teste -> formula_pedido_instaarts('meta4mm', 0, 20, 30);
+?>
 <div class="container" onload="formulaTotal()">
  
   <div class="row container-b">
@@ -72,39 +75,41 @@
                 </div>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Ok</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Voltar</button>
               </div>
             </div>
           </div>
         </div>
       </div>
       <div class="hud-produtos">
-
+        <!-- hud com o preco e acabamento 
         <div class="somaProdutos well">
-          <span id="s-tamanho" class="hud-calcularPreco">40x60cm</span>
+          <span  class="hud-calcularPreco">40x60cm</span>
           <span class="badge">+</span>
-          <span id="s-metacrilato" class="hud-calcularPreco">Metacrilato 3mm </span>
-          <span id="s-moldura" class="hud-calcularPreco badge">Esolha sua moldura</span>
-          <span id="s-preco">R$ 343.60</span>
+          <span class="hud-calcularPreco">Metacrilato 3mm </span>
+          <span class="hud-calcularPreco badge">Esolha sua moldura</span>
+          <span >R$ 343.60</span>
         </div>
-
+        -->
         <div class="col-lg-12 col-sm-12 col-xs-12">
           <div class="col-lg-3 col-sm-3 col-xs-6">
-            <button type="button" id="b-tamanho" class="btn btn-default btn-lg hud-botao" data-toggle="modal" data-target="#tamanho">Tamanho</button>
+            <button type="button" id="b-tamanho" class="btn btn-default btn-lg hud-botao" data-toggle="modal" data-target="#tamanho">Tamanho <span id="s-tamanho"> 40x60cm</span> </button>
+            
           </div>
 
           <div class="col-lg-3 col-sm-3 col-xs-6">
             <!-- Trigger the modal with a button -->
-            <button type="button" class="btn btn-default btn-lg hud-botao" data-toggle="modal" data-target="#material">Acabamento</button>
+            <button type="button" class="btn btn-default btn-lg hud-botao" data-toggle="modal" data-target="#material"><span id="s-metacrilato"> Metacrilato 3mm</span></button>
           </div>
 
           <div class="col-lg-3 col-sm-3 col-xs-6">
              <!-- Trigger the modal with a button -->
-            <button type="button" class="btn btn-default btn-lg hud-botao" data-toggle="modal" data-target="#moldura">Moldura</button>
+            <button type="button" class="btn btn-default btn-lg hud-botao" data-toggle="modal" data-target="#moldura"><span id="s-moldura">Moldura</span></button>
           </div>
 
           <div class="col-lg-3 col-sm-3 col-xs-6">
-            <button id="comprar-botao" type="button" class="btn btn-success btn-lg hud-botao b-comprar">Comprar</button>
+            <button id="comprar-botao" type="button" class="btn btn-success btn-lg hud-botao b-comprar">Comprar <span id="s-preco">R$ 343,60</span> </button>
+            <span id="s-preco"></span>
           </div>
         </div>
 
@@ -128,7 +133,7 @@
                             <a href="#" id="b-tamanhoPadrao">Padrão</a>
                           </li>
                           <li>
-                            <a href="#" id="b-tamanhoPersonalizado">Personalizado</a>
+                            <a href="#" id="#"></a>
                           </li>
                         </ul>
                       </div>
@@ -195,22 +200,13 @@
                       </form>
                     </div>
                   </div>
+                  
                   <div id="tamanhoPersonalizado">
-                    <form class="col-sm-6">
-                      <h4>Tamanho personalizado</h4>
-                      <div class="form-group">
-                        <label>X:</label>
-                        <input type="number" id="x" class="form-control" placeholder="Largura em cm">
-                      </div>
-                      <div class="form-group">
-                        <label>Y:</label>
-                        <input type="number" id="y" class="form-control" placeholder="Altura em cm">
-                      </div>
-                      <button type="button" class="btn btn-default" data-dismiss="modal" onclick="tamanhoUsuario()">Usar tamanho personalizado</button>
-                    </form>
+                    
                   </div>
+
                   <div class="modal-footer"></div>
-                  <button type="button" class="btn btn-default ok-modal-tamanho" data-dismiss="modal">OK</button>
+                  <button type="button" class="btn btn-default ok-modal-tamanho" data-dismiss="modal">Voltar</button>
                 </div>
               </div>
             </div>
@@ -389,7 +385,7 @@
                     </div>
                   </div>
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-default ok-modal-acabamento" data-dismiss="modal">Ok</button>
+                    <button type="button" class="btn btn-default ok-modal-acabamento" data-dismiss="modal">Voltar</button>
                   </div>
                 </div>
               </div>
@@ -602,7 +598,7 @@
                   </div>
                   <div class="modal-footer">
                     <span onclick="semMoldura()" class="btn btn-default">Sem Moldura</span>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Ok</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Voltar</button>
                   </div>
                 </div>
               </div>
