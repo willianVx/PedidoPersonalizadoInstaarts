@@ -1,4 +1,7 @@
 <?php 
+if ( ! defined( 'ABSPATH' ) ) {
+        exit; // Exit if accessed directly
+    }
 //cria banco de dados para armazenar informações do pedido --> como: largura, altura, link da imagem original sem edição e link da imagem editada no servidor da amazon
 $jal_db_version = '1.0';
 session_start();
@@ -21,8 +24,8 @@ function iap_db_install() {
 		acabamento varchar(55) NOT NULL,
 		moldura varchar(55) NOT NULL,
 		preco varchar(55) NOT NULL,
-		linkOriginal varchar(55) NOT NULL,
-		linkAmazon varchar(55) NOT NULL,
+		linkOriginal varchar(110) NOT NULL,
+		linkAmazon varchar(110) NOT NULL,
 		data varchar(55) NOT NULL,
 		PRIMARY KEY  (id)
 	) $charset_collate;";
