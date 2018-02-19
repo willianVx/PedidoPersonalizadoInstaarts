@@ -402,7 +402,7 @@
                       <div id="bMoldura">
 
                         <div id="m-contemporanea">
-                          <div class="col-md-4 t-thumb" onclick="atenas()">
+                          <div class="col-md-4 t-thumb" id="m_atenas">
                             <div class="thumbnail" id="atenas-select-color" >
                               <label>
                                 <img src="<?php echo plugins_url( 'img/atenas.png', __FILE__ ); ?>" border="0" />
@@ -413,7 +413,7 @@
                             </div>
                           </div>
 
-                          <div class="col-md-4 t-thumb" onclick="basel()">
+                          <div class="col-md-4 t-thumb" id="m_basel">
                             <div class="thumbnail" id="basel-select-color">
                               <label>
                                 <img src="<?php echo plugins_url( 'img/basel.png', __FILE__ ); ?>" border="0" />
@@ -424,7 +424,7 @@
                             </div>
                           </div>
 
-                          <div class="col-md-4 t-thumb" onclick="berlim()">
+                          <div class="col-md-4 t-thumb" id="m_berlim">
                             <div class="thumbnail" id="berlim-select-color">
                               <label>
                                 <img src="<?php echo plugins_url( 'img/berlim.png', __FILE__ ); ?>" border="0" />
@@ -435,7 +435,7 @@
                             </div>
                           </div>
 
-                          <div class="col-md-4 t-thumb" onclick="miami()">
+                          <div class="col-md-4 t-thumb" id="m_miami">
                             <div class="thumbnail" id="miami-select-color">
                               <label>
                                 <img src="<?php echo plugins_url( 'img/miami.png', __FILE__ ); ?>" border="0" />
@@ -446,7 +446,7 @@
                             </div>
                           </div>
 
-                          <div class="col-md-4 t-thumb" onclick="novaYork()">
+                          <div class="col-md-4 t-thumb" id="m_nova_york">
                             <div class="thumbnail" id="novayork-select-color">
                               <label>
                                 <img src="<?php echo plugins_url( 'img/novayork.png', __FILE__ ); ?>" border="0" />
@@ -457,7 +457,7 @@
                             </div>
                           </div>
                          
-                          <div class="col-md-4 t-thumb" onclick="saoPaulo()">
+                          <div class="col-md-4 t-thumb" id="m_sao_paulo">
                             <div class="thumbnail" id="saopaulo-select-color">
                               <label>
                                 <img src="<?php echo plugins_url( 'img/saopaulo.png', __FILE__ ); ?>" border="0" />
@@ -471,7 +471,7 @@
                         </div>
                         <div id="m-moderna">
 
-                          <div class="col-md-4 t-thumb" onclick="amazonas()">
+                          <div class="col-md-4 t-thumb" id="m_amazonas">
                             <div class="thumbnail" id="amazonas-select-color">
                               <label>
                                 <img src="<?php echo plugins_url( 'img/amazonas.png', __FILE__ ); ?>" border="0" />
@@ -482,7 +482,7 @@
                             </div>
                           </div>
 
-                          <div class="col-md-4 t-thumb" onclick="amsterdam()">
+                          <div class="col-md-4 t-thumb" id="m_amsterdam">
                             <div class="thumbnail" id="amsterdam-select-color">
                               <label>
                                 <img src="<?php echo plugins_url( 'img/amsterdam.png', __FILE__ ); ?>" border="0" />
@@ -493,7 +493,7 @@
                             </div>
                           </div>
 
-                          <div class="col-md-4 t-thumb" onclick="buenosAires()">
+                          <div class="col-md-4 t-thumb" id="m_buenosaires">
                             <div class="thumbnail" id="buenosaires-select-color">
                               <label>
                                 <img src="<?php echo plugins_url( 'img/buenosaires.png', __FILE__ ); ?>" border="0" />
@@ -504,7 +504,7 @@
                             </div>
                           </div>
 
-                          <div class="col-md-4 t-thumb" onclick="londres()">
+                          <div class="col-md-4 t-thumb" id="m_londres">
                             <div class="thumbnail" id="londres-select-color">
                               <label>
                                 <img src="<?php echo plugins_url( 'img/londres.png', __FILE__ ); ?>" border="0" />
@@ -515,7 +515,7 @@
                             </div>
                           </div>
 
-                          <div class="col-md-4 t-thumb" onclick="santiago()">
+                          <div class="col-md-4 t-thumb" id="m_santiago">
                             <div class="thumbnail" id="santiago-select-color">
                               <label>
                                 <img src="<?php echo plugins_url( 'img/santiago.png', __FILE__ ); ?>" border="0" />
@@ -528,7 +528,7 @@
                         </div>
                        
                         <div id="m-classica">
-                          <div class="col-md-4 t-thumb" onclick="florenca()">
+                          <div class="col-md-4 t-thumb" id="m_florenca">
                             <div class="thumbnail" id="florenca-select-color">
                               <label>
                                 <img src="<?php echo plugins_url( 'img/florenca.png', __FILE__ ); ?>" border="0" />
@@ -539,7 +539,7 @@
                             </div>
                           </div>
 
-                          <div class="col-md-4 t-thumb" onclick="instambul()">
+                          <div class="col-md-4 t-thumb" id="m_istambul">
                             <div class="thumbnail" id="istambul-select-color">
                               <label>
                                 <img src="<?php echo plugins_url( 'img/istambul.png', __FILE__ ); ?>" border="0" />
@@ -550,7 +550,7 @@
                             </div>
                           </div>
 
-                          <div class="col-md-4 t-thumb" onclick="paris()">
+                          <div class="col-md-4 t-thumb" id="m_paris">
                             <div class="thumbnail" id="paris-select-color">
                               <label>
                                 <img src="<?php echo plugins_url( 'img/paris.png', __FILE__ ); ?>" border="0" />
@@ -561,7 +561,7 @@
                             </div>
                           </div>
 
-                          <div class="col-md-4 t-thumb" onclick="roma()">
+                          <div class="col-md-4 t-thumb" id="m_roma">
                             <div class="thumbnail" id="roma-select-color">
                               <label>
                                 <img src="<?php echo plugins_url( 'img/roma.png', __FILE__ ); ?>" border="0" />
@@ -576,7 +576,7 @@
                     </div>
                   </div>
                   <div class="modal-footer">
-                    <span onclick="semMoldura()" class="btn btn-default">Sem Moldura</span>
+                    <span id="n_moldura" class="btn btn-default">Sem Moldura</span>
                     <button type="button" class="btn btn-default" data-dismiss="modal">Voltar</button>
                   </div>
                 </div>
