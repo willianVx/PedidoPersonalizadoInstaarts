@@ -1,192 +1,311 @@
 jQuery(document).ready(function($){
 
-
+    
     //define tamanho 
-
+   
     var tamanho = {
         setTamanho(x,y){
             this.x = x;
             this.y = y;
             this.tamanhoTexto(x,y);
         },
+        getTamanho(a){
+           if(a === x){
+               return this.x;
+           }
+           if(a === y){
+               return this.y;
+           }
+        },
         tamanhoTexto(x,y){
             $("#s-tamanho").html(this.x+"x"+this.y+"cm");
         }
     }
-    
     $("#tamanho1").click(function(){
         tamanho.setTamanho(20,18);
+        enviaDados();
     });
 
     $("#tamanho2").click(function(){
         tamanho.setTamanho(30,27);
+        enviaDados();
     });
 
     $("#tamanho3").click(function(){
         tamanho.setTamanho(40,36);
+        enviaDados();
     });
 
     $("#tamanho4").click(function(){
         tamanho.setTamanho(50,45);
+        enviaDados();
     });
 
     $("#tamanho5").click(function(){
         tamanho.setTamanho(60,54);
+        enviaDados();
     });
 
     $("#tamanho6").click(function(){
         tamanho.setTamanho(70,64);
+        enviaDados();
     });
 
     $("#tamanho7").click(function(){
         tamanho.setTamanho(80,72);
+        enviaDados();
     });
 
     $("#tamanho8").click(function(){
         tamanho.setTamanho(90,82);
+        enviaDados();
     });
 
     //define acabamento 
 
-    var acabamento = {
-        setAcabamento(acabamento){
-            this.acabamento = acabamento;
-            this.acabamentoTexto(this.acabamento);
-        },
-        acabamentoTexto(acabamento){
-            $("#s-metacrilato").html(acabamento);
-        }
+    function setAcabamento(acabamento){
+        this.acabamento = acabamento;   
+    }
+    function getAcabamento(){
+        return this.acabamento;
+    }
+    function printAcabamento(TextoAcabamento){
+        $("#s-metacrilato").html(TextoAcabamento);
     }
 
     $("#meta7mm").click(function(){
-        acabamento.setAcabamento("meta7mm");
+        setAcabamento("meta7mm");
+        printAcabamento("Metacrilato 7mm");
+        enviaDados();
+        this.parametro = false;
     });
 
     $("#meta5mm").click(function(){
-        acabamento.setAcabamento("meta5mm");
+        setAcabamento("meta5mm");
+        printAcabamento("Metacrilato 5mm");
+        enviaDados();
     });
 
     $("#meta3mm").click(function(){
-        acabamento.setAcabamento("meta3mm");
+        setAcabamento("meta3mm");
+        printAcabamento("Metacrilato 3mm");
+        enviaDados();
     });
 
     $("#meta4mm").click(function(){
-        acabamento.setAcabamento("meta4mm");
+        setAcabamento("meta4mm");
+        printAcabamento("Metacrilato 4mm PS");
+        enviaDados();
     });
 
     $("#meta3mm").click(function(){
-        acabamento.setAcabamento("meta3mm");
+        setAcabamento("meta3mm");
+        printAcabamento("Metacrilato 3mm");
+        enviaDados();
     });
 
     $("#acm5mm").click(function(){
-        acabamento.setAcabamento("acm5mm");
+        setAcabamento("acm5mm");
+        printAcabamento("Metacrilato ACM");
+        enviaDados();
     });
 
     $("#papelAlgodao").click(function(){
-        acabamento.setAcabamento("papelAlgodao");
+        setAcabamento("papelAlgodao");
+        checaCompatibilidade();
+        printAcabamento("Papel Algodão");
+        enviaDados();
+        this.parametro = true;
     });
 
     $("#papelAcetinato").click(function(){
-        acabamento.setAcabamento("papelAcetinato");
+        setAcabamento("papelAcetinato");
+        checaCompatibilidade();
+        printAcabamento("papel Acetinato");
+        enviaDados();
     });
 
     $("#papelBrilhante").click(function(){
-        acabamento.setAcabamento("papelBrilhante");
+        setAcabamento("papelBrilhante");
+        checaCompatibilidade();
+        printAcabamento("Papel Brilhante");
+        enviaDados();
     });
 
     $("#papelFosco").click(function(){
-        acabamento.setAcabamento("papelFosco");
+        setAcabamento("papelFosco");
+        checaCompatibilidade();
+        printAcabamento("Papel Fosco");
+        enviaDados();
     });
 
     $("#papelCanvas").click(function(){
-        acabamento.setAcabamento("papelCanvas");
+        setAcabamento("papelCanvas");
+        printAcabamento("Canvas");
+        enviaDados();
     });
 
     $("#uvPS").click(function(){
-        acabamento.setAcabamento("uvPS");
+        setAcabamento("uvPS");
+        printAcabamento("Impressão UV PS");
+        enviaDados();
     });
 
     $("#uvACM").click(function(){
-        acabamento.setAcabamento("uvACM");
+        setAcabamento("uvACM");
+        printAcabamento("Impressão UV ACM");
+        enviaDados();
     });
 
+    // checa moldura em relacao a acabamento
 
+    function checaCompatibilidade(){
+        if(!moldura.getTipo() == 0){
+            moldura.setMoldura("Moldura");
+            moldura.setTipo(0);
+        }
+    }
+  
     //define moldura
 
     var moldura = {
         setMoldura(moldura){
-            this.moldura = moldura;
-            $("#s-moldura").html(this.moldura);
+            if (getAcabamento() == "papelAlgodao" | getAcabamento() == "papelAcetinato" | getAcabamento() == "papelBrilhante" | getAcabamento() == "papelFosco" ) {
+                $("#s-moldura").html("Moldura");
+            }else{
+                this.moldura = moldura;
+                $("#s-moldura").html(this.moldura);
+            }
+        },
+        getMoldura(){
+            return this.moldura;
         },
         setTipo(tipoM){
             this.molduraTipo = tipoM;
+        },
+        getTipo(){
+            return this.molduraTipo;
         }
     }
-    //
     $("#m_atenas").click(function(){
         moldura.setMoldura("Atenas");
         moldura.setTipo(1);
+        enviaDados();
     });
     $("#m_basel").click(function(){
         moldura.setMoldura("Basel");
         moldura.setTipo(2);
+        enviaDados();
     });
     $("#m_berlim").click(function(){
         moldura.setMoldura("Berlim");
         moldura.setTipo(3);
+        enviaDados();
     });
     $("#m_miami").click(function(){
         moldura.setMoldura("Miami");
         moldura.setTipo(1);
+        enviaDados();
     });
     $("#m_nova_york").click(function(){
         moldura.setMoldura("Nova York");
         moldura.setTipo(2);
+        enviaDados();
     });
     $("#m_sao_paulo").click(function(){
         moldura.setMoldura("São Paulo");
         moldura.setTipo(2);
+        enviaDados();
     });
     $("#m_amazonas").click(function(){
         moldura.setMoldura("Amazonas");
         moldura.setTipo(2);
+        enviaDados();
     });
     $("#m_amsterdam").click(function(){
         moldura.setMoldura("Amsterdam");
         moldura.setTipo(2);
+        enviaDados();
     });
     $("#m_buenosaires").click(function(){
         moldura.setMoldura("Buenos Aires");
         moldura.setTipo(2);
+        enviaDados();
     });
     $("#m_londres").click(function(){
         moldura.setMoldura("Londres");
         moldura.setTipo(1);
+        enviaDados();
     });
     $("#m_santiago").click(function(){
         moldura.setMoldura("Santiago");
         moldura.setTipo(1);
+        enviaDados();
     });
     $("#m_florenca").click(function(){
         moldura.setMoldura("Florença");
         moldura.setTipo(3);
+        enviaDados();
     });
     $("#m_istambul").click(function(){
         moldura.setMoldura("Istambul");
         moldura.setTipo(3);
+        enviaDados();
     });
     $("#m_paris").click(function(){
         moldura.setMoldura("Paris");
         moldura.setTipo(3);
+        enviaDados();
     });
     $("#m_roma").click(function(){
         moldura.setMoldura("Roma");
         moldura.setTipo(1);
+        enviaDados();
     });
     $("#n_moldura").click(function(){
         moldura.setMoldura("Moldura");
         moldura.setTipo(0);
+        enviaDados();
     });
+    
+    //define valores iniciais
+
+    tamanho.setTamanho(20,18);
+    setAcabamento("meta3mm");
+    moldura.setTipo(0);
+    enviaDados();
+
     //envia dados para o servidor e retorna preço 
+    
+    function enviaDados(){
+        $("#s-preco").html("carregando...");
+        x = tamanho.getTamanho(x);
+        y = tamanho.getTamanho(y);
+        acabamento = getAcabamento();
+        tipoMoldura = moldura.getTipo();
+        $.ajax({
+            type: "POST",
+            url: comprar.ajax_url,
+            data: {
+                d1: "d1",
+                action: "iap_order",
+                acabamento: acabamento,
+                tipoMoldura: tipoMoldura,
+                x: x,
+                y: y
+            },
+            success: function(data) {
+                if (data == "0") {
+                    alert("Erro no processamento. Tente mais tarde.");
+                } else {
+                    $("#s-preco").html(data);
+                }
+            },
+            error: function(data) {
+                alert("Erro no processamento. Tente mais tarde.");
+            }
+        });
+        
+    }
 
 });

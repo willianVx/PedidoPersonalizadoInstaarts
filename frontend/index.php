@@ -1,8 +1,6 @@
 
 <?php get_header(); ?>
-<?php 
-  $teste = new CalculaPreco;
-?>
+
 <div class="container" onload="formulaTotal()">
  
   <div class="row container-b">
@@ -107,7 +105,7 @@
           </div>
 
           <div class="col-lg-3 col-sm-3 col-xs-6">
-            <button id="comprar-botao" type="button" class="btn btn-success btn-lg hud-botao b-comprar">Comprar <span id="s-preco"><?php $teste -> formula_pedido_instaarts('meta3mm', 0, 20, 18); ?></span> </button>
+            <button id="comprar-botao" type="button" class="btn btn-success btn-lg hud-botao b-comprar">Comprar <span id="s-preco"></span> </button>
             <span id="s-preco"></span>
           </div>
         </div>
