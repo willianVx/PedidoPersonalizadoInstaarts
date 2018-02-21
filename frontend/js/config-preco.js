@@ -1,6 +1,12 @@
-jQuery(document).ready(function($){
+    var x = 20;
+    var y = 18;
+    var tipoMoldura = 0;
+    var nome_moldura = " Sem Moldura ";
+    var nome_acabamento = " Metacrilato 3mm ";
+    var preco = 343.6;
+    var tipo_moldura = 0;
 
-    
+jQuery(document).ready(function($){
     //define tamanho 
    
     var tamanho = {
@@ -281,16 +287,17 @@ jQuery(document).ready(function($){
         $("#s-preco").html("carregando...");
         x = tamanho.getTamanho(x);
         y = tamanho.getTamanho(y);
-        acabamento = getAcabamento();
-        tipoMoldura = moldura.getTipo();
+        nome_acabamento = getAcabamento();
+        nome_moldura = moldura.getMoldura();
+        tipo_moldura = moldura.getTipo();
         $.ajax({
             type: "POST",
             url: comprar.ajax_url,
             data: {
                 d1: "d1",
                 action: "iap_order",
-                acabamento: acabamento,
-                tipoMoldura: tipoMoldura,
+                acabamento: nome_acabamento,
+                tipoMoldura: tipo_moldura,
                 x: x,
                 y: y
             },

@@ -52,7 +52,7 @@ function iap_register_scripts(){
 	wp_enqueue_style('estilo', plugins_url('PedidoPersonalizadoInstaarts/css/style.css'));
 	wp_enqueue_script('jquery-form', '//malsup.github.com/jquery.form.js');
 	wp_enqueue_script('adobe-aviary', '//dme0ih8comzn4.cloudfront.net/imaging/v3/editor.js');
-	wp_enqueue_script('iap-calculo', plugins_url('frontend/js/calculaPreco.js', __FILE__), 'jquery', 1.0, true);
+	//wp_enqueue_script('iap-calculo', plugins_url('frontend/js/calculaPreco.js', __FILE__), 'jquery', 1.0, true);
 	wp_enqueue_script('iap-bar', plugins_url('frontend/js/bar.js', __FILE__), 'jquery', 1.0, true);
 	
 	wp_register_script('iap-index', plugins_url('frontend/js/index.js', __FILE__), 'jquery', 1.0, true);
@@ -71,6 +71,6 @@ function iap_register_scripts(){
 	wp_enqueue_script('iap-index');
 	
 	wp_enqueue_script('bootstrap-modal', plugins_url('frontend/js/bootstrap.js', __FILE__), 'jquery', 1.0, true);
-	wp_enqueue_script('validaTamanho', plugins_url('frontend/js/validaTamanho.js', __FILE__), 'jquery', 1.0, true);
+	//wp_enqueue_script('validaTamanho', plugins_url('frontend/js/validaTamanho.js', __FILE__), 'jquery', 1.0, true);
 	wp_enqueue_script('config-preco', plugins_url('frontend/js/config-preco.js',__FILE__),'jquery', 1.0, true);
 }

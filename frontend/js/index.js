@@ -9,9 +9,10 @@ jQuery(document).ready(function($) {
 	// manda os dados do pedido para o servidor via ajax
 	$("#comprar-botao").click(function() {
 		//imagemEditada = currentImage.src;
-
 		//console.log(imagemEditada);
+		
 		console.log(image_url.value);
+
 		var imagemOriginal = image_url.value;
 		var editimage = edited_image_url.value;
 
@@ -26,11 +27,12 @@ jQuery(document).ready(function($) {
 					url: comprar.ajax_url,
 					data: {
 						action: "iap_order",
+						d2: "d2",
 						moldura: nome_moldura,
 						acabamento: nome_acabamento,
+						tipoMoldura: tipo_moldura,
 						largura: x,
 						altura: y,
-						preco: preco,
 						imagem: imagemOriginal
 					},
 					success: function(data) {

@@ -23,15 +23,28 @@
 
         private $total;
 
-        public function formula_pedido_instaarts($acabamento, $tipoDeMoldura, $tamanhoX, $tamanhoY){
+        public function get_total_bruto($acabamento, $tipoDeMoldura, $tamanhoX, $tamanhoY){
             $preco = $this -> setPrecoBaseAcabamento($acabamento, $tipoDeMoldura);
             $v = $this -> validaTamanho($tamanhoX, $tamanhoY);
 
             $total = $tamanhoX * $tamanhoY * $preco / 10000 + 40;
 
             if($v){
+                return $total;
+            }
+            else{
+                echo "erro";
+            }
+        }
+
+        public function formula_pedido_instaarts($acabamento, $tipoDeMoldura, $tamanhoX, $tamanhoY){
+            $preco = $this -> setPrecoBaseAcabamento($acabamento, $tipoDeMoldura);
+            $v = $this -> validaTamanho($tamanhoX, $tamanhoY);
+
+            $total = $tamanhoX * $tamanhoY * $preco / 10000 + 40;
+            if($v){
                 //echo "tamanhos ". $tamanhoX. " cm por " . $tamanhoY ." acabamento ".$acabamento." Preço: ".$total." ";
-                print "R$ ".number_format($total, 2, ',', '.');
+                print "R$ ".number_format($total, 1, ',', '.');
             }
             else{
                 echo "erro";

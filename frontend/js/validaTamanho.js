@@ -1,6 +1,4 @@
 jQuery(document).ready(function($) {
-	//console.log(3/2);
-	//console.log((5906/3937).toFixed(1));
 	setOrdem(20,10);
 	$("#b-tamanho").click(function(){
 		if (window.imgWidth == 0 && window.imgHeight == 0){

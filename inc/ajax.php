@@ -1,20 +1,22 @@
-<?php 	
+<?php 
 
 /*
  * Envia o quadro pro carrinho
  */
 function iap_order() {
-
  	if(isset($_POST['d1'])){
-		iap_precoCalc($_POST['acabamento'],$_POST['x'],$_POST['y'],$_POST['tipoMoldura']);
+		$conta = new CalculaPreco;
+		$conta -> formula_pedido_instaarts($_POST['acabamento'],$_POST['tipoMoldura'],$_POST['x'],$_POST['y']);
 	 }
 
-	if (isset($_POST['preco'])) {
+	if (isset($_POST['d2'])) {
+		$conta2 = new CalculaPreco;
+		
 		$data['moldura'] = $_POST['moldura'];
 		$data['acabamento'] = $_POST['acabamento'];
 		$data['x'] = $_POST['largura'];
 		$data['y'] = $_POST['altura'];
-		$data['preco'] = $_POST['preco'];
+		$data['preco'] = $conta2 -> get_total_bruto($_POST['acabamento'], $_POST['tipoMoldura'], $_POST['largura'], $_POST['altura']);
 		$data['imagem'] = $_POST["imagem"];
 		$data['imagemEditada'] = $_POST['imagemAdobe'];
 
@@ -103,10 +105,3 @@ function iap_imageTransfer(){
 
 add_action('wp_ajax_iap_imageTransfer', 'iap_imageTransfer');
 add_action('wp_ajax_nopriv_iap_imageTransfer', 'iap_imageTransfer');
-
-function iap_precoCalc(){
-	$conta = new CalculaPreco;
-	$conta -> formula_pedido_instaarts($_POST['acabamento'],$_POST['tipoMoldura'],$_POST['x'],$_POST['y']);
-}
-add_action('wp_ajax_iap_precoCalc', 'iap_precoCalc');
-add_action('wp_ajax_nopriv_iap_precoCalc', 'iap_precoCalc');
