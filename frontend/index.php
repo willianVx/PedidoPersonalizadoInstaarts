@@ -54,10 +54,11 @@
                 <h4 class="modal-title">Faça o Upload da Sua Imagem</h4>
               </div>
               <div class="modal-body">
-                <p>Sua Imagem deve estar nos formatos: JPEG ou PNG</p>
+
+                <p>Ela deve estar nos formatos: JPEG ou PNG</p>
 
                 <form method="post" action="" id="myForm" enctype="multipart/form-data">
-                  Click no Botão para escolher a imagem:
+                  Click no Botão para escolher apartir do seu computador:
                   <input type="file" name="fileToUpload" id="fileToUpload">
                   <br>
                   <!--<input type="submit" name="submit" value="upload-image" class="btn btn-success">-->
@@ -70,6 +71,8 @@
                 <div id="progress-bar" class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"
                   style="width:0%">
                 </div>
+              </div>
+              <div class="linha_div_vertical">
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Voltar</button>
@@ -90,7 +93,7 @@
         -->
         <div class="col-lg-12 col-sm-12 col-xs-12">
           <div class="col-lg-3 col-sm-3 col-xs-6">
-            <button type="button" id="b-tamanho" class="btn btn-default btn-lg hud-botao" data-toggle="modal" data-target="#tamanho">Tamanho <span id="s-tamanho"> 20x18cm</span> </button>
+            <button type="button" id="b-tamanho" class="btn btn-default btn-lg hud-botao" data-toggle="modal" data-target="#tamanho">Tamanho: <span id="s-tamanho"> 20x18cm</span> </button>
             
           </div>
 
@@ -105,7 +108,7 @@
           </div>
 
           <div class="col-lg-3 col-sm-3 col-xs-6">
-            <button id="comprar-botao" type="button" class="btn btn-success btn-lg hud-botao b-comprar">Comprar <span id="s-preco"></span> </button>
+            <button id="comprar-botao" type="button" class="btn btn-success btn-lg hud-botao b-comprar">Comprar: <span id="s-preco"></span> </button>
             <span id="s-preco"></span>
           </div>
         </div>
@@ -397,7 +400,7 @@
                           </ul>
                         </div>
                       </nav>
-                      <div id="bMoldura">
+                      <div id="bMoldura" class="bMoldura">
 
                         <div id="m-contemporanea">
                           <div class="col-md-4 t-thumb" id="m_atenas">

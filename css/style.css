@@ -39,6 +39,9 @@
     .hud-botao {
       position: relative;
       top: 10px;
+      width: 215px;
+      height: 46px;
+      font-size: 15px;
     }
 
     .b-comprar {
@@ -72,7 +75,7 @@
 
     .t-thumb {
       position: relative;
-      width: 120px;
+      width: 200px;
     }
 
     .m-thumb {
@@ -105,6 +108,34 @@
       position: absolute;
       z-index: 20;
       display: block;
+    }
+    .progress{
+      position: relative;
+      width: 425px;
+      margin-left: 15px;
+    }
+    .linha_div_vertical{
+      position: absolute;
+      height: 150px;
+      width: 1px;
+      background-color: rgb(204, 204, 204);
+      top: 90px;
+      bottom: -2px;
+      left: 500px;
+    }
+    input{
+      position: relative;
+      width: 250px;
+      height: 50px;
+      margin-left: 10px;
+      top: 10px;
+      padding: 5px 15px;
+      background-color: #44a842;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    input:hover{
+      background-color: #2f7e2e;
     }
     @media(max-width: 700px){
       .hud-botao{
