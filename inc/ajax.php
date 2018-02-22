@@ -27,9 +27,29 @@ function iap_order() {
 		
 		echo "1";
 
-	} else {
+	} 
 
-		echo "0";
+	$d3 = new ImagemProporcional;
+
+	if (isset($_POST['d3'])){
+
+		$x = $_POST['x'];
+		$y = $_POST['y'];
+		
+		$string_array = implode(“z”, $d3 -> TamanhosProporcionais($x, $y));
+		echo $string_array;
+	}
+	
+	if (isset($_POST['d4'])){
+
+		$x = $_POST['x'];
+		$y = $_POST['y'];
+        print $d3 -> TamanhosProporcionais($x, $y)[7];
+
+	}
+	
+	else {
+		//echo "0";
 	}
 
 	die();

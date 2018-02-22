@@ -103,6 +103,7 @@
             <span id="s-preco"></span>
           </div>
         </div>
+      <div id="teste_tamanho_proporcional"></div>
 
         <div class="tamanhoMaterial" >
           <div class="b_tamanho col-sm-4">
@@ -135,28 +136,28 @@
                         <div id="retangulares" class="col-sm-4">
                           
                           <label  id="tamanho1">
-                            <input type="radio" name="tamanho" value="20x18" checked> 20x18cm</label>
+                            <input type="radio" name="tamanho" value="20x18" checked> 20x<span id="tamanhoY1">18</span>cm</label>
                           <br>
                           <label id="tamanho2">
-                            <input type="radio" name="tamanho" value="30x27"> 30x27cm</label>
+                            <input type="radio" name="tamanho" value="30x27"> 30x<span id="tamanhoY2">27</span>cm</label>
                           <br>
                           <label id="tamanho3">
-                            <input type="radio" name="tamanho" value="40x36"> 40x36cm</label>
+                            <input type="radio" name="tamanho" value="40x36"> 40x<span id="tamanhoY3">36</span>cm</label>
                           <br>
                           <label id="tamanho4">
-                            <input type="radio" name="tamanho" value="50x45" > 50x45cm</label>
+                            <input type="radio" name="tamanho" value="50x45" > 50x<span id="tamanhoY4">45</span>cm</label>
                           <br>
                           <label id="tamanho5">
-                            <input type="radio" name="tamanho" value="60x54"> 60x54cm</label>
+                            <input type="radio" name="tamanho" value="60x54"> 60x<span id="tamanhoY5">54</span>cm</label>
                           <br>
                           <label id="tamanho6">
-                            <input type="radio" name="tamanho" value="70x64"> 70x64cm</label>
+                            <input type="radio" name="tamanho" value="70x64"> 70x<span id="tamanhoY6">64</span>cm</label>
                           <br>
                           <label id="tamanho7">
-                            <input type="radio" name="tamanho" value="80x72"> 80x72cm</label>
+                            <input type="radio" name="tamanho" value="80x72"> 80x<span id="tamanhoY7">72</span>cm</label>
                           <br>
                           <label id="tamanho8">
-                            <input type="radio" name="tamanho" value="90x82"> 90x82cm</label>
+                            <input type="radio" name="tamanho" value="90x82"> 90x<span id="tamanhoY8">82</span>cm</label>
                           <br>
                         </div>
                         <div id="quadrados" class="col-sm-4">
