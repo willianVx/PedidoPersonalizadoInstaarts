@@ -28,15 +28,15 @@ jQuery(document).ready(function($) {
 						alert("Erro no processamento. Tente mais tarde.");
 					} else {
 						tamanhoY = data.split("z");
-						$("#tamanhoY1").html(tamanhoY[0]);
-						$("#tamanhoY2").html(tamanhoY[1]);
-						$("#tamanhoY3").html(tamanhoY[2]);
-						$("#tamanhoY4").html(tamanhoY[3]);
-						$("#tamanhoY5").html(tamanhoY[4]);
-						$("#tamanhoY6").html(tamanhoY[5]);
-						$("#tamanhoY7").html(tamanhoY[6]);
-						$("#tamanhoY8").html(tamanhoY[7]);
-						$("#tamanhoY9").html(tamanhoY[8]);
+						$("#tamanhoY1").html(parseInt(tamanhoY[0], 10));
+						$("#tamanhoY2").html(parseInt(tamanhoY[1]));
+						$("#tamanhoY3").html(parseInt(tamanhoY[2]));
+						$("#tamanhoY4").html(parseInt(tamanhoY[3]));
+						$("#tamanhoY5").html(parseInt(tamanhoY[4]));
+						$("#tamanhoY6").html(parseInt(tamanhoY[5]));
+						$("#tamanhoY7").html(parseInt(tamanhoY[6]));
+						$("#tamanhoY8").html(parseInt(tamanhoY[7]));
+						$("#tamanhoY9").html(parseInt(tamanhoY[8]));
 					}
 				},
 				error: function(data) {
