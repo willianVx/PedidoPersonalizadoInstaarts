@@ -54,11 +54,12 @@ jQuery(document).ready(function($) {
 				url: comprar.ajax_url,
 				data: {
 					action: "iap_order",
+					d2: "d2",
 					moldura: nome_moldura,
 					acabamento: nome_acabamento,
+					tipoMoldura: tipo_moldura,
 					largura: x,
 					altura: y,
-					preco: preco,
 					imagem: imagemOriginal,
 					imagemAdobe: editimage
 				},
@@ -138,7 +139,7 @@ jQuery(document).ready(function($) {
 	// Edit
 	$("#edit-image-button").click(function() {
 		launchImageEditor();
-		console.log(image_url);
+		//console.log(image_url);
 		setTamanho();
 		//console.log(imageElement.naturalHeight);
 	});
@@ -352,7 +353,6 @@ jQuery(document).ready(function($) {
 	});
 
 	function setTamanho(){
-			console.log(imageElement.width());
 			window.imgWidth = imageElement.width();
 			window.imgHeight = imageElement.height();
 	}

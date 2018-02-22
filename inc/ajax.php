@@ -30,7 +30,6 @@ function iap_order() {
 	} else {
 
 		echo "0";
-
 	}
 
 	die();

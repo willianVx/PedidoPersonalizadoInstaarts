@@ -82,15 +82,6 @@
         </div>
       </div>
       <div class="hud-produtos">
-        <!-- hud com o preco e acabamento 
-        <div class="somaProdutos well">
-          <span  class="hud-calcularPreco">40x60cm</span>
-          <span class="badge">+</span>
-          <span class="hud-calcularPreco">Metacrilato 3mm </span>
-          <span class="hud-calcularPreco badge">Esolha sua moldura</span>
-          <span >R$ 343.60</span>
-        </div>
-        -->
         <div class="col-lg-12 col-sm-12 col-xs-12">
           <div class="col-lg-3 col-sm-3 col-xs-6">
             <button type="button" id="b-tamanho" class="btn btn-default btn-lg hud-botao" data-toggle="modal" data-target="#tamanho">Tamanho: <span id="s-tamanho"> 20x18cm</span> </button>
