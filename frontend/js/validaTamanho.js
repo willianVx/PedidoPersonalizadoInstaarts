@@ -1,5 +1,11 @@
 jQuery(document).ready(function($) {
 
+	$("#fileToUpload").on("change", function(e){
+		$("#s-tamanho").html(" ");
+		$("#s-preco").html(" ");
+		window.escolherPreco = true;
+	});
+
 	$("#b-tamanho").click(function() {
 		if (imgWidth == 0 | imgHeight == 0) {
 			return;

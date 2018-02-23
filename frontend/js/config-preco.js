@@ -11,6 +11,8 @@ jQuery(document).ready(function($){
    
     var tamanho = {
         setTamanho(x,y){
+            window.escolherPreco = false;
+            
             if (typeof imgWidth == "undefined" | typeof imgHeight == "undefined" | typeof ylistaA == "undefined") {
                 this.x = x;
                 this.y = y;
@@ -101,7 +103,7 @@ jQuery(document).ready(function($){
         if (typeof ylistaA == "undefined") {
             tamanho.setTamanho(90,82);
         }else{
-            tamanho.setTamanho(80,ylistaH);
+            tamanho.setTamanho(90,ylistaH);
         }
         enviaDados();
     });

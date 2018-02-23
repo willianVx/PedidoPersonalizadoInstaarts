@@ -88,10 +88,10 @@
       border-color: green;
     }
 
-    .img-upload {
+    .img-upload{
       position: relative;
       max-width: 1000px;
-      max-height: 800px;
+      max-height: 500px;
       z-index: 10;
     } 
 
@@ -122,6 +122,9 @@
       top: 90px;
       bottom: -2px;
       left: 500px;
+    }
+    .s-preco{
+      color: green;
     }
     @media(max-width: 700px){
       .hud-botao{

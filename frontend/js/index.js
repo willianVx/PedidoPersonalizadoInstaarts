@@ -11,6 +11,11 @@ jQuery(document).ready(function($) {
 		//imagemEditada = currentImage.src;
 		//console.log(imagemEditada);
 		
+		if (escolherPreco) {
+			alert("Por favor, escolha o tamanho do seu quadro!");
+			return;
+		}
+		
 		console.log(image_url.value);
 
 		var imagemOriginal = image_url.value;
@@ -196,7 +201,7 @@ jQuery(document).ready(function($) {
 	//// Takes file from file chooser
 	$("#fileToUpload").on("change", function(e) {
 		var file = e.originalEvent.target.files[0];
-
+		
 		//Do the Upload
 
 		if (submittingImage === true) return;
@@ -356,4 +361,5 @@ jQuery(document).ready(function($) {
 			window.imgWidth = imageElement.width();
 			window.imgHeight = imageElement.height();
 	}
+
 });

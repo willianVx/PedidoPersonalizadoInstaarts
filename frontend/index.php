@@ -75,7 +75,7 @@
               <div class="linha_div_vertical">
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Voltar</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
               </div>
             </div>
           </div>
@@ -99,7 +99,7 @@
           </div>
 
           <div class="col-lg-3 col-sm-3 col-xs-6">
-            <button id="comprar-botao" type="button" class="btn btn-success btn-lg hud-botao b-comprar">Comprar: <span id="s-preco"></span> </button>
+            <button id="comprar-botao" type="button" class="btn btn-default btn-lg hud-botao b-comprar">Comprar: <span id="s-preco" class="s-preco"></span> </button>
             <span id="s-preco"></span>
           </div>
         </div>
