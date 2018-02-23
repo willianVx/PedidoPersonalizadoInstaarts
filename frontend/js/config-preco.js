@@ -11,9 +11,16 @@ jQuery(document).ready(function($){
    
     var tamanho = {
         setTamanho(x,y){
-            this.x = x;
-            this.y = y;
-            this.tamanhoTexto(x,y);
+            if (typeof imgWidth == "undefined" | typeof imgHeight == "undefined" | typeof ylistaA == "undefined") {
+                this.x = x;
+                this.y = y;
+                this.tamanhoTexto(x,y);
+            }
+            else{
+                this.x = x;
+                this.y = y;
+                this.tamanhoTexto(x,y);
+            }
         },
         getTamanho(a){
            if(a === x){
@@ -28,42 +35,74 @@ jQuery(document).ready(function($){
         }
     }
     $("#tamanho1").click(function(){
-        tamanho.setTamanho(20,18);
+        if (typeof ylistaA == "undefined") {
+            tamanho.setTamanho(20,18);
+        }else{
+            tamanho.setTamanho(20,ylistaA);
+        }
         enviaDados();
     });
 
     $("#tamanho2").click(function(){
-        tamanho.setTamanho(30,27);
+        if (typeof ylistaA == "undefined") {
+            tamanho.setTamanho(30,27);
+        }else{
+            tamanho.setTamanho(30,ylistaB);
+        }
         enviaDados();
     });
 
     $("#tamanho3").click(function(){
-        tamanho.setTamanho(40,36);
+        if (typeof ylistaA == "undefined") {
+            tamanho.setTamanho(40,36);
+        }else{
+            tamanho.setTamanho(40,ylistaC);
+        }
         enviaDados();
     });
 
     $("#tamanho4").click(function(){
-        tamanho.setTamanho(50,45);
+        if (typeof ylistaA == "undefined") {
+            tamanho.setTamanho(50,45);
+        }else{
+            tamanho.setTamanho(50,ylistaD);
+        }
         enviaDados();
     });
 
     $("#tamanho5").click(function(){
-        tamanho.setTamanho(60,54);
+        if (typeof ylistaA == "undefined") {
+            tamanho.setTamanho(60,54);
+        }else{
+            tamanho.setTamanho(60,ylistaE);
+        }
         enviaDados();
     });
 
     $("#tamanho6").click(function(){
-        tamanho.setTamanho(70,64);
+        if (typeof ylistaA == "undefined") {
+            tamanho.setTamanho(70,64);
+        }else{
+            tamanho.setTamanho(70,ylistaF);
+        }
         enviaDados();
     });
 
     $("#tamanho7").click(function(){
-        tamanho.setTamanho(80,72);
+        if (typeof ylistaA == "undefined") {
+            tamanho.setTamanho(80,72);
+        }else{
+            tamanho.setTamanho(80,ylistaG);
+        }
         enviaDados();
     });
 
     $("#tamanho8").click(function(){
-        tamanho.setTamanho(90,82);
+        if (typeof ylistaA == "undefined") {
+            tamanho.setTamanho(90,82);
+        }else{
+            tamanho.setTamanho(80,ylistaH);
+        }
         enviaDados();
     });
 
