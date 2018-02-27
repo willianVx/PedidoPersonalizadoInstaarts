@@ -5,10 +5,12 @@
     var nome_acabamento = " Metacrilato 3mm ";
     var preco = 343.6;
     var tipo_moldura = 0;
+    window.escolherPreco = false;
+    window.escolherAcabamento = 0;
 
 jQuery(document).ready(function($){
+
     //define tamanho 
-   
     var tamanho = {
         setTamanho(x,y){
             window.escolherPreco = false;
@@ -111,6 +113,7 @@ jQuery(document).ready(function($){
     //define acabamento 
 
     function setAcabamento(acabamento){
+        window.escolherAcabamento = 1;
         this.acabamento = acabamento;   
     }
     function getAcabamento(){
@@ -315,16 +318,14 @@ jQuery(document).ready(function($){
         enviaDados();
     });
     
-    //define valores iniciais
-
-    tamanho.setTamanho(20,18);
-    setAcabamento("meta3mm");
-    moldura.setTipo(0);
-    enviaDados();
+    
 
     //envia dados para o servidor e retorna preço 
     
     function enviaDados(){
+        if (typeof getAcabamento() == "undefined" | typeof tamanho.getTamanho(x) == "undefined") {
+            return;
+        }
         $("#s-preco").html("carregando...");
         x = tamanho.getTamanho(x);
         y = tamanho.getTamanho(y);

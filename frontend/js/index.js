@@ -6,6 +6,40 @@ jQuery(document).ready(function($) {
 	var originalImageSrc; // assigned when image file is dropped
 	var currentImage; // assigned when the Edit button is clicked
 
+	$("#b-tamanho").click(function(){
+		if (typeof originalImageSrc == "undefined") {
+			$("#retangulares").hide();
+			$(".n-tamanhoPadrao").hide();
+			$("#msg_img_not").html("Click em voltar e escolha uma imagem para visualizar os tamanhos possíveis.");
+		}else{
+			$("#retangulares").show();
+			$(".n-tamanhoPadrao").show();
+			$("#msg_img_not").hide();
+		}
+	});
+
+	$("#b-acabamento").click(function(){
+		if (typeof originalImageSrc == "undefined") {
+			$(".acabamento_modal_body_op").hide();
+			$("#acabamento_modal_body").html("Click em voltar e escolha uma imagem para visualizar os acabamentos.");
+		}else{
+			$(".acabamento_modal_body_op").show();
+			$("#acabamento_modal_body").hide();
+		}
+	});
+
+	$("#b-moldura").click(function(){
+		if (typeof originalImageSrc == "undefined") {
+			$(".moldura_modal_body_op").hide();
+			$("#n_moldura").hide();
+			$("#moldura_modal_body").html("Click em voltar e escolha uma imagem para visualizar nossas opções de moldura.");
+		}else{
+			$(".moldura_modal_body_op").show();
+			$("#n_moldura").show();
+			$("#moldura_modal_body").hide();
+		}
+	});
+
 	// manda os dados do pedido para o servidor via ajax
 	$("#comprar-botao").click(function() {
 		//imagemEditada = currentImage.src;
@@ -15,7 +49,10 @@ jQuery(document).ready(function($) {
 			alert("Por favor, escolha o tamanho do seu quadro!");
 			return;
 		}
-		
+		if (escolherAcabamento == 0) {
+			alert("Por favor, escolha o acabamento do seu quadro!");
+			return;
+		}
 		console.log(image_url.value);
 
 		var imagemOriginal = image_url.value;
@@ -26,7 +63,8 @@ jQuery(document).ready(function($) {
 
 			if (typeof originalImageSrc == "undefined") {
 				alert("Escolha uma imagem clicando sobre a área indicada!");
-			} else {
+			}
+			else {
 				$.ajax({
 					type: "POST",
 					url: comprar.ajax_url,
@@ -248,7 +286,7 @@ jQuery(document).ready(function($) {
 				return myXhr;
 			},
 			success: function(result) {
-				
+				$(".hud-botao").css("color","black");
 				switch (result) {
 					case "0":
 						alert(

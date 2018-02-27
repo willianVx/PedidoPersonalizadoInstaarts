@@ -84,18 +84,16 @@
       <div class="hud-produtos">
         <div class="col-lg-12 col-sm-12 col-xs-12">
           <div class="col-lg-3 col-sm-3 col-xs-6">
-            <button type="button" id="b-tamanho" class="btn btn-default btn-lg hud-botao" data-toggle="modal" data-target="#tamanho">Tamanho: <span id="s-tamanho"> 20x18cm</span> </button>
-            
+            <button type="button" id="b-tamanho" class="btn btn-default btn-lg hud-botao" data-toggle="modal" data-target="#tamanho">Tamanho: <span id="s-tamanho"> </span> </button>
           </div>
-
           <div class="col-lg-3 col-sm-3 col-xs-6">
             <!-- Trigger the modal with a button -->
-            <button type="button" class="btn btn-default btn-lg hud-botao" data-toggle="modal" data-target="#material"><span id="s-metacrilato"> Metacrilato 3mm</span></button>
+            <button type="button" id="b-acabamento" class="btn btn-default btn-lg hud-botao" data-toggle="modal" data-target="#material"><span id="s-metacrilato"> Acabamento</span></button>
           </div>
 
           <div class="col-lg-3 col-sm-3 col-xs-6">
              <!-- Trigger the modal with a button -->
-            <button type="button" class="btn btn-default btn-lg hud-botao" data-toggle="modal" data-target="#moldura"><span id="s-moldura">Moldura</span></button>
+            <button type="button" id="b-moldura" class="btn btn-default btn-lg hud-botao" data-toggle="modal" data-target="#moldura"><span id="s-moldura">Moldura</span></button>
           </div>
 
           <div class="col-lg-3 col-sm-3 col-xs-6">
@@ -117,7 +115,7 @@
                   <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <h4 class="modal-title">Escolha o tamanho do seu quadro</h4>
-                    <nav class="navbar navbar-inverse">
+                    <nav class="navbar navbar-inverse n-tamanhoPadrao">
                       <div class="container-fluid">
                         <ul class="nav navbar-nav">
                           <li>
@@ -131,6 +129,7 @@
                     </nav>
                   </div>
                   <div class="modal-body">
+                    <div id="msg_img_not"></div>
                     <div class="checkbox">
                       <form id="tamanhoPadrao">
                         <div id="retangulares" class="col-sm-4">
@@ -197,7 +196,8 @@
                     <h4 class="modal-title">Acabamento</h4>
                   </div>
                   <div class="modal-body col-sm-12">
-                    <div class="checkbox">
+                    <div id="acabamento_modal_body"></div>
+                    <div class="checkbox acabamento_modal_body_op">
                       <nav class="navbar navbar-inverse">
                         <div class="container-fluid">
                           <div class="navbar-header"></div>
@@ -375,7 +375,9 @@
                     <h4 class="modal-title">Moldura</h4>
                   </div>
                   <div class="modal-body col-sm-12">
-                    <div class="checkbox">
+                  <div id="moldura_modal_body"></div>
+                    <div class="checkbox moldura_modal_body_op">
+                      
                       <nav class="navbar navbar-inverse">
                         <div class="container-fluid">
                           <div class="navbar-header"></div>
