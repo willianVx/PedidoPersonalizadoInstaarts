@@ -318,8 +318,6 @@ jQuery(document).ready(function($){
         enviaDados();
     });
     
-    
-
     //envia dados para o servidor e retorna preço 
     
     function enviaDados(){

@@ -396,6 +396,8 @@ jQuery(document).ready(function($) {
 	});
 
 	function setTamanho(){
+			console.log(imageElement["0"].naturalHeight,imageElement["0"].naturalWidth);
+			console.log(imageElement.width(),imageElement.height());
 			window.imgWidth = imageElement.width();
 			window.imgHeight = imageElement.height();
 	}
