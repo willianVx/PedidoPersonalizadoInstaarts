@@ -7,9 +7,7 @@
     var tipo_moldura = 0;
     window.escolherPreco = false;
     window.escolherAcabamento = 0;
-
 jQuery(document).ready(function($){
-
     //define tamanho 
     var tamanho = {
         setTamanho(x,y){

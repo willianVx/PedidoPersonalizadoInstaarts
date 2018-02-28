@@ -1,5 +1,4 @@
 jQuery(document).ready(function($) {
-
 	$("#fileToUpload").on("change", function(e){
 		$("#s-tamanho").html(" ");
 		$("#s-preco").html(" ");
@@ -32,6 +31,7 @@ jQuery(document).ready(function($) {
 						alert("Erro no processamento. Tente mais tarde.");
 					} else {
 						tamanhoY = data.split("z");
+						tamanhos_possiveis(tamanho1, tamanho2, tamanhoY);
 						$("#tamanhoY1").html(parseInt(tamanhoY[0], 10));
 							window.ylistaA = parseInt(tamanhoY[0], 10);
 						$("#tamanhoY2").html(parseInt(tamanhoY[1], 10));
@@ -55,5 +55,12 @@ jQuery(document).ready(function($) {
 				}
 			});
 		
+		}
+		function tamanhos_possiveis(tamanho1, tamanho2, tamanhoY){
+			var tamanhoX = [20, 30, 40, 50, 60, 70, 80, 90];
+			var dpi = 59.055;
+			var xcm = tamanho1 / dpi;
+			var ycm = tamanho2 / dpi;
+			console.log(xcm,ycm);
 		}
 });
