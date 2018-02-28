@@ -54,13 +54,29 @@ jQuery(document).ready(function($) {
 					alert("Erro no processamento. Tente mais tarde.");
 				}
 			});
-		
 		}
+
 		function tamanhos_possiveis(tamanho1, tamanho2, tamanhoY){
-			var tamanhoX = [20, 30, 40, 50, 60, 70, 80, 90];
+
 			var dpi = 59.055;
 			var xcm = tamanho1 / dpi;
 			var ycm = tamanho2 / dpi;
-			console.log(xcm,ycm);
+			var tamanhoX = [20, 30, 40, 50, 60, 70, 80, 90];
+			tamanhoX.forEach(compara_Tamanho_largura);
+			tamanhoY.forEach(compara_Tamanho_comprimento);
+
+			function compara_Tamanho_largura(element, index, array) {
+				if (element <= xcm) {
+					var nota_largura = element;
+					console.log(nota_largura);
+				}
+			}
+			function compara_Tamanho_comprimento(element, index, array) {
+				if (element <= ycm) {
+					var nota_comprimento = element;
+					console.log(nota_comprimento);
+				}
+			}
+
 		}
 });

@@ -50,7 +50,6 @@
         //$r = $this -> razao
 
         private function setTamanhoProporcional($r){
-
             if($r == 0){
                 return;
             }
