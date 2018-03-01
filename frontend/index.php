@@ -135,7 +135,7 @@
                         <div id="retangulares" class="col-sm-4">
                           
                           <label  id="tamanho1">
-                            <input type="radio" name="tamanho" value="20x18" checked> 20x<span id="tamanhoY1">18</span>cm</label>
+                            <input type="radio" name="tamanho" value="20x18"> 20x<span id="tamanhoY1">18</span>cm</label>
                           <br>
                           <label id="tamanho2">
                             <input type="radio" name="tamanho" value="30x27"> 30x<span id="tamanhoY2">27</span>cm</label>
