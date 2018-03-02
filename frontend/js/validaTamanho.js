@@ -2,7 +2,6 @@ jQuery(document).ready(function($) {
 	$("#fileToUpload").on("change", function(e){
 		$("#s-tamanho").html(" ");
 		$("#s-preco").html(" ");
-		window.escolherPreco = true;
 	});
 
 	$("#b-tamanho").click(function() {
@@ -83,12 +82,24 @@ jQuery(document).ready(function($) {
 			}
 
 			function show_tamanho_max() {
+				if (window.editar_unlock === 1) {
+					return;
+				}
 				key = get_tamanho_max();
 				hide_color();
 				$("input[name~='tamanho']").prop("disabled", false);
 				switch (key) {
+
 					case 20:
-						$("#tamanho1").css("color","green");
+
+						$("#tamanho2").css("color","#cccccc");
+						$("#tamanho3").css("color","#cccccc");
+						$("#tamanho4").css("color","#cccccc");
+						$("#tamanho5").css("color","#cccccc");
+						$("#tamanho6").css("color","#cccccc");
+						$("#tamanho7").css("color","#cccccc");
+						$("#tamanho8").css("color","#cccccc");
+
 						$("input[value~='30x27']").prop("disabled", true);
 						$("input[value~='40x36']").prop("disabled", true);
 						$("input[value~='50x45']").prop("disabled", true);
@@ -96,9 +107,17 @@ jQuery(document).ready(function($) {
 						$("input[value~='70x64']").prop("disabled", true);
 						$("input[value~='80x72']").prop("disabled", true);
 						$("input[value~='90x82']").prop("disabled", true);
+
 						break;
 					case 30:
-						$("#tamanho2").css("color","green");
+
+						$("#tamanho3").css("color","#cccccc");
+						$("#tamanho4").css("color","#cccccc");
+						$("#tamanho5").css("color","#cccccc");
+						$("#tamanho6").css("color","#cccccc");
+						$("#tamanho7").css("color","#cccccc");
+						$("#tamanho8").css("color","#cccccc");
+
 						$("input[value~='40x36']").prop("disabled", true);
 						$("input[value~='50x45']").prop("disabled", true);
 						$("input[value~='60x54']").prop("disabled", true);
@@ -107,7 +126,13 @@ jQuery(document).ready(function($) {
 						$("input[value~='90x82']").prop("disabled", true);
 						break;
 					case 40:
-						$("#tamanho3").css("color","green");
+						
+						$("#tamanho4").css("color","#cccccc");
+						$("#tamanho5").css("color","#cccccc");
+						$("#tamanho6").css("color","#cccccc");
+						$("#tamanho7").css("color","#cccccc");
+						$("#tamanho8").css("color","#cccccc");
+
 						$("input[value~='50x45']").prop("disabled", true);
 						$("input[value~='60x54']").prop("disabled", true);
 						$("input[value~='70x64']").prop("disabled", true);
@@ -115,33 +140,62 @@ jQuery(document).ready(function($) {
 						$("input[value~='90x82']").prop("disabled", true);
 						break;
 					case 50:
-						$("#tamanho4").css("color","green");
+						$("#tamanho5").css("color","#cccccc");
+						$("#tamanho6").css("color","#cccccc");
+						$("#tamanho7").css("color","#cccccc");
+						$("#tamanho8").css("color","#cccccc");
+
 						$("input[value~='60x54']").prop("disabled", true);
 						$("input[value~='70x64']").prop("disabled", true);
 						$("input[value~='80x72']").prop("disabled", true);
 						$("input[value~='90x82']").prop("disabled", true);
 						break;
 					case 60:
-						$("#tamanho5").css("color","green");
+						$("#tamanho6").css("color","#cccccc");
+						$("#tamanho7").css("color","#cccccc");
+						$("#tamanho8").css("color","#cccccc");
+
 						$("input[value~='70x64']").prop("disabled", true);
 						$("input[value~='80x72']").prop("disabled", true);
 						$("input[value~='90x82']").prop("disabled", true);
 						break;
 					case 70:
-						$("#tamanho6").css("color","green");
+						$("#tamanho7").css("color","#cccccc");
+						$("#tamanho8").css("color","#cccccc");
+
 						$("input[value~='80x72']").prop("disabled", true);
 						$("input[value~='90x82']").prop("disabled", true);
 						break;
 					case 80:
 						$("#tamanho7").css("color","green");
+
+						$("#tamanho8").css("color","#cccccc");
+
 						$("input[value~='90x82']").prop("disabled", true);
 						break;
 					case 90:
-						$("#tamanho8").css("color","green");
 						break;									
 					default:
+						$("#tamanho1").css("color","#cccccc");
+						$("#tamanho2").css("color","#cccccc");
+						$("#tamanho3").css("color","#cccccc");
+						$("#tamanho4").css("color","#cccccc");
+						$("#tamanho5").css("color","#cccccc");
+						$("#tamanho6").css("color","#cccccc");
+						$("#tamanho7").css("color","#cccccc");
+						$("#tamanho8").css("color","#cccccc");
+
+						$("input[value~='20x18']").prop("disabled", true);
+						$("input[value~='30x27']").prop("disabled", true);
+						$("input[value~='40x36']").prop("disabled", true);
+						$("input[value~='50x45']").prop("disabled", true);
+						$("input[value~='60x54']").prop("disabled", true);
+						$("input[value~='70x64']").prop("disabled", true);
+						$("input[value~='80x72']").prop("disabled", true);
+						$("input[value~='90x82']").prop("disabled", true);
 						break;
 				}
+				window.editar_unlock = 1;
 			}
 
 			function hide_color() {

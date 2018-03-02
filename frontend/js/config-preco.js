@@ -5,13 +5,16 @@
     var nome_acabamento = " Metacrilato 3mm ";
     var preco = 343.6;
     var tipo_moldura = 0;
-    window.escolherPreco = false;
+    window.escolherPreco = 0;
     window.escolherAcabamento = 0;
+    //editar_unlock define se o calculo de tamanho deve ser feito
+    var editar_unlock = 0;
+
 jQuery(document).ready(function($){
     //define tamanho 
     var tamanho = {
         setTamanho(x,y){
-            window.escolherPreco = false;
+            window.escolherPreco = 1;
             
             if (typeof imgWidth == "undefined" | typeof imgHeight == "undefined" | typeof ylistaA == "undefined") {
                 this.x = x;
@@ -36,7 +39,12 @@ jQuery(document).ready(function($){
             $("#s-tamanho").html(this.x+"x"+this.y+"cm");
         }
     }
+
+    
     $("#tamanho1").click(function(){
+        if (document.getElementById('tamanho1_input').disabled == true) {
+            return;
+        }
         if (typeof ylistaA == "undefined") {
             tamanho.setTamanho(20,18);
         }else{
@@ -46,6 +54,9 @@ jQuery(document).ready(function($){
     });
 
     $("#tamanho2").click(function(){
+        if (document.getElementById('tamanho3_input').disabled == true) {
+            return;
+        }
         if (typeof ylistaA == "undefined") {
             tamanho.setTamanho(30,27);
         }else{
@@ -55,6 +66,9 @@ jQuery(document).ready(function($){
     });
 
     $("#tamanho3").click(function(){
+        if (document.getElementById('tamanho3_input').disabled == true) {
+            return;
+        }
         if (typeof ylistaA == "undefined") {
             tamanho.setTamanho(40,36);
         }else{
@@ -64,6 +78,9 @@ jQuery(document).ready(function($){
     });
 
     $("#tamanho4").click(function(){
+        if (document.getElementById('tamanho4_input').disabled == true) {
+            return;
+        }
         if (typeof ylistaA == "undefined") {
             tamanho.setTamanho(50,45);
         }else{
@@ -73,6 +90,9 @@ jQuery(document).ready(function($){
     });
 
     $("#tamanho5").click(function(){
+        if (document.getElementById('tamanho5_input').disabled == true) {
+            return;
+        }
         if (typeof ylistaA == "undefined") {
             tamanho.setTamanho(60,54);
         }else{
@@ -82,6 +102,9 @@ jQuery(document).ready(function($){
     });
 
     $("#tamanho6").click(function(){
+        if (document.getElementById('tamanho6_input').disabled == true) {
+            return;
+        }
         if (typeof ylistaA == "undefined") {
             tamanho.setTamanho(70,64);
         }else{
@@ -91,6 +114,9 @@ jQuery(document).ready(function($){
     });
 
     $("#tamanho7").click(function(){
+        if (document.getElementById('tamanho7_input').disabled == true) {
+            return;
+        }
         if (typeof ylistaA == "undefined") {
             tamanho.setTamanho(80,72);
         }else{
@@ -100,6 +126,9 @@ jQuery(document).ready(function($){
     });
 
     $("#tamanho8").click(function(){
+        if (document.getElementById('tamanho8_input').disabled == true) {
+            return;
+        }
         if (typeof ylistaA == "undefined") {
             tamanho.setTamanho(90,82);
         }else{

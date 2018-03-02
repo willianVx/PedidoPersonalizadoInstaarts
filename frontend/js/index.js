@@ -7,45 +7,61 @@ jQuery(document).ready(function($) {
 	var currentImage; // assigned when the Edit button is clicked
 
 	$("#b-tamanho").click(function(){
-		if (typeof originalImageSrc == "undefined") {
-			$("#retangulares").hide();
-			$(".n-tamanhoPadrao").hide();
-			$("#msg_img_not").html("Click em voltar e escolha uma imagem para visualizar os tamanhos possíveis.");
+		if (!imageElement.attr("src")) {
+			hide_elements();
 		}else{
-			$("#retangulares").show();
-			$(".n-tamanhoPadrao").show();
-			$("#msg_img_not").hide();
+			show_elements();
 		}
 	});
 
 	$("#b-acabamento").click(function(){
-		if (typeof originalImageSrc == "undefined") {
-			$(".acabamento_modal_body_op").hide();
-			$("#acabamento_modal_body").html("Click em voltar e escolha uma imagem para visualizar os acabamentos.");
+		if (!imageElement.attr("src")) {
+			hide_elements();
 		}else{
-			$(".acabamento_modal_body_op").show();
-			$("#acabamento_modal_body").hide();
+			show_elements();
 		}
 	});
 
 	$("#b-moldura").click(function(){
-		if (typeof originalImageSrc == "undefined") {
-			$(".moldura_modal_body_op").hide();
-			$("#n_moldura").hide();
-			$("#moldura_modal_body").html("Click em voltar e escolha uma imagem para visualizar nossas opções de moldura.");
+		if (!imageElement.attr("src")) {
+			hide_elements();
 		}else{
-			$(".moldura_modal_body_op").show();
-			$("#n_moldura").show();
-			$("#moldura_modal_body").hide();
+			show_elements();
 		}
 	});
+
+	function hide_elements(){
+		$("#tamanhoPadrao").hide();
+		$(".n-tamanhoPadrao").hide();
+		$("#msg_img_not").html("Volte e escolha uma imagem para visualizar os tamanhos possíveis.");
+
+		$(".acabamento_modal_body_op").hide();
+		$("#acabamento_modal_body").html("Volte e escolha uma imagem para visualizar os acabamentos.");
+
+		$(".moldura_modal_body_op").hide();
+		$("#n_moldura").hide();
+		$("#moldura_modal_body").html("Volte e escolha uma imagem para visualizar nossas opções de moldura.");
+	}
+
+	function show_elements(){
+		$("#tamanhoPadrao").show();
+		$(".n-tamanhoPadrao").show();
+		$("#msg_img_not").hide();
+
+		$(".acabamento_modal_body_op").show();
+		$("#acabamento_modal_body").hide();
+
+		$(".moldura_modal_body_op").show();
+		$("#n_moldura").show();
+		$("#moldura_modal_body").hide();
+	}
 
 	// manda os dados do pedido para o servidor via ajax
 	$("#comprar-botao").click(function() {
 		//imagemEditada = currentImage.src;
 		//console.log(imagemEditada);
 		
-		if (escolherPreco) {
+		if (escolherPreco == 0) {
 			alert("Por favor, escolha o tamanho do seu quadro!");
 			return;
 		}
@@ -181,6 +197,7 @@ jQuery(document).ready(function($) {
 	});
 	// Edit
 	$("#edit-image-button").click(function() {
+		$("#editable-image").attr("src", originalImageSrc);
 		launchImageEditor();
 		//console.log(image_url);
 		setTamanho();
@@ -188,6 +205,7 @@ jQuery(document).ready(function($) {
 	});
 	// Reset
 	$("#reset-image-button").click(function() {
+		
 		if (
 			$("#editable-image").attr("src") === originalImageSrc ||
 			!originalImageSrc
@@ -199,7 +217,13 @@ jQuery(document).ready(function($) {
 	});
 	// Clear
 	$("#clear-image-button").click(function() {
+		window.editar_unlock = 0;
 		if (imageElement.attr("src")) {
+			$("#s-tamanho").html(" ");
+			$("#s-metacrilato").html("Acabamento");
+			$("#s-moldura").html("Moldura");
+			$("#s-preco").html(" ");
+			escolherAcabamento = 0;
 			clearImage();
 			toggleDragDrop();
 		} else {
@@ -281,6 +305,7 @@ jQuery(document).ready(function($) {
 					if (ev.lengthComputable) {
 						var percentComplete = parseInt(ev.loaded / ev.total * 100);
 						$("#progress-bar").css("width", percentComplete + "%");
+						$(".percent").html("Carregando...");
 					}
 				};
 				return myXhr;
@@ -360,8 +385,10 @@ jQuery(document).ready(function($) {
 		// `[0]` gets the image itself, not the jQuery object
 
 		currentImage = $("#editable-image")[0];
+		$("#s-tamanho").html(" ");
+		escolherPreco = 0;
 		csdkImageEditor.launch({
-			image: currentImage.id
+		image: currentImage.id
 			//url: currentImage.src
 		});
 	}

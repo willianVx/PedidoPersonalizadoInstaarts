@@ -5,6 +5,12 @@
     body {
       min-height: 100vh;
     }
+    body a{
+      color: green;
+    }
+    body a:hover{
+      color: rgb(60, 99, 2);
+    }
     p{
       font-size: 75%;
     }
@@ -66,7 +72,7 @@
 
     .ok-modal-tamanho {
       position: relative;
-      left: 520px;
+      left: 480px;
       bottom: 5px;
     }
 
@@ -94,6 +100,11 @@
       max-width: 1000px;
       max-height: 500px;
       z-index: 10;
+
+      margin-left: auto;
+	    margin-right: auto;
+      display: block;
+      
     } 
 
     body.loading {
@@ -126,6 +137,19 @@
     }
     .s-preco{
       color: green;
+    }
+    .texto_upload_image{
+      font-size: 12px;
+      color:rgb(150, 150, 150);
+      position: absolute;
+      width: 360px;
+      height: 300px;
+      top: 90px;
+      left: 520px;
+    }
+    .texto_upload{
+      font-size: 12px;
+      color:rgb(150, 150, 150);
     }
     @media(max-width: 700px){
       .hud-botao{

@@ -42,8 +42,9 @@
         <p>Click para fazer o Upload da sua imagem</p>
         </span>
       </div>
-      <img id="editable-image" class="img-responsive img-upload">
 
+        <img id="editable-image" class="img-responsive img-upload">
+      
       <div class="container">
         <!-- Modal upload de arquivos por click -->
         <div class="modal fade" id="modalUpload" role="dialog" style="position: absolute; top: 10px;">
@@ -53,12 +54,12 @@
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <h4 class="modal-title">Faça o Upload da Sua Imagem</h4>
               </div>
-              <div class="modal-body">
+              <div class="modal-body texto_upload">
 
-                <p>Ela deve estar nos formatos: JPEG ou PNG</p>
-
+                <p>A imgem deve estar nos formatos: JPEG ou PNG</p>
+                <p>Formato minimo de 2.000 por 2.000 pixels</p>
                 <form method="post" action="" id="myForm" enctype="multipart/form-data">
-                  Click no Botão para escolher apartir do seu computador:
+                  Click para escolher uma imagem do seu dispositivo:
                   <input type="file" name="fileToUpload" id="fileToUpload">
                   <br>
                   <!--<input type="submit" name="submit" value="upload-image" class="btn btn-success">-->
@@ -68,11 +69,17 @@
               </div>
               <br>
               <div class="progress">
-                <div id="progress-bar" class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"
+                <div id="progress-bar" class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"
                   style="width:0%">
+                  <span class="percent"></span>
                 </div>
               </div>
               <div class="linha_div_vertical">
+              </div>
+              <div class="texto_upload_image">
+                <aside>
+                  Caso sua imagem não esteja no formato correto ou precise de ajuda, por favor fale conosco pelo chat ou entre em contato pelo e-mail: <a title="mailto:contato@instaarts.com.br" href="mailto:contato@instaarts.com.br" target="_blank" rel="noopener noreferrer">contato@instaarts.com.br</a><br> ou  pelos telefones: </br> <a href="tel:+1146126019">(11) 4612-6019 </a> e <a href="tel:+1130316881">(11) 3031-6881</a>
+                </aside>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
@@ -101,87 +108,58 @@
             <span id="s-preco"></span>
           </div>
         </div>
-      <div id="teste_tamanho_proporcional"></div>
 
-        <div class="tamanhoMaterial" >
-          <div class="b_tamanho col-sm-4">
-            <!-- Trigger the modal with a button -->
 
-            <!-- Modal -->
-            <div class="modal fade" id="tamanho" role="dialog" >
-              <div class="modal-dialog">
-                <!-- Modal content-->
-                <div class="modal-content" style="position: relative; top: 200px;">
-                  <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Escolha o tamanho do seu quadro</h4>
-                    <nav class="navbar navbar-inverse n-tamanhoPadrao">
-                      <div class="container-fluid">
-                        <ul class="nav navbar-nav">
-                          <li>
-                            <a href="#" id="b-tamanhoPadrao">Padrão</a>
-                          </li>
-                          <li>
-                            <a href="#" id="#"></a>
-                          </li>
-                        </ul>
-                      </div>
-                    </nav>
-                  </div>
-                  <div class="modal-body">
-                    <div id="msg_img_not"></div>
-                    <div class="checkbox">
+
+              <!-- Modal -->
+        <div id="tamanho" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content" style="position: relative; top: 200px;">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Escolha o tamanho do seu quadro</h4>
+              </div>
+              <div class="modal-body">
+              <div id="msg_img_not"></div>
+              <div class="checkbox">
                       <form id="tamanhoPadrao">
-                        <div id="retangulares" class="col-sm-4">
-                          
                           <label  id="tamanho1">
-                            <input type="radio" name="tamanho" value="20x18"> 20x<span id="tamanhoY1">18</span>cm</label>
+                            <input type="radio" name="tamanho" value="20x18" id="tamanho1_input"> 20x<span id="tamanhoY1">18</span>cm</label>
                           <br>
                           <label id="tamanho2">
-                            <input type="radio" name="tamanho" value="30x27"> 30x<span id="tamanhoY2">27</span>cm</label>
+                            <input type="radio" name="tamanho" value="30x27" id="tamanho2_input"> 30x<span id="tamanhoY2">27</span>cm</label>
                           <br>
                           <label id="tamanho3">
-                            <input type="radio" name="tamanho" value="40x36"> 40x<span id="tamanhoY3">36</span>cm</label>
+                            <input type="radio" name="tamanho" value="40x36" id="tamanho3_input"> 40x<span id="tamanhoY3">36</span>cm</label>
                           <br>
                           <label id="tamanho4">
-                            <input type="radio" name="tamanho" value="50x45" > 50x<span id="tamanhoY4">45</span>cm</label>
+                            <input type="radio" name="tamanho" value="50x45" id="tamanho4_input"> 50x<span id="tamanhoY4">45</span>cm</label>
                           <br>
                           <label id="tamanho5">
-                            <input type="radio" name="tamanho" value="60x54"> 60x<span id="tamanhoY5">54</span>cm</label>
+                            <input type="radio" name="tamanho" value="60x54" id="tamanho5_input"> 60x<span id="tamanhoY5">54</span>cm</label>
                           <br>
                           <label id="tamanho6">
-                            <input type="radio" name="tamanho" value="70x64"> 70x<span id="tamanhoY6">64</span>cm</label>
+                            <input type="radio" name="tamanho" value="70x64" id="tamanho6_input"> 70x<span id="tamanhoY6">64</span>cm</label>
                           <br>
                           <label id="tamanho7">
-                            <input type="radio" name="tamanho" value="80x72"> 80x<span id="tamanhoY7">72</span>cm</label>
+                            <input type="radio" name="tamanho" value="80x72" id="tamanho7_input"> 80x<span id="tamanhoY7">72</span>cm</label>
                           <br>
                           <label id="tamanho8">
-                            <input type="radio" name="tamanho" value="90x82"> 90x<span id="tamanhoY8">82</span>cm</label>
+                            <input type="radio" name="tamanho" value="90x82" id="tamanho8_input"> 90x<span id="tamanhoY8">82</span>cm</label>
                           <br>
-                        </div>
-                        <div id="quadrados" class="col-sm-4">
-                          
-                          <br>
-                        </div>
-                        <div id="panoramicos" class="col-sm-4">
-                          
-                          <br>
-                        </div>
-
                       </form>
                     </div>
-                  </div>
-                  
-                  <div id="tamanhoPersonalizado">
-                    
-                  </div>
-
-                  <div class="modal-footer"></div>
-                  <button type="button" class="btn btn-default ok-modal-tamanho" data-dismiss="modal">Voltar</button>
-                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Continuar</button>
               </div>
             </div>
+
           </div>
+        </div>
+       
           <!-- tamanho material e moldura -->
           <div class="container m_material col-sm-4">
 
@@ -357,7 +335,7 @@
                     </div>
                   </div>
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-default ok-modal-acabamento" data-dismiss="modal">Voltar</button>
+                    <button type="button" class="btn btn-default ok-modal-acabamento" data-dismiss="modal">Continuar</button>
                   </div>
                 </div>
               </div>
@@ -572,7 +550,7 @@
                   </div>
                   <div class="modal-footer">
                     <span id="n_moldura" class="btn btn-default">Sem Moldura</span>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Voltar</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Continuar</button>
                   </div>
                 </div>
               </div>
