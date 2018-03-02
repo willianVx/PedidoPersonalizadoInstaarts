@@ -60,7 +60,11 @@ jQuery(document).ready(function($) {
 	$("#comprar-botao").click(function() {
 		//imagemEditada = currentImage.src;
 		//console.log(imagemEditada);
-		
+	
+		console.log(image_url.value);
+
+		var imagemOriginal = image_url.value;
+		var editimage = edited_image_url.value;
 		if (escolherPreco == 0) {
 			alert("Por favor, escolha o tamanho do seu quadro!");
 			return;
@@ -69,17 +73,14 @@ jQuery(document).ready(function($) {
 			alert("Por favor, escolha o acabamento do seu quadro!");
 			return;
 		}
-		console.log(image_url.value);
-
-		var imagemOriginal = image_url.value;
-		var editimage = edited_image_url.value;
-
 		if (typeof currentImage == "undefined") {
 			console.log("imagem sem edição");
 
 			if (typeof originalImageSrc == "undefined") {
 				alert("Escolha uma imagem clicando sobre a área indicada!");
+				return;
 			}
+			
 			else {
 				$.ajax({
 					type: "POST",
@@ -224,6 +225,7 @@ jQuery(document).ready(function($) {
 			$("#s-moldura").html("Moldura");
 			$("#s-preco").html(" ");
 			escolherAcabamento = 0;
+			escolherPreco = 0;
 			clearImage();
 			toggleDragDrop();
 		} else {
