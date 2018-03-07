@@ -47,6 +47,8 @@ jQuery(document).ready(function($) {
 							window.ylistaG = parseInt(tamanhoY[6], 10);
 						$("#tamanhoY8").html(parseInt(tamanhoY[7], 10));
 							window.ylistaH = parseInt(tamanhoY[7], 10);
+						
+						
 					}
 				},
 				error: function(data) {
@@ -86,6 +88,15 @@ jQuery(document).ready(function($) {
 					return;
 				}
 				key = get_tamanho_max();
+
+				if (key < 20) {
+					$(".texto_tamanho_image").html("Talvez sua imagem não tenha resolução para produzirmos nos tamanhos selecionados. Para mais informações entre em contato através do chat.");
+					$(".texto_tamanho_image").css("color","red");
+				}else{
+					$(".texto_tamanho_image").html("Você está visualizando os tamanhos de  acordo com a proporção e resolução da sua imagem, para alterar a proporção click em editar.");
+					$(".texto_tamanho_image").css("color","gray");
+				}
+
 				hide_color();
 				$("input[name~='tamanho']").prop("disabled", false);
 				switch (key) {
@@ -193,6 +204,7 @@ jQuery(document).ready(function($) {
 						$("input[value~='70x64']").prop("disabled", true);
 						$("input[value~='80x72']").prop("disabled", true);
 						$("input[value~='90x82']").prop("disabled", true);
+
 						break;
 				}
 				window.editar_unlock = 1;
@@ -208,13 +220,11 @@ jQuery(document).ready(function($) {
 				$("#tamanho7").css("color","black");
 				$("#tamanho8").css("color","black");
 			}
-
-			/*function compara_Tamanho_comprimento(element, index, array) {
-				if (element <= ycm) {
-					console.log(element);
+		}		
+			/*function checa_tamanho_y(){
+				if (window.ylistaA > 200) {
+					$("#tamanho1").css("color","#cccccc");
+					$("input[value~='20x18']").prop("disabled", true);
 				}
-			}
-			*/
-
-		}
+			}*/
 });

@@ -123,17 +123,26 @@
     }
     .progress{
       position: relative;
-      width: 425px;
+      width: 390px;
       margin-left: 15px;
     }
     .linha_div_vertical{
       position: absolute;
-      height: 150px;
+      height: 120px;
       width: 1px;
       background-color: rgb(204, 204, 204);
       top: 90px;
       bottom: -2px;
-      left: 500px;
+      left: 460px;
+    }
+    .linha_div_vertical2{
+      position: absolute;
+      height: 150px;
+      width: 1px;
+      background-color: rgb(204, 204, 204);
+      top: 20px;
+      bottom: -2px;
+      left: 200px;
     }
     .s-preco{
       color: green;
@@ -145,15 +154,47 @@
       width: 360px;
       height: 300px;
       top: 90px;
-      left: 520px;
+      left: 470px;
+    }
+    .texto_tamanho_image{
+      font-size: 12px;
+      color:rgb(99, 99, 99);
+      position: absolute;
+      width: 360px;
+      height: 300px;
+      top: 10px;
+      left: 220px;
     }
     .texto_upload{
       font-size: 12px;
       color:rgb(150, 150, 150);
     }
+    @media(max-width: 500px){
+      .progress{
+        position: relative;
+        width: 150px;
+      }
+    }
     @media(max-width: 700px){
       .hud-botao{
         position: relative;
         margin: 5px;
+      }
+    }
+    @media(max-width: 1200px){
+      .hud-botao {
+        position: relative;
+        top: 10px;
+        width: 115px;
+        height: 46px;
+        font-size: 15px;
+        color: rgb(189, 189, 189);
+        bottom: 10px;
+      }
+      .texto_upload_image{
+        display: none;
+      }
+      .linha_div_vertical{
+        display: none;
       }
     }
