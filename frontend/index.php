@@ -43,7 +43,9 @@
         </span>
       </div>
 
-        <img id="editable-image" class="img-responsive img-upload">
+        <div class="img-upload-line">
+          <img id="editable-image" class="img-responsive img-upload">
+        </div>
       
       <div class="container">
         <!-- Modal upload de arquivos por click -->
@@ -384,69 +386,124 @@
                         </div>
                       </nav>
                       <div id="bMoldura" class="bMoldura">
+                      <div id="m-contemporanea">
 
-                        <div id="m-contemporanea">
-                          <div class="col-md-4 t-thumb" id="m_atenas">
-                            <div class="thumbnail" id="atenas-select-color" >
+                      <div class="col-md-4 t-thumb" id="m_nova_york_preta" data-moldura="nova-york-preta">
+                            <div class="thumbnail b_moldura" id="novayork-select-color">
                               <label>
-                                <img src="<?php echo plugins_url( 'img/atenas.png', __FILE__ ); ?>" border="0" />
+                                <img src="<?php echo plugins_url( 'img/nova-york-preta.jpg', __FILE__ ); ?>" border="0" />
                                 <div>
-                                  <p>Atenas</p>
+                                  <p>Nova York Preta</p>
+                                </div>
+                              </label>
+                            </div>
+                      </div>
+
+                      <div class="col-md-4 t-thumb" id="m_nova_york_Branca" data-moldura="nova-york-branca">
+                            <div class="thumbnail b_moldura" id="novayork-select-color">
+                              <label>
+                                <img src="<?php echo plugins_url( 'img/nova-york-branca.jpg', __FILE__ ); ?>" border="0" />
+                                <div>
+                                  <p>Nova York Branca</p>
+                                </div>
+                              </label>
+                            </div>
+                      </div>
+                      
+                      <div class="col-md-4 t-thumb" id="m_nova_york_tabaco" data-moldura="nova-york-tabaco">
+                            <div class="thumbnail b_moldura" id="novayork-select-color">
+                              <label>
+                                <img src="<?php echo plugins_url( 'img/nova-york-tabaco.jpg', __FILE__ ); ?>" border="0" />
+                                <div>
+                                  <p>Nova York Branca</p>
+                                </div>
+                              </label>
+                            </div>
+                      </div>
+                      
+                      <div class="col-md-4 t-thumb" id="m_basel_preta">
+                            <div class="thumbnail b_moldura" id="basel-select-color">
+                              <label>
+                                <img src="<?php echo plugins_url( 'img/basel-preta.jpg', __FILE__ ); ?>" border="0" />
+                                <div>
+                                  <p>Basel Preta</p>
+                                </div>
+                              </label>
+                            </div>
+                          </div>
+                        
+                          <div class="col-md-4 t-thumb" id="m_basel_branca">
+                            <div class="thumbnail b_moldura" id="basel-select-color">
+                              <label>
+                                <img src="<?php echo plugins_url( 'img/basel-branca.jpg', __FILE__ ); ?>" border="0" />
+                                <div>
+                                  <p>Basel Branca</p>
+                                </div>
+                              </label>
+                            </div>
+                          </div>
+                          
+                          <div class="col-md-4 t-thumb" id="m_basel_tabaco">
+                            <div class="thumbnail b_moldura" id="basel-select-color">
+                              <label>
+                                <img src="<?php echo plugins_url( 'img/basel-tabaco.jpg', __FILE__ ); ?>" border="0" />
+                                <div>
+                                  <p>Basel Tabaco</p>
                                 </div>
                               </label>
                             </div>
                           </div>
 
-                          <div class="col-md-4 t-thumb" id="m_basel">
-                            <div class="thumbnail" id="basel-select-color">
+                          <div class="col-md-4 t-thumb" id="m_basel_bege">
+                            <div class="thumbnail b_moldura" id="basel-select-color">
                               <label>
-                                <img src="<?php echo plugins_url( 'img/basel.png', __FILE__ ); ?>" border="0" />
+                                <img src="<?php echo plugins_url( 'img/basel-bege.jpg', __FILE__ ); ?>" border="0" />
                                 <div>
-                                  <p>Basel</p>
+                                  <p>Basel Bege</p>
                                 </div>
                               </label>
                             </div>
                           </div>
 
-                          <div class="col-md-4 t-thumb" id="m_berlim">
+                          <div class="col-md-4 t-thumb" id="m_berlim_preta">
+                            <div class="thumbnail b_moldura" id="berlim-select-color">
+                              <label>
+                                <img src="<?php echo plugins_url( 'img/berlim-preta.jpg', __FILE__ ); ?>" border="0" />
+                                <div>
+                                  <p>Berlim Preta</p>
+                                </div>
+                              </label>
+                            </div>
+                          </div>
+
+                          <div class="col-md-4 t-thumb" id="m_berlim_branca">
                             <div class="thumbnail" id="berlim-select-color">
                               <label>
-                                <img src="<?php echo plugins_url( 'img/berlim.png', __FILE__ ); ?>" border="0" />
+                                <img src="<?php echo plugins_url( 'img/berlim-branca.jpg', __FILE__ ); ?>" border="0" />
                                 <div>
-                                  <p>Berlim</p>
+                                  <p>Berlim Branca</p>
                                 </div>
                               </label>
                             </div>
                           </div>
 
-                          <div class="col-md-4 t-thumb" id="m_miami">
+                          <div class="col-md-4 t-thumb" id="m_miami_preta">
                             <div class="thumbnail" id="miami-select-color">
                               <label>
-                                <img src="<?php echo plugins_url( 'img/miami.png', __FILE__ ); ?>" border="0" />
+                                <img src="<?php echo plugins_url( 'img/miami-preta.jpg', __FILE__ ); ?>" border="0" />
                                 <div>
-                                  <p>Miami</p>
+                                  <p>Miami Preta</p>
                                 </div>
                               </label>
                             </div>
                           </div>
 
-                          <div class="col-md-4 t-thumb" id="m_nova_york">
-                            <div class="thumbnail" id="novayork-select-color">
+                          <div class="col-md-4 t-thumb" id="m_miami_branca">
+                            <div class="thumbnail" id="miami-select-color">
                               <label>
-                                <img src="<?php echo plugins_url( 'img/novayork.png', __FILE__ ); ?>" border="0" />
+                                <img src="<?php echo plugins_url( 'img/miami-branca.jpg', __FILE__ ); ?>" border="0" />
                                 <div>
-                                  <p>Nova York</p>
-                                </div>
-                              </label>
-                            </div>
-                          </div>
-                         
-                          <div class="col-md-4 t-thumb" id="m_sao_paulo">
-                            <div class="thumbnail" id="saopaulo-select-color">
-                              <label>
-                                <img src="<?php echo plugins_url( 'img/saopaulo.png', __FILE__ ); ?>" border="0" />
-                                <div>
-                                  <p>São Paulo</p>
+                                  <p>Miami Branca</p>
                                 </div>
                               </label>
                             </div>
@@ -455,69 +512,103 @@
                         </div>
                         <div id="m-moderna">
 
-                          <div class="col-md-4 t-thumb" id="m_amazonas">
+                          <div class="col-md-4 t-thumb" id="m_amazonas_areia">
                             <div class="thumbnail" id="amazonas-select-color">
                               <label>
-                                <img src="<?php echo plugins_url( 'img/amazonas.png', __FILE__ ); ?>" border="0" />
+                                <img src="<?php echo plugins_url( 'img/amazonas-areia.jpg', __FILE__ ); ?>" border="0" />
                                 <div>
-                                  <p>Amazonas</p>
+                                  <p>Amazonas Areia</p>
                                 </div>
                               </label>
                             </div>
                           </div>
-
-                          <div class="col-md-4 t-thumb" id="m_amsterdam">
-                            <div class="thumbnail" id="amsterdam-select-color">
+                          <div class="col-md-4 t-thumb" id="m_amazonas_bege">
+                            <div class="thumbnail" id="amazonas-select-color">
                               <label>
-                                <img src="<?php echo plugins_url( 'img/amsterdam.png', __FILE__ ); ?>" border="0" />
+                                <img src="<?php echo plugins_url( 'img/amazonas-bege.jpg', __FILE__ ); ?>" border="0" />
                                 <div>
-                                  <p>Amsterdam</p>
+                                  <p>Amazonas Bege</p>
                                 </div>
                               </label>
                             </div>
                           </div>
 
-                          <div class="col-md-4 t-thumb" id="m_buenosaires">
+                          <div class="col-md-4 t-thumb" id="m_amazonas_tabaco">
+                            <div class="thumbnail" id="amazonas-select-color">
+                              <label>
+                                <img src="<?php echo plugins_url( 'img/amazonas-tabaco.jpg', __FILE__ ); ?>" border="0" />
+                                <div>
+                                  <p>Amazonas Tabaco</p>
+                                </div>
+                              </label>
+                            </div>
+                          </div>
+
+                          <div class="col-md-4 t-thumb" id="m_buenosaires_preta">
                             <div class="thumbnail" id="buenosaires-select-color">
                               <label>
-                                <img src="<?php echo plugins_url( 'img/buenosaires.png', __FILE__ ); ?>" border="0" />
+                                <img src="<?php echo plugins_url( 'img/buenos-aires-preta.jpg', __FILE__ ); ?>" border="0" />
                                 <div>
-                                  <p>Buenos Aires</p>
+                                  <p>Buenos Aires Preta</p>
                                 </div>
                               </label>
                             </div>
                           </div>
 
-                          <div class="col-md-4 t-thumb" id="m_londres">
+                          <div class="col-md-4 t-thumb" id="m_buenosaires_branca">
+                            <div class="thumbnail" id="buenosaires-select-color">
+                              <label>
+                                <img src="<?php echo plugins_url( 'img/buenos-aires-branca.jpg', __FILE__ ); ?>" border="0" />
+                                <div>
+                                  <p>Buenos Aires Branca</p>
+                                </div>
+                              </label>
+                            </div>
+                          </div>
+
+                          
+                          <div class="col-md-4 t-thumb" id="m_londres_preta">
                             <div class="thumbnail" id="londres-select-color">
                               <label>
-                                <img src="<?php echo plugins_url( 'img/londres.png', __FILE__ ); ?>" border="0" />
+                                <img src="<?php echo plugins_url( 'img/londres-preta.jpg', __FILE__ ); ?>" border="0" />
                                 <div>
-                                  <p>Londres</p>
+                                  <p>Londres Preta</p>
                                 </div>
                               </label>
                             </div>
                           </div>
 
-                          <div class="col-md-4 t-thumb" id="m_santiago">
-                            <div class="thumbnail" id="santiago-select-color">
+                          <div class="col-md-4 t-thumb" id="m_londres_branca">
+                            <div class="thumbnail" id="londres-select-color">
                               <label>
-                                <img src="<?php echo plugins_url( 'img/santiago.png', __FILE__ ); ?>" border="0" />
+                                <img src="<?php echo plugins_url( 'img/londres-branca.jpg', __FILE__ ); ?>" border="0" />
                                 <div>
-                                  <p>Santiago</p>
+                                  <p>Londres Branca</p>
                                 </div>
                               </label>
                             </div>
                           </div>
+
+                          <div class="col-md-4 t-thumb" id="m_londres_bege">
+                            <div class="thumbnail" id="londres-select-color">
+                              <label>
+                                <img src="<?php echo plugins_url( 'img/londres-bege.jpg', __FILE__ ); ?>" border="0" />
+                                <div>
+                                  <p>Londres Bege</p>
+                                </div>
+                              </label>
+                            </div>
+                          </div>
+
                         </div>
                        
                         <div id="m-classica">
                           <div class="col-md-4 t-thumb" id="m_florenca">
                             <div class="thumbnail" id="florenca-select-color">
                               <label>
-                                <img src="<?php echo plugins_url( 'img/florenca.png', __FILE__ ); ?>" border="0" />
+                                <img src="<?php echo plugins_url( 'img/florenca-dourada.jpg', __FILE__ ); ?>" border="0" />
                                 <div>
-                                  <p>Florença</p>
+                                  <p>Florença Dourada</p>
                                 </div>
                               </label>
                             </div>
@@ -526,31 +617,53 @@
                           <div class="col-md-4 t-thumb" id="m_istambul">
                             <div class="thumbnail" id="istambul-select-color">
                               <label>
-                                <img src="<?php echo plugins_url( 'img/istambul.png', __FILE__ ); ?>" border="0" />
+                                <img src="<?php echo plugins_url( 'img/istambul-dourada.jpg', __FILE__ ); ?>" border="0" />
                                 <div>
-                                  <p>Istambul</p>
+                                  <p>Istambul Dourada</p>
                                 </div>
                               </label>
                             </div>
                           </div>
 
-                          <div class="col-md-4 t-thumb" id="m_paris">
+                          <div class="col-md-4 t-thumb" id="m_paris_preta">
                             <div class="thumbnail" id="paris-select-color">
                               <label>
-                                <img src="<?php echo plugins_url( 'img/paris.png', __FILE__ ); ?>" border="0" />
+                                <img src="<?php echo plugins_url( 'img/paris-preta.jpg', __FILE__ ); ?>" border="0" />
                                 <div>
-                                  <p>Paris</p>
+                                  <p>Paris Preta</p>
                                 </div>
                               </label>
                             </div>
                           </div>
 
-                          <div class="col-md-4 t-thumb" id="m_roma">
+                          <div class="col-md-4 t-thumb" id="m_paris_branca">
+                            <div class="thumbnail" id="paris-select-color">
+                              <label>
+                                <img src="<?php echo plugins_url( 'img/paris-branca.jpg', __FILE__ ); ?>" border="0" />
+                                <div>
+                                  <p>Paris Branca</p>
+                                </div>
+                              </label>
+                            </div>
+                          </div>
+
+                          <div class="col-md-4 t-thumb" id="m_roma_preta">
                             <div class="thumbnail" id="roma-select-color">
                               <label>
-                                <img src="<?php echo plugins_url( 'img/roma.png', __FILE__ ); ?>" border="0" />
+                                <img src="<?php echo plugins_url( 'img/roma-preta.jpg', __FILE__ ); ?>" border="0" />
                                 <div>
-                                  <p>Roma</p>
+                                  <p>Roma Preta</p>
+                                </div>
+                              </label>
+                            </div>
+                          </div>
+
+                          <div class="col-md-4 t-thumb" id="m_roma_branca">
+                            <div class="thumbnail" id="roma-select-color">
+                              <label>
+                                <img src="<?php echo plugins_url( 'img/roma-branca.jpg', __FILE__ ); ?>" border="0" />
+                                <div>
+                                  <p>Roma Branca</p>
                                 </div>
                               </label>
                             </div>

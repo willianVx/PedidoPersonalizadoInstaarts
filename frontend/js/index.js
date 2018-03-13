@@ -6,6 +6,9 @@ jQuery(document).ready(function($) {
 	var originalImageSrc; // assigned when image file is dropped
 	var currentImage; // assigned when the Edit button is clicked
 
+
+	$(".img-upload-line").hide();
+
 	$("#b-tamanho").click(function(){
 		if (!imageElement.attr("src")) {
 			hide_elements();
@@ -356,6 +359,7 @@ jQuery(document).ready(function($) {
 	function toggleDragDrop() {
 		dropArea.toggle();
 		imageElement.toggle();
+		$(".img-upload-line").toggle();
 	}
 	function setImage(file) {
 		imageElement.attr("src", window.URL.createObjectURL(file));

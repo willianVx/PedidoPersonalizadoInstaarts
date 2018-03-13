@@ -269,33 +269,74 @@ jQuery(document).ready(function($){
         moldura.setTipo(1);
         enviaDados();
     });
-    $("#m_basel").click(function(){
-        moldura.setMoldura("Basel");
+    $("#m_basel_preta").click(function(){
+        moldura.setMoldura("Basel Preta");
         moldura.setTipo(2);
         enviaDados();
     });
-    $("#m_berlim").click(function(){
-        moldura.setMoldura("Berlim");
+    $("#m_basel_branca").click(function(){
+        moldura.setMoldura("Basel Branca");
+        moldura.setTipo(2);
+        enviaDados();
+    });
+    $("#m_basel_tabaco").click(function(){
+        moldura.setMoldura("Basel Tabaco");
+        moldura.setTipo(2);
+        enviaDados();
+    });
+    $("#m_basel_bege").click(function(){
+        moldura.setMoldura("Basel Bege");
+        moldura.setTipo(2);
+        enviaDados();
+    });
+    $("#m_berlim_preta").click(function(){
+        moldura.setMoldura("Berlim Preta");
         moldura.setTipo(3);
         enviaDados();
     });
-    $("#m_miami").click(function(){
-        moldura.setMoldura("Miami");
+    $("#m_berlim_branca").click(function(){
+        moldura.setMoldura("Berlim Branca");
+        moldura.setTipo(3);
+        enviaDados();
+    });
+    $("#m_miami_preta").click(function(){
+        moldura.setMoldura("Miami Preta");
         moldura.setTipo(1);
         enviaDados();
     });
-    $("#m_nova_york").click(function(){
-        moldura.setMoldura("Nova York");
+    $("#m_miami_branca").click(function(){
+        moldura.setMoldura("Miami Branca");
+        moldura.setTipo(1);
+        enviaDados();
+    });
+    $("#m_nova_york_preta").click(function(){
+        moldura.setMoldura("Nova York Preta");
         moldura.setTipo(2);
         enviaDados();
     });
-    $("#m_sao_paulo").click(function(){
-        moldura.setMoldura("São Paulo");
+    $("#m_nova_york_Branca").click(function(){
+        moldura.setMoldura("Nova York Branca");
         moldura.setTipo(2);
         enviaDados();
     });
-    $("#m_amazonas").click(function(){
-        moldura.setMoldura("Amazonas");
+    $("#m_nova_york_tabaco").click(function(){
+        moldura.setMoldura("Nova York Tabaco");
+        moldura.setTipo(2);
+        enviaDados();
+    });
+    
+    $("#m_amazonas_areia").click(function(){
+        moldura.setMoldura("Amazonas Areia");
+        moldura.setTipo(2);
+        enviaDados();
+    });
+    $("#m_amazonas_bege").click(function(){
+        moldura.setMoldura("Amazonas Bege");
+        moldura.setTipo(2);
+        enviaDados();
+    });
+    $("#m_amazonas_tabaco").click(function(){
+        moldura.setMoldura("Amazonas Tabaco");
         moldura.setTipo(2);
         enviaDados();
     });
@@ -304,21 +345,32 @@ jQuery(document).ready(function($){
         moldura.setTipo(2);
         enviaDados();
     });
-    $("#m_buenosaires").click(function(){
-        moldura.setMoldura("Buenos Aires");
+    $("#m_buenosaires_preta").click(function(){
+        moldura.setMoldura("Buenos Aires Preta");
         moldura.setTipo(2);
         enviaDados();
     });
-    $("#m_londres").click(function(){
-        moldura.setMoldura("Londres");
+    $("#m_buenosaires_Branca").click(function(){
+        moldura.setMoldura("Buenos Aires Branca");
+        moldura.setTipo(2);
+        enviaDados();
+    });
+    $("#m_londres_preta").click(function(){
+        moldura.setMoldura("Londres Preta");
         moldura.setTipo(1);
         enviaDados();
     });
-    $("#m_santiago").click(function(){
-        moldura.setMoldura("Santiago");
+    $("#m_londres_branca").click(function(){
+        moldura.setMoldura("Londres Branca");
         moldura.setTipo(1);
         enviaDados();
     });
+    $("#m_londres_bege").click(function(){
+        moldura.setMoldura("Londres Bege");
+        moldura.setTipo(1);
+        enviaDados();
+    });
+    
     $("#m_florenca").click(function(){
         moldura.setMoldura("Florença");
         moldura.setTipo(3);
@@ -329,13 +381,23 @@ jQuery(document).ready(function($){
         moldura.setTipo(3);
         enviaDados();
     });
-    $("#m_paris").click(function(){
-        moldura.setMoldura("Paris");
+    $("#m_paris_preta").click(function(){
+        moldura.setMoldura("Paris Preta");
         moldura.setTipo(3);
         enviaDados();
     });
-    $("#m_roma").click(function(){
-        moldura.setMoldura("Roma");
+    $("#m_paris_branca").click(function(){
+        moldura.setMoldura("Paris Branca");
+        moldura.setTipo(3);
+        enviaDados();
+    });
+    $("#m_roma_preta").click(function(){
+        moldura.setMoldura("Roma Preta");
+        moldura.setTipo(1);
+        enviaDados();
+    });
+    $("#m_roma_branca").click(function(){
+        moldura.setMoldura("Roma Branca");
         moldura.setTipo(1);
         enviaDados();
     });

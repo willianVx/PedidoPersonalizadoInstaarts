@@ -1,4 +1,10 @@
 jQuery(document).ready(function($) {
+
+	$(".thumbnail").click(function(){
+		$(".thumbnail").removeClass("green");
+        $(this).addClass("green");
+	});
+
 	$("#tPapel").hide();
 	$("#tUv").hide();
 	$("#m-classica").hide();
@@ -57,98 +63,6 @@ jQuery(document).ready(function($) {
 	$("#meta3-select-color").click(function() {
 		removerClasse();
 		$("#meta3-select-color").addClass("green");
-	});
-	$("#acm-select-color").click(function() {
-		removerClasse();
-		$("#acm-select-color").addClass("green");
-	});
-	$("#fosco-select-color").click(function() {
-		removerClasse();
-		$("#fosco-select-color").addClass("green");
-	});
-	$("#algodao-select-color").click(function() {
-		removerClasse();
-		$("#algodao-select-color").addClass("green");
-	});
-	$("#acetinato-select-color").click(function() {
-		removerClasse();
-		$("#acetinato-select-color").addClass("green");
-	});
-	$("#brilhante-select-color").click(function() {
-		removerClasse();
-		$("#brilhante-select-color").addClass("green");
-	});
-	$("#canvas-select-color").click(function() {
-		removerClasse();
-		$("#canvas-select-color").addClass("green");
-	});
-	$("#uv-select-color").click(function() {
-		removerClasse();
-		$("#uv-select-color").addClass("green");
-	});
-	$("#uvacm-select-color").click(function() {
-		removerClasse();
-		$("#uvacm-select-color").addClass("green");
-	});
-	$("#florenca-select-color").click(function() {
-		removerClasse();
-		$("#florenca-select-color").addClass("green");
-	});
-	$("#istambul-select-color").click(function() {
-		removerClasse();
-		$("#istambul-select-color").addClass("green");
-	});
-	$("#paris-select-color").click(function() {
-		removerClasse();
-		$("#paris-select-color").addClass("green");
-	});
-	$("#roma-select-color").click(function() {
-		removerClasse();
-		$("#roma-select-color").addClass("green");
-	});
-	$("#atenas-select-color").click(function() {
-		removerClasse();
-		$("#atenas-select-color").addClass("green");
-	});
-	$("#basel-select-color").click(function() {
-		removerClasse();
-		$("#basel-select-color").addClass("green");
-	});
-	$("#berlim-select-color").click(function() {
-		removerClasse();
-		$("#berlim-select-color").addClass("green");
-	});
-	$("#miami-select-color").click(function() {
-		removerClasse();
-		$("#miami-select-color").addClass("green");
-	});
-	$("#novayork-select-color").click(function() {
-		removerClasse();
-		$("#novayork-select-color").addClass("green");
-	});
-	$("#saopaulo-select-color").click(function() {
-		removerClasse();
-		$("#saopaulo-select-color").addClass("green");
-	});
-	$("#amazonas-select-color").click(function() {
-		removerClasse();
-		$("#amazonas-select-color").addClass("green");
-	});
-	$("#amsterdam-select-color").click(function() {
-		removerClasse();
-		$("#amsterdam-select-color").addClass("green");
-	});
-	$("#buenosaires-select-color").click(function() {
-		removerClasse();
-		$("#buenosaires-select-color").addClass("green");
-	});
-	$("#londres-select-color").click(function() {
-		removerClasse();
-		$("#londres-select-color").addClass("green");
-	});
-	$("#santiago-select-color").click(function() {
-		removerClasse();
-		$("#santiago-select-color").addClass("green");
 	});
 	function removerClasse() {
 		$("#meta7-select-color").removeClass("green");

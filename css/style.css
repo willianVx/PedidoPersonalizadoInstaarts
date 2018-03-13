@@ -104,8 +104,16 @@
       margin-left: auto;
 	    margin-right: auto;
       display: block;
-      
-    } 
+    }
+
+    .img-upload-line{
+      padding: 5px;
+
+      border-style: solid;
+      border-width: 1px;
+      border-color: #b3b3b3;
+      border-radius: 12px;
+    }
 
     body.loading {
       position: relative;
@@ -157,8 +165,8 @@
       left: 470px;
     }
     .texto_tamanho_image{
-      font-size: 12px;
-      color:rgb(99, 99, 99);
+      font-size: 1em;
+      color:rgb(46, 46, 46);
       position: absolute;
       width: 360px;
       height: 300px;

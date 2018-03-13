@@ -93,7 +93,7 @@ jQuery(document).ready(function($) {
 					$(".texto_tamanho_image").html("Talvez sua imagem não tenha resolução para produzirmos nos tamanhos selecionados. Para mais informações entre em contato através do chat.");
 					$(".texto_tamanho_image").css("color","red");
 				}else{
-					$(".texto_tamanho_image").html("Você está visualizando os tamanhos de  acordo com a proporção e resolução da sua imagem, para alterar a proporção click em editar.");
+					$(".texto_tamanho_image").html("Para alterar a proporção volte e click em editar.");
 					$(".texto_tamanho_image").css("color","gray");
 				}
 
