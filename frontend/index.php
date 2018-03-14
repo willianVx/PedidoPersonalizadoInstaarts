@@ -178,7 +178,7 @@
 
             <!-- Modal -->
             <div class="modal fade" id="material" role="dialog"> 
-              <div class="modal-dialog">
+              <div class="modal-dialog modal-lg">
 
                 <!-- Modal content-->
                 <div class="modal-content" style="position: relative; top: 200px;">
@@ -206,7 +206,7 @@
                         </div>
                       </nav>
                       <div id="tMeta">
-                        <div class="col-sm-3 m-thumb" id="meta7mm">
+                        <div class="col-md-4 m-thumb" id="meta7mm">
                           <div class="thumbnail" id="meta7-select-color">
                             <label>
                               <img src="<?php echo plugins_url( 'img/meta7mm.png', __FILE__ ); ?>" border="0" />
@@ -216,7 +216,7 @@
                             </label>
                           </div>
                         </div>
-                        <div class="col-sm-3 m-thumb" id="meta5mm">
+                        <div class="col-md-4 m-thumb" id="meta5mm">
                           <div class="thumbnail" id="meta5-select-color">
                             <label>
                               <img src="<?php echo plugins_url( 'img/meta5mm.png', __FILE__ ); ?>" border="0" />
@@ -227,18 +227,18 @@
                           </div>
                         </div>
 
-                        <div class="col-sm-3 m-thumb" id="meta4mm">
+                        <div class="col-md-4 m-thumb" id="meta4mm">
                           <div class="thumbnail" id="meta4-select-color">
                             <label>
                               <img src="<?php echo plugins_url( 'img/meta4mm.png', __FILE__ ); ?>" border="0" />
                               <div>
-                                <p>Metacrilato 4mm PS</p>
+                                <p>Metacrilato 4mm</p>
                               </div>
                             </label>
                           </div>
                         </div>
 
-                        <div class="col-sm-3 m-thumb" id="meta3mm">
+                        <div class="col-md-4 m-thumb" id="meta3mm">
                           <div class="thumbnail" id="meta3-select-color">
                             <label>
                               <img src="<?php echo plugins_url( 'img/meta3mm.png', __FILE__ ); ?>" border="0" />
@@ -249,7 +249,7 @@
                           </div>
                         </div>
 
-                        <div class="col-sm-3 m-thumb" id="acm5mm">
+                        <div class="col-md-4 m-thumb" id="acm5mm">
                           <div class="thumbnail" id="acm-select-color">
                             <label>
                               <img src="<?php echo plugins_url( 'img/acm.png', __FILE__ ); ?>" border="0" />
@@ -264,7 +264,7 @@
 
                       <div id="tPapel">
 
-                        <div class="col-sm-3 m-thumb" id="papelAlgodao">
+                        <div class="col-md-4 m-thumb" id="papelAlgodao">
                           <div class="thumbnail" id="algodao-select-color">
                             <label>
                               <img src="<?php echo plugins_url( 'img/algodao.png', __FILE__ ); ?>" border="0" />
@@ -275,7 +275,7 @@
                           </div>
                         </div>
 
-                        <div class="col-sm-3 m-thumb" id="papelAcetinato">
+                        <div class="col-md-4 m-thumb" id="papelAcetinato">
                           <div class="thumbnail" id="acetinato-select-color">
                             <label>
                               <img src="<?php echo plugins_url( 'img/acetinato.png', __FILE__ ); ?>" border="0" />
@@ -286,7 +286,7 @@
                           </div>
                         </div>
 
-                        <div class="col-sm-3 m-thumb" id="papelBrilhante">
+                        <div class="col-md-4 m-thumb" id="papelBrilhante">
                           <div class="thumbnail" id="brilhante-select-color">
                             <label>
                               <img src="<?php echo plugins_url( 'img/brilhante.png', __FILE__ ); ?>" border="0" />
@@ -297,7 +297,7 @@
                           </div>
                         </div>
 
-                        <div class="col-sm-3 m-thumb" id="papelFosco">
+                        <div class="col-md-4 m-thumb" id="papelFosco">
                           <div class="thumbnail" id="fosco-select-color">
                             <label>
                               <img src="<?php echo plugins_url( 'img/fosco.png', __FILE__ ); ?>" border="0" />
@@ -307,12 +307,12 @@
                             </label>
                           </div>
                         </div>
-                        <div class="col-sm-3 m-thumb" id="papelCanvas">
+                        <div class="col-md-4 m-thumb" id="papelCanvas">
                           <div class="thumbnail" id="canvas-select-color">
                             <label>
                               <img src="<?php echo plugins_url( 'img/canvas.png', __FILE__ ); ?>" border="0" />
                               <div>
-                                <p>Impressão em Canvas</p>
+                                <p>Canvas</p>
                               </div>
                             </label>
                           </div>
@@ -322,7 +322,7 @@
 
                       <div id="tUv">
 
-                        <div class="col-sm-3 m-thumb" id="uvPS">
+                        <div class="col-md-4 m-thumb" id="uvPS">
                           <div class="thumbnail" id="uv-select-color">
                             <label>
                               <img src="<?php echo plugins_url( 'img/uvps.png', __FILE__ ); ?>" border="0" />
@@ -333,7 +333,7 @@
                           </div>
                         </div>
 
-                        <div class="col-sm-3 m-thumb" id="uvACM">
+                        <div class="col-md-4 m-thumb" id="uvACM">
                           <div class="thumbnail" id="uvacm-select-color">
                             <label>
                               <img src="<?php echo plugins_url( 'img/uvacm.png', __FILE__ ); ?>" border="0" />
@@ -358,7 +358,7 @@
            
             <!-- Modal -->
             <div class="modal fade" id="moldura" role="dialog">
-              <div class="modal-dialog">
+              <div class="modal-dialog modal-lg">
                 <!-- Modal content-->
                 <div class="modal-content" style="position: relative; top: 200px;">
                   <div class="modal-header">
@@ -673,7 +673,7 @@
                     </div>
                   </div>
                   <div class="modal-footer">
-                    <span id="n_moldura" class="btn btn-default">Sem Moldura</span>
+                    <span id="n_moldura" class="btn btn-default" data-dismiss="modal">Sem Moldura</span>
                     <button type="button" class="btn btn-default" data-dismiss="modal">Continuar</button>
                   </div>
                 </div>
