@@ -189,18 +189,18 @@
                   <div class="modal-body col-sm-12">
                     <div id="acabamento_modal_body"></div>
                     <div class="checkbox acabamento_modal_body_op">
-                      <nav class="navbar navbar-inverse">
+                      <nav class="navbar navbar-light" style="background-color: #47af58;">
                         <div class="container-fluid">
                           <div class="navbar-header"></div>
                           <ul class="nav navbar-nav">
                             <li id="bMeta">
-                              <a href="#">Metacrilato</a>
+                             <a href="#">Metacrilato</a> 
                             </li>
                             <li id="bPrints">
-                              <a href="#">Prints</a>
+                              <a href="#">Prints</a> 
                             </li>
                             <li id="bUv">
-                              <a href="#">UV Print</a>
+                              <a href="#">UV Print</a> 
                             </li>
                           </ul>
                         </div>
@@ -369,7 +369,7 @@
                   <div id="moldura_modal_body"></div>
                     <div class="checkbox moldura_modal_body_op">
                       
-                      <nav class="navbar navbar-inverse">
+                      <nav class="navbar navbar-light" style="background-color: #47af58;">
                         <div class="container-fluid">
                           <div class="navbar-header"></div>
                           <ul class="nav navbar-nav">
