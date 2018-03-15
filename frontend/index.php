@@ -38,8 +38,8 @@
         <span>
           <a href="#"><img src="<?php echo plugins_url( 'img/imagem-1.jpg', __FILE__ ); ?>" border="0" /></a>
         </span>
-        <span>
-        <p>Click para fazer o Upload da sua imagem</p>
+        <span class="iap_box_upload">
+        Click para fazer o Upload da sua imagem
         </span>
       </div>
 
@@ -166,7 +166,7 @@
                 </div>
               </div>
               <div class="modal-footer">
-              <button type="button" class="btn btn-default ok-modal-acabamento" data-dismiss="modal">Continuar</button>
+              <button type="button" class="btn btn-default" data-dismiss="modal">Continuar</button>
               </div>
             </div>
 
@@ -193,7 +193,7 @@
                         <div class="container-fluid">
                           <div class="navbar-header"></div>
                           <ul class="nav navbar-nav">
-                            <li id="bMeta">
+                            <li id="bMeta" class="navbar_click">
                              <a href="#">Metacrilato</a> 
                             </li>
                             <li id="bPrints">
@@ -373,7 +373,7 @@
                         <div class="container-fluid">
                           <div class="navbar-header"></div>
                           <ul class="nav navbar-nav">
-                            <li id="b-contemporanea">
+                            <li id="b-contemporanea" class="navbar_click">
                               <a href="#">Contemporanea</a>
                             </li>
                             <li id="b-moderna">

@@ -153,7 +153,7 @@
       left: 200px;
     }
     .s-preco{
-      color: green;
+      color: rgb(255, 255, 255);
     }
     .texto_upload_image{
       font-size: 12px;
@@ -177,7 +177,28 @@
       font-size: 12px;
       color:rgb(150, 150, 150);
     }
+    .iap_box_upload{
+      position: relative;
+      font-size: 0.9em;
+      padding: 5px;
+      cursor: pointer;
+      color: white;
+      background: -moz-linear-gradient(top, rgba(71,175,88,0.5) 0%, rgba(71,175,88,0.55) 100%);
+      background: -webkit-linear-gradient(top, rgba(71,175,88,0.5) 0%,rgba(71,175,88,0.55) 100%);
+      background: linear-gradient(to bottom, rgba(71,175,88,0.5) 0%,rgba(71,175,88,0.55) 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8047af58', endColorstr='#8c47af58',GradientType=0 );
+      top: -30px;
+    }
     
+    .navbar a{
+      color: rgb(255, 255, 255);
+    }
+    .navbar a:hover{
+      color: rgb(177, 177, 177); 
+    }
+    .navbar_click a{
+      font-size: 2em;
+    }
     @media(max-width: 500px){
       .progress{
         position: relative;

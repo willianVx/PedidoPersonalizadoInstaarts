@@ -18,7 +18,7 @@ require 'iap-pedido-bd-connection.php';
 require 'inc/ajax.php';
 require 'inc/woo.php';
 require 'calculadoraProdutosInsta/iap-get-preco.php';
-require 'imagemProporcional/iap-ImagemProporcional.php';
+require 'ImagemProporcional/iap-ImagemProporcional.php';
 
 /*
  * Verifica se o WooCommerce tá presente

@@ -435,6 +435,7 @@ jQuery(document).ready(function($){
                     alert("Erro no processamento. Tente mais tarde.");
                 } else {
                     $("#s-preco").html(data);
+                    $("#comprar-botao").addClass("btn-success");
                 }
             },
             error: function(data) {
