@@ -210,6 +210,9 @@
         position: relative;
         margin: 5px;
       }
+      .iap_box_upload{
+        font-size: 0.5em;
+      }
     }
     @media(max-width: 1200px){
       .hud-botao {
