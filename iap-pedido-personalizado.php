@@ -49,6 +49,7 @@ function iap_referal_init() {
 
 add_action( 'wp', 'iap_referal_init' );
 function iap_register_scripts(){
+
 	wp_enqueue_style( 'bootstrap', '//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css');
 	wp_enqueue_style('estilo', plugins_url('PedidoPersonalizadoInstaarts/css/style.css'));
 	wp_enqueue_script('jquery-form', '//malsup.github.com/jquery.form.js');

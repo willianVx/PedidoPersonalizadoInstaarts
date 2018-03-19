@@ -1,4 +1,10 @@
 jQuery(document).ready(function($) {
+	
+	//direciona para galaria de imagens
+	$(".iap_galeria").click(function() {
+		$(".envelope-pedido-personalizado").hide();
+		$(".iap_acervo").show();
+	});
 
 	//adiciona contorno verde a opcao selecionada
 	$(".thumbnail").click(function(){

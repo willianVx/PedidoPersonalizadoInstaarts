@@ -1,7 +1,7 @@
 
 <?php get_header(); ?>
 
-<div class="container" onload="formulaTotal()">
+<div class="container envelope-pedido-personalizado" onload="formulaTotal()">
  
   <div class="row container-b">
     <!-- botoes editar - voltar - limpar --> 
@@ -84,6 +84,7 @@
                   <div class="linha_div_vertical">
                   </div>
                   <div class="texto_upload_image">
+                  <button class="btn btn-default iap_galeria" data-dismiss="modal">Galeria</button>
                     <aside>
                       Caso sua imagem não esteja no formato correto ou precise de ajuda, por favor fale conosco pelo chat ou entre em contato pelo e-mail: <a title="mailto:contato@instaarts.com.br" href="mailto:contato@instaarts.com.br" target="_blank" rel="noopener noreferrer">contato@instaarts.com.br</a><br> ou  pelos telefones: </br> <a href="tel:+1146126019">(11) 4612-6019 </a> e <a href="tel:+1130316881">(11) 3031-6881</a>
                     </aside>
