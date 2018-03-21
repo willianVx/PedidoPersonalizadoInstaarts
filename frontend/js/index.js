@@ -1,12 +1,21 @@
 jQuery(document).ready(function($) {
+
+var url_pexel = window.location.search.substr(31);
+var url_pexel = url_pexel.split("%2F");
+var url_pexel = url_pexel.join("/");
+var url_pexel = "//"+url_pexel;
+
 	// The visibility of these 2 elements is toggled by `toggleDragDrop()`
 	var imageElement = $("#editable-image").hide();
 	var dropArea = $("#drop-area");
 
 	var originalImageSrc; // assigned when image file is dropped
 	var currentImage; // assigned when the Edit button is clicked
-
-
+	
+	if(url_pexel != "//"){
+		$("img").attr('src', url_pexel);
+	}
+	
 	$(".img-upload-line").hide();
 
 	$("#b-tamanho").click(function(){

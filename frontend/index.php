@@ -1,5 +1,5 @@
 
-<?php get_header(); ?>
+<?php get_header();?>
 
 <div class="container envelope-pedido-personalizado" onload="formulaTotal()">
  
@@ -36,7 +36,7 @@
 
       <div id="drop-area" class="drop-zone" data-toggle="modal" data-target="#modalUpload">
         <span>
-          <a href="#"><img src="<?php echo plugins_url( 'img/imagem-1.jpg', __FILE__ ); ?>" border="0" /></a>
+          <a href="#"><img src="<?php echo plugins_url('img/imagem-1.jpg', __FILE__ ); ?>" border="0" /></a>
         </span>
         <span class="iap_box_upload">
         Click para fazer o Upload da sua imagem
@@ -84,7 +84,8 @@
                   <div class="linha_div_vertical">
                   </div>
                   <div class="texto_upload_image">
-                  <button class="btn btn-default iap_galeria" data-dismiss="modal">Galeria</button>
+
+                  <!-- <button class="btn btn-default iap_galeria" data-dismiss="modal">Galeria</button> -->
                     <aside>
                       Caso sua imagem não esteja no formato correto ou precise de ajuda, por favor fale conosco pelo chat ou entre em contato pelo e-mail: <a title="mailto:contato@instaarts.com.br" href="mailto:contato@instaarts.com.br" target="_blank" rel="noopener noreferrer">contato@instaarts.com.br</a><br> ou  pelos telefones: </br> <a href="tel:+1146126019">(11) 4612-6019 </a> e <a href="tel:+1130316881">(11) 3031-6881</a>
                     </aside>
@@ -117,22 +118,22 @@
             <span id="s-preco"></span>
           </div>
         </div>
-
-
-
-              <!-- Modal -->
-        <div id="tamanho" class="modal fade" role="dialog">
-          <div class="modal-dialog">
-
-            <!-- Modal content-->
-            <div class="modal-content" style="position: relative; top: 200px;">
+        <!-- Modal -->
+          
+        <div class="modal fade" id="tamanho" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content modal-lg" style="position: relative; top: 200px;">
               <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Escolha o tamanho do seu quadro</h4>
+                <h5 class="modal-title" id="exampleModalLongTitle">Escolha o tamanho do seu quadro</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
               </div>
+
               <div class="modal-body">
-                  <div id="msg_img_not"></div>
-                    <div class="checkbox">
+                <div id="msg_img_not"></div>
+              </div>
+              <div class="checkbox">
                       <form id="tamanhoPadrao">
                           <label  id="tamanho1">
                             <input type="radio" name="tamanho" value="20x18" id="tamanho1_input"> 20x<span id="tamanhoY1">18</span>cm</label>
@@ -165,196 +166,20 @@
                           
                       </form>
                 </div>
-              </div>
               <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Continuar</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Continuar</button>
               </div>
-            </div>
-
-          </div>
+         </div>
         </div>
-       
+        
+
+
+        
+
           <!-- tamanho material e moldura -->
           <div class="container m_material col-sm-4">
 
-            <!-- Modal -->
-            <div class="modal fade" id="material" role="dialog"> 
-              <div class="modal-dialog modal-lg">
-
-                <!-- Modal content-->
-                <div class="modal-content" style="position: relative; top: 200px;">
-                  <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Acabamento</h4>
-                  </div>
-                  <div class="modal-body col-sm-12">
-                    <div id="acabamento_modal_body"></div>
-                    <div class="checkbox acabamento_modal_body_op">
-                      <nav class="navbar navbar-light" style="background-color: #47af58;">
-                        <div class="container-fluid">
-                          <div class="navbar-header"></div>
-                          <ul class="nav navbar-nav">
-                            <li id="bMeta" class="navbar_click">
-                             <a href="#">Metacrilato</a> 
-                            </li>
-                            <li id="bPrints">
-                              <a href="#">Prints</a> 
-                            </li>
-                            <li id="bUv">
-                              <a href="#">UV Print</a> 
-                            </li>
-                          </ul>
-                        </div>
-                      </nav>
-                      <div id="tMeta">
-                        <div class="col-md-4 m-thumb" id="meta7mm">
-                          <div class="thumbnail" id="meta7-select-color">
-                            <label>
-                              <img src="<?php echo plugins_url( 'img/meta7mm.png', __FILE__ ); ?>" border="0" />
-                              <div>
-                                <p>Metacrilato 7mm</p>
-                              </div>
-                            </label>
-                          </div>
-                        </div>
-                        <div class="col-md-4 m-thumb" id="meta5mm">
-                          <div class="thumbnail" id="meta5-select-color">
-                            <label>
-                              <img src="<?php echo plugins_url( 'img/meta5mm.png', __FILE__ ); ?>" border="0" />
-                              <div>
-                                <p>Metacrilato 5mm</p>
-                              </div>
-                            </label>
-                          </div>
-                        </div>
-
-                        <div class="col-md-4 m-thumb" id="meta4mm">
-                          <div class="thumbnail" id="meta4-select-color">
-                            <label>
-                              <img src="<?php echo plugins_url( 'img/meta4mm.png', __FILE__ ); ?>" border="0" />
-                              <div>
-                                <p>Metacrilato 4mm</p>
-                              </div>
-                            </label>
-                          </div>
-                        </div>
-
-                        <div class="col-md-4 m-thumb" id="meta3mm">
-                          <div class="thumbnail" id="meta3-select-color">
-                            <label>
-                              <img src="<?php echo plugins_url( 'img/meta3mm.png', __FILE__ ); ?>" border="0" />
-                              <div>
-                                <p>Metacrilato 3mm</p>
-                              </div>
-                            </label>
-                          </div>
-                        </div>
-
-                        <div class="col-md-4 m-thumb" id="acm5mm">
-                          <div class="thumbnail" id="acm-select-color">
-                            <label>
-                              <img src="<?php echo plugins_url( 'img/acm.png', __FILE__ ); ?>" border="0" />
-                              <div>
-                                <p>Metacrilato ACM 5mm</p>
-                              </div>
-                            </label>
-                          </div>
-                        </div>
-
-                      </div>
-
-                      <div id="tPapel">
-
-                        <div class="col-md-4 m-thumb" id="papelAlgodao">
-                          <div class="thumbnail" id="algodao-select-color">
-                            <label>
-                              <img src="<?php echo plugins_url( 'img/algodao.png', __FILE__ ); ?>" border="0" />
-                              <div>
-                                <p>Papel algodão</p>
-                              </div>
-                            </label>
-                          </div>
-                        </div>
-
-                        <div class="col-md-4 m-thumb" id="papelAcetinato">
-                          <div class="thumbnail" id="acetinato-select-color">
-                            <label>
-                              <img src="<?php echo plugins_url( 'img/acetinato.png', __FILE__ ); ?>" border="0" />
-                              <div>
-                                <p>Papel Acetinato</p>
-                              </div>
-                            </label>
-                          </div>
-                        </div>
-
-                        <div class="col-md-4 m-thumb" id="papelBrilhante">
-                          <div class="thumbnail" id="brilhante-select-color">
-                            <label>
-                              <img src="<?php echo plugins_url( 'img/brilhante.png', __FILE__ ); ?>" border="0" />
-                              <div>
-                                <p>Papel Brilhante</p>
-                              </div>
-                            </label>
-                          </div>
-                        </div>
-
-                        <div class="col-md-4 m-thumb" id="papelFosco">
-                          <div class="thumbnail" id="fosco-select-color">
-                            <label>
-                              <img src="<?php echo plugins_url( 'img/fosco.png', __FILE__ ); ?>" border="0" />
-                              <div>
-                                <p>Papel Fosco</p>
-                              </div>
-                            </label>
-                          </div>
-                        </div>
-                        <div class="col-md-4 m-thumb" id="papelCanvas">
-                          <div class="thumbnail" id="canvas-select-color">
-                            <label>
-                              <img src="<?php echo plugins_url( 'img/canvas.png', __FILE__ ); ?>" border="0" />
-                              <div>
-                                <p>Canvas</p>
-                              </div>
-                            </label>
-                          </div>
-                        </div>
-
-                      </div>
-
-                      <div id="tUv">
-
-                        <div class="col-md-4 m-thumb" id="uvPS">
-                          <div class="thumbnail" id="uv-select-color">
-                            <label>
-                              <img src="<?php echo plugins_url( 'img/uvps.png', __FILE__ ); ?>" border="0" />
-                              <div>
-                                <p>impressão UV sobre PS</p>
-                              </div>
-                            </label>
-                          </div>
-                        </div>
-
-                        <div class="col-md-4 m-thumb" id="uvACM">
-                          <div class="thumbnail" id="uvacm-select-color">
-                            <label>
-                              <img src="<?php echo plugins_url( 'img/uvacm.png', __FILE__ ); ?>" border="0" />
-                              <div>
-                                <p>impressão UV sobre ACM</p>
-                              </div>
-                            </label>
-                          </div>
-                        </div>
-
-                      </div>
-                    </div>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-default ok-modal-acabamento" data-dismiss="modal">Continuar</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+           
           <div class="moldura col-sm-4">
            
             <!-- Modal -->

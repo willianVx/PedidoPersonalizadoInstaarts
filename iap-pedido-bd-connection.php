@@ -50,4 +50,4 @@ function iap_db_install() {
 	}
 }
 register_activation_hook( __FILE__, 'iap_db_install' );
-add_action('init', 'iap_db_install');
+//add_action('init', 'iap_db_install');
