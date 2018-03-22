@@ -2,13 +2,12 @@
 <?php get_header();?>
 
 <div class="container envelope-pedido-personalizado" onload="formulaTotal()">
- 
   <div class="row container-b">
     <!-- botoes editar - voltar - limpar --> 
     <div class="col-md-2">
       <div class="row">
         <div class="col-md-12">
-          <button id="edit-image-button" class="btn btn-primary btn-block button-panel">
+          <button id="edit-image-button" class="btn btn-primary btn-block button-panel botao_editar">
             <span class="glyphicon glyphicon-pencil pull-left padleft" aria-hidden="true"></span> Editar
           </button>
         </div>
@@ -49,12 +48,12 @@
       
       <div class="container">
         <!-- Modal upload de arquivos por click -->
-        <div class="modal fade" id="modalUpload" role="dialog" style="position: absolute; top: 10px;">
-          <div class="modal-dialog modal-lg">
+        <div class="modal fade" id="modalUpload" role="dialog" tabindex="-1" style="position: absolute; top: 10px;" >
+          <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content col-sm-12">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Faça o Upload da Sua Imagem</h4>
+                <h5 class="modal-title">Faça o Upload da Sua Imagem</h5>
               </div>
               <div class="modal-body texto_upload col-sm-12">
 
@@ -81,80 +80,72 @@
                 
                 </div>
                 
-                  <div class="linha_div_vertical">
-                  </div>
+                  <div class="linha_div_vertical"></div>
                   <div class="texto_upload_image">
-
-                  <!-- <button class="btn btn-default iap_galeria" data-dismiss="modal">Galeria</button> -->
                     <aside>
                       Caso sua imagem não esteja no formato correto ou precise de ajuda, por favor fale conosco pelo chat ou entre em contato pelo e-mail: <a title="mailto:contato@instaarts.com.br" href="mailto:contato@instaarts.com.br" target="_blank" rel="noopener noreferrer">contato@instaarts.com.br</a><br> ou  pelos telefones: </br> <a href="tel:+1146126019">(11) 4612-6019 </a> e <a href="tel:+1130316881">(11) 3031-6881</a>
                     </aside>
                   </div>
                 
               <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
               </div>
+
             </div>
           </div>
         </div>
+
       </div>
-      <div class="hud-produtos">
-        <div class="col-lg-12 col-sm-12 col-xs-12">
-          <div class="col-lg-3 col-sm-3 col-xs-6">
-            <button type="button" id="b-tamanho" class="btn btn-default btn-lg hud-botao" data-toggle="modal" data-target="#tamanho">Tamanho: <span id="s-tamanho"> </span> </button>
-          </div>
-          <div class="col-lg-3 col-sm-3 col-xs-6">
-            <!-- Trigger the modal with a button -->
-            <button type="button" id="b-acabamento" class="btn btn-default btn-lg hud-botao" data-toggle="modal" data-target="#material"><span id="s-metacrilato"> Acabamento</span></button>
-          </div>
+     
+        <div class="col-lg-12 hud-botoes-mat">
 
-          <div class="col-lg-3 col-sm-3 col-xs-6">
-             <!-- Trigger the modal with a button -->
-            <button type="button" id="b-moldura" class="btn btn-default btn-lg hud-botao" data-toggle="modal" data-target="#moldura"><span id="s-moldura">Moldura</span></button>
-          </div>
+        <button type="button" id="b-tamanho" class="btn btn-default btn-lg hud-botao col-lg-3" data-toggle="modal" data-target="#tamanho">Tamanho: <span id="s-tamanho"> </span> </button>
 
-          <div class="col-lg-3 col-sm-3 col-xs-6">
-            <button id="comprar-botao" type="button" class="btn btn-default btn-lg hud-botao b-comprar">Comprar: <span id="s-preco" class="s-preco"></span> </button>
-            <span id="s-preco"></span>
-          </div>
+        <button type="button" id="b-acabamento" class="btn btn-default btn-lg hud-botao col-lg-3" data-toggle="modal" data-target="#material"><span id="s-metacrilato"> Acabamento</span></button>
+
+        <button type="button" id="b-moldura" class="btn btn-default btn-lg hud-botao col-lg-3" data-toggle="modal" data-target="#moldura"><span id="s-moldura">Moldura</span></button>
+
+        <button id="comprar-botao" type="button" class="btn btn-default btn-lg hud-botao b-comprar col-lg-3">Comprar: <span id="s-preco" class="s-preco"></span> </button>
+
         </div>
-              <!-- Modal -->
-        <div id="tamanho" class="modal fade" role="dialog">
+
+        <!-- Modal -->
+        <div id="tamanho" class="modal fade" role="dialog" tabindex="-1">
           <div class="modal-dialog modal-lg">
 
             <!-- Modal content-->
             <div class="modal-content col-sm-12" style="position: relative; top: 200px;">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Escolha o tamanho do seu quadro</h4>
+                <h5 class="modal-title">Escolha o tamanho do seu quadro</h5>
               </div>
-              <div class="modal-body">
+              <div class="modal-body container-fluid">
                   <div id="msg_img_not"></div>
                     <div class="checkbox">
                       <form id="tamanhoPadrao">
                           <label  id="tamanho1">
-                            <input type="radio" name="tamanho" value="20x18" id="tamanho1_input"> 20x<span id="tamanhoY1">18</span>cm</label>
+                            <input type="radio" name="tamanho" value="20x18" id="tamanho1_input" data-dismiss="modal"> 20x<span id="tamanhoY1">18</span>cm</label>
                           <br>
                           <label id="tamanho2">
-                            <input type="radio" name="tamanho" value="30x27" id="tamanho2_input"> 30x<span id="tamanhoY2">27</span>cm</label>
+                            <input type="radio" name="tamanho" value="30x27" id="tamanho2_input" data-dismiss="modal"> 30x<span id="tamanhoY2">27</span>cm</label>
                           <br>
                           <label id="tamanho3">
-                            <input type="radio" name="tamanho" value="40x36" id="tamanho3_input"> 40x<span id="tamanhoY3">36</span>cm</label>
+                            <input type="radio" name="tamanho" value="40x36" id="tamanho3_input" data-dismiss="modal"> 40x<span id="tamanhoY3">36</span>cm</label>
                           <br>
                           <label id="tamanho4">
-                            <input type="radio" name="tamanho" value="50x45" id="tamanho4_input"> 50x<span id="tamanhoY4">45</span>cm</label>
+                            <input type="radio" name="tamanho" value="50x45" id="tamanho4_input" data-dismiss="modal"> 50x<span id="tamanhoY4">45</span>cm</label>
                           <br>
                           <label id="tamanho5">
-                            <input type="radio" name="tamanho" value="60x54" id="tamanho5_input"> 60x<span id="tamanhoY5">54</span>cm</label>
+                            <input type="radio" name="tamanho" value="60x54" id="tamanho5_input" data-dismiss="modal"> 60x<span id="tamanhoY5">54</span>cm</label>
                           <br>
                           <label id="tamanho6">
-                            <input type="radio" name="tamanho" value="70x64" id="tamanho6_input"> 70x<span id="tamanhoY6">64</span>cm</label>
+                            <input type="radio" name="tamanho" value="70x64" id="tamanho6_input" data-dismiss="modal"> 70x<span id="tamanhoY6">64</span>cm</label>
                           <br>
                           <label id="tamanho7">
-                            <input type="radio" name="tamanho" value="80x72" id="tamanho7_input"> 80x<span id="tamanhoY7">72</span>cm</label>
+                            <input type="radio" name="tamanho" value="80x72" id="tamanho7_input" data-dismiss="modal"> 80x<span id="tamanhoY7">72</span>cm</label>
                           <br>
                           <label id="tamanho8">
-                            <input type="radio" name="tamanho" value="90x82" id="tamanho8_input"> 90x<span id="tamanhoY8">82</span>cm</label>
+                            <input type="radio" name="tamanho" value="90x82" id="tamanho8_input" data-dismiss="modal"> 90x<span id="tamanhoY8">82</span>cm</label>
                           <br>
 
                           <div class="linha_div_vertical2"></div>
@@ -185,6 +176,7 @@
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <h4 class="modal-title">Acabamento</h4>
                   </div>
+
                   <div class="modal-body col-sm-12">
                     <div id="acabamento_modal_body"></div>
                     <div class="checkbox acabamento_modal_body_op">
@@ -206,7 +198,7 @@
                       </nav>
                       <div id="tMeta">
                         <div class="col-md-4 m-thumb" id="meta7mm">
-                          <div class="thumbnail" id="meta7-select-color">
+                          <div class="thumbnail" id="meta7-select-color" data-dismiss="modal">
                             <label>
                               <img src="<?php echo plugins_url( 'img/meta7mm.png', __FILE__ ); ?>" border="0" />
                               <div>
@@ -215,7 +207,7 @@
                             </label>
                           </div>
                         </div>
-                        <div class="col-md-4 m-thumb" id="meta5mm">
+                        <div class="col-md-4 m-thumb" id="meta5mm" data-dismiss="modal">
                           <div class="thumbnail" id="meta5-select-color">
                             <label>
                               <img src="<?php echo plugins_url( 'img/meta5mm.png', __FILE__ ); ?>" border="0" />
@@ -226,7 +218,7 @@
                           </div>
                         </div>
 
-                        <div class="col-md-4 m-thumb" id="meta4mm">
+                        <div class="col-md-4 m-thumb" id="meta4mm" data-dismiss="modal">
                           <div class="thumbnail" id="meta4-select-color">
                             <label>
                               <img src="<?php echo plugins_url( 'img/meta4mm.png', __FILE__ ); ?>" border="0" />
@@ -237,7 +229,7 @@
                           </div>
                         </div>
 
-                        <div class="col-md-4 m-thumb" id="meta3mm">
+                        <div class="col-md-4 m-thumb" id="meta3mm" data-dismiss="modal">
                           <div class="thumbnail" id="meta3-select-color">
                             <label>
                               <img src="<?php echo plugins_url( 'img/meta3mm.png', __FILE__ ); ?>" border="0" />
@@ -248,7 +240,7 @@
                           </div>
                         </div>
 
-                        <div class="col-md-4 m-thumb" id="acm5mm">
+                        <div class="col-md-4 m-thumb" id="acm5mm" data-dismiss="modal">
                           <div class="thumbnail" id="acm-select-color">
                             <label>
                               <img src="<?php echo plugins_url( 'img/acm.png', __FILE__ ); ?>" border="0" />
@@ -263,7 +255,7 @@
 
                       <div id="tPapel">
 
-                        <div class="col-md-4 m-thumb" id="papelAlgodao">
+                        <div class="col-md-4 m-thumb" id="papelAlgodao" data-dismiss="modal">
                           <div class="thumbnail" id="algodao-select-color">
                             <label>
                               <img src="<?php echo plugins_url( 'img/algodao.png', __FILE__ ); ?>" border="0" />
@@ -274,7 +266,7 @@
                           </div>
                         </div>
 
-                        <div class="col-md-4 m-thumb" id="papelAcetinato">
+                        <div class="col-md-4 m-thumb" id="papelAcetinato" data-dismiss="modal">
                           <div class="thumbnail" id="acetinato-select-color">
                             <label>
                               <img src="<?php echo plugins_url( 'img/acetinato.png', __FILE__ ); ?>" border="0" />
@@ -285,7 +277,7 @@
                           </div>
                         </div>
 
-                        <div class="col-md-4 m-thumb" id="papelBrilhante">
+                        <div class="col-md-4 m-thumb" id="papelBrilhante" data-dismiss="modal">
                           <div class="thumbnail" id="brilhante-select-color">
                             <label>
                               <img src="<?php echo plugins_url( 'img/brilhante.png', __FILE__ ); ?>" border="0" />
@@ -296,7 +288,7 @@
                           </div>
                         </div>
 
-                        <div class="col-md-4 m-thumb" id="papelFosco">
+                        <div class="col-md-4 m-thumb" id="papelFosco" data-dismiss="modal">
                           <div class="thumbnail" id="fosco-select-color">
                             <label>
                               <img src="<?php echo plugins_url( 'img/fosco.png', __FILE__ ); ?>" border="0" />
@@ -306,7 +298,7 @@
                             </label>
                           </div>
                         </div>
-                        <div class="col-md-4 m-thumb" id="papelCanvas">
+                        <div class="col-md-4 m-thumb" id="papelCanvas" data-dismiss="modal">
                           <div class="thumbnail" id="canvas-select-color">
                             <label>
                               <img src="<?php echo plugins_url( 'img/canvas.png', __FILE__ ); ?>" border="0" />
@@ -321,7 +313,7 @@
 
                       <div id="tUv">
 
-                        <div class="col-md-4 m-thumb" id="uvPS">
+                        <div class="col-md-4 m-thumb" id="uvPS" data-dismiss="modal">
                           <div class="thumbnail" id="uv-select-color">
                             <label>
                               <img src="<?php echo plugins_url( 'img/uvps.png', __FILE__ ); ?>" border="0" />
@@ -332,7 +324,7 @@
                           </div>
                         </div>
 
-                        <div class="col-md-4 m-thumb" id="uvACM">
+                        <div class="col-md-4 m-thumb" id="uvACM" data-dismiss="modal">
                           <div class="thumbnail" id="uvacm-select-color">
                             <label>
                               <img src="<?php echo plugins_url( 'img/uvacm.png', __FILE__ ); ?>" border="0" />
@@ -346,13 +338,16 @@
                       </div>
                     </div>
                   </div>
+
                   <div class="modal-footer">
                     <button type="button" class="btn btn-default ok-modal-acabamento" data-dismiss="modal">Continuar</button>
                   </div>
+
                 </div>
               </div>
             </div>
           </div>
+          
           <div class="moldura col-sm-4">
            
             <!-- Modal -->
@@ -384,10 +379,11 @@
                           </ul>
                         </div>
                       </nav>
+
                       <div id="bMoldura" class="bMoldura">
                       <div id="m-contemporanea">
 
-                      <div class="col-md-4 t-thumb" id="m_nova_york_preta" data-moldura="nova-york-preta">
+                      <div class="col-md-4 t-thumb" id="m_nova_york_preta" data-moldura="nova-york-preta" data-dismiss="modal">
                             <div class="thumbnail b_moldura" id="novayork-select-color">
                               <label>
                                 <img src="<?php echo plugins_url( 'img/nova-york-preta.jpg', __FILE__ ); ?>" border="0" />
@@ -398,7 +394,7 @@
                             </div>
                       </div>
 
-                      <div class="col-md-4 t-thumb" id="m_nova_york_Branca" data-moldura="nova-york-branca">
+                      <div class="col-md-4 t-thumb" id="m_nova_york_Branca" data-moldura="nova-york-branca" data-dismiss="modal">
                             <div class="thumbnail b_moldura" id="novayork-select-color">
                               <label>
                                 <img src="<?php echo plugins_url( 'img/nova-york-branca.jpg', __FILE__ ); ?>" border="0" />
@@ -409,7 +405,7 @@
                             </div>
                       </div>
                       
-                      <div class="col-md-4 t-thumb" id="m_nova_york_tabaco" data-moldura="nova-york-tabaco">
+                      <div class="col-md-4 t-thumb" id="m_nova_york_tabaco" data-moldura="nova-york-tabaco" data-dismiss="modal">
                             <div class="thumbnail b_moldura" id="novayork-select-color">
                               <label>
                                 <img src="<?php echo plugins_url( 'img/nova-york-tabaco.jpg', __FILE__ ); ?>" border="0" />
@@ -421,7 +417,7 @@
                       </div>
                       
                       <div class="col-md-4 t-thumb" id="m_basel_preta">
-                            <div class="thumbnail b_moldura" id="basel-select-color">
+                            <div class="thumbnail b_moldura" id="basel-select-color" data-dismiss="modal">
                               <label>
                                 <img src="<?php echo plugins_url( 'img/basel-preta.jpg', __FILE__ ); ?>" border="0" />
                                 <div>
@@ -431,7 +427,7 @@
                             </div>
                           </div>
                         
-                          <div class="col-md-4 t-thumb" id="m_basel_branca">
+                          <div class="col-md-4 t-thumb" id="m_basel_branca" data-dismiss="modal">
                             <div class="thumbnail b_moldura" id="basel-select-color">
                               <label>
                                 <img src="<?php echo plugins_url( 'img/basel-branca.jpg', __FILE__ ); ?>" border="0" />
@@ -442,7 +438,7 @@
                             </div>
                           </div>
                           
-                          <div class="col-md-4 t-thumb" id="m_basel_tabaco">
+                          <div class="col-md-4 t-thumb" id="m_basel_tabaco" data-dismiss="modal">
                             <div class="thumbnail b_moldura" id="basel-select-color">
                               <label>
                                 <img src="<?php echo plugins_url( 'img/basel-tabaco.jpg', __FILE__ ); ?>" border="0" />
@@ -453,7 +449,7 @@
                             </div>
                           </div>
 
-                          <div class="col-md-4 t-thumb" id="m_basel_bege">
+                          <div class="col-md-4 t-thumb" id="m_basel_bege" data-dismiss="modal">
                             <div class="thumbnail b_moldura" id="basel-select-color">
                               <label>
                                 <img src="<?php echo plugins_url( 'img/basel-bege.jpg', __FILE__ ); ?>" border="0" />
@@ -464,7 +460,7 @@
                             </div>
                           </div>
 
-                          <div class="col-md-4 t-thumb" id="m_berlim_preta">
+                          <div class="col-md-4 t-thumb" id="m_berlim_preta" data-dismiss="modal">
                             <div class="thumbnail b_moldura" id="berlim-select-color">
                               <label>
                                 <img src="<?php echo plugins_url( 'img/berlim-preta.jpg', __FILE__ ); ?>" border="0" />
@@ -475,7 +471,7 @@
                             </div>
                           </div>
 
-                          <div class="col-md-4 t-thumb" id="m_berlim_branca">
+                          <div class="col-md-4 t-thumb" id="m_berlim_branca" data-dismiss="modal">
                             <div class="thumbnail" id="berlim-select-color">
                               <label>
                                 <img src="<?php echo plugins_url( 'img/berlim-branca.jpg', __FILE__ ); ?>" border="0" />
@@ -486,7 +482,7 @@
                             </div>
                           </div>
 
-                          <div class="col-md-4 t-thumb" id="m_miami_preta">
+                          <div class="col-md-4 t-thumb" id="m_miami_preta" data-dismiss="modal">
                             <div class="thumbnail" id="miami-select-color">
                               <label>
                                 <img src="<?php echo plugins_url( 'img/miami-preta.jpg', __FILE__ ); ?>" border="0" />
@@ -497,7 +493,7 @@
                             </div>
                           </div>
 
-                          <div class="col-md-4 t-thumb" id="m_miami_branca">
+                          <div class="col-md-4 t-thumb" id="m_miami_branca" data-dismiss="modal">
                             <div class="thumbnail" id="miami-select-color">
                               <label>
                                 <img src="<?php echo plugins_url( 'img/miami-branca.jpg', __FILE__ ); ?>" border="0" />
@@ -511,7 +507,7 @@
                         </div>
                         <div id="m-moderna">
 
-                          <div class="col-md-4 t-thumb" id="m_amazonas_areia">
+                          <div class="col-md-4 t-thumb" id="m_amazonas_areia" data-dismiss="modal">
                             <div class="thumbnail" id="amazonas-select-color">
                               <label>
                                 <img src="<?php echo plugins_url( 'img/amazonas-areia.jpg', __FILE__ ); ?>" border="0" />
@@ -521,7 +517,7 @@
                               </label>
                             </div>
                           </div>
-                          <div class="col-md-4 t-thumb" id="m_amazonas_bege">
+                          <div class="col-md-4 t-thumb" id="m_amazonas_bege" data-dismiss="modal">
                             <div class="thumbnail" id="amazonas-select-color">
                               <label>
                                 <img src="<?php echo plugins_url( 'img/amazonas-bege.jpg', __FILE__ ); ?>" border="0" />
@@ -532,7 +528,7 @@
                             </div>
                           </div>
 
-                          <div class="col-md-4 t-thumb" id="m_amazonas_tabaco">
+                          <div class="col-md-4 t-thumb" id="m_amazonas_tabaco" data-dismiss="modal">
                             <div class="thumbnail" id="amazonas-select-color">
                               <label>
                                 <img src="<?php echo plugins_url( 'img/amazonas-tabaco.jpg', __FILE__ ); ?>" border="0" />
@@ -543,7 +539,7 @@
                             </div>
                           </div>
 
-                          <div class="col-md-4 t-thumb" id="m_buenosaires_preta">
+                          <div class="col-md-4 t-thumb" id="m_buenosaires_preta" data-dismiss="modal">
                             <div class="thumbnail" id="buenosaires-select-color">
                               <label>
                                 <img src="<?php echo plugins_url( 'img/buenos-aires-preta.jpg', __FILE__ ); ?>" border="0" />
@@ -554,7 +550,7 @@
                             </div>
                           </div>
 
-                          <div class="col-md-4 t-thumb" id="m_buenosaires_branca">
+                          <div class="col-md-4 t-thumb" id="m_buenosaires_branca" data-dismiss="modal">
                             <div class="thumbnail" id="buenosaires-select-color">
                               <label>
                                 <img src="<?php echo plugins_url( 'img/buenos-aires-branca.jpg', __FILE__ ); ?>" border="0" />
@@ -566,7 +562,7 @@
                           </div>
 
                           
-                          <div class="col-md-4 t-thumb" id="m_londres_preta">
+                          <div class="col-md-4 t-thumb" id="m_londres_preta" data-dismiss="modal">
                             <div class="thumbnail" id="londres-select-color">
                               <label>
                                 <img src="<?php echo plugins_url( 'img/londres-preta.jpg', __FILE__ ); ?>" border="0" />
@@ -577,7 +573,7 @@
                             </div>
                           </div>
 
-                          <div class="col-md-4 t-thumb" id="m_londres_branca">
+                          <div class="col-md-4 t-thumb" id="m_londres_branca" data-dismiss="modal">
                             <div class="thumbnail" id="londres-select-color">
                               <label>
                                 <img src="<?php echo plugins_url( 'img/londres-branca.jpg', __FILE__ ); ?>" border="0" />
@@ -588,7 +584,7 @@
                             </div>
                           </div>
 
-                          <div class="col-md-4 t-thumb" id="m_londres_bege">
+                          <div class="col-md-4 t-thumb" id="m_londres_bege" data-dismiss="modal">
                             <div class="thumbnail" id="londres-select-color">
                               <label>
                                 <img src="<?php echo plugins_url( 'img/londres-bege.jpg', __FILE__ ); ?>" border="0" />
@@ -602,7 +598,7 @@
                         </div>
                        
                         <div id="m-classica">
-                          <div class="col-md-4 t-thumb" id="m_florenca">
+                          <div class="col-md-4 t-thumb" id="m_florenca" data-dismiss="modal">
                             <div class="thumbnail" id="florenca-select-color">
                               <label>
                                 <img src="<?php echo plugins_url( 'img/florenca-dourada.jpg', __FILE__ ); ?>" border="0" />
@@ -613,7 +609,7 @@
                             </div>
                           </div>
 
-                          <div class="col-md-4 t-thumb" id="m_istambul">
+                          <div class="col-md-4 t-thumb" id="m_istambul" data-dismiss="modal">
                             <div class="thumbnail" id="istambul-select-color">
                               <label>
                                 <img src="<?php echo plugins_url( 'img/istambul-dourada.jpg', __FILE__ ); ?>" border="0" />
@@ -624,7 +620,7 @@
                             </div>
                           </div>
 
-                          <div class="col-md-4 t-thumb" id="m_paris_preta">
+                          <div class="col-md-4 t-thumb" id="m_paris_preta" data-dismiss="modal">
                             <div class="thumbnail" id="paris-select-color">
                               <label>
                                 <img src="<?php echo plugins_url( 'img/paris-preta.jpg', __FILE__ ); ?>" border="0" />
@@ -635,7 +631,7 @@
                             </div>
                           </div>
 
-                          <div class="col-md-4 t-thumb" id="m_paris_branca">
+                          <div class="col-md-4 t-thumb" id="m_paris_branca" data-dismiss="modal">
                             <div class="thumbnail" id="paris-select-color">
                               <label>
                                 <img src="<?php echo plugins_url( 'img/paris-branca.jpg', __FILE__ ); ?>" border="0" />
@@ -646,7 +642,7 @@
                             </div>
                           </div>
 
-                          <div class="col-md-4 t-thumb" id="m_roma_preta">
+                          <div class="col-md-4 t-thumb" id="m_roma_preta" data-dismiss="modal">
                             <div class="thumbnail" id="roma-select-color">
                               <label>
                                 <img src="<?php echo plugins_url( 'img/roma-preta.jpg', __FILE__ ); ?>" border="0" />
@@ -657,7 +653,7 @@
                             </div>
                           </div>
 
-                          <div class="col-md-4 t-thumb" id="m_roma_branca">
+                          <div class="col-md-4 t-thumb" id="m_roma_branca" data-dismiss="modal">
                             <div class="thumbnail" id="roma-select-color">
                               <label>
                                 <img src="<?php echo plugins_url( 'img/roma-branca.jpg', __FILE__ ); ?>" border="0" />
@@ -667,28 +663,33 @@
                               </label>
                             </div>
                           </div>
+
                         </div>
+
                       </div>
                     </div>
                   </div>
+
                   <div class="modal-footer">
                     <span id="n_moldura" class="btn btn-default" data-dismiss="modal">Sem Moldura</span>
                     <button type="button" class="btn btn-default" data-dismiss="modal">Continuar</button>
                   </div>
+
                 </div>
               </div>
             </div>
           </div>
+
         </div>
+
       </div>
     </div>
   </div>
   <!-- end .row -->
-
   <br>
-</div>
-
+<div class="wp_footer">
   <?php
-  //call the wp foooter
-  get_footer();
+    //call the wp foooter
+    get_footer();
   ?>
+</div>

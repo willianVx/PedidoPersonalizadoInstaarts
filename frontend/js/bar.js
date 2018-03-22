@@ -1,5 +1,5 @@
 jQuery(document).ready(function($) {
-	
+
 	//direciona para galaria de imagens
 	$(".iap_galeria").click(function() {
 		$(".envelope-pedido-personalizado").hide();
