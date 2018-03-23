@@ -413,7 +413,7 @@ jQuery(document).ready(function($){
         if (typeof getAcabamento() == "undefined" | typeof tamanho.getTamanho(x) == "undefined") {
             return;
         }
-        $("#s-preco").html("carregando...");
+        $("#s-preco").html("...");
         x = tamanho.getTamanho(x);
         y = tamanho.getTamanho(y);
         nome_acabamento = getAcabamento();
