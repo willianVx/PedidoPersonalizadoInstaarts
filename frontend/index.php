@@ -35,7 +35,9 @@
 
       <div id="drop-area" class="drop-zone" data-toggle="modal" data-target="#modalUpload">
         <span>
-          <a href="#"><img src="<?php echo plugins_url('img/imagem-1.jpg', __FILE__ ); ?>" border="0" /></a>
+          <img id="main_carregando" src="<?php echo plugins_url('img/carregando.gif', __FILE__ ); ?>" border="0" />
+          <a href="#"><img id="img_acrilico" src="<?php echo plugins_url('img/imagem-1.jpg', __FILE__ ); ?>" border="0" /></a>
+          <a href="#"><img id="img_photobloco" src="<?php echo plugins_url('img/imagem-2_photobloco.jpg', __FILE__ ); ?>" border="0" /></a>
         </span>
         <span class="iap_box_upload">
         Click para fazer o Upload da sua imagem
@@ -59,7 +61,7 @@
 
                 <div class="col-xs-12 col-sm-12 col-md-12">
 
-                  <p>A imgem deve estar nos formatos: JPEG ou PNG</p>
+                  <p>A imagem deve estar nos formatos: JPEG ou PNG</p>
                   <p>Formato minimo de 2.000 por 2.000 pixels</p>
                   <form method="post" action="" id="myForm" enctype="multipart/form-data">
                     Click para escolher uma imagem do seu dispositivo:
@@ -111,7 +113,7 @@
 
         <!-- Modal -->
         <div id="tamanho" class="modal fade" role="dialog" tabindex="-1">
-          <div class="modal-dialog modal-lg">
+          <div class="modal-dialog">
 
             <!-- Modal content-->
             <div class="modal-content col-sm-12" style="position: relative; top: 200px;">
@@ -120,7 +122,19 @@
                 <h5 class="modal-title">Escolha o tamanho do seu quadro</h5>
               </div>
               <div class="modal-body container-fluid">
+              <img id="tamanho_carregando" src="<?php echo plugins_url('img/carregando.gif', __FILE__ ); ?>" border="0" />
                   <div id="msg_img_not"></div>
+
+                    <div class="checkbox_tamanho_photobloco">
+                      <form>
+                        <label  id="tamanho9">
+                              <input type="radio" name="tamanho" value="10x10" id="tamanho9_input" data-dismiss="modal"> 10x10cm</label>
+                            <br>
+                        <label id="tamanho10">
+                              <input type="radio" name="tamanho" value="10x15" id="tamanho10_input" data-dismiss="modal"> 10x15cm</label>
+                      </form>
+                    </div>
+
                     <div class="checkbox">
                       <form id="tamanhoPadrao">
                           <label  id="tamanho1">
@@ -151,6 +165,9 @@
                           <div class="linha_div_vertical2"></div>
 
                           <div class="texto_tamanho_image"></div>
+                          <div class="texto_aviso_res">
+                            * Nosso sistema mostrará os tamanhos de acordo com a resolução da sua imagem. 
+                          </div>
                           
                       </form>
                 </div>

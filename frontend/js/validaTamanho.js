@@ -12,7 +12,8 @@ jQuery(document).ready(function($) {
 	});
 
 		function tamanahoProporcional() {
-			$("#tamanhoY1").html("...");
+			$("#tamanhoPadrao").hide();
+			$("#tamanho_carregando").show();
 			var tamanho1 = imgWidth;
 			var tamanho2 = imgHeight;
 
@@ -47,9 +48,9 @@ jQuery(document).ready(function($) {
 							window.ylistaG = parseInt(tamanhoY[6], 10);
 						$("#tamanhoY8").html(parseInt(tamanhoY[7], 10));
 							window.ylistaH = parseInt(tamanhoY[7], 10);
-						
-						
 					}
+					$("#tamanhoPadrao").show();
+					$("#tamanho_carregando").hide();
 				},
 				error: function(data) {
 					alert("Erro no processamento. Tente mais tarde.");
@@ -92,6 +93,7 @@ jQuery(document).ready(function($) {
 				if (key < 20) {
 					$(".texto_tamanho_image").html("Talvez sua imagem não tenha resolução para produzirmos nos tamanhos selecionados. Para mais informações entre em contato através do chat.");
 					$(".texto_tamanho_image").css("color","red");
+					$(".texto_aviso_res").hide();
 				}else{
 					$(".texto_tamanho_image").html("Para alterar a proporção volte e click em editar.");
 					$(".texto_tamanho_image").css("color","gray");
