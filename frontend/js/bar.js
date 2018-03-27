@@ -16,7 +16,6 @@ jQuery(document).ready(function($) {
 	$("#tUv").hide();
 	$("#m-classica").hide();
 	$("#m-moderna").hide();
-	$(".checkbox_tamanho_photobloco").hide();
 
 	$("#bMeta").click(function() {
 		$("#tPapel").hide();

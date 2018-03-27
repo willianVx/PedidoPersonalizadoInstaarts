@@ -101,6 +101,9 @@
      
         <div class="col-lg-12 hud-botoes-mat">
 
+        <button type="button" id="b-photobloco" class="btn btn-default btn-lg hud-botao col-lg-3" data-toggle="modal" data-target="#photobloco">Photobloco: <span id="s-photobloco"> </span> </button>
+        
+
         <button type="button" id="b-tamanho" class="btn btn-default btn-lg hud-botao col-lg-3" data-toggle="modal" data-target="#tamanho">Tamanho: <span id="s-tamanho"> </span> </button>
 
         <button type="button" id="b-acabamento" class="btn btn-default btn-lg hud-botao col-lg-3" data-toggle="modal" data-target="#material"><span id="s-metacrilato"> Acabamento</span></button>
@@ -108,6 +111,8 @@
         <button type="button" id="b-moldura" class="btn btn-default btn-lg hud-botao col-lg-3" data-toggle="modal" data-target="#moldura"><span id="s-moldura">Moldura</span></button>
 
         <button id="comprar-botao" type="button" class="btn btn-default btn-lg hud-botao b-comprar col-lg-3">Comprar: <span id="s-preco" class="s-preco"></span> </button>
+
+        <button id="comprar-botao-photobloco" type="button" class="btn btn-default btn-lg hud-botao b-comprar col-lg-3">Comprar: <span id="s-preco-photobloco" class="s-preco-photobloco"></span> </button>
 
         </div>
 
@@ -124,16 +129,6 @@
               <div class="modal-body container-fluid">
               <img id="tamanho_carregando" src="<?php echo plugins_url('img/carregando.gif', __FILE__ ); ?>" border="0" />
                   <div id="msg_img_not"></div>
-
-                    <div class="checkbox_tamanho_photobloco">
-                      <form>
-                        <label  id="tamanho9">
-                              <input type="radio" name="tamanho" value="10x10" id="tamanho9_input" data-dismiss="modal"> 10x10cm</label>
-                            <br>
-                        <label id="tamanho10">
-                              <input type="radio" name="tamanho" value="10x15" id="tamanho10_input" data-dismiss="modal"> 10x15cm</label>
-                      </form>
-                    </div>
 
                     <div class="checkbox">
                       <form id="tamanhoPadrao">
@@ -179,7 +174,36 @@
 
           </div>
         </div>
-       
+
+  <!-- Modal -->
+  <div class="modal fade" id="photobloco" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content" style="position: relative; top: 200px;">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Escolha o tamanho do seu Photobloco</h4>
+        </div>
+
+        <div class="modal-body">
+
+          <div class="m-thumb">
+            <div class="thumbnail" id="photobloco_10x10" data-dismiss="modal">
+              <p>Photobloco 10x10cm</p>
+            </div>
+            <div class="thumbnail" id="photobloco_10x15" data-dismiss="modal">
+              <p>Photobloco 10x15cm</p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
           <!-- tamanho material e moldura -->
           <div class="container m_material col-sm-4">
 

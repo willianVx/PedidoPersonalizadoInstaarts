@@ -440,7 +440,16 @@ if (iap_define_tipo() == "imagem_acrilico") {
 
 if (iap_define_tipo() == "photobloco") {
 	$("#img_photobloco").show();
+	$("#b-photobloco").show();
+	$("#comprar-botao-photobloco").show();
+
 	$("#main_carregando").hide();
+	$("#b-tamanho").hide();
+	$("#b-acabamento").hide();
+	$("#b-moldura").hide();
+	$("#comprar-botao").hide();
+	
+	$(".hud-botao").css("left","200px");
 }
 $(".iap_box_upload").show();
 

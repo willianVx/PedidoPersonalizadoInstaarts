@@ -3,6 +3,9 @@
     top: 20px;
     
   }
+ #comprar-botao-photobloco{
+   display: none;
+ }
     body {
       min-height: 100vh;
     }
@@ -227,6 +230,12 @@
 }
 .iap_box_upload{
   display: none;
+}
+#b-photobloco{
+  display: none;
+}
+.thumbnail{
+  cursor: pointer;
 }
     @media(max-width: 500px){
       .progress{

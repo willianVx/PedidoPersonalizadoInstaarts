@@ -4,6 +4,10 @@
  * Envia o quadro pro carrinho
  */
 function iap_order() {
+
+	$photobloco_10x10 = 99.00;
+	$photobloco_10x15 = 149.00;
+
  	if(isset($_POST['d1'])){
 		$conta = new CalculaPreco;
 		$conta -> formula_pedido_instaarts($_POST['acabamento'],$_POST['tipoMoldura'],$_POST['x'],$_POST['y']);
@@ -39,6 +43,15 @@ function iap_order() {
 		$string_array = implode(z, $d3 -> TamanhosProporcionais($x, $y));
 		echo $string_array;
 	}
+
+	if (isset($_POST['d4'])) {
+		echo "R$ ".number_format($photobloco_10x10, 2, ',', '.');;
+	}
+
+	if (isset($_POST['d5'])) {
+		echo "R$ ".number_format($photobloco_10x15, 2, ',', '.');;
+	}
+
 	else {
 		//echo "0";
 	}

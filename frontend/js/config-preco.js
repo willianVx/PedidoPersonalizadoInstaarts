@@ -445,4 +445,71 @@ jQuery(document).ready(function($){
         
     }
 
+//envia dados para o servidor quando selecionado photobloco
+$("#photobloco_10x10").click(function(){
+
+    iap_photobloco.tipo_photobloco = "photobloco 10x10cm";
+    iap_photobloco.tamanho_x = 10;
+    iap_photobloco.tamanho_y = 10;
+
+    $.ajax({
+        type: "POST",
+        url: comprar.ajax_url,
+        data: {
+            d4: "d4",
+            action: "iap_order"
+        },
+        success: function(data) {
+            if (data == "0") {
+                alert("Erro no processamento. Tente mais tarde.");
+            } else {
+                $("#s-preco-photobloco").html(data);
+                $("#s-photobloco").html("10x10cm");
+                $("#comprar-botao-photobloco").addClass("btn-success");
+            }
+        },
+        error: function(data) {
+            alert("Erro no processamento. Tente mais tarde.");
+        }
+    });
+
 });
+
+$("#photobloco_10x15").click(function(){
+
+    iap_photobloco.tipo_photobloco = "photobloco 10x15cm";
+    iap_photobloco.tamanho_x = 10;
+    iap_photobloco.tamanho_y = 15;
+
+    $.ajax({
+        type: "POST",
+        url: comprar.ajax_url,
+        data: {
+            d5: "d5",
+            action: "iap_order"
+        },
+        success: function(data) {
+            if (data == "0") {
+                alert("Erro no processamento. Tente mais tarde.");
+            } else {
+                $("#s-preco-photobloco").html(data);
+                $("#s-photobloco").html("10x15cm");
+                $("#comprar-botao-photobloco").addClass("btn-success");
+            }
+        },
+        error: function(data) {
+            alert("Erro no processamento. Tente mais tarde.");
+        }
+    });
+
+});
+
+});
+
+var iap_photobloco = {
+
+    tipo_photobloco : "indefinido",
+    tamanho_x : 0,
+    tamanho_y : 0
+
+}
