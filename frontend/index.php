@@ -1,6 +1,7 @@
 
 <?php get_header();?>
 
+
 <div class="container envelope-pedido-personalizado" onload="formulaTotal()">
   <div class="row container-b">
     <!-- botoes editar - voltar - limpar --> 
@@ -47,7 +48,11 @@
         <div class="img-upload-line">
           <img id="editable-image" class="img-responsive img-upload">
         </div>
+
+      <button id="iap_crop" class="btn btn-success">Crop</button>
+
       
+
       <div class="container">
         <!-- Modal upload de arquivos por click -->
         <div class="modal fade" id="modalUpload" role="dialog" tabindex="-1" style="position: absolute; top: 10px;" >
@@ -185,8 +190,8 @@
         </div>
 
         <div class="modal-body">
-
-          <div class="m-thumb">
+          <div id="iap_texto_n_img"></div>
+          <div class="m-thumb iap_photo_content">
             <div class="thumbnail" id="photobloco_10x10" data-dismiss="modal">
               <p>Photobloco 10x10cm</p>
             </div>

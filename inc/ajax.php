@@ -52,6 +52,23 @@ function iap_order() {
 		echo "R$ ".number_format($photobloco_10x15, 2, ',', '.');;
 	}
 
+	if (isset($_POST['d_photobloco'])) {
+		
+		$data['x'] = $_POST['largura'];
+		$data['y'] = $_POST['altura'];
+		$data['acabamento'] = $_POST['acabamento'];
+		$data['preco'] = iap_valor_photobloco($_POST['acabamento']);
+		$data['imagem'] = $_POST["imagem"];
+
+		global $woocommerce;
+		
+		$produto = get_page_by_title('Quadro Personalizado IAP', OBJECT, 'product');
+		$woocommerce->cart->add_to_cart($produto->ID, 1, '', '', $data);
+		
+		echo "1";
+
+	}
+
 	else {
 		//echo "0";
 	}
@@ -62,6 +79,23 @@ function iap_order() {
 add_action('wp_ajax_iap_order', 'iap_order');
 add_action('wp_ajax_nopriv_iap_order', 'iap_order');
 
+
+//define o valor do photobloco de acordo com informação do acabamento -- retorna valor fora do padrão caso acabamento seja um valor diferente
+function iap_valor_photobloco($photobloco){
+
+	$photobloco_str_10x10 = "photobloco 10x10cm";
+	$photobloco_str_10x15 = "photobloco 10x15cm";
+
+	if ($photobloco == $photobloco_str_10x10) {
+		return 99;
+	}
+	if ($photobloco == $photobloco_str_10x15) {
+		return 149;
+	}
+	if ($photobloco_str_10x10 != $photobloco || $photobloco_str_10x15 != $photobloco ) {
+		return 362;
+	}
+}
 
 /*
  * Faz o envio da imagem
@@ -124,6 +158,7 @@ function iap_imageTransfer(){
 	$url = wp_get_attachment_image_url( $id, 'full' );
 	echo $id .'|'. $url;
 	die();
+	
 }
 
 add_action('wp_ajax_iap_imageTransfer', 'iap_imageTransfer');

@@ -9,6 +9,14 @@ jQuery(document).ready(function($) {
 	
 	$(".img-upload-line").hide();
 
+	$("#b-photobloco").click(function(){
+		if (!imageElement.attr("src")) {
+			hide_elements();
+		}else{
+			show_elements();
+		}
+	});
+
 	$("#b-tamanho").click(function(){
 		if (!imageElement.attr("src")) {
 			hide_elements();
@@ -34,6 +42,9 @@ jQuery(document).ready(function($) {
 	});
 
 	function hide_elements(){
+		$(".iap_photo_content").hide();
+		$("#iap_texto_n_img").html("Volte e escolha uma imagem para visualizar os tamanhos possíveis.");
+
 		$("#tamanhoPadrao").hide();
 		$(".n-tamanhoPadrao").hide();
 		$("#msg_img_not").html("Volte e escolha uma imagem para visualizar os tamanhos possíveis.");
@@ -47,6 +58,9 @@ jQuery(document).ready(function($) {
 	}
 
 	function show_elements(){
+		$(".iap_photo_content").show();
+		$("#iap_texto_n_img").hide();
+
 		$("#tamanhoPadrao").show();
 		$(".n-tamanhoPadrao").show();
 		$("#msg_img_not").hide();
@@ -59,12 +73,48 @@ jQuery(document).ready(function($) {
 		$("#moldura_modal_body").hide();
 	}
 
+$("#comprar-botao-photobloco").click(function(){
+	var imagemOriginal = image_url.value;
+
+	if (iap_photobloco.tipo_photobloco == "indefinido") {
+		alert("Por favor, escolha uma imagem e o tamanho do seu Photobloco!");
+		return;
+	}
+
+	else{
+
+			$.ajax({
+				type: "POST",
+				url: comprar.ajax_url,
+				data: {
+					action: "iap_order",
+					d_photobloco: "d_photobloco",
+					acabamento: iap_photobloco.tipo_photobloco,
+					largura: iap_photobloco.tamanho_x,
+					altura: iap_photobloco.tamanho_y,
+					imagem: imagemOriginal
+				},
+				success: function(data) {
+					if (data == "0") {
+						alert("Erro no processamento. Tente mais tarde.");
+					} else {
+						window.location = comprar.cart_url;
+						console.log(comprar.cart_url);
+					}
+				},
+				error: function(data) {
+					alert("Erro no processamento. Tente mais tarde.");
+				}
+			});
+
+	}
+	
+});
+
 	// manda os dados do pedido para o servidor via ajax
 	$("#comprar-botao").click(function() {
 		//imagemEditada = currentImage.src;
 		//console.log(imagemEditada);
-	
-		console.log(image_url.value);
 
 		var imagemOriginal = image_url.value;
 		var editimage = edited_image_url.value;
@@ -429,8 +479,8 @@ jQuery(document).ready(function($) {
 	});
 
 	function setTamanho(){
-			window.imgWidth = imageElement["0"].naturalWidth;
-			window.imgHeight = imageElement["0"].naturalHeight;
+		window.imgWidth = imageElement["0"].naturalWidth;
+		window.imgHeight = imageElement["0"].naturalHeight;
 	}
 
 if (iap_define_tipo() == "imagem_acrilico") {
@@ -448,6 +498,7 @@ if (iap_define_tipo() == "photobloco") {
 	$("#b-acabamento").hide();
 	$("#b-moldura").hide();
 	$("#comprar-botao").hide();
+	$("#edit-image-button").hide();
 	
 	$(".hud-botao").css("left","200px");
 }

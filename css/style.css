@@ -3,6 +3,11 @@
     top: 20px;
     
   }
+#iap_image_crop{
+  position: relative;
+  width: 450px;
+  height: 250px;
+}
  #comprar-botao-photobloco{
    display: none;
  }
