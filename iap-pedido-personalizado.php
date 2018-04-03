@@ -37,7 +37,7 @@ if ( class_exists( 'WooCommerce' ) ) {
 
 //Carrega Template na página do produto
 function iap_referal_init() {
-	$produto = get_page_by_title('Quadro Personalizado IAP', OBJECT, 'product');
+	$produto = get_page_by_title('Quadro Personalizado Instaarts', OBJECT, 'product');
 	if( is_single($produto->ID) ){	
 		//enfileira os scripts
 		add_action('wp_enqueue_scripts', 'iap_register_scripts');

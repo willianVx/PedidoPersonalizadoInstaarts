@@ -1,6 +1,4 @@
-
 <?php get_header();?>
-
 
 <div class="container envelope-pedido-personalizado" onload="formulaTotal()">
   <div class="row container-b">
@@ -48,10 +46,11 @@
         <div class="img-upload-line">
           <img id="editable-image" class="img-responsive img-upload">
         </div>
-
-      <button id="iap_crop" class="btn btn-success">Crop</button>
-
       
+      <div id="iap_canvas">
+        <canvas id="iap_crop_image" width="0" height="0"></canvas>
+        <button id="iap_crop" class="btn btn-success">Crop</button>
+      </div>
 
       <div class="container">
         <!-- Modal upload de arquivos por click -->
@@ -65,9 +64,7 @@
               <div class="modal-body texto_upload col-sm-12">
 
                 <div class="col-xs-12 col-sm-12 col-md-12">
-
                   <p>A imagem deve estar nos formatos: JPEG ou PNG</p>
-                  <p>Formato minimo de 2.000 por 2.000 pixels</p>
                   <form method="post" action="" id="myForm" enctype="multipart/form-data">
                     Click para escolher uma imagem do seu dispositivo:
                     <input type="file" name="fileToUpload" id="fileToUpload">

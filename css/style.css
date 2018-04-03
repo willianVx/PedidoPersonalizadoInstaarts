@@ -242,6 +242,9 @@
 .thumbnail{
   cursor: pointer;
 }
+#iap_crop{
+  display: none;
+}
     @media(max-width: 500px){
       .progress{
         position: relative;

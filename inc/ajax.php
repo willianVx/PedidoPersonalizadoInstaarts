@@ -26,7 +26,7 @@ function iap_order() {
 
 		global $woocommerce;
 		
-		$produto = get_page_by_title('Quadro Personalizado IAP', OBJECT, 'product');
+		$produto = get_page_by_title('Quadro Personalizado Instaarts', OBJECT, 'product');
 		$woocommerce->cart->add_to_cart($produto->ID, 1, '', '', $data);
 		
 		echo "1";
