@@ -1,16 +1,13 @@
 .container-b{
     position: relative;
     top: 20px;
-    
-  }
+}
 #iap_image_crop{
   position: relative;
   width: 450px;
   height: 250px;
 }
- #comprar-botao-photobloco{
-   display: none;
- }
+ 
     body {
       min-height: 100vh;
     }
@@ -42,10 +39,6 @@
 
     .drop-zone.dragover {
       opacity: 0.5;
-    }
-
-    #click-upload {
-      display: none;
     }
 
     .hud-botao {
@@ -163,88 +156,7 @@
       bottom: -2px;
       left: 200px;
     }
-    .s-preco{
-      color: rgb(255, 255, 255);
-    }
-    .texto_upload_image{
-      font-size: 12px;
-      color:rgb(150, 150, 150);
-      position: absolute;
-      width: 360px;
-      height: 150px;
-      top: 90px;
-      left: 470px;
-    }
-    .texto_tamanho_image{
-      font-size: 1em;
-      color:rgb(46, 46, 46);
-      position: absolute;
-      width: 250;
-      height: 150;
-      top: 10px;
-      left: 220px;
-    }
-    .texto_aviso_res{
-      font-size: 1em;
-      color:rgb(46, 46, 46);
-      position: absolute;
-      width: 250px;
-      height: 150px;
-      top: 70px;
-      left: 220px;
-    }
-    .texto_upload{
-      font-size: 12px;
-      color:rgb(150, 150, 150);
-    }
-    .iap_box_upload{
-      position: relative;
-      font-size: 0.9em;
-      padding: 5px;
-      cursor: pointer;
-      color: white;
-      background-color: #45b75b;
-      top: -30px;
-      border-radius: 5px;
-    }
-    
-    .navbar a{
-      color: rgb(255, 255, 255);
-    }
-    .navbar a:hover{
-      color: rgb(177, 177, 177); 
-    }
-    .navbar_click a{
-      font-size: 2em;
-    }
-.bloco{
-  position: relative;
-  width: 100%;
-  height: 10px;
-}
-#tamanho_carregando{
-  position: relative;
-  display: none;
-  margin: auto;
-}
-#img_acrilico{
-  display: none;
-}
-#img_photobloco{
-  display: none;
-}
-.iap_box_upload{
-  display: none;
-}
-#b-photobloco{
-  display: none;
-}
-.thumbnail{
-  cursor: pointer;
-}
-#iap_crop{
-  display: none;
-}
+
     @media(max-width: 500px){
       .progress{
         position: relative;
@@ -265,16 +177,20 @@
       .botao_editar{
         display: none;
       }
+      .iap_box_upload{
+        font-size: 0.7em!important;
+        padding: 2px!important;
+      }
+      #iap_crop{
+        margin-top: 10px;
     }
+    }   
     @media(max-width: 700px){
       .hud-botao{
         position: relative;
         margin:2px;
         padding-left: 10%;
         padding-right: 40%;
-      }
-      .iap_box_upload{
-        font-size: 0.5em;
       }
       .texto_tamanho_image{
         display: none !important;

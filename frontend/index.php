@@ -39,18 +39,39 @@
           <a href="#"><img id="img_photobloco" src="<?php echo plugins_url('img/imagem-2_photobloco.jpg', __FILE__ ); ?>" border="0" /></a>
         </span>
         <span class="iap_box_upload">
-        Click para fazer o Upload da sua imagem
+        Escolha uma imagem do seu dispositivo
         </span>
       </div>
 
         <div class="img-upload-line">
           <img id="editable-image" class="img-responsive img-upload">
         </div>
-      
-      <div id="iap_canvas">
-        <canvas id="iap_crop_image" width="0" height="0"></canvas>
-        <button id="iap_crop" class="btn btn-success">Crop</button>
+
+<!-- Modal -->
+<div class="modal fade" id="iap_imagem_cortada" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content" style="position: relative; top: 200px;">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Prévia da imagem</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
+      <div class="modal-body">
+
+        <div id="iap_canvas">
+          <canvas id="iap_crop_image" width="0" height="0"></canvas>
+          
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button id="comprar-botao-photobloco" type="button" class="btn btn-default btn-lg col-lg-3">Comprar: <span id="s-preco-photobloco" class="s-preco-photobloco"></span> </button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Voltar</button>
+      </div>
+    </div>
+  </div>
+</div>
 
       <div class="container">
         <!-- Modal upload de arquivos por click -->
@@ -92,7 +113,7 @@
                   </div>
                 
               <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-success" data-dismiss="modal">Cancelar</button>
               </div>
 
             </div>
@@ -103,8 +124,17 @@
      
         <div class="col-lg-12 hud-botoes-mat">
 
-        <button type="button" id="b-photobloco" class="btn btn-default btn-lg hud-botao col-lg-3" data-toggle="modal" data-target="#photobloco">Photobloco: <span id="s-photobloco"> </span> </button>
-        
+          <div class="col-lg-12 iap_crop_div">
+
+            <div class="col-lg-6">
+              <button type="button" id="b-photobloco"  class="btn btn-default btn-lg" data-toggle="modal" data-target="#photobloco">Photoblocos <span id="s-photobloco"> </span> </button>
+            </div>
+
+            <div class="col-lg-6">
+              <button id="iap_crop"  class="btn btn-success btn-lg"><span class="glyphicon glyphicon-scissors"></span>Cortar</button>
+            </div>
+
+          </div>
 
         <button type="button" id="b-tamanho" class="btn btn-default btn-lg hud-botao col-lg-3" data-toggle="modal" data-target="#tamanho">Tamanho: <span id="s-tamanho"> </span> </button>
 
@@ -113,8 +143,6 @@
         <button type="button" id="b-moldura" class="btn btn-default btn-lg hud-botao col-lg-3" data-toggle="modal" data-target="#moldura"><span id="s-moldura">Moldura</span></button>
 
         <button id="comprar-botao" type="button" class="btn btn-default btn-lg hud-botao b-comprar col-lg-3">Comprar: <span id="s-preco" class="s-preco"></span> </button>
-
-        <button id="comprar-botao-photobloco" type="button" class="btn btn-default btn-lg hud-botao b-comprar col-lg-3">Comprar: <span id="s-preco-photobloco" class="s-preco-photobloco"></span> </button>
 
         </div>
 
@@ -200,7 +228,7 @@
         </div>
 
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
       </div>
     </div>

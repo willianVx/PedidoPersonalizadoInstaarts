@@ -1,6 +1,5 @@
 //captura variavel na url 
 iap_resolve_url = function () {
-  
   if (window.location.href.includes("=")) {
     var url = window.location.href.split("=")[1];
 
@@ -9,7 +8,7 @@ iap_resolve_url = function () {
   
     var url= url.split("%3A");
     var url = url.join(":"); 
-  
+    
     return url;
   }
   else{
@@ -20,7 +19,6 @@ iap_resolve_url = function () {
 
 //define acao de acordo com o tipo da url
 iap_define_tipo = function(){
-
     var tipo = iap_resolve_url();
     var photobloco = tipo.includes("photobloco");
 

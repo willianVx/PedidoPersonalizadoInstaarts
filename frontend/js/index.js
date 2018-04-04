@@ -1,5 +1,4 @@
 jQuery(document).ready(function($) {
-
 	// The visibility of these 2 elements is toggled by `toggleDragDrop()`
 	var imageElement = $("#editable-image").hide();
 	var dropArea = $("#drop-area");
@@ -483,25 +482,25 @@ $("#comprar-botao-photobloco").click(function(){
 		window.imgHeight = imageElement["0"].naturalHeight;
 	}
 
-if (iap_define_tipo() == "imagem_acrilico") {
-	$("#img_acrilico").show();
-	$("#main_carregando").hide();
-}
 
-if (iap_define_tipo() == "photobloco") {
-	$("#img_photobloco").show();
-	$("#b-photobloco").show();
-	$("#comprar-botao-photobloco").show();
-
-	$("#main_carregando").hide();
-	$("#b-tamanho").hide();
-	$("#b-acabamento").hide();
-	$("#b-moldura").hide();
-	$("#comprar-botao").hide();
-	$("#edit-image-button").hide();
-	
-	$(".hud-botao").css("left","200px");
-}
-$(".iap_box_upload").show();
-
+	if (iap_define_tipo() == "imagem_acrilico") {
+        $("#img_acrilico").show();
+        $("#main_carregando").hide();
+    }
+    
+    if (iap_define_tipo() == "photobloco") {
+        $("#img_photobloco").show();
+        $(".iap_crop_div").show();
+        $("#comprar-botao-photobloco").show();
+    
+        $("#main_carregando").hide();
+        $("#b-tamanho").hide();
+        $("#b-acabamento").hide();
+        $("#b-moldura").hide();
+        $("#comprar-botao").hide();
+        $("#edit-image-button").hide();
+        
+        $(".hud-botao").css("left","200px");
+    }
+    $(".iap_box_upload").show();
 });
