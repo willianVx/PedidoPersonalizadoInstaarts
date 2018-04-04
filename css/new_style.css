@@ -95,3 +95,11 @@
 .iap_crop_div{
     display: none;
 }
+.iap_photo_content{
+    position: relative;
+    padding: 10px;
+}
+#iap_canvas{
+    position: relative;
+    width: 100%;
+}

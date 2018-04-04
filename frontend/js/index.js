@@ -280,6 +280,7 @@ $("#comprar-botao-photobloco").click(function(){
 			escolherPreco = 0;
 			clearImage();
 			toggleDragDrop();
+			location.reload();
 		} else {
 			alert("Nada para limpar");
 		}
@@ -385,6 +386,9 @@ $("#comprar-botao-photobloco").click(function(){
 						imageElement.attr("src", results[1]);
 						originalImageSrc = imageElement.attr("src");
 						toggleDragDrop();
+						if (iap_define_tipo() == "photobloco") {
+							iap_show_photobloco();
+						}
 						$(".modal .close").click();
 						break;
 				}
@@ -489,10 +493,8 @@ $("#comprar-botao-photobloco").click(function(){
     }
     
     if (iap_define_tipo() == "photobloco") {
-        $("#img_photobloco").show();
-        $(".iap_crop_div").show();
-        $("#comprar-botao-photobloco").show();
-    
+		$("#img_photobloco").show();
+
         $("#main_carregando").hide();
         $("#b-tamanho").hide();
         $("#b-acabamento").hide();
@@ -502,5 +504,10 @@ $("#comprar-botao-photobloco").click(function(){
         
         $(".hud-botao").css("left","200px");
     }
-    $(".iap_box_upload").show();
+	$(".iap_box_upload").show();
+	//mostra os botoões photobloco e cortar quando a imagem é definida 
+	function  iap_show_photobloco(){
+        $(".iap_crop_div").show();
+        $("#comprar-botao-photobloco").show();
+	}
 });

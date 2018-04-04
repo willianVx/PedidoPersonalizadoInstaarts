@@ -1,5 +1,4 @@
 <?php 
-
 /*
  * Envia o quadro pro carrinho
  */

@@ -1,8 +1,11 @@
 //define valor para canvas (onde a imagem deve aparecer após cortada)
-var iap_canvas_width = 500;
+var iap_canvas_width = 568;
+//define valor para canvas caso a tela seja a de um smartphone
+if (window.screen.availWidth <= 414) {
+    var iap_canvas_width = 365;
+}
 //controla qual foi o último tamanho do canvas (para podermos definir um novo tamanho)
 var iap_canvas_controller = 0;
-
 jQuery(document).ready(function($){
 //captura imagem do usuário
 var iap_imagem = document.getElementById('editable-image');
@@ -74,6 +77,8 @@ function iap_start_crop(aspect_ratio){
     var canvas = document.getElementById('iap_crop_image');
     var ctx = canvas.getContext('2d');
 
+    console.log(cropper.getData().x, cropper.getData().y, swidth, sheight, 0, 0, iap_canvas_width, iap_imagem_proporcional(swidth, sheight));
+
     ctx.drawImage(iap_imagem, cropper.getData().x, cropper.getData().y, swidth, sheight, 0, 0, iap_canvas_width, iap_imagem_proporcional(swidth, sheight));
 
     $('#iap_imagem_cortada').modal('show');
@@ -120,7 +125,6 @@ function iap_start_crop(aspect_ratio){
         });  
     }
 });
-
 //ajusta o parametro do tamanho proporcionalmente
 function iap_imagem_proporcional(x, y){
 

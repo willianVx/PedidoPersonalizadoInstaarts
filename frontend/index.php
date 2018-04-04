@@ -61,7 +61,6 @@
 
         <div id="iap_canvas">
           <canvas id="iap_crop_image" width="0" height="0"></canvas>
-          
         </div>
 
       </div>
@@ -218,10 +217,12 @@
           <div id="iap_texto_n_img"></div>
           <div class="m-thumb iap_photo_content">
             <div class="thumbnail" id="photobloco_10x10" data-dismiss="modal">
-              <p>Photobloco 10x10cm</p>
+              <img src="<?php echo plugins_url( 'img/Photobloco10x10.jpg', __FILE__ ); ?>" border="0" />
+              Photobloco 10x10cm
             </div>
             <div class="thumbnail" id="photobloco_10x15" data-dismiss="modal">
-              <p>Photobloco 10x15cm</p>
+              <img src="<?php echo plugins_url( 'img/Photobloco10x15.jpg', __FILE__ ); ?>" border="0" />
+              Photobloco 10x15cm
             </div>
           </div>
 
