@@ -72,40 +72,67 @@ jQuery(document).ready(function($) {
 		$("#moldura_modal_body").hide();
 	}
 
+//salva a imagem croppada e envia os dados do pedido para o servidor
 $("#comprar-botao-photobloco").click(function(){
 	var imagemOriginal = image_url.value;
+	var canvas = document.getElementById('iap_crop_image');
+	var dataUrl = canvas.toDataURL("image/png");
 
-	if (iap_photobloco.tipo_photobloco == "indefinido") {
-		alert("Por favor, escolha uma imagem e o tamanho do seu Photobloco!");
-		return;
-	}
+	canvas.toBlob(function(blob){
 
-	else{
+		var formdata = new FormData();
+		formdata.append('croppedImage', blob);
+		formdata.append("action", "iap_imageUpload_crop");
+		formdata.append("d_photobloco_imagem", "imagem");
+		
+		$.ajax({
+			type: "post",
+			url: comprar.ajax_url,
+			contentType: false,
+			processData: false,
+			cache: false,
+			data: formdata,
+			success: function(result){
+				iap_crop_image_result(result);
+			},
+			error: function(response) {
+				alert(
+					"Ocorreu um erro em nosso sistema. Por favor, atualize a página e tente novamente."
+				);
+			}
+		});
 
-			$.ajax({
-				type: "POST",
-				url: comprar.ajax_url,
-				data: {
-					action: "iap_order",
-					d_photobloco: "d_photobloco",
-					acabamento: iap_photobloco.tipo_photobloco,
-					largura: iap_photobloco.tamanho_x,
-					altura: iap_photobloco.tamanho_y,
-					imagem: imagemOriginal
-				},
-				success: function(data) {
-					if (data == "0") {
-						alert("Erro no processamento. Tente mais tarde.");
-					} else {
-						window.location = comprar.cart_url;
-						console.log(comprar.cart_url);
-					}
-				},
-				error: function(data) {
+	});
+
+	//faz o tratamento da resposta da imagem cropada e envia o pedido 
+
+	iap_crop_image_result = function(result){
+		var crop_image_url = result;
+
+		$.ajax({
+			type: "POST",
+			url: comprar.ajax_url,
+			data: {
+				action: "iap_order",
+				d_photobloco: "d_photobloco",
+				acabamento: iap_photobloco.tipo_photobloco,
+				largura: iap_photobloco.tamanho_x,
+				altura: iap_photobloco.tamanho_y,
+				imagem: imagemOriginal,
+				imagem_editada: crop_image_url
+			},
+			success: function(data) {
+				if (data == "0") {
 					alert("Erro no processamento. Tente mais tarde.");
+				} else {
+					window.location = comprar.cart_url;
+					console.log(comprar.cart_url);
 				}
-			});
-
+			},
+			error: function(data) {
+				alert("Erro no processamento. Tente mais tarde.");
+			}
+		});
 	}
 	
 });
@@ -510,4 +537,5 @@ $("#comprar-botao-photobloco").click(function(){
         $(".iap_crop_div").show();
         $("#comprar-botao-photobloco").show();
 	}
+
 });

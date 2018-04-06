@@ -4,6 +4,7 @@ var iap_canvas_width = 568;
 if (window.screen.availWidth <= 414) {
     var iap_canvas_width = 365;
 }
+
 //controla qual foi o último tamanho do canvas (para podermos definir um novo tamanho)
 var iap_canvas_controller = 0;
 jQuery(document).ready(function($){
@@ -82,49 +83,11 @@ function iap_start_crop(aspect_ratio){
     ctx.drawImage(iap_imagem, cropper.getData().x, cropper.getData().y, swidth, sheight, 0, 0, iap_canvas_width, iap_imagem_proporcional(swidth, sheight));
 
     $('#iap_imagem_cortada').modal('show');
-/*
-    // Upload cropped image to server 
-    cropper.getCroppedCanvas().toBlob(function (blob) {
-        var form_data = new FormData();
-    
-        form_data.append('croppedImage', blob);
-        form_data.append("action", "iap_imageTransfer");
 
-        $.ajax({
-            type: "post",
-            url: comprar.ajax_url,
-            contentType: false,
-            processData: false,
-            cache: false,
-            data: form_data,
-            success: function(result) {
-                if (result == "0") {
-                    alert(
-                        "Ocorreu um erro em nosso sistema. Por favor, tente novamente mais tarde."
-                    );
-                } else {
-                    results = result.split("|", 2);
-                    $("#edited_image_url").val(results[1]);
-                    $("#edited_image_id").val(results[0]);
-                    console.log(results);
-                }
-                $("body").removeClass("loading");
-                submittingImage = false;
-            },
-            error: function(response) {
-                alert(
-                    "Ocorreu um erro em nosso sistema. Por favor, atualize a página e tente novamente."
-                );
-                $("body").removeClass("loading");
-                submittingImage = false;
-            }
-        });
-
-
-    });*/
         });  
     }
 });
+
 //ajusta o parametro do tamanho proporcionalmente
 function iap_imagem_proporcional(x, y){
 
