@@ -4,16 +4,12 @@ var iap_canvas_width = 568;
 if (window.screen.availWidth <= 414) {
     var iap_canvas_width = 365;
 }
-
 //controla qual foi o último tamanho do canvas (para podermos definir um novo tamanho)
 var iap_canvas_controller = 0;
+
 jQuery(document).ready(function($){
 //captura imagem do usuário
 var iap_imagem = document.getElementById('editable-image');
-//mostra botao de cortar após usuario clicar no botao photobloco
-$("#b-photobloco").click(function(){
-    $("#iap_crop").show();
-});
 //inicia ferramenta de cropper 
     $("#photobloco_10x10").click(function(){
         if (iap_canvas_controller != 0) {
@@ -21,6 +17,7 @@ $("#b-photobloco").click(function(){
         }
         iap_start_crop(10 / 10);
         iap_canvas_controller = 1;
+        $("#iap_crop").show();
     });
 
 //inicia ferramenta de cropper
@@ -30,6 +27,7 @@ $("#b-photobloco").click(function(){
         }
         iap_start_crop(15 / 10);
         iap_canvas_controller = 2;
+        $("#iap_crop").show();
     });
 
 //função de crop 
@@ -40,11 +38,10 @@ function iap_start_crop(aspect_ratio){
         zoomable: false,
         viewMode: 1,
         crop: function(event) {
-
         }
       });
     //altera proporção do corte
-    $("#photobloco_10x10").click(function(){ 
+    $("#photobloco_10x10").click(function(){
         iap_canvas_controller = 1;
         cropper.setAspectRatio(10 / 10);
     });

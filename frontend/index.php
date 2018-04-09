@@ -58,7 +58,6 @@
         </button>
       </div>
       <div class="modal-body">
-
         <div id="iap_canvas">
           <canvas id="iap_crop_image" width="0" height="0"></canvas>
         </div>
@@ -66,6 +65,7 @@
       </div>
       <div class="modal-footer">
         <button id="comprar-botao-photobloco" type="button" class="btn btn-default btn-lg col-lg-3">Comprar: <span id="s-preco-photobloco" class="s-preco-photobloco"></span> </button>
+          <img id="body_loading" src="<?php echo plugins_url('img/carregando.gif', __FILE__ ); ?>" border="0" />
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Voltar</button>
       </div>
     </div>
@@ -126,7 +126,7 @@
           <div class="col-lg-12 iap_crop_div">
 
             <div class="col-lg-6">
-              <button type="button" id="b-photobloco"  class="btn btn-default btn-lg" data-toggle="modal" data-target="#photobloco">Photoblocos <span id="s-photobloco"> </span> </button>
+              <button type="button" id="b-photobloco"  class="btn btn-default btn-lg" data-toggle="modal" data-target="#photobloco">Tamanho <span id="s-photobloco"> </span> </button>
             </div>
 
             <div class="col-lg-6">
@@ -214,6 +214,7 @@
         </div>
 
         <div class="modal-body">
+        
           <div id="iap_texto_n_img"></div>
           <div class="m-thumb iap_photo_content">
             <div class="thumbnail" id="photobloco_10x10" data-dismiss="modal">
@@ -229,7 +230,7 @@
         </div>
 
         <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Voltar</button>
         </div>
       </div>
     </div>
@@ -575,6 +576,17 @@
                               </label>
                             </div>
                           </div>
+
+                          <div class="col-md-4 t-thumb" id="n_moldura" data-dismiss="modal">
+                            <div class="thumbnail" id="miami-select-color">
+                              <label>
+                                <img src="<?php echo plugins_url( 'img/Block-icon.png', __FILE__ ); ?>" border="0" />
+                                <div>
+                                  <p>Sem moldura</p>
+                                </div>
+                              </label>
+                            </div>
+                          </div>
                          
                         </div>
                         <div id="m-moderna">
@@ -627,12 +639,11 @@
                               <label>
                                 <img src="<?php echo plugins_url( 'img/buenos-aires-branca.jpg', __FILE__ ); ?>" border="0" />
                                 <div>
-                                  <p>Buenos Aires Branca</p>
+                                  <p>Buenos Aires</p>
                                 </div>
                               </label>
                             </div>
                           </div>
-
                           
                           <div class="col-md-4 t-thumb" id="m_londres_preta" data-dismiss="modal">
                             <div class="thumbnail" id="londres-select-color">
@@ -662,6 +673,17 @@
                                 <img src="<?php echo plugins_url( 'img/londres-bege.jpg', __FILE__ ); ?>" border="0" />
                                 <div>
                                   <p>Londres Bege</p>
+                                </div>
+                              </label>
+                            </div>
+                          </div>
+
+                          <div class="col-md-4 t-thumb" id="n_moldura_moderna" data-dismiss="modal">
+                            <div class="thumbnail" id="miami-select-color">
+                              <label>
+                                <img src="<?php echo plugins_url( 'img/Block-icon.png', __FILE__ ); ?>" border="0" />
+                                <div>
+                                  <p>Sem moldura</p>
                                 </div>
                               </label>
                             </div>
@@ -736,6 +758,17 @@
                             </div>
                           </div>
 
+                          <div class="col-md-4 t-thumb" id="n_moldura_classica" data-dismiss="modal">
+                            <div class="thumbnail" id="miami-select-color">
+                              <label>
+                                <img src="<?php echo plugins_url( 'img/Block-icon.png', __FILE__ ); ?>" border="0" />
+                                <div>
+                                  <p>Sem moldura</p>
+                                </div>
+                              </label>
+                            </div>
+                          </div>
+
                         </div>
 
                       </div>
@@ -743,7 +776,6 @@
                   </div>
 
                   <div class="modal-footer">
-                    <span id="n_moldura" class="btn btn-default" data-dismiss="modal">Sem Moldura</span>
                     <button type="button" class="btn btn-default" data-dismiss="modal">Continuar</button>
                   </div>
 

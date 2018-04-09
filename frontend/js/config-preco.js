@@ -406,6 +406,18 @@ jQuery(document).ready(function($){
         moldura.setTipo(0);
         enviaDados();
     });
+
+    $("#n_moldura_moderna").click(function(){
+        moldura.setMoldura("Moldura");
+        moldura.setTipo(0);
+        enviaDados();
+    });
+
+    $("#n_moldura_classica").click(function(){
+        moldura.setMoldura("Moldura");
+        moldura.setTipo(0);
+        enviaDados();
+    });
     
     //envia dados para o servidor e retorna preço 
     

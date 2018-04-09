@@ -6,6 +6,7 @@ jQuery(document).ready(function($) {
 	var originalImageSrc; // assigned when image file is dropped
 	var currentImage; // assigned when the Edit button is clicked
 	
+	
 	$(".img-upload-line").hide();
 
 	$("#b-photobloco").click(function(){
@@ -74,6 +75,7 @@ jQuery(document).ready(function($) {
 
 //salva a imagem croppada e envia os dados do pedido para o servidor
 $("#comprar-botao-photobloco").click(function(){
+	$("#body_loading").show();
 	var imagemOriginal = image_url.value;
 	var canvas = document.getElementById('iap_crop_image');
 	var dataUrl = canvas.toDataURL("image/png");
@@ -134,7 +136,6 @@ $("#comprar-botao-photobloco").click(function(){
 			}
 		});
 	}
-	
 });
 
 	// manda os dados do pedido para o servidor via ajax
@@ -513,13 +514,14 @@ $("#comprar-botao-photobloco").click(function(){
 		window.imgHeight = imageElement["0"].naturalHeight;
 	}
 
-
 	if (iap_define_tipo() == "imagem_acrilico") {
+		console.log(iap_define_tipo());
         $("#img_acrilico").show();
         $("#main_carregando").hide();
     }
     
     if (iap_define_tipo() == "photobloco") {
+		console.log(iap_define_tipo());
 		$("#img_photobloco").show();
 
         $("#main_carregando").hide();
