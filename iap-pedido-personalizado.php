@@ -19,6 +19,7 @@ require 'inc/ajax.php';
 require 'inc/woo.php';
 require 'calculadoraProdutosInsta/iap-get-preco.php';
 require 'ImagemProporcional/iap-ImagemProporcional.php';
+require 'frontend/pacote_porta_retrato.php';
 
 /*
  * Verifica se o WooCommerce tá presente

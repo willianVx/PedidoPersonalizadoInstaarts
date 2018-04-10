@@ -21,9 +21,14 @@ iap_resolve_url = function () {
 iap_define_tipo = function(){
     var tipo = iap_resolve_url();
     var photobloco = tipo.includes("photobloco");
+    var porta_retrato = tipo.includes("porta-retrato");
 
     if (photobloco) {
         return "photobloco";
+    }
+
+    if (porta_retrato) {
+        return "porta_retrato";
     }
 
     /*

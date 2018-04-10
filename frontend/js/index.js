@@ -515,13 +515,13 @@ $("#comprar-botao-photobloco").click(function(){
 	}
 
 	if (iap_define_tipo() == "imagem_acrilico") {
-		console.log(iap_define_tipo());
+		//console.log(iap_define_tipo());
         $("#img_acrilico").show();
         $("#main_carregando").hide();
     }
     
     if (iap_define_tipo() == "photobloco") {
-		console.log(iap_define_tipo());
+		//console.log(iap_define_tipo());
 		$("#img_photobloco").show();
 
         $("#main_carregando").hide();
@@ -532,7 +532,22 @@ $("#comprar-botao-photobloco").click(function(){
         $("#edit-image-button").hide();
         
         $(".hud-botao").css("left","200px");
-    }
+	}
+
+	if(iap_define_tipo() == "porta_retrato") {
+
+		//console.log("porta retrato!!");
+		$("#img_acrilico").show();
+		$("#iap_crop_porta_retrato").show();
+		$("#main_carregando").hide();
+		$("#drop-area").addClass("col-lg-8");
+		$(".img-upload-line").addClass("col-lg-8");
+		$("#sidebar").show();
+		$(".iap_b_painel").hide();
+		$(".hud-botoes-mat").hide();
+
+	}
+
 	$(".iap_box_upload").show();
 	//mostra os botoões photobloco e cortar quando a imagem é definida 
 	function  iap_show_photobloco(){

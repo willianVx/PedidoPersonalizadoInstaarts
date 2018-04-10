@@ -30,6 +30,19 @@ var iap_imagem = document.getElementById('editable-image');
         $("#iap_crop").show();
     });
 
+//inicia ferramenta de cropper para porta retrato
+$("#iap_crop_porta_retrato").click(function(){
+    if (iap_canvas_controller != 0) {
+        return;
+    }
+    $(".glyphicon").removeClass("glyphicon-scissors");
+    $(".glyphicon").addClass("glyphicon-plus");
+    $(".crop_texto").html("Adicionar")
+    iap_start_crop(18 / 13);
+    iap_canvas_controller = 3;
+    $("#iap_crop").show();
+});    
+
 //função de crop 
 function iap_start_crop(aspect_ratio){
     //instancia novo Cropper
@@ -81,7 +94,27 @@ function iap_start_crop(aspect_ratio){
 
     $('#iap_imagem_cortada').modal('show');
 
-        });  
+        });
+    //corta a imgem do porta retrato e a insere no block info -- botao crop quando estado inicial for porta retrato
+    $("#iap_crop_porta_retrato").click(function(){
+        console.log("Botao Funciona!!");
+        //define tamanho do recorte na imagem
+        var swidth  = cropper.getCroppedCanvas().width;
+        var sheight = cropper.getCroppedCanvas().height;
+
+        //desenha o recorte da imagem no canvas 
+        var canvas = document.getElementById('info_painel_crop');
+        var ctx = canvas.getContext('2d');
+
+        ctx.drawImage(iap_imagem, cropper.getData().x, cropper.getData().y, swidth, sheight, 0, 0, 69, 53);
+        $("#info_painel_texto").show();
+        $(".retirar_img_da_lista").show();
+        $(".info_painel").css("border","none");
+        $(".info_painel").addClass("info_painel_shadow");
+
+        $("#quadros_restantes_numero").html(imagens_restantes.get_numero());
+    });
+
     }
 });
 
@@ -108,4 +141,16 @@ function iap_imagem_proporcional(x, y){
 
     return iap_canvas_width / razao;
 
+}
+
+//retorna valor de imagens restantes 
+var imagens_restantes = {
+    numero: 6,
+    get_numero: function(){
+        if (imagens_restantes.numero == 0) {
+            return
+        }else{
+            return --imagens_restantes.numero;
+        }
+    }
 }

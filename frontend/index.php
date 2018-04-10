@@ -3,7 +3,7 @@
 <div class="container envelope-pedido-personalizado" onload="formulaTotal()">
   <div class="row container-b">
     <!-- botoes editar - voltar - limpar --> 
-    <div class="col-md-2">
+    <div class="col-md-2 iap_b_painel">
       <div class="row">
         <div class="col-md-12">
           <button id="edit-image-button" class="btn btn-primary btn-block button-panel botao_editar">
@@ -23,14 +23,19 @@
       </div>
     </div> <!-- fim botoes --> 
 
-    <div class="col-md-10">
+    <div class="col-lg-10">
     
       <input type="hidden" name="image_url" id="image_url">
       <input type="hidden" name="image_id" id="image_id">
       <input type="hidden" name="edited_image_url" id="edited_image_url">
       <input type="hidden" name="edited_image_id" id="edited_image_id">
 
-      <!-- input id="click-upload" type="file" -->
+      <div id="sidebar" class="col-lg-4">
+        <?php 
+          sidebar_porta_retrato();
+        ?>
+      </div>
+      <!-- input id="click-upload" type="file"-->
 
       <div id="drop-area" class="drop-zone" data-toggle="modal" data-target="#modalUpload">
         <span>
@@ -39,12 +44,13 @@
           <a href="#"><img id="img_photobloco" src="<?php echo plugins_url('img/imagem-2_photobloco.jpg', __FILE__ ); ?>" border="0" /></a>
         </span>
         <span class="iap_box_upload">
-        Escolha uma imagem do seu dispositivo
+        Suba sua imagem aqui
         </span>
       </div>
 
         <div class="img-upload-line">
           <img id="editable-image" class="img-responsive img-upload">
+          <button id="iap_crop_porta_retrato"  class="btn btn-success btn-lg"><span class="glyphicon glyphicon-scissors"></span><span class="crop_texto">Cortar e adicionar</span></button>
         </div>
 
 <!-- Modal -->
@@ -120,7 +126,7 @@
         </div>
 
       </div>
-     
+
         <div class="col-lg-12 hud-botoes-mat">
 
           <div class="col-lg-12 iap_crop_div">

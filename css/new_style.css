@@ -111,3 +111,95 @@
     display: none;
     margin: auto;
 }
+.sidebar_container{
+    position: relative;
+    float: right;
+}
+#sidebar_porta_retrato{
+    position: relative;
+    width: 263px;
+    height: 521px;
+    border: 1px solid #b3b3b3;
+    border-radius: 12px;
+    padding: 26px;
+}
+.b_comprar_porta_retrato{
+    position: relative;
+    top: 10px;
+    width: 263px;
+    height: 46px;
+    margin-bottom: 50px;
+}
+#quadros_restantes{
+    position: relative;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    background-color: #45b75b;
+    color: white;
+    text-align: center;
+    line-height:28px;
+    float: right;
+    margin-top: 63px;
+    margin-right: 46px;
+}
+.img_add_novo_quadro{
+    position: relative;
+    cursor: pointer;
+    margin-top: 24px;
+    margin-left: 80px;
+}
+#info_painel{
+    position: relative;
+    padding: 6px;
+    width: 208px;
+    height: 71px;
+    border: 1px dotted #b3b3b3;
+    border-radius: 12px;
+    margin-bottom: 9px;
+}
+.info_painel{
+    position: relative;
+    padding: 6px;
+    width: 208px;
+    height: 71px;
+    border: 1px dotted #b3b3b3;
+    border-radius: 12px;
+    margin-bottom: 9px;
+}
+.info_painel_shadow{
+    -webkit-box-shadow: -1px 4px 13px -1px rgba(0,0,0,0.21);
+    -moz-box-shadow: -1px 4px 13px -1px rgba(0,0,0,0.21);
+    box-shadow: -1px 4px 13px -1px rgba(0,0,0,0.21);
+}
+#sidebar{
+    position: initial;
+    display: none;
+}
+#iap_crop_porta_retrato{
+    display: none;
+    margin-top: 10px;
+}
+.retirar_img_da_lista{
+    position: relative;
+    float: right;
+    left: 80px;
+    display: none;
+    cursor: pointer;
+    color: #909090;
+}
+#info_painel_texto{
+    position: relative;
+    display: none;
+    float: right;
+    color: #909090;
+    line-height: 1;
+    right: 35px;
+    width: 85px;
+    height: 56px;
+    font-size: 0.6em;
+}
+#info_painel_texto span{
+    line-height: 3;
+    font-size: 2em;
+}
