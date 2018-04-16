@@ -537,7 +537,7 @@ $("#comprar-botao-photobloco").click(function(){
 	if(iap_define_tipo() == "porta_retrato") {
 
 		//console.log("porta retrato!!");
-		$("#img_acrilico").show();
+		$("#img_porta_retrato").show();
 		$("#iap_crop_porta_retrato").show();
 		$("#main_carregando").hide();
 		$("#drop-area").addClass("col-lg-8");

@@ -42,6 +42,7 @@
           <img id="main_carregando" src="<?php echo plugins_url('img/carregando.gif', __FILE__ ); ?>" border="0" />
           <a href="#"><img id="img_acrilico" src="<?php echo plugins_url('img/imagem-1.jpg', __FILE__ ); ?>" border="0" /></a>
           <a href="#"><img id="img_photobloco" src="<?php echo plugins_url('img/imagem-2_photobloco.jpg', __FILE__ ); ?>" border="0" /></a>
+          <a href="#"><img id="img_porta_retrato" src="<?php echo plugins_url('img/img_portrait.jpg', __FILE__ ); ?>" border="0" /></a>
         </span>
         <span class="iap_box_upload">
         Suba sua imagem aqui
