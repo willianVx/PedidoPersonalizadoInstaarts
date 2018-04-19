@@ -5,6 +5,7 @@
     <!-- botoes editar - voltar - limpar --> 
     <div class="col-md-2 iap_b_painel">
       <div class="row">
+      
         <div class="col-md-12">
           <button id="edit-image-button" class="btn btn-primary btn-block button-panel botao_editar">
             <span class="glyphicon glyphicon-pencil pull-left padleft" aria-hidden="true"></span> Editar
@@ -29,7 +30,7 @@
       <input type="hidden" name="image_id" id="image_id">
       <input type="hidden" name="edited_image_url" id="edited_image_url">
       <input type="hidden" name="edited_image_id" id="edited_image_id">
-
+      
       <div id="sidebar" class="col-lg-4">
         <?php 
           sidebar_porta_retrato();
@@ -45,13 +46,14 @@
           <a href="#"><img id="img_porta_retrato" src="<?php echo plugins_url('img/img_portrait.jpg', __FILE__ ); ?>" border="0" /></a>
         </span>
         <span class="iap_box_upload">
-        Suba sua imagem aqui
+        Clique aqui para enviar sua imagem
         </span>
       </div>
 
         <div class="img-upload-line">
           <img id="editable-image" class="img-responsive img-upload">
           <button id="iap_crop_porta_retrato"  class="btn btn-success btn-lg"><span class="glyphicon glyphicon-scissors"></span><span class="crop_texto">Cortar e adicionar</span></button>
+          <button id="iap_adiciona_imagem_porta_retrato" class="btn btn-primary btn-lg">Adicionar outra imagem</button>
         </div>
 
 <!-- Modal -->
@@ -86,12 +88,12 @@
             <div class="modal-content col-sm-12">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h5 class="modal-title">Faça o Upload da Sua Imagem</h5>
+                <h5 class="modal-title">Faça o upload da sua imagem</h5>
               </div>
               <div class="modal-body texto_upload col-sm-12">
 
                 <div class="col-xs-12 col-sm-12 col-md-12">
-                  <p>A imagem deve estar nos formatos: JPEG ou PNG</p>
+                  <p>A imagem deve estar nos formatos JPEG ou PNG</p>
                   <form method="post" action="" id="myForm" enctype="multipart/form-data">
                     Click para escolher uma imagem do seu dispositivo:
                     <input type="file" name="fileToUpload" id="fileToUpload">

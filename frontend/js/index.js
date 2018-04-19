@@ -297,6 +297,13 @@ $("#comprar-botao-photobloco").click(function(){
 		}
 	});
 	// Clear
+	/*
+	var $nova_imagem =  $("#iap_adiciona_imagem_porta_retrato");
+	$nova_imagem.click(function(){
+		clearImage();
+		toggleDragDrop();
+	});
+	*/
 	$("#clear-image-button").click(function() {
 		window.editar_unlock = 0;
 		if (imageElement.attr("src")) {
@@ -388,7 +395,7 @@ $("#comprar-botao-photobloco").click(function(){
 					if (ev.lengthComputable) {
 						var percentComplete = parseInt(ev.loaded / ev.total * 100);
 						$("#progress-bar").css("width", percentComplete + "%");
-						$(".percent").html("Carregando...");
+						$(".percent").html(percentComplete + "%");
 					}
 				};
 				return myXhr;
@@ -413,20 +420,34 @@ $("#comprar-botao-photobloco").click(function(){
 						$("#image_id").val(results[0]);
 						imageElement.attr("src", results[1]);
 						originalImageSrc = imageElement.attr("src");
-						toggleDragDrop();
+
+						if (!window.porta_retrato_upload_controlador) {
+							toggleDragDrop();
+						}
+						
+						cliente_imagem_url.add_lista(originalImageSrc);
+
 						if (iap_define_tipo() == "photobloco") {
 							iap_show_photobloco();
 						}
 						$(".modal .close").click();
+
+						if (typeof cropper == "undefined") {
+							console.log("cropper ainda não definido!");
+						}else{
+							cropper.replace(cliente_imagem_url.ultimo_item());
+						}
 						break;
 				}
 				submittingImage = false;
 				$("#progress-bar").css("width", "0%");
+				$(".percent").html(" ");
 			},
 			error: function(response) {
 				alert("Ocorreu um erro ao enviar a imagem. Por favor tente novamente.");
 				submittingImage = false;
 				$("#progress-bar").css("width", "0%");
+				$(".percent").html(" ");
 			}
 
 		});
@@ -549,10 +570,33 @@ $("#comprar-botao-photobloco").click(function(){
 	}
 
 	$(".iap_box_upload").show();
-	//mostra os botoões photobloco e cortar quando a imagem é definida 
+	//mostra os botões photobloco e cortar quando a imagem é definida 
 	function  iap_show_photobloco(){
         $(".iap_crop_div").show();
         $("#comprar-botao-photobloco").show();
 	}
 
 });
+
+var cliente_imagem_url = {
+
+	lista: [],
+	add_lista: function(url){
+		this.lista.push(url);
+	},
+	ultimo_item: function(){
+		var ultimo = this.lista[this.lista.length - 1];
+
+		return ultimo; 
+	},
+	elemento_imagem: function(index){
+
+		var nova_imagem = document.createElement('img');
+		var src = this.lista[index] || this.ultimo_item();
+		nova_imagem.src = src;
+
+		return nova_imagem;
+		
+	}
+
+}

@@ -121,7 +121,7 @@
     height: 521px;
     border: 1px solid #b3b3b3;
     border-radius: 12px;
-    padding: 26px;
+    padding: 24px;
 }
 .b_comprar_porta_retrato{
     position: relative;
@@ -149,6 +149,44 @@
     margin-top: 24px;
     margin-left: 80px;
 }
+
+
+#porta_retrato_module ul li{
+
+    list-style-type: none;
+    width: 208px;
+    height: 71px;
+    border-radius: 12px;
+    margin-bottom: 9px;
+    padding: 6px;
+
+    -webkit-box-shadow: -1px 4px 13px -1px rgba(0,0,0,0.21);
+    -moz-box-shadow: -1px 4px 13px -1px rgba(0,0,0,0.21);
+    box-shadow: -1px 4px 13px -1px rgba(0,0,0,0.21);
+
+}
+#info_painel_texto{
+    position: relative;
+    float: right;
+    color: #909090;
+    line-height: 1;
+    right: 35px;
+    width: 85px;
+    height: 56px;
+    font-size: 0.6em;
+}
+i{
+    position: relative;
+    float: right;
+    left: 80px;
+    cursor: pointer;
+    color: #909090;
+}
+
+
+
+
+
 #info_painel{
     position: relative;
     padding: 6px;
@@ -180,25 +218,12 @@
     display: none;
     margin-top: 10px;
 }
-.retirar_img_da_lista{
-    position: relative;
-    float: right;
-    left: 80px;
+#iap_adiciona_imagem_porta_retrato{
     display: none;
-    cursor: pointer;
-    color: #909090;
+    margin-top: 10px;
 }
-#info_painel_texto{
-    position: relative;
-    display: none;
-    float: right;
-    color: #909090;
-    line-height: 1;
-    right: 35px;
-    width: 85px;
-    height: 56px;
-    font-size: 0.6em;
-}
+
+
 #info_painel_texto span{
     line-height: 3;
     font-size: 2em;
@@ -206,7 +231,4 @@
 #img_porta_retrato{
     display: none;
     height: 550px;
-}
-#porta_retrato{
-    
 }

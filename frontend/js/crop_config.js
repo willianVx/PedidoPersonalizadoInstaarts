@@ -8,10 +8,10 @@ if (window.screen.availWidth <= 414) {
 var iap_canvas_controller = 0;
 
 jQuery(document).ready(function($){
-   
     var contador = 0;
     var $quadros_restantes = $("#quadros_restantes_numero");
 
+    //modulo pra adicionar e deletar um recorte no contexto do porta retrato 
     var pacote_porta_retrato = {
         porta_retrato: [],
         imagens_canvas: [],
@@ -34,79 +34,84 @@ jQuery(document).ready(function($){
 
            var data = {
                portaRetrato: this.porta_retrato,
-               teste: contador,
                texto1: "Porta retrato",
                texto2: "Decor Cristal 3mm",
                tamanho: "13x18cm"
            };
            this.$ul.html(Mustache.render(this.template, data));
 
-            
+            function drawCanvas(id,imagens_canvas,index_canvas, index_imagem){
+                    
+                    var canvas = document.getElementById(id);
+                    var ctx = canvas.getContext('2d');
+                    const element = imagens_canvas[index_canvas];
+                    ctx.drawImage(cliente_imagem_url.elemento_imagem(index_imagem), element.x, element.y, element.swidth, element.sheight, element.a, element.b, element.c, element.d);
 
-            console.log(this.canvas);
-            console.log(this.porta_retrato);
-            console.log(this.imagens_canvas);
+                    console.log(pacote_porta_retrato.imagens_canvas);
+                        
+                    if (cliente_imagem_url.lista.length > 1) {
 
+                        var canvas = document.getElementById("1");
+                        var ctx = canvas.getContext('2d');
+                        const element = pacote_porta_retrato.imagens_canvas[0];
+                        ctx.drawImage(cliente_imagem_url.elemento_imagem("0"), element.x, element.y, element.swidth, element.sheight, element.a, element.b, element.c, element.d);
+
+                    }
+
+                    if (cliente_imagem_url.lista.length > 2) {
+
+                        var canvas = document.getElementById("2");
+                        var ctx = canvas.getContext('2d');
+                        const element = pacote_porta_retrato.imagens_canvas[1];
+                        ctx.drawImage(cliente_imagem_url.elemento_imagem("1"), element.x, element.y, element.swidth, element.sheight, element.a, element.b, element.c, element.d);
+
+                    }
+
+                    if (cliente_imagem_url.lista.length > 3) {
+
+                        var canvas = document.getElementById("3");
+                        var ctx = canvas.getContext('2d');
+                        const element = pacote_porta_retrato.imagens_canvas[2];
+                        ctx.drawImage(cliente_imagem_url.elemento_imagem("2"), element.x, element.y, element.swidth, element.sheight, element.a, element.b, element.c, element.d);
+
+                    }
+
+                    if (cliente_imagem_url.lista.length > 4) {
+
+                        var canvas = document.getElementById("4");
+                        var ctx = canvas.getContext('2d');
+                        const element = pacote_porta_retrato.imagens_canvas[3];
+                        ctx.drawImage(cliente_imagem_url.elemento_imagem("3"), element.x, element.y, element.swidth, element.sheight, element.a, element.b, element.c, element.d);
+
+                    }
+
+                    if (cliente_imagem_url.lista.length > 5) {
+
+                        var canvas = document.getElementById("5");
+                        var ctx = canvas.getContext('2d');
+                        const element = pacote_porta_retrato.imagens_canvas[4];
+                        ctx.drawImage(cliente_imagem_url.elemento_imagem("4"), element.x, element.y, element.swidth, element.sheight, element.a, element.b, element.c, element.d);
+
+                    }
+                    
+            }
             
             for (let index = 0; index < this.imagens_canvas.length; index++) {
 
-                this.canvas = document.getElementById(contador);
-                var ctx = this.canvas.getContext('2d');
-                const element = this.imagens_canvas[index];
-                ctx.drawImage(element.imagem, element.x, element.y, element.swidth, element.sheight, element.a, element.b, element.c, element.d);
-
-                if (this.imagens_canvas.length >= 2) {
-
-                    this.canvas = document.getElementById(1);
-                    var ctx = this.canvas.getContext('2d');
-                    const element = this.imagens_canvas[0];
-                    ctx.drawImage(element.imagem, element.x, element.y, element.swidth, element.sheight, element.a, element.b, element.c, element.d);
-
-                }
-
-                if (this.imagens_canvas.length >= 3) {
-
-                    this.canvas = document.getElementById(2);
-                    var ctx = this.canvas.getContext('2d');
-                    const element = this.imagens_canvas[1];
-                    ctx.drawImage(element.imagem, element.x, element.y, element.swidth, element.sheight, element.a, element.b, element.c, element.d);
-
-                }
-
-                if (this.imagens_canvas.length >= 4) {
-
-                    this.canvas = document.getElementById(3);
-                    var ctx = this.canvas.getContext('2d');
-                    const element = this.imagens_canvas[2];
-                    ctx.drawImage(element.imagem, element.x, element.y, element.swidth, element.sheight, element.a, element.b, element.c, element.d);
-
-                }
-                if (this.imagens_canvas.length >= 5) {
-
-                    this.canvas = document.getElementById(4);
-                    var ctx = this.canvas.getContext('2d');
-                    const element = this.imagens_canvas[3];
-                    ctx.drawImage(element.imagem, element.x, element.y, element.swidth, element.sheight, element.a, element.b, element.c, element.d);
-
-                }
-                if (this.imagens_canvas.length >= 6) {
-
-                    this.canvas = document.getElementById(5);
-                    var ctx = this.canvas.getContext('2d');
-                    const element = this.imagens_canvas[4];
-                    ctx.drawImage(element.imagem, element.x, element.y, element.swidth, element.sheight, element.a, element.b, element.c, element.d);
-
-                }
+                drawCanvas(contador, this.imagens_canvas, index, index);
+               
             }
-            
            
-           $quadros_restantes.html(contador);
+           $quadros_restantes.html( 6 - contador);
+           
         },
         addImage: function(iap_imagem, x, y, swidth, sheight, a, b, c, d) {
-
+            if (this.porta_retrato.length == 6) {
+                return;
+            }
            this.dataCanvas = {
 
-                imagem  : iap_imagem,
+                imagem  : cliente_imagem_url.elemento_imagem(),
                 x       : x,
                 y       : y,
                 swidth  : swidth,
@@ -145,6 +150,7 @@ jQuery(document).ready(function($){
 
 //captura imagem do usuário
 var iap_imagem = document.getElementById('editable-image');
+
 //inicia ferramenta de cropper 
     $("#photobloco_10x10").click(function(){
         if (iap_canvas_controller != 0) {
@@ -187,6 +193,7 @@ function iap_start_crop(aspect_ratio){
         crop: function(event) {
             //muda o nome do botao adicionar e cortar no contexto do porta-retrato
             $(".crop_texto").html("Adicionar");
+            
         }
       });
     
@@ -235,7 +242,7 @@ function iap_start_crop(aspect_ratio){
     //corta a imagem do porta retrato e insere no block info -- botao crop quando estado inicial for porta retrato
     $("#iap_crop_porta_retrato").click(function(){
         
-        console.log("Botao Funciona!!");
+        $("#iap_adiciona_imagem_porta_retrato").show();
         x = cropper.getData().x;
         y = cropper.getData().y;
         a = 0; 
@@ -244,48 +251,20 @@ function iap_start_crop(aspect_ratio){
         d = 53;
         var swidth  = cropper.getCroppedCanvas().width;
         var sheight = cropper.getCroppedCanvas().height;
-        
 
         pacote_porta_retrato.addImage(iap_imagem, x, y, swidth, sheight, a, b, c, d);
 
-        /*
-        //define tamanho do recorte na imagem
-        var swidth  = cropper.getCroppedCanvas().width;
-        var sheight = cropper.getCroppedCanvas().height;
+    });
 
-         //exclui um bloco da imagem no contexto do porta retrato
-         $(".retirar_img_da_lista").click(function(){
+    //botao para adicionar outra imagem -- no contexto porta retrato
+    var $nova_imagem =  $("#iap_adiciona_imagem_porta_retrato");
 
-            $("#info_painel_crop").hide();
-            $("#info_painel_texto").hide();
-            $("#retirar_img_da_lista").hide();
-            $("#info_painel").removeClass("info_painel_shadow");
-            $("#info_painel").addClass("info_painel");
+    $nova_imagem.click(function(){
 
-            imagens_restantes.add_numero();
-            $("#quadros_restantes_numero").html(imagens_restantes.numero);
-        });
+        window.porta_retrato_upload_controlador = "uploadOK";
+        $("#modalUpload").modal('show');
+        return window.cropper = cropper;
 
-        var canvas = document.getElementById('info_painel_crop');
-        var ctx = canvas.getContext('2d');
-
-            $("#info_painel_texto").show();
-            $(".retirar_img_da_lista").show();
-            $(".info_painel").css("border","none");
-            $(".info_painel").addClass("info_painel_shadow");
-
-        ctx.drawImage(iap_imagem, cropper.getData().x, cropper.getData().y, swidth, sheight, 0, 0, 69, 53);
-
-        $("#info_painel_crop").show();
-        $("#info_painel_texto").show();
-        $(".retirar_img_da_lista").show();
-        $(".info_painel").css("border","none");
-        $(".info_painel").addClass("info_painel_shadow");
-
-        imagens_restantes.get_numero();
-        
-        $("#quadros_restantes_numero").html(imagens_restantes.numero);
-        */
     });
 
     }
@@ -314,24 +293,4 @@ function iap_imagem_proporcional(x, y){
 
     return iap_canvas_width / razao;
 
-}
-
-//retorna valor de imagens restantes no contexto do porta retrato
-
-var imagens_restantes = {
-    numero: 6,
-    get_numero: function(){
-        if (imagens_restantes.numero == 0) {
-            return
-        }else{
-            imagens_restantes.numero--;
-        }
-    },
-    add_numero: function(){
-        if (imagens_restantes.numero >= 6) {
-            return
-        }else{
-            imagens_restantes.numero++;
-        }
-    }
 }
