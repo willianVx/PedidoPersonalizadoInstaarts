@@ -68,6 +68,22 @@ function iap_order() {
 		echo "1";
 
 	}
+	if (isset($_POST['d_porta_retrato'])) {
+
+		$data['x'] = $_POST['largura'];
+		$data['y'] = $_POST['altura'];
+		$data['acabamento'] = $_POST['acabamento'];
+		$data['preco'] = 24.99;
+		$data['imagem'] = $_POST["imagem"];
+		$data['imagemEditada'] = $_POST['imagem_editada'];
+
+		global $woocommerce;
+		
+		$produto = get_page_by_title('Quadro Personalizado Instaarts', OBJECT, 'product');
+		$woocommerce->cart->add_to_cart($produto->ID, 1, '', '', $data);
+		
+		echo "1";
+	}
 	if (isset($_POST['d_photobloco_imagem'])) {
 
 		echo "teste ao quadrado!!";

@@ -132,16 +132,16 @@
 }
 #quadros_restantes{
     position: relative;
-    border-radius: 50%;
-    width: 28px;
-    height: 28px;
+    width: 140px;
+    height: 50px;
     background-color: #45b75b;
     color: white;
     text-align: center;
-    line-height:28px;
-    float: right;
-    margin-top: 63px;
-    margin-right: 46px;
+    line-height:23px;
+    margin-top: 24px;
+    margin-left: 35px;
+    border-radius: 12px;
+    cursor: pointer;
 }
 .img_add_novo_quadro{
     position: relative;
@@ -149,8 +149,24 @@
     margin-top: 24px;
     margin-left: 80px;
 }
-
-
+#iap_reiniciar_porta_retrato{
+    position: relative;
+    display: none;
+    margin-top: 10px;
+    margin-left: 25px;
+}
+.glyphicon-resize-vertical{
+    position: relative;
+    display: none;
+    margin-top: 10px;
+    margin-left: 25px;
+}
+.glyphicon-resize-horizontal{
+    position: relative;
+    display: none;
+    margin-top: 10px;
+    margin-left: 25px;
+}
 #porta_retrato_module ul li{
 
     list-style-type: none;
@@ -182,7 +198,11 @@ i{
     cursor: pointer;
     color: #909090;
 }
-
+.iap_porta_retrato_carregando{
+    position: relative;
+    display: block;
+    margin: auto;
+}
 
 
 

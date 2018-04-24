@@ -43,7 +43,12 @@
           <img id="main_carregando" src="<?php echo plugins_url('img/carregando.gif', __FILE__ ); ?>" border="0" />
           <a href="#"><img id="img_acrilico" src="<?php echo plugins_url('img/imagem-1.jpg', __FILE__ ); ?>" border="0" /></a>
           <a href="#"><img id="img_photobloco" src="<?php echo plugins_url('img/imagem-2_photobloco.jpg', __FILE__ ); ?>" border="0" /></a>
-          <a href="#"><img id="img_porta_retrato" src="<?php echo plugins_url('img/img_portrait.jpg', __FILE__ ); ?>" border="0" /></a>
+          <!-- <a href="#"><img  src="<?php echo plugins_url('img/img_portrait.jpg', __FILE__ ); ?>" border="0" /></a> -->
+          
+          <a href="#"> 
+            <video id="img_porta_retrato" src="<?php echo plugins_url('video/porta_retrato_video.mov', __FILE__ ); ?>" autoplay loop></video>
+          </a>
+          
         </span>
         <span class="iap_box_upload">
         Clique aqui para enviar sua imagem
@@ -51,9 +56,15 @@
       </div>
 
         <div class="img-upload-line">
+
           <img id="editable-image" class="img-responsive img-upload">
-          <button id="iap_crop_porta_retrato"  class="btn btn-success btn-lg"><span class="glyphicon glyphicon-scissors"></span><span class="crop_texto">Cortar e adicionar</span></button>
-          <button id="iap_adiciona_imagem_porta_retrato" class="btn btn-primary btn-lg">Adicionar outra imagem</button>
+          <button id="iap_crop_porta_retrato" class="btn btn-success btn-lg"><span class="glyphicon glyphicon-scissors"></span><span class="crop_texto"> Cortar e adicionar</span></button>
+          
+          <button class="btn btn-info btn-lg glyphicon glyphicon-resize-vertical"></button>
+          <button class="btn btn-info btn-lg glyphicon glyphicon-resize-horizontal"></button>
+
+          <button id="iap_reiniciar_porta_retrato" class="btn btn-danger btn-lg">Reiniciar</button>
+          
         </div>
 
 <!-- Modal -->

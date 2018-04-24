@@ -433,9 +433,10 @@ $("#comprar-botao-photobloco").click(function(){
 						$(".modal .close").click();
 
 						if (typeof cropper == "undefined") {
-							console.log("cropper ainda não definido!");
+							//console.log("cropper ainda não definido!");
 						}else{
 							cropper.replace(cliente_imagem_url.ultimo_item());
+							cropper.cropBoxData.minHeight = imagem_atual_info.minCropBoxHeight(1000);
 						}
 						break;
 				}
@@ -560,6 +561,9 @@ $("#comprar-botao-photobloco").click(function(){
 		//console.log("porta retrato!!");
 		$("#img_porta_retrato").show();
 		$("#iap_crop_porta_retrato").show();
+		$("#iap_reiniciar_porta_retrato").show();
+		$(".glyphicon-resize-horizontal").show();
+		$(".glyphicon-resize-vertical").show();
 		$("#main_carregando").hide();
 		$("#drop-area").addClass("col-lg-8");
 		$(".img-upload-line").addClass("col-lg-8");
@@ -584,6 +588,9 @@ var cliente_imagem_url = {
 	add_lista: function(url){
 		this.lista.push(url);
 	},
+	remove_lista: function(){
+		this.lista.splice(this.lista.length - 1, 1)
+	},
 	ultimo_item: function(){
 		var ultimo = this.lista[this.lista.length - 1];
 
@@ -596,7 +603,6 @@ var cliente_imagem_url = {
 		nova_imagem.src = src;
 
 		return nova_imagem;
-		
-	}
+	},
 
 }
