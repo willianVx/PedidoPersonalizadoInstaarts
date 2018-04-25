@@ -558,7 +558,6 @@ $("#comprar-botao-photobloco").click(function(){
 
 	if(iap_define_tipo() == "porta_retrato") {
 
-		//console.log("porta retrato!!");
 		$("#img_porta_retrato").show();
 		$("#iap_crop_porta_retrato").show();
 		$("#iap_reiniciar_porta_retrato").show();
@@ -570,6 +569,39 @@ $("#comprar-botao-photobloco").click(function(){
 		$("#sidebar").show();
 		$(".iap_b_painel").hide();
 		$(".hud-botoes-mat").hide();
+
+		if ($(window).width() <= 1024) {
+
+			$(".drop-zone").css("width","500px");
+			$("#editable-image").css("width","500px");
+			$(".img-upload").css("width","500px");
+			$(".img-upload-line").css("width","500px");
+			$("#img_porta_retrato").css("height","450px");
+
+		}
+
+		if ($(window).width() <= 768) {
+
+			$(".drop-zone").css("width","350px");
+			$("#editable-image").css("width","350px");
+			$(".img-upload").css("width","350px");
+			$(".img-upload-line").css("width","350px");
+			$("#img_porta_retrato").css("height","325px");
+			$(".iap_box_upload").css("font-size","0.7em");
+
+		}
+
+		if ($(window).width() <= 425) {
+
+			var $sidebar = $("#sidebar");
+			$sidebar.css("margin-top","15px", "margin-left","-20px");
+			$(".sidebar_container").css("float","left")
+
+			$("#img_porta_retrato_1").show();
+			$("#img_porta_retrato").hide();
+
+			$(".iap_mobile_c").show();
+		}
 
 	}
 

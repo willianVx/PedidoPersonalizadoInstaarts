@@ -52,6 +52,8 @@ jQuery(document).ready(function($){
                     var canvas = document.getElementById(id);
                     var ctx = canvas.getContext('2d');
                     const element = imagens_canvas[index_canvas];
+                    canvas.width = element.c;
+                    canvas.height = element.d;
                     ctx.drawImage(cliente_imagem_url.elemento_imagem(index_imagem), element.x, element.y, element.swidth, element.sheight, element.a, element.b, element.c, element.d);
 
                         
@@ -60,6 +62,8 @@ jQuery(document).ready(function($){
                         var canvas = document.getElementById("1");
                         var ctx = canvas.getContext('2d');
                         const element = pacote_porta_retrato.imagens_canvas[0];
+                        canvas.width = element.c;
+                        canvas.height = element.d;
                         ctx.drawImage(cliente_imagem_url.elemento_imagem("0"), element.x, element.y, element.swidth, element.sheight, element.a, element.b, element.c, element.d);
 
                     }
@@ -69,6 +73,8 @@ jQuery(document).ready(function($){
                         var canvas = document.getElementById("2");
                         var ctx = canvas.getContext('2d');
                         const element = pacote_porta_retrato.imagens_canvas[1];
+                        canvas.width = element.c;
+                        canvas.height = element.d;
                         ctx.drawImage(cliente_imagem_url.elemento_imagem("1"), element.x, element.y, element.swidth, element.sheight, element.a, element.b, element.c, element.d);
 
                     }
@@ -78,6 +84,8 @@ jQuery(document).ready(function($){
                         var canvas = document.getElementById("3");
                         var ctx = canvas.getContext('2d');
                         const element = pacote_porta_retrato.imagens_canvas[2];
+                        canvas.width = element.c;
+                        canvas.height = element.d;
                         ctx.drawImage(cliente_imagem_url.elemento_imagem("2"), element.x, element.y, element.swidth, element.sheight, element.a, element.b, element.c, element.d);
 
                     }
@@ -87,6 +95,8 @@ jQuery(document).ready(function($){
                         var canvas = document.getElementById("4");
                         var ctx = canvas.getContext('2d');
                         const element = pacote_porta_retrato.imagens_canvas[3];
+                        canvas.width = element.c;
+                        canvas.height = element.d;
                         ctx.drawImage(cliente_imagem_url.elemento_imagem("3"), element.x, element.y, element.swidth, element.sheight, element.a, element.b, element.c, element.d);
 
                     }
@@ -96,6 +106,8 @@ jQuery(document).ready(function($){
                         var canvas = document.getElementById("5");
                         var ctx = canvas.getContext('2d');
                         const element = pacote_porta_retrato.imagens_canvas[4];
+                        canvas.width = element.c;
+                        canvas.height = element.d;
                         ctx.drawImage(cliente_imagem_url.elemento_imagem("4"), element.x, element.y, element.swidth, element.sheight, element.a, element.b, element.c, element.d);
 
                     }
@@ -109,11 +121,10 @@ jQuery(document).ready(function($){
             }
            
            $quadros_restantes.html(contador+" ");
-           if (contador >= 5) {
-               $("#quadros_restantes").hide();
-               contador == 6 ? $('.img_add_novo_quadro').hide() : $("#quadros_restantes").hide();
 
                if (contador == 6) {
+                $("#quadros_restantes").hide();
+                $('.img_add_novo_quadro').hide();
                     var $b_comprar = $(".b_comprar_porta_retrato");
                         $b_comprar.addClass("btn-success");
                         $b_comprar.find("span").html(" R$ 149,94");
@@ -133,9 +144,7 @@ jQuery(document).ready(function($){
                             ];
                             upload_canvas(this.cropped_image);
                         });
-               }
-
-           }else{
+               }else{
                 $("#quadros_restantes").show();
                 $(".img_add_novo_quadro").show();
            }
@@ -227,6 +236,8 @@ $("#iap_crop_porta_retrato").click(function(){
 
 //função de crop 
 function iap_start_crop(aspect_ratio){
+    var c_width = 69;
+    var d_height = 53;
     //instancia novo Cropper
     var cropper = new Cropper(iap_imagem, {
         aspectRatio: aspect_ratio,
@@ -259,14 +270,14 @@ function iap_start_crop(aspect_ratio){
     });
 
     $(".glyphicon-resize-vertical").click(function(){
-
+        c_width = 53;
+        d_height = 69;
         cropper.setAspectRatio(13 / 18);
-       
     });
     $(".glyphicon-resize-horizontal").click(function(){
-
+        c_width = 69;
+        d_height = 53;
         cropper.setAspectRatio(18 / 13);
-       
     });
 
     // botao crop
@@ -312,8 +323,8 @@ function iap_start_crop(aspect_ratio){
         y = cropper.getData().y;
         a = 0; 
         b = 0; 
-        c = 69;
-        d = 53;
+        c = c_width;
+        d = d_height;
         var swidth  = cropper.getCroppedCanvas().width;
         var sheight = cropper.getCroppedCanvas().height;
 
@@ -323,7 +334,7 @@ function iap_start_crop(aspect_ratio){
 
     //botao para adicionar outra imagem -- no contexto porta retrato
     var $nova_imagem =  $("#add_novo_quadro");
-    var $nova_imagem_img = $('#img_add_novo_quadro');
+    var $nova_imagem_2 = $('#add_novo_quadro_2');
 
     $nova_imagem.click(function(){
 
@@ -331,7 +342,20 @@ function iap_start_crop(aspect_ratio){
             alert("De ok na imagem anterior primeiro!");
             return
         }
-        
+
+        window.porta_retrato_upload_controlador = "uploadOK";
+        $("#modalUpload").modal('show');
+        return window.cropper = cropper;
+      
+    });
+
+    $nova_imagem_2.click(function(){
+
+        if (contador < cliente_imagem_url.lista.length) {
+            alert("De ok na imagem anterior primeiro!");
+            return
+        }
+
         window.porta_retrato_upload_controlador = "uploadOK";
         $("#modalUpload").modal('show');
         return window.cropper = cropper;

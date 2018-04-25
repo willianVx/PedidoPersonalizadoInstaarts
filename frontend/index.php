@@ -31,11 +31,7 @@
       <input type="hidden" name="edited_image_url" id="edited_image_url">
       <input type="hidden" name="edited_image_id" id="edited_image_id">
       
-      <div id="sidebar" class="col-lg-4">
-        <?php 
-          sidebar_porta_retrato();
-        ?>
-      </div>
+      
       <!-- input id="click-upload" type="file"-->
 
       <div id="drop-area" class="drop-zone" data-toggle="modal" data-target="#modalUpload">
@@ -43,7 +39,7 @@
           <img id="main_carregando" src="<?php echo plugins_url('img/carregando.gif', __FILE__ ); ?>" border="0" />
           <a href="#"><img id="img_acrilico" src="<?php echo plugins_url('img/imagem-1.jpg', __FILE__ ); ?>" border="0" /></a>
           <a href="#"><img id="img_photobloco" src="<?php echo plugins_url('img/imagem-2_photobloco.jpg', __FILE__ ); ?>" border="0" /></a>
-          <!-- <a href="#"><img  src="<?php echo plugins_url('img/img_portrait.jpg', __FILE__ ); ?>" border="0" /></a> -->
+          <a href="#"><img id="img_porta_retrato_1" src="<?php echo plugins_url('img/img_portrait.jpg', __FILE__ ); ?>" border="0" /></a>
           
           <a href="#"> 
             <video id="img_porta_retrato" src="<?php echo plugins_url('video/porta_retrato_video.mov', __FILE__ ); ?>" autoplay loop></video>
@@ -64,9 +60,17 @@
           <button class="btn btn-info btn-lg glyphicon glyphicon-resize-horizontal"></button>
 
           <button id="iap_reiniciar_porta_retrato" class="btn btn-danger btn-lg">Reiniciar</button>
+
+          <img id="add_novo_quadro_2" class="iap_mobile_c" src="<?php echo plugins_url( 'img/add_novo_quadro.png', __FILE__ ); ?>" border="0" />
           
         </div>
+        <div id="sidebar" class="col-lg-4">
 
+        <?php 
+          sidebar_porta_retrato();
+        ?>
+
+      </div>
 <!-- Modal -->
 <div class="modal fade" id="iap_imagem_cortada" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
