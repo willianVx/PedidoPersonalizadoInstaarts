@@ -69,5 +69,5 @@ jQuery(document).ready(function($) {
 		$("#b-moderna").removeClass("navbar_click");
 		produto.addClass("navbar_click");
 	}
-	
+
 });

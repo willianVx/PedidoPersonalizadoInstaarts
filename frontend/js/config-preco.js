@@ -515,7 +515,7 @@ $("#photobloco_10x15").click(function(){
     });
 
 });
-
+return window.tamanho = tamanho;
 });
 
 var iap_photobloco = {

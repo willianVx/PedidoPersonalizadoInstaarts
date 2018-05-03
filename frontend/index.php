@@ -5,12 +5,7 @@
     <!-- botoes editar - voltar - limpar --> 
     <div class="col-md-2 iap_b_painel">
       <div class="row">
-      
-        <div class="col-md-12">
-          <button id="edit-image-button" class="btn btn-primary btn-block button-panel botao_editar">
-            <span class="glyphicon glyphicon-pencil pull-left padleft" aria-hidden="true"></span> Editar
-          </button>
-        </div>
+    
         <div class="col-md-12">
           <button id="reset-image-button" class="btn btn-warning btn-block button-panel">
             <span class="glyphicon glyphicon-repeat pull-left padleft" aria-hidden="true"></span> Voltar
@@ -31,18 +26,21 @@
       <input type="hidden" name="edited_image_url" id="edited_image_url">
       <input type="hidden" name="edited_image_id" id="edited_image_id">
       
-      
       <!-- input id="click-upload" type="file"-->
 
       <div id="drop-area" class="drop-zone" data-toggle="modal" data-target="#modalUpload">
         <span>
           <img id="main_carregando" src="<?php echo plugins_url('img/carregando.gif', __FILE__ ); ?>" border="0" />
           <a href="#"><img id="img_acrilico" src="<?php echo plugins_url('img/imagem-1.jpg', __FILE__ ); ?>" border="0" /></a>
-          <a href="#"><img id="img_photobloco" src="<?php echo plugins_url('img/imagem-2_photobloco.jpg', __FILE__ ); ?>" border="0" /></a>
+          <!-- <a href="#"><img id="img_photobloco" src="<?php echo plugins_url('img/imagem-2_photobloco.jpg', __FILE__ ); ?>" border="0" /></a> -->
           <a href="#"><img id="img_porta_retrato_1" src="<?php echo plugins_url('img/img_portrait.jpg', __FILE__ ); ?>" border="0" /></a>
           
           <a href="#"> 
-            <video id="img_porta_retrato" src="<?php echo plugins_url('video/porta_retrato_video.mov', __FILE__ ); ?>" autoplay loop></video>
+            <video id="img_porta_retrato" src="<?php echo plugins_url('video/porta_retrato_video.mp4', __FILE__ ); ?>" autoplay loop muted></video>
+          </a>
+
+          <a href="#">
+            <video id="img_photobloco" src="<?php echo plugins_url('video/PHOTOBLOCO 10X15 B.mp4', __FILE__); ?>" autoplay loop muted></video>
           </a>
           
         </span>
@@ -56,8 +54,8 @@
           <img id="editable-image" class="img-responsive img-upload">
           <button id="iap_crop_porta_retrato" class="btn btn-success btn-lg"><span class="glyphicon glyphicon-scissors"></span><span class="crop_texto"> Cortar e adicionar</span></button>
           
-          <button class="btn btn-info btn-lg glyphicon glyphicon-resize-vertical"></button>
-          <button class="btn btn-info btn-lg glyphicon glyphicon-resize-horizontal"></button>
+          <button class="btn btn-info btn-lg ret-resize-vertical"><img src="<?php echo plugins_url('img/ret-vertical.png', __FILE__ ); ?>" border="0" />Retrato</button>
+          <button class="btn btn-info btn-lg ret-resize-horizontal"><img src="<?php echo plugins_url('img/ret-horizontal.png', __FILE__ ); ?>" border="0" />Paisagem</button>
 
           <button id="iap_reiniciar_porta_retrato" class="btn btn-danger btn-lg">Reiniciar</button>
 
@@ -178,13 +176,30 @@
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <h5 class="modal-title">Escolha o tamanho do seu quadro</h5>
+
               </div>
               <div class="modal-body container-fluid">
               <img id="tamanho_carregando" src="<?php echo plugins_url('img/carregando.gif', __FILE__ ); ?>" border="0" />
                   <div id="msg_img_not"></div>
+                  
+                  <div class="iap_tamanho_personalizado ">
+                    <h4 class="iap_tp_titulo"></h4>
+                    <!-- <button class="btn btn-success iap_tp_botao"><span class="glyphicon glyphicon-scissors"></span> Cortar imagem</button> -->
 
+                    <div class="iap_tp_slider">
+                      <p>
+                        <input type="text" id="amount" readonly style="border:0; font-weight:bold;">
+                      </p>
+                      <div id="slider"></div>   
+                    </div>
+                    
+
+                  </div>
+                 
                     <div class="checkbox">
+                      
                       <form id="tamanhoPadrao">
+                      <h4>Tamanhos sugeridos</h4>
                           <label  id="tamanho1">
                             <input type="radio" name="tamanho" value="20x18" id="tamanho1_input" data-dismiss="modal"> 20x<span id="tamanhoY1">18</span>cm</label>
                           <br>

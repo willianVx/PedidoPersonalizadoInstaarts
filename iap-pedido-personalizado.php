@@ -38,6 +38,26 @@ if ( class_exists( 'WooCommerce' ) ) {
 
 //Carrega Template na página do produto
 function iap_referal_init() {
+	$produto_3 = get_page_by_title('Photobloco', OBJECT, 'product');
+	if( is_single($produto_3->ID) ){	
+		//enfileira os scripts
+		add_action('wp_enqueue_scripts', 'iap_register_scripts');
+		$dir = plugin_dir_path( __FILE__ );
+		include($dir."frontend/index.php");
+		
+		die();
+	}
+
+	$produto_2 = get_page_by_title('Kit de porta-retratos', OBJECT, 'product');
+	if( is_single($produto_2->ID) ){	
+		//enfileira os scripts
+		add_action('wp_enqueue_scripts', 'iap_register_scripts');
+		$dir = plugin_dir_path( __FILE__ );
+		include($dir."frontend/index.php");
+		
+		die();
+	}
+
 	$produto = get_page_by_title('Quadro Personalizado Instaarts', OBJECT, 'product');
 	if( is_single($produto->ID) ){	
 		//enfileira os scripts

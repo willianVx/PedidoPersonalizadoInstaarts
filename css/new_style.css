@@ -53,7 +53,7 @@
     color: rgb(255, 255, 255);
 }
 .navbar a:hover{
-    color: rgb(177, 177, 177); 
+    color: rgb(177, 177, 177);
 }
 .navbar_click a{ 
     font-size: 2em;
@@ -155,13 +155,13 @@
     margin-top: 10px;
     margin-left: 25px;
 }
-.glyphicon-resize-vertical{
+.ret-resize-vertical{
     position: relative;
     display: none;
     margin-top: 10px;
     margin-left: 25px;
 }
-.glyphicon-resize-horizontal{
+.ret-resize-horizontal{
     position: relative;
     display: none;
     margin-top: 10px;
@@ -261,4 +261,31 @@ i{
     display: none;
     margin-top: 10px;
     margin-left: 25px;
+}
+.iap_tamanho_personalizado{
+    position: relative;
+    border-bottom: solid 1px rgb(184, 184, 184);
+    padding-bottom: 20px;
+}
+#slider{
+    max-width: 250px;
+}
+.iap_tp_slider{
+    position: relative;
+    width: 250px;
+}
+.iap_tp_botao{
+    display: none;
+    position: relative;
+    float: right;
+    top: 35px;
+}
+@media(max-width: 768px){
+
+    #img_porta_retrato_1{
+        position: relative;
+        display: none;
+        max-height: 325px;
+    }
+
 }

@@ -8,18 +8,25 @@ if (window.screen.availWidth <= 414) {
 var iap_canvas_controller = 0;
 
 jQuery(document).ready(function($){
+    var contador = 0;
+    var $quadros_restantes = $("#quadros_restantes_numero");
 
+    $("#add_novo_quadro").click(function(){
+        if (contador < cliente_imagem_url.lista.length) {
+            alert("De ok na imagem anterior primeiro!");
+            return
+        }
+        $("#modalUpload").modal('show');
+    });
     $("#iap_reiniciar_porta_retrato").click(function(){
         location.reload(true);
     });
-
-    var contador = 0;
-    var $quadros_restantes = $("#quadros_restantes_numero");
 
     //modulo pra adicionar e deletar um recorte no contexto do porta retrato 
     var pacote_porta_retrato = {
         porta_retrato: [],
         imagens_canvas: [],
+        index:0,
         init: function() {
             this.cacheDom();
             this.bindEvents();
@@ -47,78 +54,117 @@ jQuery(document).ready(function($){
            };
            this.$ul.html(Mustache.render(this.template, data));
 
+           //cliente_imagem_url.elemento_imagem(this.index);
+           drawCanvas(contador, this.imagens_canvas, this.index, this.index);
+           ++this.index;
+
            function drawCanvas(id,imagens_canvas,index_canvas, index_imagem){
-                    
+                    var image_teste = document.getElementById("editable-image");
+                    //var imagem_atual = cliente_imagem_url.elemento_imagem(index_imagem);
+
+                    var div_img_cropper = document.getElementsByClassName("cropper-canvas")[0];
+                    var imagem_atual = div_img_cropper.getElementsByTagName("img")[0];
+
                     var canvas = document.getElementById(id);
                     var ctx = canvas.getContext('2d');
                     const element = imagens_canvas[index_canvas];
                     canvas.width = element.c;
                     canvas.height = element.d;
-                    ctx.drawImage(cliente_imagem_url.elemento_imagem(index_imagem), element.x, element.y, element.swidth, element.sheight, element.a, element.b, element.c, element.d);
+                    //ctx.drawImage(cliente_imagem_url.elemento_imagem(index_imagem), element.x, element.y, element.swidth, element.sheight, element.a, element.b, element.c, element.d);
+                    ctx.drawImage(imagem_atual, element.x, element.y, element.swidth, element.sheight, element.a, element.b, element.c, element.d);
 
-                        
+                    console.log(pacote_porta_retrato.imagens_canvas.length);
+                    
+                   
                     if (pacote_porta_retrato.imagens_canvas.length > 1) {
-        
+                        var div_img_cropper = document.getElementsByClassName("cropper-canvas")[0];
+                        //var imagem_atual = div_img_cropper.getElementsByTagName("img")[0];
+
                         var canvas = document.getElementById("1");
                         var ctx = canvas.getContext('2d');
                         const element = pacote_porta_retrato.imagens_canvas[0];
                         canvas.width = element.c;
                         canvas.height = element.d;
-                        ctx.drawImage(cliente_imagem_url.elemento_imagem("0"), element.x, element.y, element.swidth, element.sheight, element.a, element.b, element.c, element.d);
 
+                        //cliente_imagem_url.elemento_imagem("0");
+
+                        var user_img = document.getElementById("user_img0");
+
+                        ctx.drawImage(user_img, element.x, element.y, element.swidth, element.sheight, element.a, element.b, element.c, element.d);
+                        
                     }
-
+                    
                     if (pacote_porta_retrato.imagens_canvas.length > 2) {
+                        var div_img_cropper = document.getElementsByClassName("cropper-canvas")[0];
+                        //var imagem_atual = div_img_cropper.getElementsByTagName("img")[0];
 
                         var canvas = document.getElementById("2");
                         var ctx = canvas.getContext('2d');
                         const element = pacote_porta_retrato.imagens_canvas[1];
                         canvas.width = element.c;
                         canvas.height = element.d;
-                        ctx.drawImage(cliente_imagem_url.elemento_imagem("1"), element.x, element.y, element.swidth, element.sheight, element.a, element.b, element.c, element.d);
 
+                        var user_img = document.getElementById("user_img1");
+
+                        ctx.drawImage(user_img, element.x, element.y, element.swidth, element.sheight, element.a, element.b, element.c, element.d);
+                        
                     }
-
+                    
                     if (pacote_porta_retrato.imagens_canvas.length > 3) {
+                        var div_img_cropper = document.getElementsByClassName("cropper-canvas")[0];
+                        //var imagem_atual = div_img_cropper.getElementsByTagName("img")[0];
 
                         var canvas = document.getElementById("3");
                         var ctx = canvas.getContext('2d');
                         const element = pacote_porta_retrato.imagens_canvas[2];
                         canvas.width = element.c;
                         canvas.height = element.d;
-                        ctx.drawImage(cliente_imagem_url.elemento_imagem("2"), element.x, element.y, element.swidth, element.sheight, element.a, element.b, element.c, element.d);
 
+                        var user_img = document.getElementById("user_img2");
+
+                        ctx.drawImage(user_img, element.x, element.y, element.swidth, element.sheight, element.a, element.b, element.c, element.d);
+                        
                     }
-
+                    
                     if (pacote_porta_retrato.imagens_canvas.length > 4) {
+                        var div_img_cropper = document.getElementsByClassName("cropper-canvas")[0];
+                        //var imagem_atual = div_img_cropper.getElementsByTagName("img")[0];
 
                         var canvas = document.getElementById("4");
                         var ctx = canvas.getContext('2d');
                         const element = pacote_porta_retrato.imagens_canvas[3];
                         canvas.width = element.c;
                         canvas.height = element.d;
-                        ctx.drawImage(cliente_imagem_url.elemento_imagem("3"), element.x, element.y, element.swidth, element.sheight, element.a, element.b, element.c, element.d);
 
+                        var user_img = document.getElementById("user_img3");
+
+                        ctx.drawImage(user_img, element.x, element.y, element.swidth, element.sheight, element.a, element.b, element.c, element.d);
+                        console.log(user_img);
                     }
 
                     if (pacote_porta_retrato.imagens_canvas.length > 5) {
+                        var div_img_cropper = document.getElementsByClassName("cropper-canvas")[0];
+                        //var imagem_atual = div_img_cropper.getElementsByTagName("img")[0];
 
                         var canvas = document.getElementById("5");
                         var ctx = canvas.getContext('2d');
                         const element = pacote_porta_retrato.imagens_canvas[4];
                         canvas.width = element.c;
                         canvas.height = element.d;
-                        ctx.drawImage(cliente_imagem_url.elemento_imagem("4"), element.x, element.y, element.swidth, element.sheight, element.a, element.b, element.c, element.d);
 
+                        var user_img = document.getElementById("user_img4");
+
+                        ctx.drawImage(user_img, element.x, element.y, element.swidth, element.sheight, element.a, element.b, element.c, element.d);
+                        console.log(user_img);
                     }
                     
             }
             
-            for (let index = 0; index < this.imagens_canvas.length; index++) {
+            //for (let index = 0; index < this.imagens_canvas.length; index++) {
                 
-                drawCanvas(contador, this.imagens_canvas, index, index);
+                //drawCanvas(contador, this.imagens_canvas, index, index);
                
-            }
+            //}
            
            $quadros_restantes.html(contador+" ");
 
@@ -127,10 +173,9 @@ jQuery(document).ready(function($){
                 $('.img_add_novo_quadro').hide();
                     var $b_comprar = $(".b_comprar_porta_retrato");
                         $b_comprar.addClass("btn-success");
-                        $b_comprar.find("span").html(" R$ 149,94");
+                        $b_comprar.find("span").html(" R$ 149,90");
 
                         $b_comprar.click(function(){
-                            console.log("Processando compra!!");
 
                             this.cropped_image = [
 
@@ -150,7 +195,7 @@ jQuery(document).ready(function($){
            }
            
         },
-        addImage: function(iap_imagem, x, y, swidth, sheight, a, b, c, d) {
+        addImage: function(iap_imagem, x, y, swidth, sheight, a, b, c, d,imageWidth, imageHeight) {
 
             if (this.porta_retrato.length == 6) {
                 return;
@@ -162,7 +207,7 @@ jQuery(document).ready(function($){
             }
            this.dataCanvas = {
 
-                imagem  : cliente_imagem_url.elemento_imagem(),
+                //imagem  : cliente_imagem_url.elemento_imagem(),
                 x       : x,
                 y       : y,
                 swidth  : swidth,
@@ -170,13 +215,17 @@ jQuery(document).ready(function($){
                 a       : a,
                 b       : b,
                 c       : c,
-                d       : d
+                d       : d,
+                imageWidth: imageWidth,
+                imageHeight: imageHeight
 
            }
 
             contador = contador +=1;
             this.porta_retrato.push(contador);
             this.imagens_canvas.push(this.dataCanvas);
+            metadata_canvas.add_lista(this.dataCanvas.x,this.dataCanvas.y,this.dataCanvas.swidth,this.dataCanvas.sheight,this.dataCanvas.a,this.dataCanvas.b,this.dataCanvas.c,this.dataCanvas.d,this.dataCanvas.c,this.dataCanvas.d,this.dataCanvas.imageWidth,this.dataCanvas.imageHeight);
+            //console.log(this.dataCanvas.imagem);
             this.render();
 
         },
@@ -269,12 +318,12 @@ function iap_start_crop(aspect_ratio){
         cropper.setAspectRatio(15 / 10);
     });
 
-    $(".glyphicon-resize-vertical").click(function(){
+    $(".ret-resize-vertical").click(function(){
         c_width = 53;
         d_height = 69;
         cropper.setAspectRatio(13 / 18);
     });
-    $(".glyphicon-resize-horizontal").click(function(){
+    $(".ret-resize-horizontal").click(function(){
         c_width = 69;
         d_height = 53;
         cropper.setAspectRatio(18 / 13);
@@ -304,14 +353,33 @@ function iap_start_crop(aspect_ratio){
     //desenha o recorte da imagem no canvas 
     var canvas = document.getElementById('iap_crop_image');
     var ctx = canvas.getContext('2d');
-
+    /*
     console.log(cropper.getData().x, cropper.getData().y, swidth, sheight, 0, 0, iap_canvas_width, iap_imagem_proporcional(swidth, sheight));
+    console.log(canvas.width, canvas.height);
+    console.log(cropper.getImageData().width, cropper.getImageData().height);
+    */
+    var meta_data_canvas = {
+
+        cropper_x: cropper.getData().x,
+        cropper_y: cropper.getData().y,
+        cropper_width: swidth,
+        cropper_height: sheight,
+        cropper_dx: 0,
+        cropper_dy: 0,
+        cropper_dWidth: iap_canvas_width,
+        cropper_dHeight: iap_imagem_proporcional(swidth, sheight),
+        canvas_width: canvas.width,
+        canvas_height: canvas.height,
+        image_width: cropper.getImageData().width,
+        image_height: cropper.getImageData().height
+
+    }
 
     ctx.drawImage(iap_imagem, cropper.getData().x, cropper.getData().y, swidth, sheight, 0, 0, iap_canvas_width, iap_imagem_proporcional(swidth, sheight));
 
     $('#iap_imagem_cortada').modal('show');
 
-    
+    metadata_canvas.add_lista(cropper.getData().x,cropper.getData().y,swidth,sheight,0,0,iap_canvas_width,iap_imagem_proporcional(swidth, sheight),canvas.width,canvas.height,cropper.getImageData().width,cropper.getImageData().height);
 
         });
         
@@ -328,7 +396,7 @@ function iap_start_crop(aspect_ratio){
         var swidth  = cropper.getCroppedCanvas().width;
         var sheight = cropper.getCroppedCanvas().height;
 
-        pacote_porta_retrato.addImage(iap_imagem, x, y, swidth, sheight, a, b, c, d);
+        pacote_porta_retrato.addImage(iap_imagem, x, y, swidth, sheight, a, b, c, d, cropper.getImageData().width,cropper.getImageData().height);
 
     });
 
@@ -342,9 +410,8 @@ function iap_start_crop(aspect_ratio){
             alert("De ok na imagem anterior primeiro!");
             return
         }
-
-        window.porta_retrato_upload_controlador = "uploadOK";
         $("#modalUpload").modal('show');
+        window.porta_retrato_upload_controlador = "uploadOK";
         return window.cropper = cropper;
       
     });

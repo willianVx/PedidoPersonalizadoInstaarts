@@ -58,11 +58,24 @@ function iap_order() {
 		$data['acabamento'] = $_POST['acabamento'];
 		$data['preco'] = iap_valor_photobloco($_POST['acabamento']);
 		$data['imagem'] = $_POST["imagem"];
-		$data['imagemEditada'] = $_POST['imagem_editada'];
+
+		$data['cropper_x'] = $_POST['cropper_x'];
+		$data['cropper_y'] = $_POST['cropper_y'];
+		$data['cropper_width'] = $_POST['cropper_width'];
+		$data['cropper_height'] = $_POST['cropper_height'];
+		$data['cropper_dx'] = $_POST['cropper_dx'];
+		$data['cropper_dy'] = $_POST['cropper_dy'];
+		$data['cropper_dWidth'] = $_POST['cropper_dWidth'];
+		$data['cropper_dHeight'] = $_POST['cropper_dHeight'];
+		$data['canvas_width'] = $_POST['canvas_width'];
+		$data['canvas_height'] = $_POST['canvas_height'];
+		$data['image_width'] = $_POST['image_width'];
+		$data['image_height'] = $_POST['image_height'];
+
 
 		global $woocommerce;
 		
-		$produto = get_page_by_title('Quadro Personalizado Instaarts', OBJECT, 'product');
+		$produto = get_page_by_title('Photobloco', OBJECT, 'product');
 		$woocommerce->cart->add_to_cart($produto->ID, 1, '', '', $data);
 		
 		echo "1";
@@ -73,13 +86,25 @@ function iap_order() {
 		$data['x'] = $_POST['largura'];
 		$data['y'] = $_POST['altura'];
 		$data['acabamento'] = $_POST['acabamento'];
-		$data['preco'] = 24.99;
+		$data['preco'] = 149.90;
 		$data['imagem'] = $_POST["imagem"];
 		$data['imagemEditada'] = $_POST['imagem_editada'];
 
+		$data['imagem2'] = $_POST["imagem2"];
+		$data['imagem3'] = $_POST["imagem3"];
+		$data['imagem4'] = $_POST["imagem4"];
+		$data['imagem5'] = $_POST["imagem5"];
+		$data['imagem6'] = $_POST["imagem6"];
+
+		$data['imagemEditada2'] = $_POST['imagem_editada2'];
+		$data['imagemEditada3'] = $_POST['imagem_editada3'];
+		$data['imagemEditada4'] = $_POST['imagem_editada4'];
+		$data['imagemEditada5'] = $_POST['imagem_editada5'];
+		$data['imagemEditada6'] = $_POST['imagem_editada6'];
+
 		global $woocommerce;
 		
-		$produto = get_page_by_title('Quadro Personalizado Instaarts', OBJECT, 'product');
+		$produto = get_page_by_title('Kit de porta-retratos', OBJECT, 'product');
 		$woocommerce->cart->add_to_cart($produto->ID, 1, '', '', $data);
 		
 		echo "1";

@@ -59,6 +59,7 @@ jQuery(document).ready(function($) {
 
 	function show_elements(){
 		$(".iap_photo_content").show();
+		$(".iap_tp_botao").show();
 		$("#iap_texto_n_img").hide();
 
 		$("#tamanhoPadrao").show();
@@ -80,6 +81,7 @@ $("#comprar-botao-photobloco").click(function(){
 	var canvas = document.getElementById('iap_crop_image');
 	var dataUrl = canvas.toDataURL("image/png");
 
+	/*
 	canvas.toBlob(function(blob){
 
 		var formdata = new FormData();
@@ -105,12 +107,13 @@ $("#comprar-botao-photobloco").click(function(){
 		});
 
 	});
+	*/
 
 	//faz o tratamento da resposta da imagem cropada e envia o pedido 
 
-	iap_crop_image_result = function(result){
-		var crop_image_url = result;
-
+	//iap_crop_image_result = function(result){
+		//var crop_image_url = window.meta_data_canvas;
+		var crop_image_data = JSON.stringify(window.meta_data_canvas);
 		$.ajax({
 			type: "POST",
 			url: comprar.ajax_url,
@@ -121,7 +124,20 @@ $("#comprar-botao-photobloco").click(function(){
 				largura: iap_photobloco.tamanho_x,
 				altura: iap_photobloco.tamanho_y,
 				imagem: imagemOriginal,
-				imagem_editada: crop_image_url
+
+				cropper_x: metadata_canvas.lista["0"][1][1],
+				cropper_y: metadata_canvas.lista["0"][2][1],
+				cropper_width: metadata_canvas.lista["0"][3][1],
+				cropper_height: metadata_canvas.lista["0"][4][1],
+				cropper_dx: metadata_canvas.lista["0"][5][1],
+				cropper_dy: metadata_canvas.lista["0"][6][1],
+				cropper_dWidth: metadata_canvas.lista["0"][7][1],
+				cropper_dHeight: metadata_canvas.lista["0"][8][1],
+				canvas_width: metadata_canvas.lista["0"][9][1],
+        		canvas_height: metadata_canvas.lista["0"][10][1],
+				image_width: metadata_canvas.lista["0"][11][1],
+				image_height: metadata_canvas.lista["0"][12][1]
+
 			},
 			success: function(data) {
 				if (data == "0") {
@@ -135,7 +151,7 @@ $("#comprar-botao-photobloco").click(function(){
 				alert("Erro no processamento. Tente mais tarde.");
 			}
 		});
-	}
+	//}
 });
 
 	// manda os dados do pedido para o servidor via ajax
@@ -426,7 +442,7 @@ $("#comprar-botao-photobloco").click(function(){
 						}
 						
 						cliente_imagem_url.add_lista(originalImageSrc);
-
+						console.log(originalImageSrc);
 						if (iap_define_tipo() == "photobloco") {
 							iap_show_photobloco();
 						}
@@ -553,7 +569,9 @@ $("#comprar-botao-photobloco").click(function(){
         $("#comprar-botao").hide();
         $("#edit-image-button").hide();
         
-        $(".hud-botao").css("left","200px");
+		$(".hud-botao").css("left","200px");
+		
+		$(".drop-zone").css("background-color","#fbffff");
 	}
 
 	if(iap_define_tipo() == "porta_retrato") {
@@ -561,8 +579,8 @@ $("#comprar-botao-photobloco").click(function(){
 		$("#img_porta_retrato").show();
 		$("#iap_crop_porta_retrato").show();
 		$("#iap_reiniciar_porta_retrato").show();
-		$(".glyphicon-resize-horizontal").show();
-		$(".glyphicon-resize-vertical").show();
+		$(".ret-resize-horizontal").show();
+		$(".ret-resize-vertical").show();
 		$("#main_carregando").hide();
 		$("#drop-area").addClass("col-lg-8");
 		$(".img-upload-line").addClass("col-lg-8");
@@ -570,9 +588,12 @@ $("#comprar-botao-photobloco").click(function(){
 		$(".iap_b_painel").hide();
 		$(".hud-botoes-mat").hide();
 
+		$(".drop-zone").css("background-color","#fbffff");
+
 		if ($(window).width() <= 1024) {
 
 			$(".drop-zone").css("width","500px");
+
 			$("#editable-image").css("width","500px");
 			$(".img-upload").css("width","500px");
 			$(".img-upload-line").css("width","500px");
@@ -581,13 +602,12 @@ $("#comprar-botao-photobloco").click(function(){
 		}
 
 		if ($(window).width() <= 768) {
-
-			$(".drop-zone").css("width","350px");
-			$("#editable-image").css("width","350px");
-			$(".img-upload").css("width","350px");
-			$(".img-upload-line").css("width","350px");
-			$("#img_porta_retrato").css("height","325px");
+			
+			$(".drop-zone").css("max-width","650px");
+			$("#img_porta_retrato_1").css("max-width","600px");
 			$(".iap_box_upload").css("font-size","0.7em");
+
+			$("#sidebar").hide();
 
 		}
 
@@ -617,11 +637,13 @@ $("#comprar-botao-photobloco").click(function(){
 var cliente_imagem_url = {
 
 	lista: [],
+	controle: 0,
 	add_lista: function(url){
 		this.lista.push(url);
+		this.elemento_imagem();
 	},
 	remove_lista: function(){
-		this.lista.splice(this.lista.length - 1, 1)
+		this.lista.splice(this.lista.length - 1, 1);
 	},
 	ultimo_item: function(){
 		var ultimo = this.lista[this.lista.length - 1];
@@ -629,12 +651,40 @@ var cliente_imagem_url = {
 		return ultimo; 
 	},
 	elemento_imagem: function(index){
-
+		
 		var nova_imagem = document.createElement('img');
 		var src = this.lista[index] || this.ultimo_item();
 		nova_imagem.src = src;
+		nova_imagem.width = 200;
+		nova_imagem.id = "user_img"+this.controle;
 
+		var user_img = document.getElementById("iap_user_img");
+
+		user_img.appendChild(nova_imagem);
+
+		++this.controle;		
 		return nova_imagem;
 	},
 
+}
+
+var metadata_canvas = {
+	lista: [],
+	add_lista: function(cropper_x, cropper_y, cropper_width,cropper_height,cropper_dx,cropper_dy,cropper_dWidth,cropper_dHeight,canvas_width,canvas_height, image_width,image_height){
+		
+		this.cropper_x = cropper_x;
+		this.cropper_y = cropper_y;
+		this.cropper_width = cropper_width;
+		this.cropper_height = cropper_height;
+		this.cropper_dx = cropper_dx;
+		this.cropper_dy = cropper_dy
+		this.cropper_dWidth = cropper_dWidth
+		this.cropper_dHeight = cropper_dHeight;
+		this.canvas_width = canvas_width;
+		this.canvas_height = canvas_height;
+		this.image_width = image_width;
+		this.image_height = image_height;
+
+		this.lista.push(["metacanvas",["cropper_x", this.cropper_x],["cropper_y",this.cropper_y],["cropper_width",this.cropper_width],["cropper_height",this.cropper_height],["cropper_dx",this.cropper_dx],["cropper_dy",this.cropper_dy],["cropper_dWidth",this.cropper_dWidth],["cropper_dHeight",this.cropper_dHeight],["canvas_width",this.canvas_width],["canvas_height",this.canvas_height],["image_width",this.image_width],["image_height",this.image_height]]);
+	}
 }

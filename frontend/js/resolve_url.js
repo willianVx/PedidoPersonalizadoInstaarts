@@ -1,5 +1,16 @@
 //captura variavel na url 
 iap_resolve_url = function () {
+
+  if (window.location.href.includes("kit-de-porta-retratos") ) {
+    url = window.location.href;
+    return url;
+  }
+
+  if (window.location.href.includes("photobloco") ) {
+    url = window.location.href;
+    return url;
+  }
+  /*
   if (window.location.href.includes("=")) {
     var url = window.location.href.split("=")[1];
 
@@ -11,6 +22,7 @@ iap_resolve_url = function () {
     
     return url;
   }
+  */
   else{
     return "0";
   }
@@ -21,8 +33,7 @@ iap_resolve_url = function () {
 iap_define_tipo = function(){
     var tipo = iap_resolve_url();
     var photobloco = tipo.includes("photobloco");
-    var porta_retrato = tipo.includes("porta-retrato");
-
+    var porta_retrato = tipo.includes("kit-de-porta-retratos");
     if (photobloco) {
         return "photobloco";
     }

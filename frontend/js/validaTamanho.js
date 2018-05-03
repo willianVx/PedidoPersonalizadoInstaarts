@@ -32,6 +32,7 @@ jQuery(document).ready(function($) {
 					} else {
 						tamanhoY = data.split("z");
 						tamanhos_possiveis(tamanho1, tamanho2, tamanhoY);
+
 						$("#tamanhoY1").html(parseInt(tamanhoY[0], 10));
 							window.ylistaA = parseInt(tamanhoY[0], 10);
 						$("#tamanhoY2").html(parseInt(tamanhoY[1], 10));
@@ -80,8 +81,30 @@ jQuery(document).ready(function($) {
 			function get_tamanho_max() {
 				for (var index = 0; index < max_tamanho.length; index++) {
 					const element = max_tamanho[index];
+					init_slider(element);
 					return element;
 				}
+			}
+
+			function init_slider(element){
+
+				var width  = $("#editable-image")["0"].clientWidth;
+				var height = $("#editable-image")["0"].clientHeight;
+				var resultado = width > height ? width / height : height / width;
+
+				$( "#slider" ).slider({		
+					value: element,
+					min: 20,
+					max: element,
+					step: 1,
+					slide: function( event, ui ) {
+					  $( "#amount" ).val(ui.value + "x" + parseInt( ui.value / resultado, 10) + "cm");
+					  tamanho.setTamanho(ui.value, parseInt( ui.value / resultado, 10));
+					}
+				  });
+				  $( "#amount" ).val($( "#slider" ).slider( "value" ) );
+				  $(".iap_tamanho_personalizado").find(".iap_tp_titulo").html("Pedido personalizado");
+
 			}
 
 			function show_tamanho_max() {
