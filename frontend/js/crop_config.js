@@ -10,7 +10,15 @@ var iap_canvas_controller = 0;
 jQuery(document).ready(function($){
     var contador = 0;
     var $quadros_restantes = $("#quadros_restantes_numero");
+    var $m_quadros_restantes = $(".contador_bolinha");
 
+    $("#m_add_novo_quadro").click(function(){
+        if (contador < cliente_imagem_url.lista.length) {
+            alert("De ok na imagem anterior primeiro!");
+            return
+        }
+        $("#modalUpload").modal('show');
+    });
     $("#add_novo_quadro").click(function(){
         if (contador < cliente_imagem_url.lista.length) {
             alert("De ok na imagem anterior primeiro!");
@@ -21,8 +29,10 @@ jQuery(document).ready(function($){
     $("#iap_reiniciar_porta_retrato").click(function(){
         location.reload(true);
     });
-
-    //modulo pra adicionar e deletar um recorte no contexto do porta retrato 
+    $(".m_reiniciar_porta_retrato").click(function(){
+        location.reload(true);
+    });
+    //modulo para adicionar e deletar um recorte no contexto do porta retrato 
     var pacote_porta_retrato = {
         porta_retrato: [],
         imagens_canvas: [],
@@ -73,7 +83,7 @@ jQuery(document).ready(function($){
                     //ctx.drawImage(cliente_imagem_url.elemento_imagem(index_imagem), element.x, element.y, element.swidth, element.sheight, element.a, element.b, element.c, element.d);
                     ctx.drawImage(imagem_atual, element.x, element.y, element.swidth, element.sheight, element.a, element.b, element.c, element.d);
 
-                    console.log(pacote_porta_retrato.imagens_canvas.length);
+                    //console.log(pacote_porta_retrato.imagens_canvas.length);
                     
                    
                     if (pacote_porta_retrato.imagens_canvas.length > 1) {
@@ -139,7 +149,7 @@ jQuery(document).ready(function($){
                         var user_img = document.getElementById("user_img3");
 
                         ctx.drawImage(user_img, element.x, element.y, element.swidth, element.sheight, element.a, element.b, element.c, element.d);
-                        console.log(user_img);
+                       
                     }
 
                     if (pacote_porta_retrato.imagens_canvas.length > 5) {
@@ -155,7 +165,7 @@ jQuery(document).ready(function($){
                         var user_img = document.getElementById("user_img4");
 
                         ctx.drawImage(user_img, element.x, element.y, element.swidth, element.sheight, element.a, element.b, element.c, element.d);
-                        console.log(user_img);
+                        
                     }
                     
             }
@@ -167,6 +177,7 @@ jQuery(document).ready(function($){
             //}
            
            $quadros_restantes.html(contador+" ");
+           $m_quadros_restantes.html(contador);
 
                if (contador == 6) {
                 $("#quadros_restantes").hide();
@@ -187,12 +198,12 @@ jQuery(document).ready(function($){
                                 this.canvas_6 = document.getElementById("6")
                                 
                             ];
-                            upload_canvas(this.cropped_image);
+                            window.upload_canvas.upload();
                         });
                }else{
                 $("#quadros_restantes").show();
                 $(".img_add_novo_quadro").show();
-           }
+               }
            
         },
         addImage: function(iap_imagem, x, y, swidth, sheight, a, b, c, d,imageWidth, imageHeight) {
@@ -277,12 +288,20 @@ $("#iap_crop_porta_retrato").click(function(){
     if (iap_canvas_controller != 0) {
         return;
     }
-    $(".glyphicon").removeClass("glyphicon-scissors");
     iap_start_crop(18 / 13);
     iap_canvas_controller = 3;
     $("#iap_crop").show();
-});    
+});      
 
+$("#m_iap_crop_porta_retrato").click(function(){
+    if (iap_canvas_controller != 0) {
+        return;
+    }
+    
+    iap_start_crop(18 / 13);
+    iap_canvas_controller = 3;
+    $("#iap_crop").show();
+});  
 //função de crop 
 function iap_start_crop(aspect_ratio){
     var c_width = 69;
@@ -295,7 +314,6 @@ function iap_start_crop(aspect_ratio){
         minCropBoxHeight: 500,
         crop: function(event) {
             //muda o nome do botao adicionar e cortar no contexto do porta-retrato
-            $(".crop_texto").html("OK");
 
             tamanho_cropper = {
                 width: cropper.image.clientWidth,
@@ -328,7 +346,16 @@ function iap_start_crop(aspect_ratio){
         d_height = 53;
         cropper.setAspectRatio(18 / 13);
     });
-
+    $(".m_ret_horizontal").click(function() {
+        c_width = 69;
+        d_height = 53;
+        cropper.setAspectRatio(18 / 13);
+    });
+    $(".m_ret_vertical").click(function(){
+        c_width = 53;
+        d_height = 69;
+        cropper.setAspectRatio(13 / 18);
+    });
     // botao crop
     $("#iap_crop").click(function(){
     //atribui tamanho ao canvas de acordo com o iap_canvas_controller
@@ -385,6 +412,22 @@ function iap_start_crop(aspect_ratio){
         
     //corta a imagem do porta retrato e insere no block info -- botao crop quando estado inicial for porta retrato
     $("#iap_crop_porta_retrato").click(function(){
+        
+        $("#iap_adiciona_imagem_porta_retrato").show();
+        x = cropper.getData().x;
+        y = cropper.getData().y;
+        a = 0; 
+        b = 0; 
+        c = c_width;
+        d = d_height;
+        var swidth  = cropper.getCroppedCanvas().width;
+        var sheight = cropper.getCroppedCanvas().height;
+
+        pacote_porta_retrato.addImage(iap_imagem, x, y, swidth, sheight, a, b, c, d, cropper.getImageData().width,cropper.getImageData().height);
+
+    });
+
+    $("#m_iap_crop_porta_retrato").click(function(){
         
         $("#iap_adiciona_imagem_porta_retrato").show();
         x = cropper.getData().x;

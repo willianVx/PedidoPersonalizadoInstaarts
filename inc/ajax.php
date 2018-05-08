@@ -88,19 +88,102 @@ function iap_order() {
 		$data['acabamento'] = $_POST['acabamento'];
 		$data['preco'] = 149.90;
 		$data['imagem'] = $_POST["imagem"];
-		$data['imagemEditada'] = $_POST['imagem_editada'];
+		//$data['imagemEditada'] = $_POST['imagem_editada'];
+		$data['cropper_x_1'] = $_POST["cropper_x_1"];
+		$data['cropper_y_1'] = $_POST["cropper_y_1"];
+		$data['cropper_width_1'] = $_POST["cropper_width_1"];
+		$data['cropper_height_1'] = $_POST["cropper_height_1"];
+		$data['cropper_dx_1'] = $_POST["cropper_dx_1"];
+		$data['cropper_dy_1'] = $_POST["cropper_dy_1"];
+		$data['cropper_dWidth_1'] = $_POST["cropper_dWidth_1"];
+		$data['cropper_dHeight_1'] = $_POST["cropper_dHeight_1"];
+		$data['canvas_width_1'] = $_POST["canvas_width_1"];
+		$data['canvas_height_1'] = $_POST["canvas_height_1"];
+		$data['image_width_1'] = $_POST["image_width_1"];
+		$data['image_height_1'] = $_POST["image_height_1"];
 
 		$data['imagem2'] = $_POST["imagem2"];
+
+		$data['cropper_x_2'] = $_POST["cropper_x_2"];
+		$data['cropper_y_2'] = $_POST["cropper_y_2"];
+		$data['cropper_width_2'] = $_POST["cropper_width_2"];
+		$data['cropper_height_2'] = $_POST["cropper_height_2"];
+		$data['cropper_dx_2'] = $_POST["cropper_dx_2"];
+		$data['cropper_dy_2'] = $_POST["cropper_dy_2"];
+		$data['cropper_dWidth_2'] = $_POST["cropper_dWidth_2"];
+		$data['cropper_dHeight_2'] = $_POST["cropper_dHeight_2"];
+		$data['canvas_width_2'] = $_POST["canvas_width_2"];
+		$data['canvas_height_2'] = $_POST["canvas_height_2"];
+		$data['image_width_2'] = $_POST["image_width_2"];
+		$data['image_height_2'] = $_POST["image_height_2"];
+
 		$data['imagem3'] = $_POST["imagem3"];
+
+		$data['cropper_x_3'] = $_POST["cropper_x_3"];
+		$data['cropper_y_3'] = $_POST["cropper_y_3"];
+		$data['cropper_width_3'] = $_POST["cropper_width_3"];
+		$data['cropper_height_3'] = $_POST["cropper_height_3"];
+		$data['cropper_dx_3'] = $_POST["cropper_dx_3"];
+		$data['cropper_dy_3'] = $_POST["cropper_dy_3"];
+		$data['cropper_dWidth_3'] = $_POST["cropper_dWidth_3"];
+		$data['cropper_dHeight_3'] = $_POST["cropper_dHeight_3"];
+		$data['canvas_width_3'] = $_POST["canvas_width_3"];
+		$data['canvas_height_3'] = $_POST["canvas_height_3"];
+		$data['image_width_3'] = $_POST["image_width_3"];
+		$data['image_height_3'] = $_POST["image_height_3"];
+
 		$data['imagem4'] = $_POST["imagem4"];
+
+		$data['cropper_x_4'] = $_POST["cropper_x_4"];
+		$data['cropper_y_4'] = $_POST["cropper_y_4"];
+		$data['cropper_width_4'] = $_POST["cropper_width_4"];
+		$data['cropper_height_4'] = $_POST["cropper_height_4"];
+		$data['cropper_dx_4'] = $_POST["cropper_dx_4"];
+		$data['cropper_dy_4'] = $_POST["cropper_dy_4"];
+		$data['cropper_dWidth_4'] = $_POST["cropper_dWidth_4"];
+		$data['cropper_dHeight_4'] = $_POST["cropper_dHeight_4"];
+		$data['canvas_width_4'] = $_POST["canvas_width_4"];
+		$data['canvas_height_4'] = $_POST["canvas_height_4"];
+		$data['image_width_4'] = $_POST["image_width_4"];
+		$data['image_height_4'] = $_POST["image_height_4"];
+
 		$data['imagem5'] = $_POST["imagem5"];
+
+		$data['cropper_x_5'] = $_POST["cropper_x_5"];
+		$data['cropper_y_5'] = $_POST["cropper_y_5"];
+		$data['cropper_width_5'] = $_POST["cropper_width_5"];
+		$data['cropper_height_5'] = $_POST["cropper_height_5"];
+		$data['cropper_dx_5'] = $_POST["cropper_dx_5"];
+		$data['cropper_dy_5'] = $_POST["cropper_dy_5"];
+		$data['cropper_dWidth_5'] = $_POST["cropper_dWidth_5"];
+		$data['cropper_dHeight_5'] = $_POST["cropper_dHeight_5"];
+		$data['canvas_width_5'] = $_POST["canvas_width_5"];
+		$data['canvas_height_5'] = $_POST["canvas_height_5"];
+		$data['image_width_5'] = $_POST["image_width_5"];
+		$data['image_height_5'] = $_POST["image_height_5"];
+
 		$data['imagem6'] = $_POST["imagem6"];
 
+		$data['cropper_x_6'] = $_POST["cropper_x_6"];
+		$data['cropper_y_6'] = $_POST["cropper_y_6"];
+		$data['cropper_width_6'] = $_POST["cropper_width_6"];
+		$data['cropper_height_6'] = $_POST["cropper_height_6"];
+		$data['cropper_dx_6'] = $_POST["cropper_dx_6"];
+		$data['cropper_dy_6'] = $_POST["cropper_dy_6"];
+		$data['cropper_dWidth_6'] = $_POST["cropper_dWidth_6"];
+		$data['cropper_dHeight_6'] = $_POST["cropper_dHeight_6"];
+		$data['canvas_width_6'] = $_POST["canvas_width_6"];
+		$data['canvas_height_6'] = $_POST["canvas_height_6"];
+		$data['image_width_6'] = $_POST["image_width_6"];
+		$data['image_height_6'] = $_POST["image_height_6"];
+
+		/*
 		$data['imagemEditada2'] = $_POST['imagem_editada2'];
 		$data['imagemEditada3'] = $_POST['imagem_editada3'];
 		$data['imagemEditada4'] = $_POST['imagem_editada4'];
 		$data['imagemEditada5'] = $_POST['imagem_editada5'];
 		$data['imagemEditada6'] = $_POST['imagem_editada6'];
+		*/
 
 		global $woocommerce;
 		

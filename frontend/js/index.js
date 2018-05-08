@@ -442,7 +442,7 @@ $("#comprar-botao-photobloco").click(function(){
 						}
 						
 						cliente_imagem_url.add_lista(originalImageSrc);
-						console.log(originalImageSrc);
+						//console.log(originalImageSrc);
 						if (iap_define_tipo() == "photobloco") {
 							iap_show_photobloco();
 						}
@@ -577,10 +577,7 @@ $("#comprar-botao-photobloco").click(function(){
 	if(iap_define_tipo() == "porta_retrato") {
 
 		$("#img_porta_retrato").show();
-		$("#iap_crop_porta_retrato").show();
-		$("#iap_reiniciar_porta_retrato").show();
-		$(".ret-resize-horizontal").show();
-		$(".ret-resize-vertical").show();
+		
 		$("#main_carregando").hide();
 		$("#drop-area").addClass("col-lg-8");
 		$(".img-upload-line").addClass("col-lg-8");
@@ -590,7 +587,12 @@ $("#comprar-botao-photobloco").click(function(){
 
 		$(".drop-zone").css("background-color","#fbffff");
 
-		if ($(window).width() <= 1024) {
+		if ($(window).width() > 768) {
+			$("#iap_crop_porta_retrato").show();
+			$("#iap_reiniciar_porta_retrato").show();
+			$(".ret-resize-horizontal").show();
+			$(".ret-resize-vertical").show();
+
 
 			$(".drop-zone").css("width","500px");
 
@@ -604,10 +606,17 @@ $("#comprar-botao-photobloco").click(function(){
 		if ($(window).width() <= 768) {
 			
 			$(".drop-zone").css("max-width","650px");
-			$("#img_porta_retrato_1").css("max-width","600px");
+			$("#img_porta_retrato_1").show();
+			$("#img_porta_retrato").hide();
 			$(".iap_box_upload").css("font-size","0.7em");
+			$("#add_novo_quadro").hide();
+			$("#sidebar_porta_retrato").css("height","175px");
 
-			$("#sidebar").hide();
+			var $portaRetrato = $("#porta_retrato");
+			$portaRetrato.find("li");
+			
+
+			//$("#sidebar").hide();
 
 		}
 
@@ -616,11 +625,19 @@ $("#comprar-botao-photobloco").click(function(){
 			var $sidebar = $("#sidebar");
 			$sidebar.css("margin-top","15px", "margin-left","-20px");
 			$(".sidebar_container").css("float","left")
+			$(".drop-zone").css("max-width","290px","botton","20px");
+			//$("#img_porta_retrato_1").css("max-width","200px");
+			$(".iap_box_upload").html("Suba sua imagem aqui");
+			$("#editable-image").css("width","290px");
+			$(".img-upload").css("margin-left", "initial");
+			$(".img-upload").css("margin-right", "initial");
 
 			$("#img_porta_retrato_1").show();
 			$("#img_porta_retrato").hide();
 
 			$(".iap_mobile_c").show();
+			$(".contador_bolinha").show();
+			$(".m_botton_menu").show();
 		}
 
 	}

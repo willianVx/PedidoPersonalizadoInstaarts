@@ -108,4 +108,6 @@ function iap_register_scripts(){
 	wp_enqueue_script('croper_config_js', plugins_url('frontend/js/crop_config.js',__FILE__),'jquery', 1.4, true);
 
 	wp_enqueue_script('mustache_js', plugins_url('node_modules/mustache/mustache.js',__FILE__),'jquery', 1.4, true);
+
+	
 }

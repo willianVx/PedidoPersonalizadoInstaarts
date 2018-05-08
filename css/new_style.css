@@ -116,12 +116,14 @@
     float: right;
 }
 #sidebar_porta_retrato{
+
     position: relative;
     width: 263px;
     height: 625px;
     border: 1px solid #b3b3b3;
     border-radius: 12px;
     padding: 24px;
+
 }
 .b_comprar_porta_retrato{
     position: relative;
@@ -154,21 +156,28 @@
     display: none;
     margin-top: 10px;
     margin-left: 25px;
+    height: 47px;
 }
 .ret-resize-vertical{
     position: relative;
     display: none;
+    height: 47px;
     margin-top: 10px;
     margin-left: 25px;
+    font-size: 0.9em;
 }
 .ret-resize-horizontal{
     position: relative;
     display: none;
+    height: 47px;
     margin-top: 10px;
     margin-left: 25px;
+    font-size: 0.9em;
 }
 #porta_retrato_module ul li{
 
+    padding:0px;
+    margin:0px;
     list-style-type: none;
     width: 208px;
     height: 81px;
@@ -237,6 +246,8 @@ i{
 #iap_crop_porta_retrato{
     display: none;
     margin-top: 10px;
+    font-size: 0.9em;
+    height: 47px;
 }
 #iap_adiciona_imagem_porta_retrato{
     display: none;
@@ -255,12 +266,13 @@ i{
 #img_porta_retrato_1{
     position: relative;
     display: none;
-    height: 550px;
+    max-height: 550px;
 }
 .iap_mobile_c{
     display: none;
     margin-top: 10px;
     margin-left: 25px;
+    width: 53px;
 }
 .iap_tamanho_personalizado{
     position: relative;
@@ -280,12 +292,139 @@ i{
     float: right;
     top: 35px;
 }
+
+.m_botton_menu{
+
+    position: relative;
+    display: none;
+    height: 160px;
+
+}
+.contador_bolinha{
+
+    position: relative;
+    background-color: #4eb862;
+    width: 17px;
+    height: 17px;
+
+    left: 64px;
+
+    border-radius: 50%;
+    display: none;
+    color: white;
+    text-align: center;
+    line-height: 17px;
+
+}
+.m_ret_horizontal{
+
+    position: relative;
+    background-color: #2db6e9;
+    width: 48px;
+    height: 21px;
+    border-radius: 6px;
+    margin-top: 11px;
+    text-align: center;
+    
+
+}
+.m_ret_horizontal img{
+
+    position: relative;
+    width: 18px;
+
+}
+.m_ret_vertical{
+
+    position: relative;
+    background-color: #2db6e9;
+    width: 48px;
+    height: 21px;
+    border-radius: 6px;
+    margin-top: 11px;
+    padding-left: 15px;
+}
+.m_ret_vertical img{
+
+    position: relative;
+    width: 18px;
+
+}
+.m_reiniciar_porta_retrato{
+
+    position: relative;
+    background-color: #d9534f;
+    width: 48px;
+    height: 52px;
+    border-radius: 6px;
+
+    left: 240px;
+    top: -75px;
+
+    text-align: center;
+    color: rgb(58, 19, 19);
+    font-size:18px;
+    line-height: 52px;
+
+}
+.m_add_novo_quadro{
+    position: relative;
+    width: 57px;
+    height: 53px;
+
+    left: 90px;
+    top: -32px
+}
+.m_grupo_ret{
+    position: relative;
+    width: 48px;
+    height: 53px;
+    top: 30px;
+}
+.m_cortar_adicionar{
+    position: relative;
+
+    width: 152px;
+    height: 38px;
+    border-radius: 6px;
+    left: 70px;
+    top: 5px;
+
+    color: white;
+    text-align: center;
+    line-height: 38px;
+    font-size: 0.9em;
+    background-color: #4eb862;
+}
+.glyphicon-trash{
+    color: white;
+    text-align: center;
+    line-height: 30px;
+    height: 47px;
+}
 @media(max-width: 768px){
 
     #img_porta_retrato_1{
         position: relative;
         display: none;
-        max-height: 325px;
+    }
+    #info_painel_texto{
+        display: none;
+    }
+    #porta_retrato_module ul li{
+        width: 80px;
+        height: 80px;
+        border-radius: 0px;
+        margin-bottom: 2px;
+        padding: 6px;
+
+        display: inline-block;
+        -webkit-box-shadow: -1px 4px 13px -1px rgb(255, 255, 255);
+        -moz-box-shadow: -1px 4px 13px -1px rgb(255, 255, 255);
+        box-shadow: -1px 4px 13px -1px rgb(255, 255, 255);
+    }
+    #sidebar_porta_retrato{
+        padding: 4px;
     }
 
 }

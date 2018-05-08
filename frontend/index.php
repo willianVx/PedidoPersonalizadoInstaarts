@@ -33,7 +33,7 @@
           <img id="main_carregando" src="<?php echo plugins_url('img/carregando.gif', __FILE__ ); ?>" border="0" />
           <a href="#"><img id="img_acrilico" src="<?php echo plugins_url('img/imagem-1.jpg', __FILE__ ); ?>" border="0" /></a>
           <!-- <a href="#"><img id="img_photobloco" src="<?php echo plugins_url('img/imagem-2_photobloco.jpg', __FILE__ ); ?>" border="0" /></a> -->
-          <a href="#"><img id="img_porta_retrato_1" src="<?php echo plugins_url('img/img_portrait.jpg', __FILE__ ); ?>" border="0" /></a>
+          <a href="#"><img id="img_porta_retrato_1" src="<?php echo plugins_url('img/img_portrait.png', __FILE__ ); ?>" border="0" /></a>
           
           <a href="#"> 
             <video id="img_porta_retrato" src="<?php echo plugins_url('video/porta_retrato_video.mp4', __FILE__ ); ?>" autoplay loop muted></video>
@@ -52,23 +52,24 @@
         <div class="img-upload-line">
 
           <img id="editable-image" class="img-responsive img-upload">
-          <button id="iap_crop_porta_retrato" class="btn btn-success btn-lg"><span class="glyphicon glyphicon-scissors"></span><span class="crop_texto"> Cortar e adicionar</span></button>
+          <button id="iap_crop_porta_retrato" class="btn btn-success btn-lg"><span class="glyphicon glyphicon-scissors"></span> Cortar</button>
           
           <button class="btn btn-info btn-lg ret-resize-vertical"><img src="<?php echo plugins_url('img/ret-vertical.png', __FILE__ ); ?>" border="0" />Retrato</button>
           <button class="btn btn-info btn-lg ret-resize-horizontal"><img src="<?php echo plugins_url('img/ret-horizontal.png', __FILE__ ); ?>" border="0" />Paisagem</button>
 
-          <button id="iap_reiniciar_porta_retrato" class="btn btn-danger btn-lg">Reiniciar</button>
-
-          <img id="add_novo_quadro_2" class="iap_mobile_c" src="<?php echo plugins_url( 'img/add_novo_quadro.png', __FILE__ ); ?>" border="0" />
+          <button id="iap_reiniciar_porta_retrato" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-trash"></span></button>
           
         </div>
-        <div id="sidebar" class="col-lg-4">
 
-        <?php 
-          sidebar_porta_retrato();
+        <?php
+          sidebar_porta_retrato_mobile()
         ?>
-
-      </div>
+        
+        <div id="sidebar" class="col-lg-4">
+          <?php 
+            sidebar_porta_retrato();
+          ?>
+        </div>
 <!-- Modal -->
 <div class="modal fade" id="iap_imagem_cortada" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -110,6 +111,7 @@
                   <form method="post" action="" id="myForm" enctype="multipart/form-data">
                     Click para escolher uma imagem do seu dispositivo:
                     <input type="file" name="fileToUpload" id="fileToUpload">
+
                     <br>
                     <!--<input type="submit" name="submit" value="upload-image" class="btn btn-success">-->
                     <input type="hidden" name="image-submission" value="1"/>

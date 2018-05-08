@@ -5,7 +5,7 @@
             
             <div class="sidebar_container">
            
-                <div id="sidebar_porta_retrato">
+            <div id="sidebar_porta_retrato">
            
             <div id="porta_retrato_module">
 
@@ -36,7 +36,7 @@
                             <div id="quadros_restantes">Adicionar imagem <span id="quadros_restantes_numero">0 </span>de 6</div>
                         </div>
                         
-                </div>
+            </div>
                 <button class="btn btn-default b_comprar_porta_retrato">Comprar<span></span></button>
             </div>
 
@@ -56,6 +56,38 @@
                 </div>
             </div>
 
+        <?php
+    }
+//versao sidebar porta retrato mobile
+
+    function sidebar_porta_retrato_mobile(){
+        ?>  
+            <div class="m_botton_menu">
+                <div id="m_iap_crop_porta_retrato" class="m_cortar_adicionar"><span class="glyphicon glyphicon-scissors"></span><span class="crop_texto"> Cortar e adicionar</span></div>
+
+                <div class="m_grupo_ret">
+                    <div class="m_ret_horizontal">
+
+                        <img src="<?php echo plugins_url( 'img/iap_paisagem.png', __FILE__ ); ?>" border="0">
+                        <div class="m_ret_horizontal_icone"></div>
+
+                    </div>
+
+                    <div class="m_ret_vertical">
+                        <img src="<?php echo plugins_url( 'img/iap_retrato.png', __FILE__ ); ?>" border="0">
+                        <div class="m_ret_vertical_icone"></div>
+                    </div>
+                </div>
+
+                <div id="m_add_novo_quadro" class="m_add_novo_quadro">
+                    <img id="add_novo_quadro_2" class="iap_mobile_c" src="<?php echo plugins_url( 'img/add_novo_quadro.png', __FILE__ ); ?>" border="0" />    
+                    <div class="contador_bolinha">0</div>
+                </div>
+
+                <div class="m_reiniciar_porta_retrato glyphicon glyphicon-trash"></div>
+
+            </div>
+           
         <?php
     }
 
