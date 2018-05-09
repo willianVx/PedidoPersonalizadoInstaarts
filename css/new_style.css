@@ -399,8 +399,6 @@ i{
 .glyphicon-trash{
     color: white;
     text-align: center;
-    line-height: 30px;
-    height: 47px;
 }
 @media(max-width: 768px){
 
