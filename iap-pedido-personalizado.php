@@ -15,6 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 require 'iap-pedido-pt.php';
 require 'iap-pedido-fields.php';
 require 'iap-pedido-bd-connection.php';
+//require 'iap_order_status.php';
 require 'inc/ajax.php';
 require 'inc/woo.php';
 require 'calculadoraProdutosInsta/iap-get-preco.php';
@@ -38,6 +39,7 @@ if ( class_exists( 'WooCommerce' ) ) {
 
 //Carrega Template na página do produto
 function iap_referal_init() {
+
 	$produto_3 = get_page_by_title('Photobloco', OBJECT, 'product');
 	if( is_single($produto_3->ID) ){	
 		//enfileira os scripts

@@ -1,4 +1,7 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+    exit; // Exit if accessed directly
+}
 /*
  * Define o preço correto para o produto no cart
  */
@@ -7,9 +10,12 @@ function iap_custom_price( $cart_object ) {
     $custom_price = 10; // This will be your custome price  
     foreach ( $cart_object->cart_contents as $key => $value ) {
 		if (isset($value['preco']))
-			$value['data']->set_price($value['preco']);
+            $value['data']->set_price($value['preco']);
+            //$value['data']->set_width($value['x']);
+            //$value['data']->set_height($value['y']);
     }
 }
+
 
 /*
  * Adicionar as informações do produto no meta
@@ -23,17 +29,19 @@ function iap_woo_meta_produto_ordem($item_id, $values) {
         
         $image = $values['imagem'];
         $img = "<img src=\"$image\" style=\"max-width: 300px; max-height:150px; float:right; margin-top:5px;\" />";
-
+        
         wc_add_order_item_meta($item_id,'Moldura',$values['moldura']);
         wc_add_order_item_meta($item_id,'Acabamento',$values['acabamento']);
         wc_add_order_item_meta($item_id,'Largura',$values['x']);
         wc_add_order_item_meta($item_id,'Altura',$values['y']);
         //wc_add_order_item_meta($item_id,'Imagem',$values['imagem']);
         wc_add_order_item_meta($item_id,'Imagem',$img);
-        
+
+        $product = new WC_Product($item_id);
+
         if ($values['imagemEditada'] == '')
             $values['imagemEditada'] = 'Sem Edições';
-        
+
             if (isset($values['imagem2'])) {
                 $image2 = $values['imagem2'];
                 $img2 = "<img src=\"$image2\" style=\"max-width: 300px; max-height:150px; float:right; margin-top:5px;\" />";
