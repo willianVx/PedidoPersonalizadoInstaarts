@@ -2,7 +2,7 @@
 var iap_canvas_width = 568;
 //define valor para canvas caso a tela seja a de um smartphone
 if (window.screen.availWidth <= 414) {
-    var iap_canvas_width = 365;
+    var iap_canvas_width = 200;
 }
 //controla qual foi o último tamanho do canvas (para podermos definir um novo tamanho)
 var iap_canvas_controller = 0;
@@ -15,6 +15,9 @@ jQuery(document).ready(function($){
     $("#m_add_novo_quadro").click(function(){
         if (contador < cliente_imagem_url.lista.length) {
             alert("De ok na imagem anterior primeiro!");
+            return
+        }
+        if (contador == 5) {
             return
         }
         $("#modalUpload").modal('show');
@@ -60,7 +63,7 @@ jQuery(document).ready(function($){
                portaRetrato: this.porta_retrato,
                texto1: "Porta retrato",
                texto2: "Decor Cristal 3mm",
-               tamanho: "13x18cm"
+               tamanho: porta_retrato_13x13_config.d_porta_retrato_tamanho
            };
            this.$ul.html(Mustache.render(this.template, data));
 
@@ -151,7 +154,7 @@ jQuery(document).ready(function($){
                         ctx.drawImage(user_img, element.x, element.y, element.swidth, element.sheight, element.a, element.b, element.c, element.d);
                        
                     }
-
+                    /*
                     if (pacote_porta_retrato.imagens_canvas.length > 5) {
                         var div_img_cropper = document.getElementsByClassName("cropper-canvas")[0];
                         //var imagem_atual = div_img_cropper.getElementsByTagName("img")[0];
@@ -166,7 +169,7 @@ jQuery(document).ready(function($){
 
                         ctx.drawImage(user_img, element.x, element.y, element.swidth, element.sheight, element.a, element.b, element.c, element.d);
                         
-                    }
+                    } */
                     
             }
             
@@ -179,12 +182,12 @@ jQuery(document).ready(function($){
            $quadros_restantes.html(contador+" ");
            $m_quadros_restantes.html(contador);
 
-               if (contador == 6) {
+               if (contador == 5) {
                 $("#quadros_restantes").hide();
                 $('.img_add_novo_quadro').hide();
                     var $b_comprar = $(".b_comprar_porta_retrato");
                         $b_comprar.addClass("btn-success");
-                        $b_comprar.find("span").html(" R$ 149,90");
+                        $b_comprar.find("span").html(porta_retrato_13x13_config.valor);
 
                         $b_comprar.click(function(){
 
@@ -195,7 +198,7 @@ jQuery(document).ready(function($){
                                 this.canvas_3 = document.getElementById("3"),
                                 this.canvas_4 = document.getElementById("4"),
                                 this.canvas_5 = document.getElementById("5"),
-                                this.canvas_6 = document.getElementById("6")
+                                //this.canvas_6 = document.getElementById("6")
                                 
                             ];
                             window.upload_canvas.upload();
@@ -208,7 +211,7 @@ jQuery(document).ready(function($){
         },
         addImage: function(iap_imagem, x, y, swidth, sheight, a, b, c, d,imageWidth, imageHeight) {
 
-            if (this.porta_retrato.length == 6) {
+            if (this.porta_retrato.length == 5) {
                 return;
             }
             if (contador >= cliente_imagem_url.lista.length) {
@@ -288,6 +291,14 @@ $("#iap_crop_porta_retrato").click(function(){
     if (iap_canvas_controller != 0) {
         return;
     }
+    
+    if (porta_retrato_13x13_config.d_porta_retrato_tamanho == "13x13cm") {
+        iap_start_crop(13 / 13);
+        iap_canvas_controller = 3;
+        $("#iap_crop").show();
+        return
+    }
+
     iap_start_crop(18 / 13);
     iap_canvas_controller = 3;
     $("#iap_crop").show();
@@ -298,15 +309,24 @@ $("#m_iap_crop_porta_retrato").click(function(){
         return;
     }
     
+    if (porta_retrato_13x13_config.d_porta_retrato_tamanho == "13x13cm") {
+        iap_start_crop(13 / 13);
+        iap_canvas_controller = 3;
+        $("#iap_crop").show();
+        return
+    }
+
     iap_start_crop(18 / 13);
     iap_canvas_controller = 3;
     $("#iap_crop").show();
 });  
 //função de crop 
 function iap_start_crop(aspect_ratio){
-    var c_width = 69;
-    var d_height = 53;
-    //instancia novo Cropper
+
+    var c_width = porta_retrato_13x13_config.c_width;
+    var d_height = porta_retrato_13x13_config.d_height;
+
+    //Cropper
     var cropper = new Cropper(iap_imagem, {
         aspectRatio: aspect_ratio,
         zoomable: false,
@@ -460,16 +480,19 @@ function iap_start_crop(aspect_ratio){
     });
 
     $nova_imagem_2.click(function(){
-
         if (contador < cliente_imagem_url.lista.length) {
             alert("De ok na imagem anterior primeiro!");
             return
         }
-
-        window.porta_retrato_upload_controlador = "uploadOK";
-        $("#modalUpload").modal('show');
-        return window.cropper = cropper;
-      
+        if (contador == 5) {
+            alert("Agora você já pode comprar seu kit de porta retratos!");
+            return
+        }
+        else{
+            window.porta_retrato_upload_controlador = "uploadOK";
+            $("#modalUpload").modal('show');
+            return window.cropper = cropper;
+        }
     });
 
     }

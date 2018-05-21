@@ -85,11 +85,13 @@ function iap_order() {
 
 	}
 	if (isset($_POST['d_porta_retrato'])) {
+		global $woocommerce;
+		$produto = get_page_by_title('Kit de porta-retratos', OBJECT, 'product');
 
 		$data['x'] = $_POST['largura'];
 		$data['y'] = $_POST['altura'];
 		$data['acabamento'] = $_POST['acabamento'];
-		$data['preco'] = 149.90;
+		$data['preco'] = iap_valor_porta_retrato($_POST["valor"]);
 		$data['imagem'] = $_POST["imagem"];
 		//$data['imagemEditada'] = $_POST['imagem_editada'];
 		$data['cropper_x_1'] = $_POST["cropper_x_1"];
@@ -188,9 +190,9 @@ function iap_order() {
 		$data['imagemEditada6'] = $_POST['imagem_editada6'];
 		*/
 
-		global $woocommerce;
 		
-		$produto = get_page_by_title('Kit de porta-retratos', OBJECT, 'product');
+		
+		
 		$woocommerce->cart->add_to_cart($produto->ID, 1, '', '', $data);
 		
 		echo "1";
@@ -228,7 +230,22 @@ function iap_valor_photobloco($photobloco){
 		return 362;
 	}
 }
+// define valor do porta retrato de acordo com as informações da quantidade 
+function iap_valor_porta_retrato($valor){
 
+	$porta_retrato_13x18 = " R$ 149,90";
+	$porta_retrato_13x13 = " R$ 119,90";
+
+	if ($porta_retrato_13x18 == $valor) {
+		return 149.90;
+	}
+	if ($porta_retrato_13x13 == $valor) {
+		return 119.90;
+	}
+	else{
+		return 149.90;
+	}
+}
 /*
  * Faz o envio da imagem
  */

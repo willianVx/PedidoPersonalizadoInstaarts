@@ -81,7 +81,6 @@
     position: relative;
     top: 5px;
     width: 300px;
-    margin-left: 10px;
 }
 .thumbnail{
     cursor: pointer;
@@ -119,7 +118,7 @@
 
     position: relative;
     width: 263px;
-    height: 625px;
+    height: 520px;
     border: 1px solid #b3b3b3;
     border-radius: 12px;
     padding: 24px;
@@ -400,6 +399,9 @@ i{
     color: white;
     text-align: center;
 }
+#img_photobloco_2{
+    display: none;
+}
 @media(max-width: 768px){
 
     #img_porta_retrato_1{
@@ -425,4 +427,10 @@ i{
         padding: 4px;
     }
 
+    .texto_aviso_res{
+        display: none;
+    }
+    .btn-secondary{
+        top: 2px;
+    }
 }

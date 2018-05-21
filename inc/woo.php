@@ -11,8 +11,8 @@ function iap_custom_price( $cart_object ) {
     foreach ( $cart_object->cart_contents as $key => $value ) {
 		if (isset($value['preco']))
             $value['data']->set_price($value['preco']);
-            //$value['data']->set_width($value['x']);
-            //$value['data']->set_height($value['y']);
+            $value['data']->set_width($value['x']);
+            $value['data']->set_height($value['y']);
     }
 }
 
@@ -37,8 +37,6 @@ function iap_woo_meta_produto_ordem($item_id, $values) {
         //wc_add_order_item_meta($item_id,'Imagem',$values['imagem']);
         wc_add_order_item_meta($item_id,'Imagem',$img);
 
-        $product = new WC_Product($item_id);
-
         if ($values['imagemEditada'] == '')
             $values['imagemEditada'] = 'Sem Edições';
 
@@ -55,14 +53,15 @@ function iap_woo_meta_produto_ordem($item_id, $values) {
                 $image5 = $values['imagem5'];
                 $img5 = "<img src=\"$image5\" style=\"max-width: 300px; max-height:150px; float:right; margin-top:5px;\" />";
 
+                /*
                 $image6 = $values['imagem6'];
                 $img6 = "<img src=\"$image6\" style=\"max-width: 300px; max-height:150px; float:right; margin-top:5px;\" />";
-
+                */
                 wc_add_order_item_meta($item_id,'Imagem 2',$img2);
                 wc_add_order_item_meta($item_id,'Imagem 3',$img3);
                 wc_add_order_item_meta($item_id,'Imagem 4',$img4);
                 wc_add_order_item_meta($item_id,'Imagem 5',$img5);
-                wc_add_order_item_meta($item_id,'Imagem 6',$img6);
+                //wc_add_order_item_meta($item_id,'Imagem 6',$img6);
 
                 /*
                 wc_add_order_item_meta($item_id,'imagemEditada_2',$values['imagemEditada2']);
@@ -158,6 +157,7 @@ function iap_woo_meta_produto_ordem($item_id, $values) {
                 wc_add_order_item_meta($item_id,'_image_width_5',$values['image_width_5']);
                 wc_add_order_item_meta($item_id,'_image_height_5',$values['image_height_5']);
 
+                /*
                 wc_add_order_item_meta($item_id,'_cropper_x_6',$values['cropper_x_6']);
                 wc_add_order_item_meta($item_id,'_cropper_y_6',$values['cropper_y_6']);
                 wc_add_order_item_meta($item_id,'_cropper_width_6',$values['cropper_width_6']);
@@ -170,6 +170,7 @@ function iap_woo_meta_produto_ordem($item_id, $values) {
                 wc_add_order_item_meta($item_id,'_canvas_height_6',$values['canvas_height_6']);
                 wc_add_order_item_meta($item_id,'_image_width_6',$values['image_width_6']);
                 wc_add_order_item_meta($item_id,'_image_height_6',$values['image_height_6']);
+                */
 
             }
             

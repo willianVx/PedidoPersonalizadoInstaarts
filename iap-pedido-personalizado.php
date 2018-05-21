@@ -1,4 +1,5 @@
 <?php 
+
 /**
  *Author: Willian de Oliveira
  * Plugin Name: Instaarts - Pedidos personalizados
@@ -8,6 +9,7 @@
  * Version: 1.5 BETA
  * Licence: GPL2
  */
+
 if ( ! defined( 'ABSPATH' ) ) {
         exit; // Exit if accessed directly
     }
@@ -15,30 +17,44 @@ if ( ! defined( 'ABSPATH' ) ) {
 require 'iap-pedido-pt.php';
 require 'iap-pedido-fields.php';
 require 'iap-pedido-bd-connection.php';
-//require 'iap_order_status.php';
+require 'iap_order_status.php';
 require 'inc/ajax.php';
 require 'inc/woo.php';
 require 'calculadoraProdutosInsta/iap-get-preco.php';
 require 'ImagemProporcional/iap-ImagemProporcional.php';
 require 'frontend/pacote_porta_retrato.php';
 
+
 /*
  * Verifica se o WooCommerce tá presente
  */
+
 if ( class_exists( 'WooCommerce' ) ) {
+
 	function iap_aviso_woocommerce() {
 		?>
-		<div class="notice notice-success is-dismissible">
-			<p>Instale e ative o WooCommerce para usar o plugin do Instaarts</p>
-		</div>
+			<div class="notice notice-success is-dismissible">
+				<p>Instale e ative o WooCommerce para usar o plugin do Instaarts</p>
+			</div>
 		<?php
 	}
 	add_action( 'admin_notices', 'iap_aviso_woocommerce' );
 	return;
+
 }
 
 //Carrega Template na página do produto
 function iap_referal_init() {
+
+	$produto_4 = get_page_by_title('kit-de-porta-retratos-13x13', OBJECT, 'product');
+	if( is_single($produto_3->ID) ){	
+		//enfileira os scripts
+		add_action('wp_enqueue_scripts', 'iap_register_scripts');
+		$dir = plugin_dir_path( __FILE__ );
+		include($dir."frontend/index.php");
+		
+		die();
+	}
 
 	$produto_3 = get_page_by_title('Photobloco', OBJECT, 'product');
 	if( is_single($produto_3->ID) ){	

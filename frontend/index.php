@@ -42,6 +42,10 @@
           <a href="#">
             <video id="img_photobloco" src="<?php echo plugins_url('video/PHOTOBLOCO 10X15 B.mp4', __FILE__); ?>" autoplay loop muted></video>
           </a>
+
+          <a href="#">
+            <img id="img_photobloco_2" src="<?php echo plugins_url('img/img_photobloco_310px.jpg', __FILE__); ?>">
+          </a>
           
         </span>
         <span class="iap_box_upload">
@@ -62,7 +66,7 @@
         </div>
 
         <?php
-          sidebar_porta_retrato_mobile()
+          sidebar_porta_retrato_mobile();
         ?>
         
         <div id="sidebar" class="col-lg-4">
@@ -89,7 +93,7 @@
       <div class="modal-footer">
         <button id="comprar-botao-photobloco" type="button" class="btn btn-default btn-lg col-lg-3">Comprar: <span id="s-preco-photobloco" class="s-preco-photobloco"></span> </button>
           <img id="body_loading" src="<?php echo plugins_url('img/carregando.gif', __FILE__ ); ?>" border="0" />
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Voltar</button>
+        <button type="button" class="btn btn-secondary col-lg-3" data-dismiss="modal">Voltar</button>
       </div>
     </div>
   </div>
@@ -145,16 +149,16 @@
 
       </div>
 
-        <div class="col-lg-12 hud-botoes-mat">
+        <div class="hud-botoes-mat">
 
-          <div class="col-lg-12 iap_crop_div">
+          <div class="iap_crop_div">
 
-            <div class="col-lg-6">
-              <button type="button" id="b-photobloco"  class="btn btn-default btn-lg" data-toggle="modal" data-target="#photobloco">Tamanho <span id="s-photobloco"> </span> </button>
+            <div class="">
+              <button type="button" id="b-photobloco"  class="btn btn-default btn-lg col-lg-3" data-toggle="modal" data-target="#photobloco">Tamanho <span id="s-photobloco"> </span> </button>
             </div>
 
-            <div class="col-lg-6">
-              <button id="iap_crop"  class="btn btn-success btn-lg"><span class="glyphicon glyphicon-scissors"></span>Cortar</button>
+            <div class="">
+              <button id="iap_crop"  class="btn btn-success btn-lg col-lg-3"><span class="glyphicon glyphicon-scissors"></span>Cortar</button>
             </div>
 
           </div>
@@ -229,7 +233,6 @@
 
                           <div class="linha_div_vertical2"></div>
 
-                          <div class="texto_tamanho_image"></div>
                           <div class="texto_aviso_res">
                             * Nosso sistema mostrará os tamanhos de acordo com a resolução da sua imagem. 
                           </div>

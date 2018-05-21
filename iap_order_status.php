@@ -4,7 +4,7 @@ if ( ! defined( 'ABSPATH' ) ) {
         exit; // Exit if accessed directly
     }
 
-// adiciona status Em produção para admin de pedidos
+// adiciona status 'Em produção' em admin de pedidos
 
 function register_shipment_arrival_order_status() {
     register_post_status( 'wc-arrival-shipment', array(
@@ -35,7 +35,7 @@ function add_awaiting_shipment_to_order_statuses( $order_statuses ) {
 }
 add_filter( 'wc_order_statuses', 'add_awaiting_shipment_to_order_statuses' );
 
-// adiciona status Enviado para admin de pedidos
+// adiciona status 'Enviado' em admin de pedidos
 
 function register_em_transporte_order_status() {
     register_post_status( 'wc-em-transporte', array(
@@ -65,5 +65,5 @@ function add_em_transporte_to_order_statuses( $order_statuses ) {
     return $new_order_statuses;
 }
 add_filter( 'wc_order_statuses', 'add_em_transporte_to_order_statuses' );
-    
+
 ?>

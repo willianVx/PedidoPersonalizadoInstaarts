@@ -74,7 +74,7 @@ jQuery(document).ready(function($) {
 		$("#moldura_modal_body").hide();
 	}
 
-//salva a imagem croppada e envia os dados do pedido para o servidor
+//salva a imagem cropada e envia os dados do pedido para o servidor
 $("#comprar-botao-photobloco").click(function(){
 	$("#body_loading").show();
 	var imagemOriginal = image_url.value;
@@ -572,10 +572,15 @@ $("#comprar-botao-photobloco").click(function(){
 		$(".hud-botao").css("left","200px");
 		
 		$(".drop-zone").css("background-color","#fbffff");
+
+		if ($(window).width() <= 768) {
+			$("#img_photobloco").hide();
+			$("#img_photobloco_2").show();
+		}
 	}
 
 	if(iap_define_tipo() == "porta_retrato") {
-
+		
 		$("#img_porta_retrato").show();
 		
 		$("#main_carregando").hide();
@@ -590,9 +595,11 @@ $("#comprar-botao-photobloco").click(function(){
 		if ($(window).width() > 768) {
 			$("#iap_crop_porta_retrato").show();
 			$("#iap_reiniciar_porta_retrato").show();
-			$(".ret-resize-horizontal").show();
-			$(".ret-resize-vertical").show();
 
+			if (porta_retrato_13x13_config.d_porta_retrato_tamanho == "13x18cm") {
+				$(".ret-resize-horizontal").show();
+				$(".ret-resize-vertical").show();
+			}
 
 			$(".drop-zone").css("width","500px");
 
@@ -638,6 +645,7 @@ $("#comprar-botao-photobloco").click(function(){
 			$(".iap_mobile_c").show();
 			$(".contador_bolinha").show();
 			$(".m_botton_menu").show();
+
 		}
 
 	}
