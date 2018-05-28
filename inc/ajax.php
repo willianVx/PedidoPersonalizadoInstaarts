@@ -6,7 +6,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Envia o quadro pro carrinho
  */
 function iap_order() {
-
 	$photobloco_10x10 = 99.00;
 	$photobloco_10x15 = 149.00;
 

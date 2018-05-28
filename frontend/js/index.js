@@ -1,4 +1,5 @@
 jQuery(document).ready(function($) {
+	
 	// The visibility of these 2 elements is toggled by `toggleDragDrop()`
 	var imageElement = $("#editable-image").hide();
 	var dropArea = $("#drop-area");
@@ -6,7 +7,7 @@ jQuery(document).ready(function($) {
 	var originalImageSrc; // assigned when image file is dropped
 	var currentImage; // assigned when the Edit button is clicked
 	
-	
+
 	$(".img-upload-line").hide();
 
 	$("#b-photobloco").click(function(){
@@ -169,9 +170,14 @@ $("#comprar-botao-photobloco").click(function(){
 			alert("Por favor, escolha o acabamento do seu quadro!");
 			return;
 		}
+		
 		if (typeof currentImage == "undefined") {
 			console.log("imagem sem edição");
-
+			
+			if (iap_resolve_url_acervo()) {
+				imagemOriginal = iap_resolve_url_acervo();
+			}
+			console.log(originalImageSrc, imagemOriginal);
 			if (typeof originalImageSrc == "undefined") {
 				alert("Escolha uma imagem clicando sobre a área indicada!");
 				return;
@@ -655,6 +661,20 @@ $("#comprar-botao-photobloco").click(function(){
 	function  iap_show_photobloco(){
         $(".iap_crop_div").show();
         $("#comprar-botao-photobloco").show();
+	}
+
+	//console.log(imageElement);
+	/*
+	*
+	*
+	*
+	*/
+	if (iap_resolve_url_acervo()) {
+		imageElement.attr('src', iap_resolve_url_acervo());
+		$(".hud-botao").css("color","black");
+		originalImageSrc = iap_resolve_url_acervo();
+		toggleDragDrop();
+		//console.log(imageElement);
 	}
 
 });

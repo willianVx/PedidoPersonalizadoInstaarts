@@ -13,18 +13,20 @@
 jQuery(document).ready(function($){
     //define tamanho 
     var tamanho = {
-        setTamanho(x,y){
+        setTamanho(x, y){
             window.escolherPreco = 1;
             
             if (typeof imgWidth == "undefined" | typeof imgHeight == "undefined" | typeof ylistaA == "undefined") {
                 this.x = x;
                 this.y = y;
                 this.tamanhoTexto(x,y);
+                enviaDados();
             }
             else{
                 this.x = x;
                 this.y = y;
                 this.tamanhoTexto(x,y);
+                enviaDados();
             }
         },
         getTamanho(a){
@@ -515,6 +517,7 @@ $("#photobloco_10x15").click(function(){
     });
 
 });
+
 return window.tamanho = tamanho;
 });
 

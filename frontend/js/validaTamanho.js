@@ -64,6 +64,7 @@ jQuery(document).ready(function($) {
 			var dpi = 59.055;
 			var xcm = tamanho1 / dpi;
 			var ycm = tamanho2 / dpi;
+
 			var tamanhoX = [20, 30, 40, 50, 60, 70, 80, 90];
 			var max_tamanho = [0];
 			tamanhoX.forEach(compara_Tamanho_largura);
@@ -97,13 +98,23 @@ jQuery(document).ready(function($) {
 					min: 20,
 					max: element,
 					step: 1,
-					slide: function( event, ui ) {
-					  $( "#amount" ).val(ui.value + "x" + parseInt( ui.value / resultado, 10) + "cm");
-					  tamanho.setTamanho(ui.value, parseInt( ui.value / resultado, 10));
+					slide: function(event, ui ) {
+						var uiY = retorna_uiY(ui.value, resultado);
+						$( "#amount" ).val(ui.value + "x" + uiY + "cm");
+					},
+					stop: function(event, ui) {
+						tamanho.setTamanho(ui.value, retorna_uiY(ui.value, resultado));
 					}
 				  });
 				  $( "#amount" ).val($( "#slider" ).slider( "value" ) );
-				  $(".iap_tamanho_personalizado").find(".iap_tp_titulo").html("Pedido personalizado");
+				  $(".iap_tamanho_personalizado").find(".iap_tp_titulo").html("Tamanho personalizado");
+
+			}
+			//retorna valor de Y sempre maior que 10 
+			function retorna_uiY(ui, resultado) {
+
+				var uiY = parseInt(ui / resultado, 10);
+				return uiY > 10 ? parseInt(ui / resultado, 10) : parseInt(ui * resultado, 10);
 
 			}
 

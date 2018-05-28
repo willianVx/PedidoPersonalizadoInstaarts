@@ -1,7 +1,19 @@
-//captura variavel na url 
+img_acervo = "0";
+//captura variavel na url
+iap_resolve_url_acervo = function () {
+     //captura link da imagem na url
+     var url_string = window.location.href; 
+     var url = new URL(url_string);
+     var p_image_src = url.searchParams.get("img");
+
+     /*
+     var image_box = document.getElementById("editable-image");
+     image_box.src = p_image_src;
+    */
+    img_acervo = "1";
+    return p_image_src;
+}
 iap_resolve_url = function () {
-
-
 
   if (window.location.href.includes("kit-de-porta-retratos") || window.location.href.includes("photobloco")) {
     url = window.location.href;
@@ -40,9 +52,7 @@ iap_define_tipo = function(){
     }
 
 }
-
 //Define configurações para o porta retrato quadrado 13x13 
-
 var porta_retrato_13x13_config = {
 
     altura: 18, 
@@ -64,3 +74,32 @@ var porta_retrato_13x13_config = {
     }
 
 }
+/*
+//faz render da imagem do acervo na tela 
+render_img_acervo = function (url) {
+
+    var image_box = document.getElementById("editable-image");
+        image_box.src = url;
+        //exibe_img_acervo();
+    var dropArea = document.getElementById("drop-area");
+    var imgUploadLine = document.getElementsByClassName("mg-upload-line");
+
+    dropArea.style = "display: none;";
+    image_box.style = "display: initial;"
+    console.log(image_box, dropArea, imgUploadLine);
+}
+
+/*
+jQuery(document).ready(function($) {
+    
+    //return window.$teste = $("#drop-area").toggle();
+
+    function exibe_img_acervo() {
+
+        $("#drop-area").toggle();
+        $("#editable-image").toggle();
+        $(".img-upload-line").toggle();
+
+    }
+    
+}); */

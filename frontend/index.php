@@ -51,6 +51,7 @@
         <span class="iap_box_upload">
         Clique aqui para enviar sua imagem
         </span>
+        
       </div>
 
         <div class="img-upload-line">
