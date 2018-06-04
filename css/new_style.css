@@ -402,6 +402,11 @@ i{
 #img_photobloco_2{
     display: none;
 }
+.jumbotron{
+    position: relative;
+    float: right;
+    
+}
 @media(max-width: 768px){
 
     #img_porta_retrato_1{
