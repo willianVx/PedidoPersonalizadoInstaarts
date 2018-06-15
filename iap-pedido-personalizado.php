@@ -4,7 +4,7 @@
  *Author: Willian de Oliveira
  * Plugin Name: Instaarts - Pedidos personalizados
  * Plugin URI: https://instaarts.com.br
- * Description: Esse plugin implementa a ferramenta da Adobe (Creative SDK) para edição de imagens, mais menu onde o usuário pode fazer seu pedido personalizado escolhendo tamanho, acabamento e moldura. 
+ * Description: Ferramenta para quadros personalizados, implementa três produtos: quadro metacrilato personalizado, fotobloco e porta-retratos. 
  * Author URI: Willian De Oliveira 
  * Version: 1.5 BETA
  * Licence: GPL2
@@ -45,9 +45,9 @@ if ( class_exists( 'WooCommerce' ) ) {
 
 //Carrega Template na página do produto
 function iap_referal_init() {
-
+	
 	$produto_4 = get_page_by_title('kit-de-porta-retratos-13x13', OBJECT, 'product');
-	if( is_single($produto_3->ID) ){	
+	if( is_single($produto_4->ID) ){	
 		//enfileira os scripts
 		add_action('wp_enqueue_scripts', 'iap_register_scripts');
 		$dir = plugin_dir_path( __FILE__ );
@@ -55,7 +55,7 @@ function iap_referal_init() {
 		
 		die();
 	}
-
+	
 	$produto_3 = get_page_by_title('Photobloco', OBJECT, 'product');
 	if( is_single($produto_3->ID) ){	
 		//enfileira os scripts
@@ -65,7 +65,7 @@ function iap_referal_init() {
 		
 		die();
 	}
-
+	
 	$produto_2 = get_page_by_title('Kit de porta-retratos', OBJECT, 'product');
 	if( is_single($produto_2->ID) ){	
 		//enfileira os scripts
@@ -75,7 +75,7 @@ function iap_referal_init() {
 		
 		die();
 	}
-
+	
 	$produto = get_page_by_title('Quadro Personalizado Instaarts', OBJECT, 'product');
 	if( is_single($produto->ID) ){	
 		//enfileira os scripts
@@ -118,6 +118,7 @@ function iap_register_scripts(){
 	wp_enqueue_script('bootstrap-modal', plugins_url('frontend/js/bootstrap.js', __FILE__), 'jquery', 1.0, true);
 	wp_enqueue_script('validaTamanho', plugins_url('frontend/js/validaTamanho.js', __FILE__), 'jquery', 1.0, true);
 	wp_enqueue_script('config-preco', plugins_url('frontend/js/config-preco.js',__FILE__),'jquery', 1.0, true);
+	wp_enqueue_script('modal_info', plugins_url('frontend/js/modal_info.js',__FILE__),'jquery', 1.0, true);
 	wp_enqueue_script('resolve_url_jquery', plugins_url('frontend/js/resolve_url.js',__FILE__), 'jquery', 1.0, true);
 	wp_enqueue_script('upload_canvas_porta_retrato', plugins_url('frontend/js/upload_canvas_porta_retrato.js',__FILE__), 'jquery', 1.0, true);
 

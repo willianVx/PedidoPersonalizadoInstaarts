@@ -28,7 +28,7 @@ jQuery(document).ready(function($) {
 				},
 				success: function(data) {
 					if (data == "0") {
-						alert("Erro no processamento. Tente mais tarde.");
+						modal_info.constructor('Erro no processamento. Tente mais tarde.', 'aviso');
 					} else {
 						tamanhoY = data.split("z");
 						tamanhos_possiveis(tamanho1, tamanho2, tamanhoY);
@@ -54,7 +54,7 @@ jQuery(document).ready(function($) {
 					$("#tamanho_carregando").hide();
 				},
 				error: function(data) {
-					alert("Erro no processamento. Tente mais tarde.");
+					modal_info.constructor('Erro no processamento. Tente mais tarde.', 'aviso');
 				}
 			});
 		}

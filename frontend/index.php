@@ -164,13 +164,13 @@
 
           </div>
 
-        <button type="button" id="b-tamanho" class="btn btn-default btn-lg hud-botao col-lg-3" data-toggle="modal" data-target="#tamanho">Tamanho: <span id="s-tamanho"> </span> </button>
+        <button type="button" id="b-tamanho" class="btn btn-default btn-lg hud-botao col-lg-3" data-toggle="modal" data-target="#tamanho">Tamanho <span id="s-tamanho"> </span> </button>
 
         <button type="button" id="b-acabamento" class="btn btn-default btn-lg hud-botao col-lg-3" data-toggle="modal" data-target="#material"><span id="s-metacrilato"> Acabamento</span></button>
 
         <button type="button" id="b-moldura" class="btn btn-default btn-lg hud-botao col-lg-3" data-toggle="modal" data-target="#moldura"><span id="s-moldura">Moldura</span></button>
 
-        <button id="comprar-botao" type="button" class="btn btn-default btn-lg hud-botao b-comprar col-lg-3">Comprar: <span id="s-preco" class="s-preco"></span> </button>
+        <button id="comprar-botao" type="button" class="btn btn-default btn-lg hud-botao b-comprar col-lg-3">Comprar <span id="s-preco" class="s-preco"></span> </button>
 
         </div>
 
@@ -831,10 +831,33 @@
 
       </div>
     </div>
-    <div class="jumbotron col-lg-10">
-        Caso sua imagem não esteja no formato correto ou precise de ajuda, por favor fale conosco pelo chat ou entre em contato pelo e-mail: contato@instaarts.com.br
-        ou pelos telefones: 
-        (11) 4612-6019 e (11) 3031-6881
+
+        <!--
+        <div class="jumbotron col-lg-10">
+          Caso sua imagem não esteja no formato correto ou precise de ajuda, por favor fale conosco pelo chat ou entre em contato pelo e-mail: contato@instaarts.com.br
+          ou pelos telefones: 
+          (11) 4612-6019 e (11) 3031-6881
+        </div>
+        -->
+        
+        <!-- Modal -->
+        <div class="modal fade" id="modal_info" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title info_titulo" id="exampleModalLabel"> <span class="glyphicon glyphicon-warning-sign"></span> </h5>
+                <button type="button info_x_button" class="close info_x_button" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body info_body">
+                ...
+              </div>
+              <div class="modal-footer info_footer">
+                <button type="button" class="btn btn-secondary info_ok" data-dismiss="modal">OK</button>
+              </div>
+            </div>
+          </div>
         </div>
 
         </div>

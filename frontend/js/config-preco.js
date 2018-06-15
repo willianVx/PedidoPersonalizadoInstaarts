@@ -446,14 +446,14 @@ jQuery(document).ready(function($){
             },
             success: function(data) {
                 if (data == "0") {
-                    alert("Erro no processamento. Tente mais tarde.");
+                    modal_info.constructor('Erro no processamento. Tente mais tarde.', 'aviso');
                 } else {
                     $("#s-preco").html(data);
                     $("#comprar-botao").addClass("btn-success");
                 }
             },
             error: function(data) {
-                alert("Erro no processamento. Tente mais tarde.");
+                modal_info.constructor('Erro no processamento. Tente mais tarde.', 'aviso');
             }
         });
         
@@ -475,7 +475,7 @@ $("#photobloco_10x10").click(function(){
         },
         success: function(data) {
             if (data == "0") {
-                alert("Erro no processamento. Tente mais tarde.");
+                modal_info.constructor('Erro no processamento. Tente mais tarde.', 'aviso');
             } else {
                 $("#s-preco-photobloco").html(data);
                 $("#s-photobloco").html("10x10cm");
@@ -483,7 +483,7 @@ $("#photobloco_10x10").click(function(){
             }
         },
         error: function(data) {
-            alert("Erro no processamento. Tente mais tarde.");
+            modal_info.constructor('Erro no processamento. Tente mais tarde.', 'aviso');
         }
     });
 
@@ -504,7 +504,7 @@ $("#photobloco_10x15").click(function(){
         },
         success: function(data) {
             if (data == "0") {
-                alert("Erro no processamento. Tente mais tarde.");
+                modal_info.constructor('Erro no processamento. Tente mais tarde.', 'aviso');
             } else {
                 $("#s-preco-photobloco").html(data);
                 $("#s-photobloco").html("10x15cm");
@@ -512,7 +512,7 @@ $("#photobloco_10x15").click(function(){
             }
         },
         error: function(data) {
-            alert("Erro no processamento. Tente mais tarde.");
+            modal_info.constructor('Erro no processamento. Tente mais tarde.', 'aviso');
         }
     });
 

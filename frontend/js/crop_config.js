@@ -14,7 +14,7 @@ jQuery(document).ready(function($){
 
     $("#m_add_novo_quadro").click(function(){
         if (contador < cliente_imagem_url.lista.length) {
-            alert("De ok na imagem anterior primeiro!");
+            modal_info.constructor('De ok na imagem anterior primeiro!', 'aviso');
             return
         }
         if (contador == 5) {
@@ -24,16 +24,22 @@ jQuery(document).ready(function($){
     });
     $("#add_novo_quadro").click(function(){
         if (contador < cliente_imagem_url.lista.length) {
-            alert("De ok na imagem anterior primeiro!");
+            modal_info.constructor('De ok na imagem anterior primeiro!', 'aviso');
             return
         }
         $("#modalUpload").modal('show');
     });
     $("#iap_reiniciar_porta_retrato").click(function(){
-        location.reload(true);
+        modal_info.constructor('Você tem certeza que deseja apagar todas as imagens?', 'delete_reload');
+        //location.reload(true);
     });
     $(".m_reiniciar_porta_retrato").click(function(){
-        location.reload(true);
+        modal_info.constructor('Você tem certeza que deseja apagar todas as imagens?', 'delete_reload');
+    });
+    $(".b_comprar_porta_retrato").click(function(){
+        if(contador < 5 ){
+            modal_info.constructor('É preciso adicionar cinco imagens para comprar o kit!', 'aviso');
+        }
     });
     //modulo para adicionar e deletar um recorte no contexto do porta retrato 
     var pacote_porta_retrato = {
@@ -204,6 +210,7 @@ jQuery(document).ready(function($){
                             window.upload_canvas.upload();
                         });
                }else{
+                
                 $("#quadros_restantes").show();
                 $(".img_add_novo_quadro").show();
                }
@@ -216,7 +223,7 @@ jQuery(document).ready(function($){
             }
             if (contador >= cliente_imagem_url.lista.length) {
 
-                return alert("Adicione outra imagem!");
+                return modal_info.constructor('Adicione outra imagem!', 'aviso');
                 
             }
            this.dataCanvas = {
@@ -470,7 +477,7 @@ function iap_start_crop(aspect_ratio){
     $nova_imagem.click(function(){
 
         if (contador < cliente_imagem_url.lista.length) {
-            alert("De ok na imagem anterior primeiro!");
+            modal_info.constructor("De ok na imagem anterior primeiro!", "aviso");
             return
         }
         $("#modalUpload").modal('show');
@@ -481,11 +488,11 @@ function iap_start_crop(aspect_ratio){
 
     $nova_imagem_2.click(function(){
         if (contador < cliente_imagem_url.lista.length) {
-            alert("De ok na imagem anterior primeiro!");
+            modal_info.constructor("De ok na imagem anterior primeiro!", "aviso");
             return
         }
         if (contador == 5) {
-            alert("Agora você já pode comprar seu kit de porta retratos!");
+            modal_info.constructor("Agora você já pode comprar seu kit de porta retratos!", "aviso");
             return
         }
         else{

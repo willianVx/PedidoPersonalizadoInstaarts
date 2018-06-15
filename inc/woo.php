@@ -11,8 +11,8 @@ function iap_custom_price( $cart_object ) {
     foreach ( $cart_object->cart_contents as $key => $value ) {
 		if (isset($value['preco']))
             $value['data']->set_price($value['preco']);
-            $value['data']->set_width($value['x']);
-            $value['data']->set_height($value['y']);
+            $value['data']->set_width($value['x'] + 15);
+            $value['data']->set_height($value['y'] + 15);
     }
 }
 

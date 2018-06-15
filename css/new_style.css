@@ -407,6 +407,13 @@ i{
     float: right;
     
 }
+.modal{
+    z-index: 2000;
+}
+.info_body{
+    padding: 50px;
+    text-align: center;
+}
 @media(max-width: 768px){
 
     #img_porta_retrato_1{

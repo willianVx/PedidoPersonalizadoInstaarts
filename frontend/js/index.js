@@ -12,6 +12,7 @@ jQuery(document).ready(function($) {
 
 	$("#b-photobloco").click(function(){
 		if (!imageElement.attr("src")) {
+			//modal_info.constructor('Volte e escolha uma imagem para visualizar os tamanhos possíveis','aviso');
 			hide_elements();
 		}else{
 			show_elements();
@@ -20,7 +21,8 @@ jQuery(document).ready(function($) {
 
 	$("#b-tamanho").click(function(){
 		if (!imageElement.attr("src")) {
-			hide_elements();
+			modal_info.constructor('Volte e escolha uma imagem para visualizar os tamanhos possíveis','aviso');
+			$('#tamanho').modal('toggle');
 		}else{
 			show_elements();
 		}
@@ -28,7 +30,8 @@ jQuery(document).ready(function($) {
 
 	$("#b-acabamento").click(function(){
 		if (!imageElement.attr("src")) {
-			hide_elements();
+			modal_info.constructor('Volte e escolha uma imagem para visualizar os acabamentos','aviso');
+			$('#material').modal('toggle');
 		}else{
 			show_elements();
 		}
@@ -36,7 +39,8 @@ jQuery(document).ready(function($) {
 
 	$("#b-moldura").click(function(){
 		if (!imageElement.attr("src")) {
-			hide_elements();
+			modal_info.constructor('Volte e escolha uma imagem para visualizar nossas opções de moldura','aviso');
+			$('#moldura').modal('toggle');
 		}else{
 			show_elements();
 		}
@@ -142,14 +146,14 @@ $("#comprar-botao-photobloco").click(function(){
 			},
 			success: function(data) {
 				if (data == "0") {
-					alert("Erro no processamento. Tente mais tarde.");
+					modal_info.constructor("Erro no processamento. Tente mais tarde.", "aviso");
 				} else {
 					window.location = comprar.cart_url;
 					console.log(comprar.cart_url);
 				}
 			},
 			error: function(data) {
-				alert("Erro no processamento. Tente mais tarde.");
+				modal_info.constructor("Erro no processamento. Tente mais tarde.", "aviso");
 			}
 		});
 	//}
@@ -158,32 +162,42 @@ $("#comprar-botao-photobloco").click(function(){
 	// manda os dados do pedido para o servidor via ajax
 	$("#comprar-botao").click(function() {
 		//imagemEditada = currentImage.src;
-		//console.log(imagemEditada);
+		console.log(originalImageSrc);
 
 		var imagemOriginal = image_url.value;
 		var editimage = edited_image_url.value;
+
+		if (typeof originalImageSrc == 'undefined') {
+			modal_info.constructor("Por favor, escolha uma imagem clicando sobre a área indicada!", "aviso");
+			return;
+		}
+
 		if (escolherPreco == 0) {
-			alert("Por favor, escolha o tamanho do seu quadro!");
+			modal_info.constructor("Por favor, escolha o tamanho do seu quadro!", "aviso");
+			//alert("Por favor, escolha o tamanho do seu quadro!");
 			return;
 		}
 		if (escolherAcabamento == 0) {
-			alert("Por favor, escolha o acabamento do seu quadro!");
+			modal_info.constructor("Por favor, escolha o acabamento do seu quadro!", "aviso");
+			//alert("Por favor, escolha o acabamento do seu quadro!");
 			return;
 		}
 		
 		if (typeof currentImage == "undefined") {
-			console.log("imagem sem edição");
+			//console.log("imagem sem edição");
 			
 			if (iap_resolve_url_acervo()) {
 				imagemOriginal = iap_resolve_url_acervo();
 			}
-			console.log(originalImageSrc, imagemOriginal);
+			//console.log(originalImageSrc, imagemOriginal);
 			if (typeof originalImageSrc == "undefined") {
-				alert("Escolha uma imagem clicando sobre a área indicada!");
+				modal_info.constructor("Escolha uma imagem clicando sobre a área indicada!", "aviso");
+				//alert("Escolha uma imagem clicando sobre a área indicada!");
 				return;
 			}
 			
 			else {
+				modal_info.constructor("...", "loading");
 				$.ajax({
 					type: "POST",
 					url: comprar.ajax_url,
@@ -199,14 +213,14 @@ $("#comprar-botao-photobloco").click(function(){
 					},
 					success: function(data) {
 						if (data == "0") {
-							alert("Erro no processamento. Tente mais tarde.");
+							modal_info.constructor("Erro no processamento. Tente mais tarde.", "aviso");
 						} else {
 							window.location = comprar.cart_url;
 							console.log(comprar.cart_url);
 						}
 					},
 					error: function(data) {
-						alert("Erro no processamento. Tente mais tarde.");
+						modal_info.constructor("Erro no processamento. Tente mais tarde.", "aviso");
 					}
 				});
 			}
@@ -227,14 +241,13 @@ $("#comprar-botao-photobloco").click(function(){
 				},
 				success: function(data) {
 					if (data == "0") {
-						alert("Erro no processamento. Tente mais tarde.");
+						modal_info.constructor("Erro no processamento. Tente mais tarde.", "aviso");
 					} else {
 						window.location = comprar.cart_url;
-						console.log(comprar.cart_url);
 					}
 				},
 				error: function(data) {
-					alert("Erro no processamento. Tente mais tarde.");
+					modal_info.constructor("Erro no processamento. Tente mais tarde.", "aviso");
 				}
 			});
 		}
@@ -271,9 +284,7 @@ $("#comprar-botao-photobloco").click(function(){
 				success: function(result) {
 					setTamanho();
 					if (result == "0") {
-						alert(
-							"Ocorreu um erro em nosso sistema. Por favor, tente novamente mais tarde."
-						);
+						modal_info.constructor("Ocorreu um erro em nosso sistema. Por favor, tente novamente mais tarde.", "aviso");
 					} else {
 						results = result.split("|", 2);
 						$("#edited_image_url").val(results[1]);
@@ -283,9 +294,8 @@ $("#comprar-botao-photobloco").click(function(){
 					submittingImage = false;
 				},
 				error: function(response) {
-					alert(
-						"Ocorreu um erro em nosso sistema. Por favor, atualize a página e tente novamente."
-					);
+					modal_info.constructor("Ocorreu um erro em nosso sistema. Por favor, atualize a página e tente novamente.", "aviso");
+					
 					$("body").removeClass("loading");
 					submittingImage = false;
 				}
@@ -313,7 +323,7 @@ $("#comprar-botao-photobloco").click(function(){
 			$("#editable-image").attr("src") === originalImageSrc ||
 			!originalImageSrc
 		) {
-			alert("Você ainda não fez alterações");
+			modal_info.constructor('Você ainda não fez alterações"','aviso');
 		} else {
 			$("#editable-image").attr("src", originalImageSrc);
 		}
@@ -339,7 +349,7 @@ $("#comprar-botao-photobloco").click(function(){
 			toggleDragDrop();
 			location.reload();
 		} else {
-			alert("Nada para limpar");
+			modal_info.constructor("Nada para limpar.", "aviso");
 		}
 	});
 
@@ -389,12 +399,12 @@ $("#comprar-botao-photobloco").click(function(){
 			file["type"] != "image/jpg" &&
 			file["type"] != "image/jpeg"
 		) {
-			alert("A imagem precisa estar em formato JPG ou PNG");
+			modal_info.constructor("A imagem precisa estar em formato JPG ou PNG", "aviso");
 			submittingImage = false;
 			return;
 		}
 		if (file["size"] > "32000000") {
-			alert("A imagem não pode ser maior que 30 MB");
+			modal_info.constructor("A imagem não pode ser maior que 30 MB", "aviso");
 			submittingImage = false;
 			return;
 		}
@@ -426,15 +436,13 @@ $("#comprar-botao-photobloco").click(function(){
 				$(".hud-botao").css("color","black");
 				switch (result) {
 					case "0":
-						alert(
-							"Ocorreu um erro ao enviar a imagem. Por favor tente novamente."
-						);
+						modal_info.constructor('Ocorreu um erro ao enviar a imagem. Por favor tente novamente.', 'aviso');
 						break;
 					case "1":
-						alert("A imagem precisa estar no formato JPG ou PNG.");
+						modal_info.constructor('A imagem precisa estar no formato JPG ou PNG.', 'aviso');
 						break;
 					case "2":
-						alert("A imagem não pode ser maior que 32 MB");
+						modal_info.constructor('A imagem não pode ser maior que 32 MB.', 'aviso');
 						break;
 					default:
 						results = result.split("|", 2);
@@ -467,7 +475,7 @@ $("#comprar-botao-photobloco").click(function(){
 				$(".percent").html(" ");
 			},
 			error: function(response) {
-				alert("Ocorreu um erro ao enviar a imagem. Por favor tente novamente.");
+				modal_info.constructor('Ocorreu um erro ao enviar a imagem. Por favor tente novamente.', 'aviso');
 				submittingImage = false;
 				$("#progress-bar").css("width", "0%");
 				$(".percent").html(" ");
@@ -501,14 +509,14 @@ $("#comprar-botao-photobloco").click(function(){
 			//launchImageEditor();
 			return true;
 		} else {
-			alert("Por favor, tente nos formatos JPEG ou PNG");
+			modal_info.constructor('Por favor, tente nos formatos JPEG ou PNG', 'aviso');
 			return false;
 		}
 	}
 
 	function launchImageEditor() {
 		if (!originalImageSrc) {
-			alert("Faça o upload de alguma imagem primeiro!");
+			modal_info.constructor('Faça o upload de alguma imagem primeiro!', 'aviso');
 			return false;
 		}
 
