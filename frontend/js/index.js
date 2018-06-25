@@ -1,5 +1,6 @@
 jQuery(document).ready(function($) {
-	
+	//carrega imagens favoritadas uploads passados 
+	fav();
 	// The visibility of these 2 elements is toggled by `toggleDragDrop()`
 	var imageElement = $("#editable-image").hide();
 	var dropArea = $("#drop-area");
@@ -347,7 +348,11 @@ $("#comprar-botao-photobloco").click(function(){
 			escolherPreco = 0;
 			clearImage();
 			toggleDragDrop();
-			location.reload();
+			if (iap_define_tipo() == 'photobloco') {
+				window.location.assign("http://localhost/wordpress/product/photobloco");
+			}else{
+				window.location.assign("localhost/wordpress/product/quadro-personalizado");
+			}
 		} else {
 			modal_info.constructor("Nada para limpar.", "aviso");
 		}
@@ -451,7 +456,13 @@ $("#comprar-botao-photobloco").click(function(){
 						imageElement.attr("src", results[1]);
 						originalImageSrc = imageElement.attr("src");
 
-						if (!window.porta_retrato_upload_controlador) {
+						if(fav().length == 8){
+							modal_info.constructor('Você já salvou muitas imagens!', 'aviso');
+						}else{
+							add_fav(originalImageSrc);
+						}
+
+						if (!window.porta_retrato_upload_controlador){
 							toggleDragDrop();
 						}
 						
@@ -670,8 +681,6 @@ $("#comprar-botao-photobloco").click(function(){
         $(".iap_crop_div").show();
         $("#comprar-botao-photobloco").show();
 	}
-
-	//console.log(imageElement);
 	/*
 	*
 	*
@@ -683,7 +692,13 @@ $("#comprar-botao-photobloco").click(function(){
 		originalImageSrc = iap_resolve_url_acervo();
 		toggleDragDrop();
 		//console.log(imageElement);
+		if(iap_define_tipo() == 'photobloco'){
+			iap_show_photobloco();
+			console.log('isso eh um photobloco com imagem para ser renderizada');
+		}
 	}
+	
+
 
 });
 

@@ -23,7 +23,7 @@
                                     </div>
                                 
                                 <!-- <span>{{.}}</span> -->
-                                <!-- <i class="del glyphicon glyphicon-remove"></i> -->
+                                 <i class="del glyphicon glyphicon-remove"></i> 
 
                             </li>
                         {{/portaRetrato}}

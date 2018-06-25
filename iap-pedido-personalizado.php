@@ -23,7 +23,7 @@ require 'inc/woo.php';
 require 'calculadoraProdutosInsta/iap-get-preco.php';
 require 'ImagemProporcional/iap-ImagemProporcional.php';
 require 'frontend/pacote_porta_retrato.php';
-
+require 'frontend/save_images.php';
 
 /*
  * Verifica se o WooCommerce tá presente
@@ -119,6 +119,8 @@ function iap_register_scripts(){
 	wp_enqueue_script('validaTamanho', plugins_url('frontend/js/validaTamanho.js', __FILE__), 'jquery', 1.0, true);
 	wp_enqueue_script('config-preco', plugins_url('frontend/js/config-preco.js',__FILE__),'jquery', 1.0, true);
 	wp_enqueue_script('modal_info', plugins_url('frontend/js/modal_info.js',__FILE__),'jquery', 1.0, true);
+	wp_enqueue_script('modal_help', plugins_url('frontend/js/modal_help.js',__FILE__),'jquery', 1.0, true);
+	wp_enqueue_script('webstorage', plugins_url('frontend/js/webstorage_get_image.js',__FILE__),'jquery', 1.0, true);
 	wp_enqueue_script('resolve_url_jquery', plugins_url('frontend/js/resolve_url.js',__FILE__), 'jquery', 1.0, true);
 	wp_enqueue_script('upload_canvas_porta_retrato', plugins_url('frontend/js/upload_canvas_porta_retrato.js',__FILE__), 'jquery', 1.0, true);
 

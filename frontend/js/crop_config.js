@@ -251,7 +251,9 @@ jQuery(document).ready(function($){
 
         },
         deleteImage: function(event) {
+            console.log('deletando imagem');
 
+            /*
             cliente_imagem_url.remove_lista();
             contador = contador -=1;
             var $remove = $(event.target).closest('li');
@@ -259,7 +261,8 @@ jQuery(document).ready(function($){
             this.porta_retrato.splice(i, 1);
             this.imagens_canvas.splice(i,1);
             this.render();
-
+            */
+            
         }
     
     };

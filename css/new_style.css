@@ -414,6 +414,66 @@ i{
     padding: 50px;
     text-align: center;
 }
+.saved_images{
+    position: relative;
+    display: none;
+    padding: 20px;
+    text-align: center;
+    color: white;
+    background-color: #4eb862;
+   
+}
+.box_saved_images{
+    position: relative;
+    width: 1450px;  
+}
+.box_imagem_salva{
+    position: relative;
+    margin: 25px;
+    max-width: 300px;
+    max-height: 300px;
+    border: 1px white solid;
+    padding: 2px;
+    cursor: pointer;
+}
+.box_imagem_salva_hover{
+    background-color: #53C569;
+    border: 1px #4EB862 solid;
+    -webkit-box-shadow: 4px 14px 35px -7px rgba(29,56,34,0.52);
+    -moz-box-shadow: 4px 14px 35px -7px rgba(29,56,34,0.52);
+    box-shadow: 4px 14px 35px -7px rgba(29,56,34,0.52);
+}
+#imagem_salva{
+    display: none;
+}
+.x_exclui_imagem{
+    position: absolute;
+    right: 0px;
+    padding: 5px;
+    background-color: white;
+    color: #BD190E;
+    border-radius: 50%;
+    display: none;
+}
+.imagem_salva{
+    position: relative;
+    max-width: 100px;
+    max-height: 150px;
+    margin: 5px;
+}
+.glyphicon-chevron-up{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top:50%;
+    font-size: 2.5em;
+    margin: 20px;
+    background: -moz-linear-gradient(top, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.1) 98%, rgba(0,0,0,0.1) 99%);
+    background: -webkit-linear-gradient(top, rgba(0,0,0,0.1) 0%,rgba(0,0,0,0.1) 98%,rgba(0,0,0,0.1) 99%);
+    background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%,rgba(0,0,0,0.1) 98%,rgba(0,0,0,0.1) 99%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1a000000', endColorstr='#1a000000',GradientType=0 );
+    display: none;
+}
 @media(max-width: 768px){
 
     #img_porta_retrato_1{

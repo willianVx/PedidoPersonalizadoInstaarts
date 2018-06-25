@@ -16,6 +16,13 @@
             <span class="glyphicon glyphicon-remove pull-left padleft" aria-hidden="true"></span> Limpar
           </button>
         </div>
+        <div class="col-md-12">
+          <a href="#saved_images">
+            <button id="imagem_salva" class="btn btn-success btn-block button-panel">
+              <span class="glyphicon glyphicon-heart pull-left padleft" aria-hidden="true"></span><span class="imagens_salvas_contador">1</span> Imagens
+            </button>
+          </a>  
+        </div>
       </div>
     </div> <!-- fim botoes --> 
 
@@ -865,8 +872,11 @@
   <!-- end .row -->
   <br>
 <div class="wp_footer">
+
   <?php
+    sidebar_saved_images();
     //call the wp foooter
     get_footer();
   ?>
+
 </div>
