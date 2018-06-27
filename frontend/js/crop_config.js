@@ -196,7 +196,7 @@ jQuery(document).ready(function($){
                         $b_comprar.find("span").html(porta_retrato_13x13_config.valor);
 
                         $b_comprar.click(function(){
-
+                            modal_info.constructor("...", "loading");
                             this.cropped_image = [
 
                                 this.canvas_1 = document.getElementById("1"),

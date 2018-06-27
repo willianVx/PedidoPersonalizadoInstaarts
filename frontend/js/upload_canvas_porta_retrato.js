@@ -112,7 +112,6 @@ jQuery(document).ready(function($) {
                         modal_info.constructor('Erro no processamento. Tente mais tarde.', 'aviso');
                     } else {
                         window.location = comprar.cart_url;
-                        console.log(comprar.cart_url);
                     }
                 },
                 error: function(data) {

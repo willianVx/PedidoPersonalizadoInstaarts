@@ -474,6 +474,16 @@ i{
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1a000000', endColorstr='#1a000000',GradientType=0 );
     display: none;
 }
+.side_banner{
+    position: absolute;
+    right: 178px;
+    top: 155px;
+    max-width: 200px;
+    cursor:  pointer;
+}
+.side_banner :hover{
+    border: 1px rgb(117, 202, 132) solid;
+}
 @media(max-width: 768px){
 
     #img_porta_retrato_1{

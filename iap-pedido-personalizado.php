@@ -4,7 +4,7 @@
  *Author: Willian de Oliveira
  * Plugin Name: Instaarts - Pedidos personalizados
  * Plugin URI: https://instaarts.com.br
- * Description: Ferramenta para quadros personalizados, implementa três produtos: quadro metacrilato personalizado, fotobloco e porta-retratos. 
+ * Description: Ferramenta para quadros personalizados, implementa três produtos: quadro metacrilato personalizado, photobloco e porta-retratos. 
  * Author URI: Willian De Oliveira 
  * Version: 1.5 BETA
  * Licence: GPL2
@@ -24,6 +24,7 @@ require 'calculadoraProdutosInsta/iap-get-preco.php';
 require 'ImagemProporcional/iap-ImagemProporcional.php';
 require 'frontend/pacote_porta_retrato.php';
 require 'frontend/save_images.php';
+require 'frontend/side_banner.php';
 
 /*
  * Verifica se o WooCommerce tá presente
@@ -123,6 +124,7 @@ function iap_register_scripts(){
 	wp_enqueue_script('webstorage', plugins_url('frontend/js/webstorage_get_image.js',__FILE__),'jquery', 1.0, true);
 	wp_enqueue_script('resolve_url_jquery', plugins_url('frontend/js/resolve_url.js',__FILE__), 'jquery', 1.0, true);
 	wp_enqueue_script('upload_canvas_porta_retrato', plugins_url('frontend/js/upload_canvas_porta_retrato.js',__FILE__), 'jquery', 1.0, true);
+	wp_enqueue_script('show_banner', plugins_url('frontend/js/show_banner.js',__FILE__), 'jquery', 1.0, true);
 
 	wp_enqueue_script('cropper_js', plugins_url('node_modules/cropperjs/dist/cropper.js',__FILE__),'jquery', 1.4, true);
 

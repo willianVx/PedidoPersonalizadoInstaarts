@@ -874,6 +874,7 @@
 <div class="wp_footer">
 
   <?php
+    side_banner();
     sidebar_saved_images();
     //call the wp foooter
     get_footer();
