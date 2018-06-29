@@ -253,13 +253,14 @@ jQuery(document).ready(function($){
 
         },
         deleteImage: function(event) {
+            /*
             var $remove = $(event.target).closest('li');
             var i = this.$ul.find('li').index($remove);
             this.porta_retrato.splice(i, 1);
             this.imagens_canvas.splice(i,1);
             this.render();
             delete_image(this.porta_retrato,this.imagens_canvas,$remove,i);
-            /*
+            
             cliente_imagem_url.remove_lista();
             contador = contador -=1;
             var $remove = $(event.target).closest('li');
@@ -272,7 +273,7 @@ jQuery(document).ready(function($){
     
     };
     
-    pacote_porta_retrato.init();
+    //pacote_porta_retrato.init();
     /*
     $(".img_add_novo_quadro").click(function(){
         pacote_porta_retrato.addImage();
@@ -449,6 +450,8 @@ function iap_start_crop(aspect_ratio){
     $("#iap_crop_porta_retrato").click(function(){
         
         $("#iap_adiciona_imagem_porta_retrato").show();
+
+        /*
         x = cropper.getData().x;
         y = cropper.getData().y;
         a = 0; 
@@ -457,9 +460,23 @@ function iap_start_crop(aspect_ratio){
         d = d_height;
         var swidth  = cropper.getCroppedCanvas().width;
         var sheight = cropper.getCroppedCanvas().height;
+        */
+        objeto_canvas = {
+            imagem: iap_imagem,
+            x: cropper.getData().x,
+            y: cropper.getData().y,
+            swidth: cropper.getCroppedCanvas().width,
+            sheight: cropper.getCroppedCanvas().height,
+            a: 0,
+            b: 0,
+            c: c_width,
+            d: d_height,
+            imgDataWidth: cropper.getImageData().width,
+            imgDataHeight: cropper.getImageData().height
+        }
+        add_porta_retrato(objeto_canvas);
 
-        pacote_porta_retrato.addImage(iap_imagem, x, y, swidth, sheight, a, b, c, d, cropper.getImageData().width,cropper.getImageData().height);
-
+        //pacote_porta_retrato.addImage(iap_imagem, x, y, swidth, sheight, a, b, c, d, cropper.getImageData().width,cropper.getImageData().height);
     });
 
     $("#m_iap_crop_porta_retrato").click(function(){

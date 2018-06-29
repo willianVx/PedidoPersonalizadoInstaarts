@@ -8,7 +8,9 @@
             <div id="sidebar_porta_retrato">
            
             <div id="porta_retrato_module">
-
+                <ul id="porta_retrato">
+                </ul>
+                <!-- 
                 <ul id="porta_retrato">
                     <script id="porta_retrato_template" type="text/template">
                         {{#portaRetrato}}
@@ -22,14 +24,14 @@
                                         <span>{{tamanho}}</span>
                                     </div>
                                 
-                                <!-- <span>{{.}}</span> -->
+                                <! <span>{{.}}</span> --> <!--
                                  <i class="del glyphicon glyphicon-remove"></i> 
 
                             </li>
                         {{/portaRetrato}}
                     </script>
                 </ul>
-
+                -->
             </div>
                         <div id="add_novo_quadro">
                             <img class="img_add_novo_quadro" src="<?php echo plugins_url( 'img/add_novo_quadro.png', __FILE__ ); ?>" border="0" />
