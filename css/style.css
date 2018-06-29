@@ -54,6 +54,7 @@
     .hud-botoes-mat{
       position: relative;
       margin-bottom: 50px;
+      left: 23px;
     }
     .b-comprar {
       position: relative; 
@@ -183,7 +184,10 @@
       }
       #iap_crop{
         margin-top: 10px;
-    }
+      }
+      .hud-botoes-mat div button{
+        left: 0px!important;
+      }
     }   
     @media(max-width: 700px){
       .hud-botao{
@@ -197,6 +201,11 @@
       }
       .botao_editar{
         display: none;
+      }
+    }
+    @media(max-width: 768px){
+      .hud-botoes-mat{
+        left: 37px!important;
       }
     }
     @media(max-width: 1200px){
@@ -214,5 +223,11 @@
       }
       .linha_div_vertical{
         display: none;
+      }
+      .b-comprar {
+        margin-bottom: 24px;
+      }
+      .hud-botoes-mat{
+        left: 135px;
       }
     }

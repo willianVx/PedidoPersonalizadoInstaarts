@@ -475,15 +475,22 @@ i{
     display: none;
 }
 .side_banner{
-    position: absolute;
-    right: 178px;
-    top: 155px;
+    text-align: center;
     max-width: 200px;
     cursor:  pointer;
+    color: #9A9C95;
+    border: 1px #9A9C95 solid; 
 }
-.side_banner :hover{
-    border: 1px rgb(117, 202, 132) solid;
+.banner_img_1{
+    margin-bottom: 10px;
 }
+
+@media(max-width:1200px){
+    .side_banner{
+        display: none;
+    }
+}
+
 @media(max-width: 768px){
 
     #img_porta_retrato_1{

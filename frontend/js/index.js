@@ -612,7 +612,9 @@ $("#comprar-botao-photobloco").click(function(){
 		$("#drop-area").addClass("col-lg-8");
 		$(".img-upload-line").addClass("col-lg-8");
 		$("#sidebar").show();
-		$(".iap_b_painel").hide();
+		//$(".iap_b_painel").hide();
+		$("#reset-image-button").hide();
+		$("#clear-image-button").hide();
 		$(".hud-botoes-mat").hide();
 
 		$(".drop-zone").css("background-color","#fbffff");

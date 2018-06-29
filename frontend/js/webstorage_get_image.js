@@ -122,7 +122,7 @@ jQuery(document).ready(function($){
         let src = $(this)["0"].parentNode.childNodes["0"].currentSrc;
         //window.location.assign("https://instaarts.com/produto/quadro-personalizado-iap/?img="+src);
         if (iap_define_tipo() == 'photobloco'){
-            window.location.assign("https://instaarts.com/photoblocos/?img="+src);
+            window.location.assign("https://instaarts.com/produto/photobloco/?img="+src);
         }else{
             window.location.assign("https://instaarts.com/produto/quadro-personalizado-iap/?img="+src);
         }

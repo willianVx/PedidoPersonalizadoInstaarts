@@ -80,6 +80,7 @@ jQuery(document).ready(function($){
            function drawCanvas(id,imagens_canvas,index_canvas, index_imagem){
                     var image_teste = document.getElementById("editable-image");
                     //var imagem_atual = cliente_imagem_url.elemento_imagem(index_imagem);
+                    console.log(id,imagens_canvas, index_canvas, index_imagem);
 
                     var div_img_cropper = document.getElementsByClassName("cropper-canvas")[0];
                     var imagem_atual = div_img_cropper.getElementsByTagName("img")[0];
@@ -94,7 +95,7 @@ jQuery(document).ready(function($){
 
                     //console.log(pacote_porta_retrato.imagens_canvas.length);
                     
-                   
+                   /*
                     if (pacote_porta_retrato.imagens_canvas.length > 1) {
                         var div_img_cropper = document.getElementsByClassName("cropper-canvas")[0];
                         //var imagem_atual = div_img_cropper.getElementsByTagName("img")[0];
@@ -160,6 +161,7 @@ jQuery(document).ready(function($){
                         ctx.drawImage(user_img, element.x, element.y, element.swidth, element.sheight, element.a, element.b, element.c, element.d);
                        
                     }
+                    */
                     /*
                     if (pacote_porta_retrato.imagens_canvas.length > 5) {
                         var div_img_cropper = document.getElementsByClassName("cropper-canvas")[0];
@@ -251,8 +253,12 @@ jQuery(document).ready(function($){
 
         },
         deleteImage: function(event) {
-            console.log('deletando imagem');
-
+            var $remove = $(event.target).closest('li');
+            var i = this.$ul.find('li').index($remove);
+            this.porta_retrato.splice(i, 1);
+            this.imagens_canvas.splice(i,1);
+            this.render();
+            delete_image(this.porta_retrato,this.imagens_canvas,$remove,i);
             /*
             cliente_imagem_url.remove_lista();
             contador = contador -=1;
@@ -262,7 +268,6 @@ jQuery(document).ready(function($){
             this.imagens_canvas.splice(i,1);
             this.render();
             */
-            
         }
     
     };

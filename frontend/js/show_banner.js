@@ -9,8 +9,9 @@ jQuery(document).ready(function($){
 
     var init_banner = function(){
 
-        var $banner       = $('.side_banner');//resgata div com o banner
-        var $image_banner = $banner["0"].children["0"].children["0"];//resgata imagem dentro do banner
+        var $banner         = $('.side_banner');//resgata div com o banner
+        var $image_banner   = $banner["0"].children[1].children["0"];//resgata imagem dentro do banner
+        var $image_banner_2 = $banner["0"].children[1].children[1];
 
         //define posição do banner de acordo com o contexto 
         if (iap_define_tipo() == 'porta_retrato') {
@@ -33,12 +34,17 @@ jQuery(document).ready(function($){
             'https://instaarts.com/wp-content/uploads/2018/06/porta-retratos-1.jpg',
         ];
         if (iap_define_tipo() == 'imagem_acrilico') {
-            var new_image = Math.floor(Math.random() * (10 - 8) + 8);//nova imagem a ser renderizada
+            var new_image = 8;//nova imagem a ser renderizada
+            $image_banner_2.src = images[9];
         }else{
             var new_image = Math.floor(Math.random() * 8);
+            $image_banner_2.src = images[9];
         }
-        $image_banner.src = images[new_image];
-
+        if (iap_define_tipo() == 'porta_retrato') {
+            $image_banner_2.src = images[8];
+        }
+        $image_banner.src   = images[new_image];
+        
         $($image_banner).click(function() {
             if (new_image == 8) {
                 window.location.assign("https://instaarts.com/photoblocos/");
@@ -54,6 +60,14 @@ jQuery(document).ready(function($){
             }
             if (new_image >= 6 && new_image <= 7) {
                 window.location.assign("https://instaarts.com/impressao-uv/");
+            }
+        });
+
+        $($image_banner_2).click(function(){
+            if (iap_define_tipo() == 'imagem_acrilico') {
+                window.location.assign("https://instaarts.com/porta-retratos-2/");
+            }else{
+                window.location.assign("https://instaarts.com/photoblocos/");
             }
         });
 

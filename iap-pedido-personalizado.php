@@ -125,6 +125,7 @@ function iap_register_scripts(){
 	wp_enqueue_script('resolve_url_jquery', plugins_url('frontend/js/resolve_url.js',__FILE__), 'jquery', 1.0, true);
 	wp_enqueue_script('upload_canvas_porta_retrato', plugins_url('frontend/js/upload_canvas_porta_retrato.js',__FILE__), 'jquery', 1.0, true);
 	wp_enqueue_script('show_banner', plugins_url('frontend/js/show_banner.js',__FILE__), 'jquery', 1.0, true);
+	wp_enqueue_script('delete_portrait_images', plugins_url('frontend/js/delete_portrait_images.js',__FILE__), 'jquery', 1.0, true);
 
 	wp_enqueue_script('cropper_js', plugins_url('node_modules/cropperjs/dist/cropper.js',__FILE__),'jquery', 1.4, true);
 
