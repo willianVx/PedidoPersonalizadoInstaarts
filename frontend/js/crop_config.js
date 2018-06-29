@@ -80,10 +80,13 @@ jQuery(document).ready(function($){
            function drawCanvas(id,imagens_canvas,index_canvas, index_imagem){
                     var image_teste = document.getElementById("editable-image");
                     //var imagem_atual = cliente_imagem_url.elemento_imagem(index_imagem);
-                    console.log(id,imagens_canvas, index_canvas, index_imagem);
+                    //console.log(id,imagens_canvas, index_canvas, index_imagem);
 
                     var div_img_cropper = document.getElementsByClassName("cropper-canvas")[0];
                     var imagem_atual = div_img_cropper.getElementsByTagName("img")[0];
+
+                    console.log(imagem_atual);
+
 
                     var canvas = document.getElementById(id);
                     var ctx = canvas.getContext('2d');
