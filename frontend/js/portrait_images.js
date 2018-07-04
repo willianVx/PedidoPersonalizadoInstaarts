@@ -121,6 +121,7 @@ jQuery(document).ready(function($){
 
     var add_novo_quadro = function(){
         $('#modalUpload').modal('show');
+        window.porta_retrato_upload_controlador = "uploadOK";
     }
 
     $add_novo_quadro.click(add_novo_quadro);

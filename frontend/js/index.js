@@ -463,7 +463,6 @@ $("#comprar-botao-photobloco").click(function(){
 						}
 
 						if (!window.porta_retrato_upload_controlador){
-							console.log(window.porta_retrato_upload_controlador);
 							toggleDragDrop();
 						}
 						
@@ -475,7 +474,7 @@ $("#comprar-botao-photobloco").click(function(){
 						$(".modal .close").click();
 
 						if (typeof cropper == "undefined") {
-							console.log("cropper ainda não definido!");
+							//console.log("cropper ainda não definido!");
 						}else{
 							cropper.replace(cliente_imagem_url.ultimo_item());
 							cropper.cropBoxData.minHeight = imagem_atual_info.minCropBoxHeight(1000);
