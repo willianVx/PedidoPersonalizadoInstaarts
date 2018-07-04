@@ -463,6 +463,7 @@ $("#comprar-botao-photobloco").click(function(){
 						}
 
 						if (!window.porta_retrato_upload_controlador){
+							console.log(window.porta_retrato_upload_controlador);
 							toggleDragDrop();
 						}
 						
