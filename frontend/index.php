@@ -842,14 +842,6 @@
 
       </div>
     </div>
-
-        <!--
-        <div class="jumbotron col-lg-10">
-          Caso sua imagem não esteja no formato correto ou precise de ajuda, por favor fale conosco pelo chat ou entre em contato pelo e-mail: contato@instaarts.com.br
-          ou pelos telefones: 
-          (11) 4612-6019 e (11) 3031-6881
-        </div>
-        -->
         
         <!-- Modal -->
         <div class="modal fade" id="modal_info" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

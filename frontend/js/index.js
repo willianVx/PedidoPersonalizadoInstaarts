@@ -474,7 +474,7 @@ $("#comprar-botao-photobloco").click(function(){
 						$(".modal .close").click();
 
 						if (typeof cropper == "undefined") {
-							//console.log("cropper ainda não definido!");
+							console.log("cropper ainda não definido!");
 						}else{
 							cropper.replace(cliente_imagem_url.ultimo_item());
 							cropper.cropBoxData.minHeight = imagem_atual_info.minCropBoxHeight(1000);

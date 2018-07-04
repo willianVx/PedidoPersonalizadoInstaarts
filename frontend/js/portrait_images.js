@@ -1,10 +1,12 @@
 jQuery(document).ready(function($){
     //recupera lista de porta retratos (imagens) adicionados e implementa método para adicionar item
+    var lista_id = [];
+    $lista_retratos = $('#porta_retrato');
     var porta_retrato = {
         cachedom : function(){
-            this.lista_retratos = $('#porta_retrato');
+            this.quadros_restantes = $("#quadros_restantes_numero");
         },
-        create_li : function(canvas_w, canvas_h){
+        create_li : function(canvas_w, canvas_h, objeto_canvas){
             var li     = document.createElement('li');
             var canvas = document.createElement('canvas');
             var div    = document.createElement('div');
@@ -14,8 +16,9 @@ jQuery(document).ready(function($){
 
             canvas.width  = canvas_w;
             canvas.height = canvas_h;
-            canvas.setAttribute('id', this.lista_retratos["0"].children.length)
 
+            canvas.setAttribute('id', define_canvas_id());
+            
             div.setAttribute('id','info_painel_texto');
             div.innerText = "Porta retrato ";
 
@@ -32,48 +35,95 @@ jQuery(document).ready(function($){
             $(li).append(div);
             $(li).append(x);
 
-            this.lista_retratos.append($(li));
+            $lista_retratos.append($(li));
+            create_canvas(objeto_canvas, canvas.id);
+            this.quadros_restantes.html($lista_retratos["0"].children.length + " ");
         }
     }
     //inicia e adiciona mais um elemento na lista de porta retratos 
-    var init_porta_retrato = function(width, height){
+    var init_porta_retrato = function(width, height, objeto_canvas){
         porta_retrato.cachedom();
-        porta_retrato.create_li(width, height);
+        porta_retrato.create_li(width, height, objeto_canvas);
     }
     //deleta porta retrato de acordo com o botão clicado
     var delete_porta_retrato = function(){
+        lista_id.splice($(this)["0"].parentElement.childNodes["0"].id - 1 , 1);
         $(this)["0"].parentElement.remove();
+        $("#quadros_restantes_numero").html($lista_retratos["0"].children.length + " ");
+        $('#add_novo_quadro').show();
     }
     $('#porta_retrato').on('click', '.del', delete_porta_retrato);
 
-    var create_canvas = function(objeto_canvas){
-
-        console.log($('#porta_retrato')["0"].children.length);
-        console.log(objeto_canvas);
-
-        var image_teste = document.getElementById("editable-image");
-        //var imagem_atual = cliente_imagem_url.elemento_imagem(index_imagem);
-        console.log(id,imagens_canvas, index_canvas, index_imagem);
-
-        //var div_img_cropper = document.getElementsByClassName("cropper-canvas")[0];
-        //var imagem_atual = div_img_cropper.getElementsByTagName("img")[0];
-
-        var canvas = document.getElementById(id);
+    //add a imagem recortada no canvas
+    var create_canvas = function(objeto_canvas, canvas_id){
+        var canvas = document.getElementById(canvas_id);
         var ctx = canvas.getContext('2d');
-        const element = imagens_canvas[index_canvas];
-        canvas.width = element.c;
-        canvas.height = element.d;
-        //ctx.drawImage(cliente_imagem_url.elemento_imagem(index_imagem), element.x, element.y, element.swidth, element.sheight, element.a, element.b, element.c, element.d);
-        ctx.drawImage(imagem_atual, element.x, element.y, element.swidth, element.sheight, element.a, element.b, element.c, element.d);
-
+        ctx.drawImage(objeto_canvas.imagem, objeto_canvas.x, objeto_canvas.y, objeto_canvas.swidth, objeto_canvas.sheight, objeto_canvas.a, objeto_canvas.b, objeto_canvas.c, objeto_canvas.d);
     }
 
     //recebe o objeto com as informações para adicionar um item na lista
     var add_porta_retrato = function(objeto_canvas){
-        init_porta_retrato(objeto_canvas.c, objeto_canvas.d);
-        create_canvas(objeto_canvas);    
+        if($lista_retratos["0"].children.length == 4){
+            altera_botao_comprar();
+        }
+        if ($lista_retratos["0"].children.length == 5) {
+            modal_info.constructor('Você já pode comprar o seu kit.', 'aviso');
+            return
+        }
+        if ($lista_retratos["0"].children.length == 4) {
+            $('#add_novo_quadro').hide();
+        }
+        init_porta_retrato(objeto_canvas.c, objeto_canvas.d, objeto_canvas);
+    }
+    //define o ID do canvas
+    var define_canvas_id = function(){
+        var n = $lista_retratos["0"].children.length + 1;
+        if (n >= 2) {
+            n = Math.max.apply(null, lista_id ) + 1;
+        }
+        lista_id.push(n);
+        return n;
+    }
+    /*
+    *
+    * Tratamento das respostas dos botoes do componente porta-retratos 
+    *
+    */
+
+    //botao comprar
+    var $botao_comprar =  $('.b_comprar_porta_retrato');
+
+    var altera_botao_comprar = function(){
+        $botao_comprar.addClass('btn-success');
+        $botao_comprar["0"].children["0"].innerText = ' R$ 149,90';
     }
 
-    return window.add_porta_retrato = add_porta_retrato;
+    var botao_comprar = function(){
+        if ($lista_retratos["0"].children.length < 5) {
+            modal_info.constructor('É preciso adicionar 5 imagens para comprar o Kit.', 'aviso');
+        }else{
+            modal_info.constructor('...', 'loading');
+        }
+    }
+    $botao_comprar.click(botao_comprar);
 
+    //botao reload 
+    var $botao_reload = $('#iap_reiniciar_porta_retrato');
+
+    var botao_reload = function(){
+        modal_info.constructor('Você tem certeza que deseja apagar as imagens e reiniciar?', 'delete_reload');
+    }
+
+    $botao_reload.click(botao_reload);
+    
+    //add novo quadro
+    $add_novo_quadro = $('#add_novo_quadro');
+
+    var add_novo_quadro = function(){
+        $('#modalUpload').modal('show');
+    }
+
+    $add_novo_quadro.click(add_novo_quadro);
+
+    return window.add_porta_retrato = add_porta_retrato;   
 });
