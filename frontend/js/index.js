@@ -699,9 +699,6 @@ $("#comprar-botao-photobloco").click(function(){
 			console.log('isso eh um photobloco com imagem para ser renderizada');
 		}
 	}
-	
-
-
 });
 
 var cliente_imagem_url = {
@@ -750,6 +747,7 @@ var metadata_canvas = {
 		this.cropper_dy = cropper_dy
 		this.cropper_dWidth = cropper_dWidth
 		this.cropper_dHeight = cropper_dHeight;
+		
 		this.canvas_width = canvas_width;
 		this.canvas_height = canvas_height;
 		this.image_width = image_width;

@@ -47,10 +47,17 @@ jQuery(document).ready(function($){
     }
     //deleta porta retrato de acordo com o botão clicado
     var delete_porta_retrato = function(){
-        lista_id.splice($(this)["0"].parentElement.childNodes["0"].id - 1 , 1);
+        var i      = parseInt($(this)["0"].parentElement.childNodes["0"].id);
+        var indice = lista_id.indexOf(i);
+        
+        lista_id.splice(indice, 1);
+        cliente_imagem_url.lista.splice(indice, 1);
+        metadata_canvas.lista.splice(indice, 1);
+       
         $(this)["0"].parentElement.remove();
         $("#quadros_restantes_numero").html($lista_retratos["0"].children.length + " ");
         $('#add_novo_quadro').show();
+        
     }
     $('#porta_retrato').on('click', '.del', delete_porta_retrato);
 
@@ -58,7 +65,13 @@ jQuery(document).ready(function($){
     var create_canvas = function(objeto_canvas, canvas_id){
         var canvas = document.getElementById(canvas_id);
         var ctx = canvas.getContext('2d');
+
+        console.log(objeto_canvas);
+        console.log(objeto_canvas.imagem.naturalWidth , objeto_canvas.imagem.naturalHeight);
+        
         ctx.drawImage(objeto_canvas.imagem, objeto_canvas.x, objeto_canvas.y, objeto_canvas.swidth, objeto_canvas.sheight, objeto_canvas.a, objeto_canvas.b, objeto_canvas.c, objeto_canvas.d);
+        metadata_canvas.add_lista(objeto_canvas.x, objeto_canvas.y, objeto_canvas.swidth, objeto_canvas.sheight, objeto_canvas.a, objeto_canvas.b, $(objeto_canvas.imagem)["0"].naturalWidth, $(objeto_canvas.imagem)["0"].naturalHeight);
+
     }
 
     //recebe o objeto com as informações para adicionar um item na lista
@@ -103,6 +116,7 @@ jQuery(document).ready(function($){
             modal_info.constructor('É preciso adicionar 5 imagens para comprar o Kit.', 'aviso');
         }else{
             modal_info.constructor('...', 'loading');
+            upload_canvas.upload();
         }
     }
     $botao_comprar.click(botao_comprar);
@@ -120,10 +134,15 @@ jQuery(document).ready(function($){
     $add_novo_quadro = $('#add_novo_quadro');
 
     var add_novo_quadro = function(){
+        if (cliente_imagem_url.lista.length > metadata_canvas.lista.length) {
+            modal_info.constructor('Aperte o botao cortar mais uma vez, para poder adicionar outra imagem', 'aviso');
+            return
+        }
         $('#modalUpload').modal('show');
-        window.porta_retrato_upload_controlador = "uploadOK";
+        if($lista_retratos["0"].children.length >= 1){
+            window.porta_retrato_upload_controlador = "uploadOK";
+        }
     }
-
     $add_novo_quadro.click(add_novo_quadro);
 
     return window.add_porta_retrato = add_porta_retrato;   

@@ -173,12 +173,16 @@ function iap_start_crop(aspect_ratio){
 
     metadata_canvas.add_lista(cropper.getData().x,cropper.getData().y,swidth,sheight,0,0,iap_canvas_width,iap_imagem_proporcional(swidth, sheight),canvas.width,canvas.height,cropper.getImageData().width,cropper.getImageData().height);
 
-        });
+    });
         
     //corta a imagem do porta retrato e insere no block info -- botao crop quando estado inicial for porta retrato
     $("#iap_crop_porta_retrato").click(function(){
         
         $("#iap_adiciona_imagem_porta_retrato").show();
+        if (cliente_imagem_url.lista.length == metadata_canvas.lista.length) {
+            modal_info.constructor('Por favor, adicione outra imagem!', 'aviso');
+            return
+        }
         objeto_canvas = {
             imagem: iap_imagem,
             x: cropper.getData().x,
@@ -192,6 +196,7 @@ function iap_start_crop(aspect_ratio){
             imgDataWidth: cropper.getImageData().width,
             imgDataHeight: cropper.getImageData().height
         }
+        
         add_porta_retrato(objeto_canvas);
     });
 
