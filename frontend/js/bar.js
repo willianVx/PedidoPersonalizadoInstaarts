@@ -64,7 +64,7 @@ jQuery(document).ready(function($) {
 		$(this).css('background-color', '#3B9D4E');
 	});
 	$('.iap_box_upload').mouseout(function(){
-		$(this).css('background-color', '##45b75b');
+		$(this).css('background-color', '#45b75b');
 	});
 
 	function hud_produtos(produto){

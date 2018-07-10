@@ -30,7 +30,7 @@
     ?>
     </div> <!-- fim botoes --> 
 
-    <div class="col-lg-10">
+    <div class="col-lg-10 container_iap">
     
       <input type="hidden" name="image_url" id="image_url">
       <input type="hidden" name="image_id" id="image_id">

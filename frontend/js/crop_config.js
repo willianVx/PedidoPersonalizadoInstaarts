@@ -203,16 +203,25 @@ function iap_start_crop(aspect_ratio){
     $("#m_iap_crop_porta_retrato").click(function(){
         
         $("#iap_adiciona_imagem_porta_retrato").show();
-        x = cropper.getData().x;
-        y = cropper.getData().y;
-        a = 0; 
-        b = 0; 
-        c = c_width;
-        d = d_height;
-        var swidth  = cropper.getCroppedCanvas().width;
-        var sheight = cropper.getCroppedCanvas().height;
-
-        pacote_porta_retrato.addImage(iap_imagem, x, y, swidth, sheight, a, b, c, d, cropper.getImageData().width,cropper.getImageData().height);
+        if (cliente_imagem_url.lista.length == metadata_canvas.lista.length) {
+            modal_info.constructor('Por favor, adicione outra imagem!', 'aviso');
+            return
+        }
+        objeto_canvas = {
+            imagem: iap_imagem,
+            x: cropper.getData().x,
+            y: cropper.getData().y,
+            swidth: cropper.getCroppedCanvas().width,
+            sheight: cropper.getCroppedCanvas().height,
+            a: 0,
+            b: 0,
+            c: c_width,
+            d: d_height,
+            imgDataWidth: cropper.getImageData().width,
+            imgDataHeight: cropper.getImageData().height
+        }
+        
+        add_porta_retrato(objeto_canvas);
 
     });
     

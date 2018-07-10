@@ -65,13 +65,8 @@ jQuery(document).ready(function($){
     var create_canvas = function(objeto_canvas, canvas_id){
         var canvas = document.getElementById(canvas_id);
         var ctx = canvas.getContext('2d');
-
-        console.log(objeto_canvas);
-        console.log(objeto_canvas.imagem.naturalWidth , objeto_canvas.imagem.naturalHeight);
-        
         ctx.drawImage(objeto_canvas.imagem, objeto_canvas.x, objeto_canvas.y, objeto_canvas.swidth, objeto_canvas.sheight, objeto_canvas.a, objeto_canvas.b, objeto_canvas.c, objeto_canvas.d);
-        metadata_canvas.add_lista(objeto_canvas.x, objeto_canvas.y, objeto_canvas.swidth, objeto_canvas.sheight, objeto_canvas.a, objeto_canvas.b, $(objeto_canvas.imagem)["0"].naturalWidth, $(objeto_canvas.imagem)["0"].naturalHeight);
-
+        metadata_canvas.add_lista(objeto_canvas.x, objeto_canvas.y, objeto_canvas.swidth, objeto_canvas.sheight, objeto_canvas.a, objeto_canvas.b, objeto_canvas.c, objeto_canvas.d, canvas.width, canvas.height, objeto_canvas.imagem.naturalWidth, objeto_canvas.imagem.naturalHeight);
     }
 
     //recebe o objeto com as informações para adicionar um item na lista

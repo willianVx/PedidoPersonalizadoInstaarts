@@ -485,41 +485,58 @@ i{
     margin-bottom: 10px;
 }
 
+@media(max-width:1025px){
+
+    
+}
+
 @media(max-width:1200px){
     .side_banner{
         display: none;
     }
+
 }
 
+@media(max-width:1199px){
+
+    .sidebar_container{
+        top: -460px;
+        right: 130px;
+    }
+
+}
+@media(max-width:991px){
+    .sidebar_container{
+        right: -75px;
+    }
+}
+@media(max-width:850px){
+    .sidebar_container{
+        right: 354px;
+        top: 15px;
+    }
+}
 @media(max-width: 768px){
-
-    #img_porta_retrato_1{
-        position: relative;
-        display: none;
-    }
-    #info_painel_texto{
-        display: none;
-    }
-    #porta_retrato_module ul li{
-        width: 80px;
-        height: 80px;
-        border-radius: 0px;
-        margin-bottom: 2px;
-        padding: 6px;
-
-        display: inline-block;
-        -webkit-box-shadow: -1px 4px 13px -1px rgb(255, 255, 255);
-        -moz-box-shadow: -1px 4px 13px -1px rgb(255, 255, 255);
-        box-shadow: -1px 4px 13px -1px rgb(255, 255, 255);
-    }
-    #sidebar_porta_retrato{
-        padding: 4px;
-    }
 
     .texto_aviso_res{
         display: none;
     }
     .btn-secondary{
         top: 2px;
+    }
+}
+@media(max-width:668px){
+    .sidebar_container{
+        right: 245px;
+    }
+}
+@media(max-width:530px){
+    .sidebar_container{
+        right: 118px;
+    }
+}
+@media(max-width:320px){
+    .sidebar_container{
+        right: 2px;
     }
 }
