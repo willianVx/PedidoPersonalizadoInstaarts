@@ -11,17 +11,31 @@ function iap_order() {
 
  	if(isset($_POST['d1'])){
 		$conta = new CalculaPreco;
-		$conta -> formula_pedido_instaarts($_POST['acabamento'],$_POST['tipoMoldura'],$_POST['x'],$_POST['y']);
+		$resultado = $conta -> formula_pedido_instaarts($_POST['acabamento'],$_POST['tipoMoldura'],$_POST['x'],$_POST['y']);
+
+		if ($_POST['cod_autor'] == 'f25') {
+			$novo_resultado = $resultado * 1.2;
+			print "R$ ". number_format($novo_resultado, 0, ',', '.').",00";
+		}else{
+			print "R$ ".$resultado.",00";
+		}
+		
 	 }
 
 	if (isset($_POST['d2'])) {
 		$conta2 = new CalculaPreco;
 		
+		$resultado_preco = $conta2 -> get_total_bruto($_POST['acabamento'], $_POST['tipoMoldura'], $_POST['largura'], $_POST['altura']);
+
+		if ($_POST['cod_autor'] == 'f25') {
+			$resultado_preco = $conta2 -> get_total_bruto($_POST['acabamento'], $_POST['tipoMoldura'], $_POST['largura'], $_POST['altura']) * 1.2;
+		}
+
 		$data['moldura'] = $_POST['moldura'];
 		$data['acabamento'] = $_POST['acabamento'];
 		$data['x'] = $_POST['largura'];
 		$data['y'] = $_POST['altura'];
-		$data['preco'] = $conta2 -> get_total_bruto($_POST['acabamento'], $_POST['tipoMoldura'], $_POST['largura'], $_POST['altura']);
+		$data['preco'] = $resultado_preco;
 		$data['imagem'] = $_POST["imagem"];
 		$data['imagemEditada'] = $_POST['imagemAdobe'];
 

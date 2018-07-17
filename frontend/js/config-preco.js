@@ -433,6 +433,8 @@ jQuery(document).ready(function($){
         nome_acabamento = getAcabamento();
         nome_moldura = moldura.getMoldura();
         tipo_moldura = moldura.getTipo();
+        cod_autor = localiza_autor.init(iap_resolve_url_acervo());
+
         $.ajax({
             type: "POST",
             url: comprar.ajax_url,
@@ -442,7 +444,8 @@ jQuery(document).ready(function($){
                 acabamento: nome_acabamento,
                 tipoMoldura: tipo_moldura,
                 x: x,
-                y: y
+                y: y,
+                cod_autor: cod_autor
             },
             success: function(data) {
                 if (data == "0") {

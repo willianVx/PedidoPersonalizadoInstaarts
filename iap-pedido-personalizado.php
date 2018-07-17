@@ -133,5 +133,7 @@ function iap_register_scripts(){
 
 	wp_enqueue_script('mustache_js', plugins_url('node_modules/mustache/mustache.js',__FILE__),'jquery', 1.4, true);
 
+	wp_enqueue_script('localiza_autor', plugins_url('frontend/js/localiza_autor.js',__FILE__),'jquery', 1.4, true);
+
 	
 }

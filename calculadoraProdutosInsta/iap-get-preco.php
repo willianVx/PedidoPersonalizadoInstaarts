@@ -30,7 +30,7 @@
             $total = $tamanhoX * $tamanhoY * $preco / 10000 + 40;
 
             if($v){
-                return $total;
+                return number_format($total, 0, ',', '.');
             }
             else{
                 echo "erro";
@@ -44,7 +44,8 @@
             $total = $tamanhoX * $tamanhoY * $preco / 10000 + 40;
             if($v){
                 //echo "tamanhos ". $tamanhoX. " cm por " . $tamanhoY ." acabamento ".$acabamento." Preço: ".$total." ";
-                print "R$ ".number_format($total, 0, ',', '.'). ",00";
+                //print "R$ ".number_format($total, 0, ',', '.'). ",00";
+                return number_format($total, 0, ',', '.');
             }
             else{
                 echo "erro";

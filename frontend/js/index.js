@@ -210,7 +210,8 @@ $("#comprar-botao-photobloco").click(function(){
 						tipoMoldura: tipo_moldura,
 						largura: x,
 						altura: y,
-						imagem: imagemOriginal
+						imagem: imagemOriginal,
+						cod_autor: localiza_autor.init(iap_resolve_url_acervo())
 					},
 					success: function(data) {
 						if (data == "0") {
@@ -238,7 +239,8 @@ $("#comprar-botao-photobloco").click(function(){
 					largura: x,
 					altura: y,
 					imagem: imagemOriginal,
-					imagemAdobe: editimage
+					imagemAdobe: editimage,
+					cod_autor: localiza_autor.init(iap_resolve_url_acervo())
 				},
 				success: function(data) {
 					if (data == "0") {
