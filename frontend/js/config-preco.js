@@ -450,6 +450,7 @@ jQuery(document).ready(function($){
                 } else {
                     $("#s-preco").html(data);
                     $("#comprar-botao").addClass("btn-success");
+                    $("#comprar-botao").css('color', 'white');
                 }
             },
             error: function(data) {

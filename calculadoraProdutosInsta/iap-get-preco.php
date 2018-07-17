@@ -2,18 +2,18 @@
     class CalculaPreco
     {
         private $precoBaseAcabamento = array(
-        'meta7mm' => 2467, 
-        'meta5mm' => 1771,
-        'meta4mm' => 1392,
-        'meta3mm' => 1265, 
-        'acm5mm' => 1518, 
-        'uvPS' => 1265, 
-        'uvACM' => 1553, 
-        'papelAlgodao' => 552, 
-        'papelFosco' => 714,
-        'papelAcetinato' => 460,
-        'papelBrilhante' => 437,
-        'papelCanvas' => 633,
+            'meta7mm' => 2467, 
+            'meta5mm' => 1771,
+            'meta4mm' => 1392,
+            'meta3mm' => 1265, 
+            'acm5mm' => 1518, 
+            'uvPS' => 1265, 
+            'uvACM' => 1553, 
+            'papelAlgodao' => 552, 
+            'papelFosco' => 414,
+            'papelAcetinato' => 460,
+            'papelBrilhante' => 437,
+            'papelCanvas' => 633,
         );
 
         private $precoBaseMoldura;
@@ -44,7 +44,7 @@
             $total = $tamanhoX * $tamanhoY * $preco / 10000 + 40;
             if($v){
                 //echo "tamanhos ". $tamanhoX. " cm por " . $tamanhoY ." acabamento ".$acabamento." Preço: ".$total." ";
-                print "R$ ".number_format($total, 2, ',', '.');
+                print "R$ ".number_format($total, 0, ',', '.'). ",00";
             }
             else{
                 echo "erro";
@@ -68,54 +68,20 @@
 
                 return $precoBaseMoldura;
             } 
+
             if($tipoDeMoldura == 1){
-                
-                if($index == 'meta3mm'){
-                    $precoBaseMoldura = 0;
-                    return $precoBaseMoldura;
-                }
-                if($index == 'meta4mm'){
-                    $precoBaseMoldura = 153;
-                    return $precoBaseMoldura;
-                }
-                else{
                     $precoBaseMoldura = 160;
                     return $precoBaseMoldura;
-                }
-
             }  
 
             if($tipoDeMoldura == 2){
-                
-                if($index == 'meta3mm'){
-                    $precoBaseMoldura = 160;
-                    return $precoBaseMoldura;
-                }
-                if($index == 'meta4mm'){
-                    $precoBaseMoldura = 345;
-                    return $precoBaseMoldura;
-                }
-                else{
                     $precoBaseMoldura = 320;
                     return $precoBaseMoldura;
-                }
-
             }
 
             if($tipoDeMoldura == 3){
-                
-                if($index == 'meta3mm'){
-                    $precoBaseMoldura = 320;
-                    return $precoBaseMoldura;
-                }
-                if($index == 'meta4mm'){
-                    $precoBaseMoldura = 506;
-                    return $precoBaseMoldura;
-                }
-                else{
                     $precoBaseMoldura = 480;
                     return $precoBaseMoldura;
-                }
             }
         }
 
