@@ -6,7 +6,7 @@
  * Plugin URI: https://instaarts.com.br
  * Description: Ferramenta para quadros personalizados, implementa três produtos: quadro metacrilato personalizado, photobloco e porta-retratos. 
  * Author URI: Willian De Oliveira 
- * Version: 1.5 BETA
+ * Version: 1.7 BETA
  * Licence: GPL2
  */
 
@@ -21,10 +21,12 @@ require 'iap_order_status.php';
 require 'inc/ajax.php';
 require 'inc/woo.php';
 require 'calculadoraProdutosInsta/iap-get-preco.php';
+require 'calculadoraProdutosInsta/iap-get-preco-parcelado.php';
 require 'ImagemProporcional/iap-ImagemProporcional.php';
 require 'frontend/pacote_porta_retrato.php';
 require 'frontend/save_images.php';
 require 'frontend/side_banner.php';
+
 
 /*
  * Verifica se o WooCommerce tá presente

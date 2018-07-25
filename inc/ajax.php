@@ -6,10 +6,13 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Envia o quadro pro carrinho
  */
 function iap_order() {
-	$photobloco_10x10 = 99.00;
-	$photobloco_10x15 = 149.00;
+	//photobloco 10x10 por 3x 33.00
+	$photobloco_10x10 = [99.00, 33.00];
+	//photobloco 10x15 por 4 x37,25
+	$photobloco_10x15 = [149.00, 37.25];
 
  	if(isset($_POST['d1'])){
+		 /*
 		$conta = new CalculaPreco;
 		$resultado = $conta -> formula_pedido_instaarts($_POST['acabamento'],$_POST['tipoMoldura'],$_POST['x'],$_POST['y']);
 
@@ -19,16 +22,21 @@ function iap_order() {
 		}else{
 			print "R$ ".$resultado.",00";
 		}
-		
+		*/
+		$parcelamento = new CalculaPrecoParcelado;
+		$resultado_parcelas = $parcelamento -> parcelas($_POST['acabamento'],$_POST['tipoMoldura'],$_POST['x'],$_POST['y']);
+		print json_encode($resultado_parcelas);
 	 }
 
 	if (isset($_POST['d2'])) {
 		$conta2 = new CalculaPreco;
 		
-		$resultado_preco = $conta2 -> get_total_bruto($_POST['acabamento'], $_POST['tipoMoldura'], $_POST['largura'], $_POST['altura']);
+		$resultado_preco = $conta2 -> formula_pedido_instaarts($_POST['acabamento'], $_POST['tipoMoldura'], $_POST['largura'], $_POST['altura']);
 
 		if ($_POST['cod_autor'] == 'f25') {
-			$resultado_preco = $conta2 -> get_total_bruto($_POST['acabamento'], $_POST['tipoMoldura'], $_POST['largura'], $_POST['altura']) * 1.2;
+			$resultado_preco = $conta2 -> formula_pedido_instaarts($_POST['acabamento'], $_POST['tipoMoldura'], $_POST['largura'], $_POST['altura']) * 1.2;
+			$data['autor'] = "Iza Doe";
+			$data['comissao'] = $resultado_preco - $conta2 -> formula_pedido_instaarts($_POST['acabamento'], $_POST['tipoMoldura'], $_POST['largura'], $_POST['altura']);
 		}
 
 		$data['moldura'] = $_POST['moldura'];
@@ -60,11 +68,13 @@ function iap_order() {
 	}
 
 	if (isset($_POST['d4'])) {
-		echo "R$ ".number_format($photobloco_10x10, 2, ',', '.');;
+		//echo "R$ ".number_format($photobloco_10x10, 2, ',', '.');
+		print json_encode($photobloco_10x10);
 	}
 
 	if (isset($_POST['d5'])) {
-		echo "R$ ".number_format($photobloco_10x15, 2, ',', '.');;
+		//echo "R$ ".number_format($photobloco_10x15, 2, ',', '.');
+		print json_encode($photobloco_10x15);
 	}
 
 	if (isset($_POST['d_photobloco'])) {

@@ -24,7 +24,6 @@
           </a>  
         </div>
       </div>
-      
     <?php
       side_banner();
     ?>
@@ -103,7 +102,7 @@
 
       </div>
       <div class="modal-footer">
-        <button id="comprar-botao-photobloco" type="button" class="btn btn-default btn-lg col-lg-3">Comprar: <span id="s-preco-photobloco" class="s-preco-photobloco"></span> </button>
+        <button id="comprar-botao-photobloco" type="button" class="btn btn-default btn-lg col-lg-3">Comprar: <span id="s-preco-photobloco" class="s-preco-photobloco"></span> <br> <span class="iap_parcelamento_photobloco"></span></button>
           <img id="body_loading" src="<?php echo plugins_url('img/carregando.gif', __FILE__ ); ?>" border="0" />
         <button type="button" class="btn btn-secondary col-lg-3" data-dismiss="modal">Voltar</button>
       </div>
@@ -175,16 +174,19 @@
 
           </div>
 
-        <button type="button" id="b-tamanho" class="btn btn-default btn-lg hud-botao col-lg-3" data-toggle="modal" data-target="#tamanho">Tamanho <span id="s-tamanho"> </span> </button>
+        <button type="button" id="b-tamanho" class="btn btn-default btn-lg hud-botao" data-toggle="modal" data-target="#tamanho">Tamanho <span id="s-tamanho"> </span> </button>
 
-        <button type="button" id="b-acabamento" class="btn btn-default btn-lg hud-botao col-lg-3" data-toggle="modal" data-target="#material"><span id="s-metacrilato"> Acabamento</span></button>
+        <button type="button" id="b-acabamento" class="btn btn-default btn-lg hud-botao" data-toggle="modal" data-target="#material"><span id="s-metacrilato"> Acabamento</span></button>
 
-        <button type="button" id="b-moldura" class="btn btn-default btn-lg hud-botao col-lg-3" data-toggle="modal" data-target="#moldura"><span id="s-moldura">Moldura</span></button>
+        <button type="button" id="b-moldura" class="btn btn-default btn-lg hud-botao" data-toggle="modal" data-target="#moldura"><span id="s-moldura">Moldura</span></button>
 
-        <button id="comprar-botao" type="button" class="btn btn-default btn-lg hud-botao b-comprar col-lg-3">Comprar <span id="s-preco" class="s-preco"></span> </button>
+        <button id="comprar-botao" type="button" class="btn btn-default btn-lg hud-botao">Comprar <span id="s-preco" class="s-preco"></span> <br>
+          
+          <span class="iap_parcelamento"></span>
+        </button>
 
         </div>
-
+        
         <!-- Modal -->
         <div id="tamanho" class="modal fade" role="dialog" tabindex="-1">
           <div class="modal-dialog">
@@ -867,6 +869,7 @@
   </div>
   <!-- end .row -->
   <br>
+
 <div class="wp_footer">
 
   <?php

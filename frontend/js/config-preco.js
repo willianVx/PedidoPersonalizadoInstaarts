@@ -451,7 +451,9 @@ jQuery(document).ready(function($){
                 if (data == "0") {
                     modal_info.constructor('Erro no processamento. Tente mais tarde.', 'aviso');
                 } else {
-                    $("#s-preco").html(data);
+                    //$("#s-preco").html(data);
+                    resposta = JSON.parse(data);
+                    render_parcelamento(resposta);
                     $("#comprar-botao").addClass("btn-success");
                     $("#comprar-botao").css('color', 'white');
                 }
@@ -462,6 +464,19 @@ jQuery(document).ready(function($){
         });
         
     }
+//renderiza formas de parcelamento 
+var render_parcelamento = function(resposta){
+
+    $("#s-preco").html("por R$ " + resposta[1]);
+    var hud_botoes = $('.hud-botoes-mat');
+    var div_parcelamentos = document.createElement('div');
+
+    resposta_lista = Object.values(resposta);
+
+    console.log("ou parcele em até " + resposta_lista.length+"x de R$" + resposta_lista[resposta_lista.length -1]);
+    $('.iap_parcelamento').html("ou parcele em até " + resposta_lista.length+"x de R$" + resposta_lista[resposta_lista.length -1]);
+}    
+
 
 //envia dados para o servidor quando selecionado photobloco
 $("#photobloco_10x10").click(function(){
@@ -481,7 +496,10 @@ $("#photobloco_10x10").click(function(){
             if (data == "0") {
                 modal_info.constructor('Erro no processamento. Tente mais tarde.', 'aviso');
             } else {
-                $("#s-preco-photobloco").html(data);
+                resposta = JSON.parse(data);
+                $("#s-preco-photobloco").html("R$ " + resposta["0"] + ".00");
+                $(".iap_parcelamento_photobloco").html("ou por 3x de R$ " + resposta[1] + ".00");
+
                 $("#s-photobloco").html("10x10cm");
                 $("#comprar-botao-photobloco").addClass("btn-success");
             }
@@ -510,7 +528,10 @@ $("#photobloco_10x15").click(function(){
             if (data == "0") {
                 modal_info.constructor('Erro no processamento. Tente mais tarde.', 'aviso');
             } else {
-                $("#s-preco-photobloco").html(data);
+                resposta = JSON.parse(data);
+                $("#s-preco-photobloco").html("R$ " + resposta["0"] + ".00");
+                $(".iap_parcelamento_photobloco").html("ou por 4x de R$ " + resposta[1]);
+
                 $("#s-photobloco").html("10x15cm");
                 $("#comprar-botao-photobloco").addClass("btn-success");
             }

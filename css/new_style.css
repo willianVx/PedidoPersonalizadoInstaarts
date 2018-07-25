@@ -79,7 +79,6 @@
 }
 #b-photobloco{
     position: relative;
-    top: 5px;
     width: 300px;
 }
 .thumbnail{
@@ -90,7 +89,6 @@
     display: none;
     top: 5px;
     width: 300px;
-    margin-left: 10px;
 }
 .iap_crop_div{
     display: none;
@@ -484,17 +482,16 @@ i{
 .banner_img_1{
     margin-bottom: 10px;
 }
-
-@media(max-width:1025px){
-
-    
+.iap_parcelamento{
+   font-size: 0.7em;
 }
-
+.iap_parcelamento_photobloco{
+    font-size: 0.7em;
+}
 @media(max-width:1200px){
     .side_banner{
         display: none;
     }
-
 }
 
 @media(max-width:1199px){

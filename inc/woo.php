@@ -36,6 +36,8 @@ function iap_woo_meta_produto_ordem($item_id, $values) {
         wc_add_order_item_meta($item_id,'Altura',$values['y']);
         //wc_add_order_item_meta($item_id,'Imagem',$values['imagem']);
         wc_add_order_item_meta($item_id,'Imagem',$img);
+        wc_add_order_item_meta($item_id,'_Autor',$values['autor']);
+        wc_add_order_item_meta($item_id,'_comissao',$values['comissao']);
 
         if ($values['imagemEditada'] == '')
             $values['imagemEditada'] = 'Sem Edições';

@@ -163,7 +163,6 @@ $("#comprar-botao-photobloco").click(function(){
 	// manda os dados do pedido para o servidor via ajax
 	$("#comprar-botao").click(function() {
 		//imagemEditada = currentImage.src;
-		console.log(originalImageSrc);
 
 		var imagemOriginal = image_url.value;
 		var editimage = edited_image_url.value;

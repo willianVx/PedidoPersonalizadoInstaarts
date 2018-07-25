@@ -103,7 +103,7 @@ jQuery(document).ready(function($){
 
     var altera_botao_comprar = function(){
         $botao_comprar.addClass('btn-success');
-        $botao_comprar["0"].children["0"].innerText = ' R$ 149,90';
+        $botao_comprar["0"].children["0"].innerText = porta_retrato_13x13_config.valor;
     }
 
     var botao_comprar = function(){
