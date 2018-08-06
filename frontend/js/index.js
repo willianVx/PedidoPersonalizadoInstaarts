@@ -13,7 +13,6 @@ jQuery(document).ready(function($) {
 
 	$("#b-photobloco").click(function(){
 		if (!imageElement.attr("src")) {
-			//modal_info.constructor('Volte e escolha uma imagem para visualizar os tamanhos possíveis','aviso');
 			hide_elements();
 		}else{
 			show_elements();
@@ -87,38 +86,7 @@ $("#comprar-botao-photobloco").click(function(){
 	var canvas = document.getElementById('iap_crop_image');
 	var dataUrl = canvas.toDataURL("image/png");
 
-	/*
-	canvas.toBlob(function(blob){
-
-		var formdata = new FormData();
-		formdata.append('croppedImage', blob);
-		formdata.append("action", "iap_imageUpload_crop");
-		formdata.append("d_photobloco_imagem", "imagem");
-		
-		$.ajax({
-			type: "post",
-			url: comprar.ajax_url,
-			contentType: false,
-			processData: false,
-			cache: false,
-			data: formdata,
-			success: function(result){
-				iap_crop_image_result(result);
-			},
-			error: function(response) {
-				alert(
-					"Ocorreu um erro em nosso sistema. Por favor, atualize a página e tente novamente."
-				);
-			}
-		});
-
-	});
-	*/
-
 	//faz o tratamento da resposta da imagem cropada e envia o pedido 
-
-	//iap_crop_image_result = function(result){
-		//var crop_image_url = window.meta_data_canvas;
 		var crop_image_data = JSON.stringify(window.meta_data_canvas);
 		$.ajax({
 			type: "POST",
@@ -157,12 +125,10 @@ $("#comprar-botao-photobloco").click(function(){
 				modal_info.constructor("Erro no processamento. Tente mais tarde.", "aviso");
 			}
 		});
-	//}
 });
 
 	// manda os dados do pedido para o servidor via ajax
 	$("#comprar-botao").click(function() {
-		//imagemEditada = currentImage.src;
 
 		var imagemOriginal = image_url.value;
 		var editimage = edited_image_url.value;
@@ -174,25 +140,20 @@ $("#comprar-botao-photobloco").click(function(){
 
 		if (escolherPreco == 0) {
 			modal_info.constructor("Por favor, escolha o tamanho do seu quadro!", "aviso");
-			//alert("Por favor, escolha o tamanho do seu quadro!");
 			return;
 		}
 		if (escolherAcabamento == 0) {
 			modal_info.constructor("Por favor, escolha o acabamento do seu quadro!", "aviso");
-			//alert("Por favor, escolha o acabamento do seu quadro!");
 			return;
 		}
 		
 		if (typeof currentImage == "undefined") {
-			//console.log("imagem sem edição");
 			
 			if (iap_resolve_url_acervo()) {
 				imagemOriginal = iap_resolve_url_acervo();
 			}
-			//console.log(originalImageSrc, imagemOriginal);
 			if (typeof originalImageSrc == "undefined") {
 				modal_info.constructor("Escolha uma imagem clicando sobre a área indicada!", "aviso");
-				//alert("Escolha uma imagem clicando sobre a área indicada!");
 				return;
 			}
 			
@@ -255,69 +216,6 @@ $("#comprar-botao-photobloco").click(function(){
 		}
 	});
 
-	// Image Editor configuration
-	var csdkImageEditor = new Aviary.Feather({
-		apiKey: comprar.api_val,
-		theme: `light`,
-		language: `pt_BR`,
-		tools: ["overlays", "orientation", "crop", "resize", "focus", "vignette"],
-		onSave: function(imageID, newURL) {
-			currentImage.src = newURL;
-
-			//Do the Upload
-			if (submittingImage === true) return;
-			submittingImage = true;
-
-			var form_data = new FormData();
-			form_data.append("file", newURL);
-			form_data.append("action", "iap_imageTransfer");
-
-			//Mimc the loading
-			csdkImageEditor.close();
-			$("body").addClass("loading");
-
-			$.ajax({
-				type: "post",
-				url: comprar.ajax_url,
-				contentType: false,
-				processData: false,
-				cache: false,
-				data: form_data,
-				success: function(result) {
-					setTamanho();
-					if (result == "0") {
-						modal_info.constructor("Ocorreu um erro em nosso sistema. Por favor, tente novamente mais tarde.", "aviso");
-					} else {
-						results = result.split("|", 2);
-						$("#edited_image_url").val(results[1]);
-						$("#edited_image_id").val(results[0]);
-					}
-					$("body").removeClass("loading");
-					submittingImage = false;
-				},
-				error: function(response) {
-					modal_info.constructor("Ocorreu um erro em nosso sistema. Por favor, atualize a página e tente novamente.", "aviso");
-					
-					$("body").removeClass("loading");
-					submittingImage = false;
-				}
-			});
-			setTamanho();
-		},
-		onError: function(errorObj) {
-			console.log(errorObj.code);
-			console.log(errorObj.message);
-			console.log(errorObj.args);
-		}
-	});
-	// Edit
-	$("#edit-image-button").click(function() {
-		$("#editable-image").attr("src", originalImageSrc);
-		launchImageEditor();
-		//console.log(image_url);
-		setTamanho();
-		//console.log(imageElement.naturalHeight);
-	});
 	// Reset
 	$("#reset-image-button").click(function() {
 		
@@ -331,13 +229,6 @@ $("#comprar-botao-photobloco").click(function(){
 		}
 	});
 	// Clear
-	/*
-	var $nova_imagem =  $("#iap_adiciona_imagem_porta_retrato");
-	$nova_imagem.click(function(){
-		clearImage();
-		toggleDragDrop();
-	});
-	*/
 	$("#clear-image-button").click(function() {
 		window.editar_unlock = 0;
 		if (imageElement.attr("src")) {
@@ -359,32 +250,6 @@ $("#comprar-botao-photobloco").click(function(){
 		}
 	});
 
-	// Drop
-	//// Prevent defaults on drag/drop events
-	dropArea
-		.on("drag dragstart dragend dragover dragenter dragleave drop", function(
-			e
-		) {
-			if (e.preventDefault) e.preventDefault();
-			if (e.stopPropagation) e.stopPropagation();
-		})
-		/*.on('click', function(e) {
-		//Click anywhere in Droparea to upload file
-	  	$('#fileToUpload').click();
-	})*/
-		.on("drop", function(e) {
-			// Get the dropped file
-			var file = e.originalEvent.dataTransfer.files[0];
-			validateFileType(file);
-		});
-	dropArea.on("dragover", function(e) {
-		this.className = "drop-zone dragover";
-		return false;
-	});
-	dropArea.on("dragleave", function(e) {
-		this.className = "drop-zone";
-		return false;
-	});
 	// Click
 	//Hold the submission
 	var submittingImage = false;
@@ -456,7 +321,7 @@ $("#comprar-botao-photobloco").click(function(){
 						$("#image_id").val(results[0]);
 						imageElement.attr("src", results[1]);
 						originalImageSrc = imageElement.attr("src");
-
+						
 						if(fav().length == 8){
 							modal_info.constructor('Você já salvou muitas imagens!', 'aviso');
 						}else{
@@ -474,12 +339,13 @@ $("#comprar-botao-photobloco").click(function(){
 						}
 						$(".modal .close").click();
 
-						if (typeof cropper == "undefined") {
+						if (typeof cropper == "undefined") {	
 							//console.log("cropper ainda não definido!");
 						}else{
 							cropper.replace(cliente_imagem_url.ultimo_item());
 							cropper.cropBoxData.minHeight = imagem_atual_info.minCropBoxHeight(1000);
 						}
+						init_quadro_na_parede(originalImageSrc);
 						break;
 				}
 				submittingImage = false;
@@ -518,56 +384,12 @@ $("#comprar-botao-photobloco").click(function(){
 		if (fileIsSupported(file)) {
 			setImage(file);
 			toggleDragDrop();
-			//launchImageEditor();
 			return true;
 		} else {
 			modal_info.constructor('Por favor, tente nos formatos JPEG ou PNG', 'aviso');
 			return false;
 		}
 	}
-
-	function launchImageEditor() {
-		if (!originalImageSrc) {
-			modal_info.constructor('Faça o upload de alguma imagem primeiro!', 'aviso');
-			return false;
-		}
-
-		// Get the image to be edited
-		// `[0]` gets the image itself, not the jQuery object
-
-		currentImage = $("#editable-image")[0];
-		$("#s-tamanho").html(" ");
-		escolherPreco = 0;
-		csdkImageEditor.launch({
-		image: currentImage.id
-			//url: currentImage.src
-		});
-	}
-
-	//send data to PHP By Drop
-	function upload(files) {
-		var formData = new FormData(),
-			xhr = new XMLHttpRequest(),
-			x;
-		for (x = 0; x < files.length; x = x + 1) {
-			formData.append("file[]", files[x]);
-		}
-		xhr.onload = function() {
-			var data = this.responseText;
-		};
-		xhr.open("post", "upload.php");
-		xhr.send(formData);
-	}
-
-	//upload by drop (quando o usuario arrasta a imagem para o dropzone)
-	(function TheDrop() {
-		var dropzone = document.getElementById("drop-area");
-		dropzone.ondrop = function(e) {
-			e.preventDefault();
-			this.className = "drop-zone";
-			upload(e.dataTransfer.files);
-		};
-	})();
 
 	$("#b-tamanho").click(function(){
 		setTamanho();
@@ -579,13 +401,11 @@ $("#comprar-botao-photobloco").click(function(){
 	}
 
 	if (iap_define_tipo() == "imagem_acrilico") {
-		//console.log(iap_define_tipo());
         $("#img_acrilico").show();
         $("#main_carregando").hide();
     }
     
     if (iap_define_tipo() == "photobloco") {
-		//console.log(iap_define_tipo());
 		$("#img_photobloco").show();
 
         $("#main_carregando").hide();
@@ -613,7 +433,6 @@ $("#comprar-botao-photobloco").click(function(){
 		$("#drop-area").addClass("col-lg-8");
 		$(".img-upload-line").addClass("col-lg-8");
 		$("#sidebar").show();
-		//$(".iap_b_painel").hide();
 		$("#reset-image-button").hide();
 		$("#clear-image-button").hide();
 		$(".hud-botoes-mat").hide();
@@ -642,43 +461,17 @@ $("#comprar-botao-photobloco").click(function(){
 		}
 
 		if ($(window).width() <= 768) {
-			
-			//$(".drop-zone").css("max-width","650px");
-
 			$("#img_porta_retrato_1").show();
 			$("#img_porta_retrato").hide();
-			//$(".iap_box_upload").css("font-size","0.7em");
-			//$("#add_novo_quadro").hide();
-			//$("#sidebar_porta_retrato").css("height","175px");
 
 			var $portaRetrato = $("#porta_retrato");
 			$portaRetrato.find("li");
-			
-
-			//$("#sidebar").hide();
 
 		}
 
 		if ($(window).width() <= 425) {
 
 			var $sidebar = $("#sidebar");
-			//$sidebar.css("margin-top","15px", "margin-left","-20px");
-			//$(".sidebar_container").css("float","left")
-			//$(".drop-zone").css("max-width","290px","botton","20px");
-			//$("#img_porta_retrato_1").css("max-width","200px");
-			//$(".iap_box_upload").html("Suba sua imagem aqui");
-			//$("#editable-image").css("width","290px");
-			//$(".img-upload").css("margin-left", "initial");
-			//$(".img-upload").css("margin-right", "initial");
-
-			//$("#img_porta_retrato_1").show();
-			//$("#img_porta_retrato").hide();
-
-			/*
-			$(".iap_mobile_c").show();
-			$(".contador_bolinha").show();
-			$(".m_botton_menu").show();
-			*/
 
 		}
 
@@ -700,7 +493,6 @@ $("#comprar-botao-photobloco").click(function(){
 		$(".hud-botao").css("color","black");
 		originalImageSrc = iap_resolve_url_acervo();
 		toggleDragDrop();
-		//console.log(imageElement);
 		if(iap_define_tipo() == 'photobloco'){
 			iap_show_photobloco();
 			console.log('isso eh um photobloco com imagem para ser renderizada');

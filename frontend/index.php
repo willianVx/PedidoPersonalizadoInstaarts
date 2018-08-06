@@ -1,6 +1,10 @@
-<?php get_header();?>
 
-<div class="container envelope-pedido-personalizado" onload="formulaTotal()">
+<head>
+  <?php  get_header();?>
+</head>
+<div id="envelope_container">
+  
+        <div class="container envelope-pedido-personalizado" onload="formulaTotal()">
   <div class="row container-b">
     <!-- botoes editar - voltar - limpar --> 
     <div class="col-md-2 iap_b_painel">
@@ -39,6 +43,7 @@
       <!-- input id="click-upload" type="file"-->
 
       <div id="drop-area" class="drop-zone" data-toggle="modal" data-target="#modalUpload">
+
         <span>
           <img id="main_carregando" src="<?php echo plugins_url('img/carregando.gif', __FILE__ ); ?>" border="0" />
           <a href="#"><img id="img_acrilico" src="<?php echo plugins_url('img/imagem-1.jpg', __FILE__ ); ?>" border="0" /></a>
@@ -62,6 +67,7 @@
         Clique aqui para enviar sua imagem
         </span>
         
+
       </div>
 
         <div class="img-upload-line">
@@ -177,6 +183,10 @@
         <button type="button" id="b-tamanho" class="btn btn-default btn-lg hud-botao" data-toggle="modal" data-target="#tamanho">Tamanho <span id="s-tamanho"> </span> </button>
 
         <button type="button" id="b-acabamento" class="btn btn-default btn-lg hud-botao" data-toggle="modal" data-target="#material"><span id="s-metacrilato"> Acabamento</span></button>
+        
+        <?php
+          quandro_na_parede();
+        ?>
 
         <button type="button" id="b-moldura" class="btn btn-default btn-lg hud-botao" data-toggle="modal" data-target="#moldura"><span id="s-moldura">Moldura</span></button>
 
@@ -184,6 +194,7 @@
           
           <span class="iap_parcelamento"></span>
         </button>
+
 
         </div>
         
@@ -541,7 +552,7 @@
                               <label>
                                 <img src="<?php echo plugins_url( 'img/nova-york-tabaco.jpg', __FILE__ ); ?>" border="0" />
                                 <div>
-                                  <p>Nova York Branca</p>
+                                  <p>Nova York Tabaco</p>
                                 </div>
                               </label>
                             </div>
@@ -659,17 +670,6 @@
                               </label>
                             </div>
                           </div>
-                          <div class="col-md-4 t-thumb" id="m_amazonas_bege" data-dismiss="modal">
-                            <div class="thumbnail" id="amazonas-select-color">
-                              <label>
-                                <img src="<?php echo plugins_url( 'img/amazonas-bege.jpg', __FILE__ ); ?>" border="0" />
-                                <div>
-                                  <p>Amazonas Bege</p>
-                                </div>
-                              </label>
-                            </div>
-                          </div>
-
                           <div class="col-md-4 t-thumb" id="m_amazonas_tabaco" data-dismiss="modal">
                             <div class="thumbnail" id="amazonas-select-color">
                               <label>
@@ -686,18 +686,7 @@
                               <label>
                                 <img src="<?php echo plugins_url( 'img/buenos-aires-preta.jpg', __FILE__ ); ?>" border="0" />
                                 <div>
-                                  <p>Buenos Aires Preta</p>
-                                </div>
-                              </label>
-                            </div>
-                          </div>
-
-                          <div class="col-md-4 t-thumb" id="m_buenosaires_branca" data-dismiss="modal">
-                            <div class="thumbnail" id="buenosaires-select-color">
-                              <label>
-                                <img src="<?php echo plugins_url( 'img/buenos-aires-branca.jpg', __FILE__ ); ?>" border="0" />
-                                <div>
-                                  <p>Buenos Aires</p>
+                                  <p>Geneve</p>
                                 </div>
                               </label>
                             </div>
@@ -871,7 +860,7 @@
   <br>
 
 <div class="wp_footer">
-
+  
   <?php
 
     sidebar_saved_images();
@@ -879,4 +868,5 @@
     get_footer();
   ?>
 
+</div>
 </div>

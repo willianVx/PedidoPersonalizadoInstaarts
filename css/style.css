@@ -43,9 +43,9 @@
 
     .hud-botao {
       position: relative;
-      width: 215px;
+      width: 190px;
       height: 60px;
-      font-size: 15px;
+      font-size: 13px;
       color: rgb(189, 189, 189);
       margin-right: 12px;
     }
@@ -180,7 +180,7 @@
         display: grid;
       }
       .hud-botao{
-        margin-top: 10px;
+        margin-top: 20px;
         margin-right: 0;
         width: 24em;
       }
