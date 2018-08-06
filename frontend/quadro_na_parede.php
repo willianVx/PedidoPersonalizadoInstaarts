@@ -2,7 +2,7 @@
     function quandro_na_parede(){
         ?>
             <!-- Large modal -->
-            <button class="b_quadro_na_parede disabled" data-toggle="modal" data-target=".iap_modal_quadro_na_parede" disabled><span class=""></span><img src="<?php echo plugins_url('img/molduras_quadro_na_parede/couch-icon.svg', __FILE__ ); ?>" alt=""></button>
+            <button class="b_quadro_na_parede disabled" data-toggle="modal" data-target=".iap_modal_quadro_na_parede" title = "Você pode visualizar o seu quadro na parede aqui!" disabled><span class=""></span><img src="<?php echo plugins_url('img/molduras_quadro_na_parede/couch-icon.svg', __FILE__ ); ?>" alt=""></button>
 
             <div class="modal fade iap_modal_quadro_na_parede" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg">

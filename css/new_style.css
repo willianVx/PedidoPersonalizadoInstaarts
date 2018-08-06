@@ -560,11 +560,9 @@ i{
         width: 50px;
         height: 50px;
     }
-    .ipa_canvas_img_a{
-        width: 200px;
-        height: 100px;
-        top: 30px;
-        left: 250px;
+    .ipa_canvas_img_a img{
+        max-width: 130px;
+        max-height: 210px;
     }
 }
 @media(max-width:850px){
@@ -586,6 +584,7 @@ i{
     .sidebar_container{
         right: 245px;
     }
+
 }
 @media(max-width:500px){
     .b_quadro_na_parede{
@@ -596,6 +595,20 @@ i{
 @media(max-width:530px){
     .sidebar_container{
         right: 118px;
+    }
+    .ipa_canvas_img_a{
+        left: 225px;
+    }
+}
+@media(max-width:460px){
+    .ipa_canvas_img_a{
+        left: 159px;
+    }
+}
+@media(max-width:360px){
+    .ipa_canvas_img_a img{
+        max-width: 100px;
+        max-height: 150px;
     }
 }
 @media(max-width:320px){

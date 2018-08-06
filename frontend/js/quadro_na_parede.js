@@ -1,5 +1,5 @@
 jQuery(document).ready(function($){
-    
+    $(".b_quadro_na_parede").tooltip();
     //seleciona renderiza a imagem do ambiente de acordo com o index 
     var render_ambiente = function(index){
         var img = $(".iap_img_ambiente");
@@ -88,6 +88,16 @@ jQuery(document).ready(function($){
         var img = $('.ipa_canvas_img_a').find('img');
             img.removeClass();
             img.addClass(nome_moldura);
+    }
+
+    //insere imagem de atualização 
+    var loading = {
+        start: function(){
+            console.log("Carregando!");
+        },
+        stop: function(){
+            console.log("Imagens carregadas");
+        }
     }
 
     //incia módulo
