@@ -7,7 +7,9 @@
             <div class="modal fade iap_modal_quadro_na_parede" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content">
-
+                        <div class="loading_img">
+                            
+                        </div>
                         <img class="iap_img_ambiente img-fluid" src="https://instaarts.com/wp-content/uploads/2018/07/ab_2.jpg" alt="quadro_na_parede">
                         
                             <span class="prev">&#10094;</span>

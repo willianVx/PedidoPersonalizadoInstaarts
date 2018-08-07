@@ -414,7 +414,7 @@ $("#comprar-botao-photobloco").click(function(){
         $("#b-moldura").hide();
         $("#comprar-botao").hide();
         $("#edit-image-button").hide();
-        
+		$(".b_quadro_na_parede").hide();
 		$(".hud-botao").css("left","200px");
 		
 		$(".drop-zone").css("background-color","#fbffff");
