@@ -1,6 +1,6 @@
 
 <head>
-  <?php  get_header();?>
+  <?php  get_header(); ?>
 </head>
 <div id="envelope_container">
   

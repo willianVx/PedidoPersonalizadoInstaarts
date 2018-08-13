@@ -93,7 +93,13 @@ jQuery(document).ready(function($){
 
             var imagem_salva = document.createElement('img');
                 imagem_salva.setAttribute('class', 'imagem_salva');
-                imagem_salva.src = element;
+
+                var i = element.split(".");
+                var img_src = i[0] + "-218x150" + "." + i[1]; 
+
+                imagem_salva.src = img_src;
+
+                imagem_salva.dataset.srcOriginal = element;
 
             var box_imagem_salva = document.createElement('div');
                 box_imagem_salva.setAttribute('class', 'box_imagem_salva col-lg-6');
@@ -119,14 +125,14 @@ jQuery(document).ready(function($){
 
     $('.glyphicon-chevron-up').click(function(){
 
-        let src = $(this)["0"].parentNode.childNodes["0"].currentSrc;
+        //let src = $(this)["0"].parentNode.childNodes["0"].currentSrc;
         //window.location.assign("https://instaarts.com/produto/quadro-personalizado-iap/?img="+src);
+        let src = $(this)[0].parentElement.childNodes[0].attributes[2].nodeValue;
         if (iap_define_tipo() == 'photobloco'){
             window.location.assign("https://instaarts.com/produto/photobloco/?img="+src);
         }else{
             window.location.assign("https://instaarts.com/produto/quadro-personalizado-iap/?img="+src);
         }
-        
     });
 
     $('.box_imagem_salva').mouseover(function(){
@@ -148,7 +154,7 @@ jQuery(document).ready(function($){
 
     //remove a imagem do local storage de acordo com o contexto
     $('.x_exclui_imagem').click(function(){
-        add_fav($(this)["0"].parentElement.childNodes["0"].currentSrc);
+        add_fav($(this)[0].parentElement.childNodes[0].dataset.srcOriginal);
         $contador_imagem_salva.html(fav().length);
         $(this)["0"].parentElement.style.display = "none";
     });

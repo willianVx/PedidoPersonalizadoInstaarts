@@ -41,6 +41,10 @@ jQuery(document).ready(function($) {
 		if (!imageElement.attr("src")) {
 			modal_info.constructor('Volte e escolha uma imagem para visualizar nossas opções de moldura','aviso');
 			$('#moldura').modal('toggle');
+		}
+		if (nome_acabamento == "papelAlgodao" || nome_acabamento == "papelAcetinato" || nome_acabamento == "papelBrilhante" || nome_acabamento == "papelFosco") {
+			modal_info.constructor('Não é possível escolher moldura para o acabamento selecionado!','aviso');
+			$('#moldura').modal('toggle');
 		}else{
 			show_elements();
 		}

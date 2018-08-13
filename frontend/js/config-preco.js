@@ -194,6 +194,7 @@ jQuery(document).ready(function($){
         setAcabamento("papelAlgodao");
         checaCompatibilidade();
         printAcabamento("Papel Algodão");
+        renderiza_moldura();
         enviaDados();
         this.parametro = true;
     });
@@ -202,6 +203,7 @@ jQuery(document).ready(function($){
         setAcabamento("papelAcetinato");
         checaCompatibilidade();
         printAcabamento("papel Acetinato");
+        renderiza_moldura();
         enviaDados();
     });
 
@@ -209,6 +211,7 @@ jQuery(document).ready(function($){
         setAcabamento("papelBrilhante");
         checaCompatibilidade();
         printAcabamento("Papel Brilhante");
+        renderiza_moldura();
         enviaDados();
     });
 
@@ -216,6 +219,7 @@ jQuery(document).ready(function($){
         setAcabamento("papelFosco");
         checaCompatibilidade();
         printAcabamento("Papel Fosco");
+        renderiza_moldura();
         enviaDados();
     });
 
@@ -458,7 +462,6 @@ jQuery(document).ready(function($){
     });
     
     //envia dados para o servidor e retorna preço 
-    
     function enviaDados(){
         if (typeof getAcabamento() == "undefined" | typeof tamanho.getTamanho(x) == "undefined") {
             return;
