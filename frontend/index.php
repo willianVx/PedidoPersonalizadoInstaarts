@@ -870,3 +870,7 @@
 
 </div>
 </div>
+
+<script type="text/javascript" src="https://instaarts.com/clickheat/js/clickheat.js"></script><noscript><p><a href="http://www.dugwood.com/index.html">Heatmap plugin</a></p></noscript><script type="text/javascript"><!--
+clickHeatSite = '';clickHeatGroup = encodeURIComponent(window.location.pathname+window.location.search);clickHeatServer = 'https://instaarts.com/clickheat/click.php';initClickHeat(); //-->
+</script>

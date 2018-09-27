@@ -287,6 +287,9 @@ jQuery(document).ready(function($){
 
     //habilita botão quando a imagem é definida 
     var enabled_button = function(){
+        if (screen.width < 992){
+            return
+        }
         var b_quadro_na_parede =  $('.b_quadro_na_parede');
             b_quadro_na_parede.prop("disabled", true);
             b_quadro_na_parede.removeAttr("disabled");
