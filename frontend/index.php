@@ -2,6 +2,7 @@
 <head>
   <?php  get_header(); ?>
 </head>
+
 <div id="envelope_container">
   
         <div class="container envelope-pedido-personalizado" onload="formulaTotal()">
@@ -63,9 +64,9 @@
           </a>
           
         </span>
-        <span class="iap_box_upload">
+        <div class="iap_box_upload">
         Clique aqui para enviar sua imagem
-        </span>
+        </div>
         
 
       </div>
@@ -864,6 +865,8 @@
   <?php
 
     sidebar_saved_images();
+    //fechando função --> iap_init_index
+    
     //call the wp foooter
     get_footer();
   ?>

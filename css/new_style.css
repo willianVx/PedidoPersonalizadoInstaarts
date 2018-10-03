@@ -47,7 +47,6 @@
     color: white;
     background-color: #45b75b;
     top: -30px;
-    border-radius: 5px;
 }
 .navbar a{
     color: rgb(255, 255, 255);
@@ -209,10 +208,9 @@ i{
     display: block;
     margin: auto;
 }
-
-
-
-
+.b_quadro_na_parede_img_icon{
+    padding: 10px;
+}
 #info_painel{
     position: relative;
     padding: 6px;
@@ -455,8 +453,8 @@ i{
 }
 .imagem_salva{
     position: relative;
-    max-width: 100px;
-    max-height: 150px;
+    max-width: 200px;
+    max-height: 200px;
     margin: 5px;
 }
 .glyphicon-chevron-up{
@@ -550,7 +548,6 @@ i{
     opacity: 2;
     background-color: rgb(255, 255, 255);
 }
-
 @media(max-width:1200px){
     .side_banner{
         display: none;

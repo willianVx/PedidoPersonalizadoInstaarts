@@ -46,6 +46,8 @@ if ( class_exists( 'WooCommerce' ) ) {
 
 }
 
+
+
 //Carrega Template na página do produto
 function iap_referal_init() {
 	
