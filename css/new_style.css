@@ -431,6 +431,7 @@ i{
     border: 1px white solid;
     padding: 2px;
     cursor: pointer;
+    transition: 0.3s;
 }
 .box_imagem_salva_hover{
     background-color: #53C569;

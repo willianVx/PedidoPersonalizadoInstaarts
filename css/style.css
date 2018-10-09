@@ -11,12 +11,6 @@
     body {
       min-height: 100vh;
     }
-    body a{
-      color: green;
-    }
-    body a:hover{
-      color: rgb(60, 99, 2);
-    }
     p{
       font-size: 75%;
     }
