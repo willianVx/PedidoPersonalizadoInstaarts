@@ -276,6 +276,10 @@ i{
 }
 #slider{
     max-width: 250px;
+    background-color: gray;
+}
+#slider span{
+    background-color: rgb(49, 49, 49);
 }
 .iap_tp_slider{
     position: relative;

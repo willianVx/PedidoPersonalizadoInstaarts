@@ -1,6 +1,6 @@
 jQuery(document).ready(function($){
     
-    //$(".b_quadro_na_parede").tooltip();
+    $(".b_quadro_na_parede").tooltip();
     //seleciona e renderiza a imagem do ambiente de acordo com o index 
     $('.loading_img').css('z-index', 1);
 

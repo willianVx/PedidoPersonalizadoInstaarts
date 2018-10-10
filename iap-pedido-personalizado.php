@@ -94,6 +94,9 @@ function iap_referal_init() {
 add_action( 'wp', 'iap_referal_init' );
 function iap_register_scripts(){
 
+	wp_enqueue_style('jquery_ui_style', plugins_url('PedidoPersonalizadoInstaarts/node_modules/jquery-ui-1.12.1.custom/jquery-ui.min.css'));
+	wp_enqueue_script('jquery_ui', plugins_url('node_modules/jquery-ui-1.12.1.custom/jquery-ui.min.js', __FILE__), 'jquery', 1.4, true);
+
 	wp_enqueue_style( 'bootstrap', '//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css');
 	wp_enqueue_style('estilo', plugins_url('PedidoPersonalizadoInstaarts/css/style.css'));
 	wp_enqueue_style('estilo_molduras', plugins_url('PedidoPersonalizadoInstaarts/css/molduras_na_parede.css'));
@@ -121,14 +124,15 @@ function iap_register_scripts(){
 		)
 	);
 	wp_enqueue_script('iap-index');
-	
+
 	wp_enqueue_script('bootstrap-modal', plugins_url('frontend/js/bootstrap.js', __FILE__), 'jquery', 1.0, true);
-	wp_enqueue_script('validaTamanho', plugins_url('frontend/js/validaTamanho.js', __FILE__), 'jquery', 1.0, true);
+	wp_enqueue_script('validaTamanho', plugins_url('frontend/js/validaTamanho.js', __FILE__), 'jquery', 1.4, true);
 	wp_enqueue_script('config-preco', plugins_url('frontend/js/config-preco.js',__FILE__),'jquery', 1.0, true);
 	wp_enqueue_script('modal_info', plugins_url('frontend/js/modal_info.js',__FILE__),'jquery', 1.0, true);
 	wp_enqueue_script('modal_help', plugins_url('frontend/js/modal_help.js',__FILE__),'jquery', 1.0, true);
 	wp_enqueue_script('webstorage', plugins_url('frontend/js/webstorage_get_image.js',__FILE__),'jquery', 1.0, true);
 	wp_enqueue_script('resolve_url_jquery', plugins_url('frontend/js/resolve_url.js',__FILE__), 'jquery', 1.0, true);
+	
 	wp_enqueue_script('upload_canvas_porta_retrato', plugins_url('frontend/js/upload_canvas_porta_retrato.js',__FILE__), 'jquery', 1.0, true);
 	wp_enqueue_script('show_banner', plugins_url('frontend/js/show_banner.js',__FILE__), 'jquery', 1.0, true);
 	wp_enqueue_script('portrait_images', plugins_url('frontend/js/portrait_images.js',__FILE__), 'jquery', 1.0, true);
