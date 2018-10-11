@@ -1,0 +1,25 @@
+//botao shortcode
+.iap_botao_pedido{
+    padding: 5px;
+    border-radius: 6px;
+    border: 1px solid #38b753;
+    transition: 0.3s;
+    :hover{
+        padding: 7px;
+    }
+    a{
+        color: #38b753!important;
+    }
+}
+
+.produto_home{
+    padding-left: 20px;
+    padding-right: 20px;
+    max-width: 255px;
+    border: 1px solid rgb(190, 190, 190);
+    text-align: center;
+    transition: 0.4s;
+    img{
+        max-width: 200px;
+    }
+}

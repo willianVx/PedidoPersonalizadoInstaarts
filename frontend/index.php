@@ -1,10 +1,8 @@
-
 <head>
   <?php  get_header(); ?>
 </head>
 
 <div id="envelope_container">
-  
         <div class="container envelope-pedido-personalizado" onload="formulaTotal()">
   <div class="row container-b">
     <!-- botoes editar - voltar - limpar --> 

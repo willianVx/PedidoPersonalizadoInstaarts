@@ -18,6 +18,8 @@ require 'iap-pedido-pt.php';
 require 'iap-pedido-fields.php';
 require 'iap-pedido-bd-connection.php';
 require 'iap_order_status.php';
+require 'iap_shortcode.php';
+require 'iap_shortcode_template.php';
 require 'inc/ajax.php';
 require 'inc/woo.php';
 require 'calculadoraProdutosInsta/iap-get-preco.php';
@@ -147,3 +149,9 @@ function iap_register_scripts(){
 
 	wp_enqueue_script('quadro_na_parede', plugins_url('frontend/js/quadro_na_parede.js',__FILE__),'jquery', 1.4, true);
 }
+
+//enfileira scripts globais 
+function iap_scripts_globais(){
+	wp_enqueue_style('iap_global', plugins_url('PedidoPersonalizadoInstaarts/css/global.css'));
+}
+add_action('wp_enqueue_scripts', 'iap_scripts_globais');
