@@ -99,7 +99,7 @@ jQuery(document).ready(function($){
             }
             var i = element.split(".");
                 console.log(i);
-            var img_src = i[0] +  i[1] + "-300x300" + "." + fileExtension(element); 
+            var img_src = i[0] + "." + i[1] + "-300x300" + "." + fileExtension(element); 
 
                 imagem_salva.src = img_src;
                 imagem_salva.dataset.srcOriginal = element;
