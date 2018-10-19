@@ -129,9 +129,9 @@ jQuery(document).ready(function($){
     $('.glyphicon-chevron-up').click(function(){
         let src = $(this)[0].parentElement.childNodes[0].attributes[2].nodeValue;
         if (iap_define_tipo() == 'photobloco'){
-            window.location.assign("https://instaarts.com/produto/photobloco/?img="+src);
+            window.location.assign("https://instaarts.com/product/photobloco/?img="+src);
         }else{
-            window.location.assign("https://instaarts.com/produto/quadro-personalizado-iap/?img="+src);
+            window.location.assign("https://instaarts.com/product/quadro-personalizado-iap/?img="+src);
         }
     });
 
