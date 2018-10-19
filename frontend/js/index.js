@@ -278,11 +278,13 @@ $("#comprar-botao-photobloco").click(function(){
 			submittingImage = false;
 			return;
 		}
+		/*
 		if (file["size"] > "32000000") {
 			modal_info.constructor("A imagem não pode ser maior que 30 MB", "aviso");
 			submittingImage = false;
 			return;
 		}
+		*/
 
 		form_data.append("file", $(this).prop("files")[0]);
 		form_data.append("action", "iap_imageUpload");
