@@ -50,10 +50,10 @@ jQuery(document).ready(function($){
                 window.location.assign("https://instaarts.com/photoblocos/");
             }
             if (new_image == 9) {
-                window.location.assign("https://instaarts.com/porta-retratos-2/");
+                window.location.assign("https://instaarts.com/porta-retratos-3/");
             }
             if (new_image == 0) {
-                window.location.assign("https://instaarts.com/produto/quadro-personalizado-iap");
+                window.location.assign("https://instaarts.com/product/quadro-personalizado-instaarts/");
             }
             if (new_image >= 1 && new_image <= 5) {
                 window.location.assign("https://instaarts.com/metacrilato/");
@@ -65,7 +65,7 @@ jQuery(document).ready(function($){
 
         $($image_banner_2).click(function(){
             if (iap_define_tipo() == 'imagem_acrilico') {
-                window.location.assign("https://instaarts.com/porta-retratos-2/");
+                window.location.assign("https://instaarts.com/porta-retratos-3/");
             }else{
                 window.location.assign("https://instaarts.com/photoblocos/");
             }

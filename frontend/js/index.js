@@ -245,9 +245,9 @@ $("#comprar-botao-photobloco").click(function(){
 			clearImage();
 			toggleDragDrop();
 			if (iap_define_tipo() == 'photobloco') {
-				window.location.assign("https://instaarts.com/produto/photobloco/");
+				window.location.assign("https://instaarts.com/product/photobloco/");
 			}else{
-				window.location.assign("https://instaarts.com/produto/quadro-personalizado-iap");
+				window.location.assign("https://instaarts.com/product/quadro-personalizado-instaarts/");
 			}
 		} else {
 			modal_info.constructor("Nada para limpar.", "aviso");
