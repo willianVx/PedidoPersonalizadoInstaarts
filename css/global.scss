@@ -1,14 +1,21 @@
 //botao shortcode
-.iap_botao_pedido{
-    padding: 5px;
-    border-radius: 6px;
-    border: 1px solid #38b753;
-    transition: 0.3s;
-    :hover{
-        padding: 7px;
-    }
+$cor_verde: #38b753;
+.iap_botao_pedido {
     a{
-        color: #38b753!important;
+        padding: 18px;
+        border-radius: 6px;
+        background-color: $cor_verde;
+        border: 1px solid $cor_verde;
+        color: white!important;
+        transition: 0.3s ease;
+        font-size: 1.3em;
+        font-family: sans-serif;
+        font-weight: bold;
+    }
+    
+    :hover{
+        padding: 22px;
+        background-color: white!important;
     }
 }
 
