@@ -98,7 +98,6 @@ jQuery(document).ready(function($){
                 return url.split('.').pop().split(/\#|\?/)[0];
             }
             var i = element.split(".");
-                console.log(i);
             var img_src = i[0] + "." + i[1] + "-300x300" + "." + fileExtension(element); 
 
                 imagem_salva.src = img_src;

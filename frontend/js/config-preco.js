@@ -153,6 +153,9 @@ jQuery(document).ready(function($){
         $("#s-metacrilato").html(TextoAcabamento);
     }
 
+    window.setAcabamento = setAcabamento;
+    window.printAcabamento = printAcabamento;
+
     $("#meta7mm").click(function(){
         setAcabamento("meta7mm");
         printAcabamento("Metacrilato 7mm");
@@ -501,8 +504,8 @@ jQuery(document).ready(function($){
                 modal_info.constructor('Erro no processamento. Tente mais tarde.', 'aviso');
             }
         });
-        
     }
+    window.enviaDados = enviaDados;
 //renderiza formas de parcelamento 
 var render_parcelamento = function(resposta){
 

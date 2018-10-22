@@ -11,7 +11,11 @@ jQuery(document).ready(function($) {
 		tamanahoProporcional();
 	});
 
-		function tamanahoProporcional() {
+		function tamanahoProporcional(controle) {
+			if (imgWidth == 0 | imgHeight == 0) {
+				return;
+			}
+			
 			$("#tamanhoPadrao").hide();
 			$("#tamanho_carregando").show();
 			var tamanho1 = imgWidth;
@@ -35,6 +39,12 @@ jQuery(document).ready(function($) {
 
 						$("#tamanhoY1").html(parseInt(tamanhoY[0], 10));
 							window.ylistaA = parseInt(tamanhoY[0], 10);
+							if (controle) {
+								tamanho.setTamanho(20, ylistaA);
+								setAcabamento("meta5mm");
+								printAcabamento("Metacrilato 5mm");
+								enviaDados();
+							}
 						$("#tamanhoY2").html(parseInt(tamanhoY[1], 10));
 							window.ylistaB = parseInt(tamanhoY[1], 10);
 						$("#tamanhoY3").html(parseInt(tamanhoY[2], 10));
@@ -58,6 +68,7 @@ jQuery(document).ready(function($) {
 				}
 			});
 		}
+		window.tamanahoProporcional = tamanahoProporcional;
 
 		function tamanhos_possiveis(tamanho1, tamanho2, tamanhoY){
 			
@@ -127,7 +138,7 @@ jQuery(document).ready(function($) {
 				if (key < 20) {
 					$(".texto_tamanho_image").html("Talvez sua imagem não tenha resolução para produzirmos nos tamanhos selecionados. Para mais informações entre em contato através do chat.");
 					$(".texto_tamanho_image").css("color","red");
-					$(".texto_aviso_res").hide();
+					//$(".texto_aviso_res").hide();
 				}else{
 					$(".texto_tamanho_image").html("Para alterar a proporção volte e click em editar.");
 					$(".texto_tamanho_image").css("color","gray");
@@ -223,7 +234,7 @@ jQuery(document).ready(function($) {
 					case 90:
 						break;									
 					default:
-						$("#tamanho1").css("color","#cccccc");
+						//$("#tamanho1").css("color","#cccccc");
 						$("#tamanho2").css("color","#cccccc");
 						$("#tamanho3").css("color","#cccccc");
 						$("#tamanho4").css("color","#cccccc");
@@ -232,7 +243,7 @@ jQuery(document).ready(function($) {
 						$("#tamanho7").css("color","#cccccc");
 						$("#tamanho8").css("color","#cccccc");
 
-						$("input[value~='20x18']").prop("disabled", true);
+						//$("input[value~='20x18']").prop("disabled", true);
 						$("input[value~='30x27']").prop("disabled", true);
 						$("input[value~='40x36']").prop("disabled", true);
 						$("input[value~='50x45']").prop("disabled", true);

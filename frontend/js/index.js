@@ -310,7 +310,7 @@ $("#comprar-botao-photobloco").click(function(){
 			},
 			success: function(result) {
 				$(".hud-botao").css("color","black");
-				console.log(result);
+				
 				switch (result) {
 					case "0":
 						modal_info.constructor('Ocorreu um erro ao enviar a imagem. Por favor tente novamente.', 'aviso');
@@ -327,7 +327,13 @@ $("#comprar-botao-photobloco").click(function(){
 						$("#image_id").val(results[0]);
 						imageElement.attr("src", results[1]);
 						originalImageSrc = imageElement.attr("src");
-						
+
+						$(imageElement).load(function(){
+							window.imgWidth = $(this)["0"].naturalWidth;
+							window.imgHeight = $(this)["0"].naturalHeight;
+							tamanahoProporcional(true);
+						});
+
 						if(fav().length == 8){
 							modal_info.constructor('Você já salvou muitas imagens!', 'aviso');
 						}else{
@@ -352,6 +358,7 @@ $("#comprar-botao-photobloco").click(function(){
 							cropper.cropBoxData.minHeight = imagem_atual_info.minCropBoxHeight(1000);
 						}
 						init_quadro_na_parede(originalImageSrc);
+						
 						break;
 				}
 				submittingImage = false;
@@ -400,7 +407,7 @@ $("#comprar-botao-photobloco").click(function(){
 	$("#b-tamanho").click(function(){
 		setTamanho();
 	});
-
+	
 	function setTamanho(){
 		window.imgWidth = imageElement["0"].naturalWidth;
 		window.imgHeight = imageElement["0"].naturalHeight;

@@ -492,12 +492,19 @@ i{
     font-size: 0.7em;
 }
 .b_quadro_na_parede{
+    transition: 0.3s ease;
+    color: white;
+    background-color: #38b753;
     width: 60px;
     height: 60px;
+    font-size: 0.8em;
+    line-height: initial;
     border-radius: 50%;
     position: relative;
     z-index: 3;
     margin-right: 12px;
+    cursor: pointer;
+    font-family: sans-serif;
 }
 .iap_img_ambiente{
     position: relative;
@@ -630,4 +637,15 @@ i{
     .sidebar_container{
         right: 2px;
     }
+}
+.numero_processo{
+    padding: 5px;
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    background-color: #38b753;
+    color: white;
+    position: absolute;
+    top: -6px;
+    right: -3px;
 }

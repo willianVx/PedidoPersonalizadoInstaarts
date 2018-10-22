@@ -2,8 +2,9 @@
     function quandro_na_parede(){
         ?>
             <!-- Large modal -->
-            <button class="b_quadro_na_parede disabled" data-toggle="modal" data-target=".iap_modal_quadro_na_parede" title = "Você pode visualizar o seu quadro em um ambiente aqui!" disabled>
-                <img  class="b_quadro_na_parede_img_icon" src="<?php echo plugins_url('img/molduras_quadro_na_parede/couch-icon.svg', __FILE__ ); ?>" alt="">
+            <button class="b_quadro_na_parede disabled" data-toggle="modal" data-target=".iap_modal_quadro_na_parede" title = "Veja como vai ficar seu quadro pronto!" disabled>
+                <!-- <img  class="b_quadro_na_parede_img_icon" src="<?php //echo plugins_url('img/molduras_quadro_na_parede/couch-icon.svg', __FILE__ ); ?>" alt=""> -->
+                Ver resultado
             </button>
 
             <div class="modal fade iap_modal_quadro_na_parede" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">

@@ -12,7 +12,7 @@
 
 if ( ! defined( 'ABSPATH' ) ) {
         exit; // Exit if accessed directly
-    }
+}
     
 require 'iap-pedido-pt.php';
 require 'iap-pedido-fields.php';
@@ -32,7 +32,7 @@ require 'frontend/quadro_na_parede.php';
 
 /*
  * Verifica se o WooCommerce tá presente
- */
+*/
 
 if ( class_exists( 'WooCommerce' ) ) {
 
@@ -47,8 +47,6 @@ if ( class_exists( 'WooCommerce' ) ) {
 	return;
 
 }
-
-
 
 //Carrega Template na página do produto
 function iap_referal_init() {

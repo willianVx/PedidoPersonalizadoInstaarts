@@ -11,9 +11,7 @@
     body {
       min-height: 100vh;
     }
-    p{
-      font-size: 75%;
-    }
+   
     .padleft {
       padding: 0px 0px 0px 20px;
     }
@@ -37,9 +35,9 @@
 
     .hud-botao {
       position: relative;
-      width: 190px;
+      width: 200px;
       height: 60px;
-      font-size: 13px;
+      font-size: 15px;
       color: rgb(189, 189, 189);
       margin-right: 12px;
     }

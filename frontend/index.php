@@ -64,6 +64,7 @@
         </span>
         <div class="iap_box_upload">
         Clique aqui para enviar sua imagem
+        <span class="numero_processo" style="right: 16px; top: -35px; font-size: 0.8em; padding: 2px;">1</span>
         </div>
         
 
@@ -179,15 +180,15 @@
 
           </div>
 
-        <button type="button" id="b-tamanho" class="btn btn-default btn-lg hud-botao" data-toggle="modal" data-target="#tamanho">Tamanho <span id="s-tamanho"> </span> </button>
+        <button type="button" id="b-tamanho" class="btn btn-default btn-lg hud-botao" data-toggle="modal" data-target="#tamanho">Tamanho <span id="s-tamanho"> </span> <span class="numero_processo">2</span></button>
 
-        <button type="button" id="b-acabamento" class="btn btn-default btn-lg hud-botao" data-toggle="modal" data-target="#material"><span id="s-metacrilato"> Acabamento</span></button>
+        <button type="button" id="b-acabamento" class="btn btn-default btn-lg hud-botao" data-toggle="modal" data-target="#material"><span id="s-metacrilato"> Acabamento </span> <span class="numero_processo">3</span></button>
         
         <?php
           quandro_na_parede();
         ?>
 
-        <button type="button" id="b-moldura" class="btn btn-default btn-lg hud-botao" data-toggle="modal" data-target="#moldura"><span id="s-moldura">Moldura</span></button>
+        <button type="button" id="b-moldura" class="btn btn-default btn-lg hud-botao" data-toggle="modal" data-target="#moldura"><span id="s-moldura">Moldura</span><span class="numero_processo">4</span></button>
 
         <button id="comprar-botao" type="button" class="btn btn-default btn-lg hud-botao">Comprar <span id="s-preco" class="s-preco"></span> <br>
           

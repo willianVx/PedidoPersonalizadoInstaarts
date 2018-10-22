@@ -14,7 +14,7 @@ function iap_pedido_short($atts){
 
     //$template = new shortcode_template;
 
-    return '<span class="iap_botao_pedido"> <a href="'.get_permalink($produto_ID).'">Envie sua imagem!</a> </span>';
+    return '<span class="iap_botao_pedido"> <a href="'.get_permalink($produto_ID).'">Faça aqui!</a> </span>';
     //return $template->construct('PedidoPersonalizado');
 }
 add_shortcode('pedido_link', 'iap_pedido_short');
@@ -28,7 +28,7 @@ function iap_pedido_short_photobloco($atts){
     $produto = get_page_by_title('Photobloco', OBJECT, 'product');
     $produto_ID  = $produto -> {'ID'};
 
-    return '<span class="iap_botao_pedido"> <a href="'.get_permalink($produto_ID).'">Envie sua imagem</a> </span>';
+    return '<span class="iap_botao_pedido"> <a href="'.get_permalink($produto_ID).'">Faça aqui!</a> </span>';
 }
 add_shortcode('pedido_link_photobloco', 'iap_pedido_short_photobloco');
 
@@ -42,7 +42,7 @@ function iap_pedido_short_porta_retratos($atts){
     $produto = get_page_by_title('Kit de porta-retratos', OBJECT, 'product');
     $produto_ID  = $produto -> {'ID'};
 
-    return '<span class="iap_botao_pedido"> <a href="'.get_permalink($produto_ID).'">Envie sua imagem</a> </span>';
+    return '<span class="iap_botao_pedido"> <a href="'.get_permalink($produto_ID).'">Faça aqui!</a> </span>';
 }
 add_shortcode('pedido_link_porta_retratos', 'iap_pedido_short_porta_retratos');
 
@@ -55,6 +55,6 @@ function iap_pedido_short_porta_retratos_13_13($atts){
     $produto = get_page_by_title('kit-de-porta-retratos-13x13', OBJECT, 'product');
     $produto_ID  = $produto -> {'ID'};
 
-    return '<span class="iap_botao_pedido"> <a href="'.get_permalink($produto_ID).'">Envie sua imagem</a> </span>';
+    return '<span class="iap_botao_pedido"> <a href="'.get_permalink($produto_ID).'">Faça aqui!</a> </span>';
 }
 add_shortcode('pedido_link_porta_retratos_13_13', 'iap_pedido_short_porta_retratos_13_13');
