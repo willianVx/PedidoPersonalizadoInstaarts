@@ -3,7 +3,7 @@
 </head>
 
 <div id="envelope_container">
-        <div class="container envelope-pedido-personalizado" onload="formulaTotal()">
+  <div class="container envelope-pedido-personalizado" onload="formulaTotal()">
   <div class="row container-b">
     <!-- botoes editar - voltar - limpar --> 
     <div class="col-md-2 iap_b_painel">

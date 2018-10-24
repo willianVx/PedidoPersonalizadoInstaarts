@@ -67,5 +67,7 @@ jQuery(document).ready(function($) {
     function continuar(){
         modal_info.$modal.modal('hide');
     }
+    //modal_info.constructor('<?php echo do_shortcode("[sibwp_form id=2]");?>', 'aviso');
+
     return window.modal_info = modal_info;
 });
