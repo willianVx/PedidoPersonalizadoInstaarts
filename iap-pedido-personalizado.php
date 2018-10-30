@@ -6,7 +6,7 @@
  * Plugin URI: https://instaarts.com.br
  * Description: Ferramenta para quadros personalizados, implementa três produtos: quadro metacrilato personalizado, photobloco e porta-retratos. 
  * Author URI: Willian De Oliveira 
- * Version: 1.8 BETA
+ * Version: 1.9 BETA
  * Licence: GPL2
  */
 

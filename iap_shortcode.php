@@ -5,7 +5,7 @@
 */
 //shortcode para pedido personalizado instaarts [pedido_link PedidoPersonalizado="iap"]
 
-// [pedido_link foo="foo-value"]
+// [pedido_link link_personalizado=" "]
 function iap_pedido_short( $atts ) {
 	$a = shortcode_atts( array(
         'link_personalizado' => '/'

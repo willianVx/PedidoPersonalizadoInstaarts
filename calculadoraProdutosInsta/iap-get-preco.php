@@ -2,18 +2,18 @@
     class CalculaPreco
     {
         private $precoBaseAcabamento = array(
-            'meta7mm' => 2467, 
-            'meta5mm' => 1771,
-            'meta4mm' => 1392,
-            'meta3mm' => 1265, 
-            'acm5mm' => 1518, 
-            'uvPS' => 1265, 
-            'uvACM' => 1553, 
-            'papelAlgodao' => 552, 
-            'papelFosco' => 414,
-            'papelAcetinato' => 460,
-            'papelBrilhante' => 437,
-            'papelCanvas' => 633,
+            'meta7mm' => 2837, 
+            'meta5mm' => 2037,
+            'meta4mm' => 1601,
+            'meta3mm' => 1455, 
+            'acm5mm' => 1746, 
+            'uvPS' => 1455, 
+            'uvACM' => 1763, 
+            'papelAlgodao' => 635, 
+            'papelFosco' => 506,
+            'papelAcetinato' => 506,
+            'papelBrilhante' => 506,
+            'papelCanvas' => 728,
         );
 
         private $precoBaseMoldura;
@@ -56,17 +56,17 @@
             } 
 
             if($tipoDeMoldura == 1){
-                    $precoBaseMoldura = 160;
+                    $precoBaseMoldura = 180;
                     return $precoBaseMoldura;
             }  
 
             if($tipoDeMoldura == 2){
-                    $precoBaseMoldura = 320;
+                    $precoBaseMoldura = 360;
                     return $precoBaseMoldura;
             }
 
             if($tipoDeMoldura == 3){
-                    $precoBaseMoldura = 480;
+                    $precoBaseMoldura = 540;
                     return $precoBaseMoldura;
             }
         }
