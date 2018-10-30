@@ -865,6 +865,9 @@
 
     sidebar_saved_images();
     //fechando função --> iap_init_index
+
+    //conteúdo do rodapé 
+    //iap_content();
     
     //call the wp foooter
     get_footer();

@@ -4,20 +4,38 @@
 *
 */
 //shortcode para pedido personalizado instaarts [pedido_link PedidoPersonalizado="iap"]
+
+// [pedido_link foo="foo-value"]
+function iap_pedido_short( $atts ) {
+	$a = shortcode_atts( array(
+        'link_personalizado' => '/'
+    ), $atts );
+    
+    $produto = get_page_by_title('Quadro Personalizado Instaarts', OBJECT, 'product');
+    $produto_ID  = $produto -> {'ID'};
+
+    $link =  get_permalink($produto_ID) . "/?img=" . $a['link_personalizado'];
+
+    //return "link_personalizado = {$a['link_personalizado']}";
+    return '<span class="iap_botao_pedido"> <a href="'. $link .'">Faça aqui!</a> </span>';
+}
+add_shortcode( 'pedido_link', 'iap_pedido_short' );
+
+/*
 function iap_pedido_short($atts){
     $a = shortcode_atts(array(
-        'PedidoPersonalizado' => 'iap'
+        'pedido_personalizado' => 'iap',
+        'link_personalizado' => '/'
     ), $atts);
 
     $produto = get_page_by_title('Quadro Personalizado Instaarts', OBJECT, 'product');
     $produto_ID  = $produto -> {'ID'};
 
-    //$template = new shortcode_template;
-
-    return '<span class="iap_botao_pedido"> <a href="'.get_permalink($produto_ID).'">Faça aqui!</a> </span>';
-    //return $template->construct('PedidoPersonalizado');
+    //return '<span class="iap_botao_pedido"> <a href="'. get_permalink($produto_ID) . $a['link_personalizado'] .'">Faça aqui!</a> </span>';
+    return "pedido_personalizado = {$a['pedido_personalizado']}";
 }
 add_shortcode('pedido_link', 'iap_pedido_short');
+*/
 
 //shortcode para pedido personalizado instaarts Photobloco [pedido_link_photobloco]
 function iap_pedido_short_photobloco($atts){

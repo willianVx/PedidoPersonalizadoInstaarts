@@ -6,7 +6,7 @@
  * Plugin URI: https://instaarts.com.br
  * Description: Ferramenta para quadros personalizados, implementa três produtos: quadro metacrilato personalizado, photobloco e porta-retratos. 
  * Author URI: Willian De Oliveira 
- * Version: 1.7 BETA
+ * Version: 1.8 BETA
  * Licence: GPL2
  */
 
@@ -29,6 +29,7 @@ require 'frontend/pacote_porta_retrato.php';
 require 'frontend/save_images.php';
 require 'frontend/side_banner.php';
 require 'frontend/quadro_na_parede.php';
+require 'frontend/iap_content.php';
 
 /*
  * Verifica se o WooCommerce tá presente
@@ -100,6 +101,7 @@ function iap_register_scripts(){
 	wp_enqueue_style( 'bootstrap', '//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css');
 	wp_enqueue_style('estilo', plugins_url('PedidoPersonalizadoInstaarts/css/style.css'));
 	wp_enqueue_style('estilo_molduras', plugins_url('PedidoPersonalizadoInstaarts/css/molduras_na_parede.css'));
+	wp_enqueue_style('estilo_iap_content', plugins_url('PedidoPersonalizadoInstaarts/css/iap_content.css'));
 
 	wp_enqueue_style('novo-estilo', plugins_url('PedidoPersonalizadoInstaarts/css/new_style.css'));
 
@@ -146,6 +148,8 @@ function iap_register_scripts(){
 	wp_enqueue_script('localiza_autor', plugins_url('frontend/js/localiza_autor.js',__FILE__),'jquery', 1.4, true);
 
 	wp_enqueue_script('quadro_na_parede', plugins_url('frontend/js/quadro_na_parede.js',__FILE__),'jquery', 1.4, true);
+
+	wp_enqueue_script('iap_content', plugins_url('frontend/js/iap_content.js',__FILE__),'jquery', 1.4, true);
 }
 
 //enfileira scripts globais 

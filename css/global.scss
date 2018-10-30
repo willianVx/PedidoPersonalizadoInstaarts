@@ -1,5 +1,5 @@
 //botao shortcode
-$cor_verde: #38b753;
+$cor_verde: #BC4466;
 .iap_botao_pedido {
     a{
         padding: 18px;
@@ -16,6 +16,7 @@ $cor_verde: #38b753;
     :hover{
         padding: 22px;
         background-color: white!important;
+        color: $cor_verde!important;
     }
 }
 
