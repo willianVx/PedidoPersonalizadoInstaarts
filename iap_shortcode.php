@@ -14,7 +14,7 @@ function iap_pedido_short( $atts ) {
     $produto = get_page_by_title('Quadro Personalizado Instaarts', OBJECT, 'product');
     $produto_ID  = $produto -> {'ID'};
 
-    $link =  get_permalink($produto_ID) . "/?img=" . $a['link_personalizado'];
+    $link =  get_permalink($produto_ID) . $a['link_personalizado'];
 
     //return "link_personalizado = {$a['link_personalizado']}";
     return '<span class="iap_botao_pedido"> <a href="'. $link .'">Faça aqui!</a> </span>';
