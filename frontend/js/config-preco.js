@@ -158,6 +158,7 @@ jQuery(document).ready(function($){
 
     $("#meta7mm").click(function(){
         setAcabamento("meta7mm");
+        load_iap_content("meta7mm");
         printAcabamento("Metacrilato 7mm");
         enviaDados();
         this.parametro = false;
@@ -166,30 +167,28 @@ jQuery(document).ready(function($){
     $("#meta5mm").click(function(){
         setAcabamento("meta5mm");
         printAcabamento("Metacrilato 5mm");
+        load_iap_content("meta5mm");
         enviaDados();
     });
 
     $("#meta3mm").click(function(){
         setAcabamento("meta3mm");
         printAcabamento("Metacrilato 3mm");
+        load_iap_content("meta3mm");
         enviaDados();
     });
 
     $("#meta4mm").click(function(){
         setAcabamento("meta4mm");
         printAcabamento("Metacrilato 4mm PS");
-        enviaDados();
-    });
-
-    $("#meta3mm").click(function(){
-        setAcabamento("meta3mm");
-        printAcabamento("Metacrilato 3mm");
+        load_iap_content("meta4mm");
         enviaDados();
     });
 
     $("#acm5mm").click(function(){
         setAcabamento("acm5mm");
         printAcabamento("Metacrilato ACM");
+        load_iap_content("acm5mm");
         enviaDados();
     });
 
@@ -198,6 +197,7 @@ jQuery(document).ready(function($){
         checaCompatibilidade();
         printAcabamento("Papel Algodão");
         renderiza_moldura();
+        load_iap_content("papelAlgodao");
         enviaDados();
         this.parametro = true;
     });
@@ -207,6 +207,7 @@ jQuery(document).ready(function($){
         checaCompatibilidade();
         printAcabamento("papel Acetinato");
         renderiza_moldura();
+        load_iap_content("papelAcetinato");
         enviaDados();
     });
 
@@ -215,6 +216,7 @@ jQuery(document).ready(function($){
         checaCompatibilidade();
         printAcabamento("Papel Brilhante");
         renderiza_moldura();
+        load_iap_content("papelBrilhante");
         enviaDados();
     });
 
@@ -223,24 +225,28 @@ jQuery(document).ready(function($){
         checaCompatibilidade();
         printAcabamento("Papel Fosco");
         renderiza_moldura();
+        load_iap_content("papelFosco");
         enviaDados();
     });
 
     $("#papelCanvas").click(function(){
         setAcabamento("papelCanvas");
         printAcabamento("Canvas");
+        load_iap_content("papelCanvas");
         enviaDados();
     });
 
     $("#uvPS").click(function(){
         setAcabamento("uvPS");
         printAcabamento("Impressão UV PS");
+        load_iap_content("uvPS");
         enviaDados();
     });
 
     $("#uvACM").click(function(){
         setAcabamento("uvACM");
         printAcabamento("Impressão UV ACM");
+        load_iap_content("uvACM");
         enviaDados();
     });
 

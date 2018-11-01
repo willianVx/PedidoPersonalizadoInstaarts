@@ -7,9 +7,9 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 function iap_order() {
 	//photobloco 10x10 por 3x 33.00
-	$photobloco_10x10 = [99.00, 33.00];
+	$photobloco_10x10 = [119.90, 39.96];
 	//photobloco 10x15 por 4 x37,25
-	$photobloco_10x15 = [149.00, 37.25];
+	$photobloco_10x15 = [169.90, 56.63];
 
  	if(isset($_POST['d1'])){
 		 /*
@@ -244,10 +244,10 @@ function iap_valor_photobloco($photobloco){
 	$photobloco_str_10x15 = "photobloco 10x15cm";
 
 	if ($photobloco == $photobloco_str_10x10) {
-		return 99;
+		return 119.90;
 	}
 	if ($photobloco == $photobloco_str_10x15) {
-		return 149;
+		return 169.90;
 	}
 	if ($photobloco_str_10x10 != $photobloco || $photobloco_str_10x15 != $photobloco ) {
 		return 362;
@@ -260,13 +260,13 @@ function iap_valor_porta_retrato($valor){
 	$porta_retrato_13x13 = " R$ 119,90";
 
 	if ($porta_retrato_13x18 == $valor) {
-		return 149.90;
+		return 169.90;
 	}
 	if ($porta_retrato_13x13 == $valor) {
-		return 119.90;
+		return 129.90;
 	}
 	else{
-		return 149.90;
+		return 169.90;
 	}
 }
 /*

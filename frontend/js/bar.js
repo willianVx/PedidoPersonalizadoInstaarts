@@ -59,14 +59,14 @@ jQuery(document).ready(function($) {
 		hud_produtos($(this));
 	});
 	//efeitos para botoes dos produtos 
-
+	/*
 	$('.iap_box_upload').hover(function(){
 		$(this).css('background-color', '#3B9D4E');
 	});
 	$('.iap_box_upload').mouseout(function(){
 		$(this).css('background-color', '#45b75b');
 	});
-
+	*/
 	function hud_produtos(produto){
 		$("#bMeta").removeClass("navbar_click");
 		$("#bPrints").removeClass("navbar_click");

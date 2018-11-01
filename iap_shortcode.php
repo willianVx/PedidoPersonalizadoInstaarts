@@ -21,22 +21,6 @@ function iap_pedido_short( $atts ) {
 }
 add_shortcode( 'pedido_link', 'iap_pedido_short' );
 
-/*
-function iap_pedido_short($atts){
-    $a = shortcode_atts(array(
-        'pedido_personalizado' => 'iap',
-        'link_personalizado' => '/'
-    ), $atts);
-
-    $produto = get_page_by_title('Quadro Personalizado Instaarts', OBJECT, 'product');
-    $produto_ID  = $produto -> {'ID'};
-
-    //return '<span class="iap_botao_pedido"> <a href="'. get_permalink($produto_ID) . $a['link_personalizado'] .'">Faça aqui!</a> </span>';
-    return "pedido_personalizado = {$a['pedido_personalizado']}";
-}
-add_shortcode('pedido_link', 'iap_pedido_short');
-*/
-
 //shortcode para pedido personalizado instaarts Photobloco [pedido_link_photobloco]
 function iap_pedido_short_photobloco($atts){
     $a = shortcode_atts(array(
