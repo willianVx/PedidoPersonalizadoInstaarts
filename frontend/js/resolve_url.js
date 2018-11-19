@@ -60,7 +60,7 @@ var porta_retrato_13x13_config = {
     d_porta_retrato_tamanho: "13x18cm",
     c_width: 69,
     d_height: 53,
-    valor: " R$ 169,90",
+    valor: "R$ 169,90",
 
     ligar: function () {
 
@@ -69,7 +69,7 @@ var porta_retrato_13x13_config = {
         this.d_porta_retrato_tamanho = "13x13cm";
         this.c_width = 69,
         this.d_height = 69,
-        this.valor = " R$ 129,90"
+        this.valor = "R$ 129,90"
 
     }
 

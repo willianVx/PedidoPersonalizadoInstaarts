@@ -256,8 +256,8 @@ function iap_valor_photobloco($photobloco){
 // define valor do porta retrato de acordo com as informações da quantidade 
 function iap_valor_porta_retrato($valor){
 
-	$porta_retrato_13x18 = " R$ 149,90";
-	$porta_retrato_13x13 = " R$ 119,90";
+	$porta_retrato_13x18 = " R$ 169,90";
+	$porta_retrato_13x13 = " R$ 129,90";
 
 	if ($porta_retrato_13x18 == $valor) {
 		return 169.90;
