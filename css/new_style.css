@@ -114,6 +114,7 @@
 .sidebar_container{
     position: relative;
     float: right;
+    margin-bottom: 100px;
 }
 #sidebar_porta_retrato{
 

@@ -10,7 +10,7 @@
             </div>
                         <div id="add_novo_quadro">
                             <img class="img_add_novo_quadro" src="<?php echo plugins_url( 'img/add_novo_quadro.png', __FILE__ ); ?>" border="0" />
-                            <div id="quadros_restantes">Adicionar imagem <span id="quadros_restantes_numero">0 </span>de 5</div>
+                            <div id="quadros_restantes">Adicionar imagem <br /><span id="quadros_restantes_numero">0 </span>de 5</div>
                         </div>
             </div>
                 <button class="btn btn-default b_comprar_porta_retrato">Comprar<span></span></button>
@@ -23,7 +23,7 @@
                     </div>
                     <div class="modal-body">
                         <img class="iap_porta_retrato_carregando" src="<?php echo plugins_url( 'img/carregando.gif', __FILE__ ); ?>" border="0" />
-                        Carregando imagem <span class="contador_carregando_pr"> 0 </span> de 5
+                        Carregando imagem <br / <span class="contador_carregando_pr"> 0 </span> de 5
                         <div id="iap_user_img"></div>
                     </div>
                     <div class="modal-footer"></div>

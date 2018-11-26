@@ -175,7 +175,7 @@
             </div>
 
             <div class="">
-              <button id="iap_crop"  class="btn btn-success btn-lg col-lg-3"><span class="glyphicon glyphicon-scissors"></span>Cortar</button>
+              <button id="iap_crop"  class="btn btn-default btn-lg col-lg-3 btn-iap-comprar"><span class="glyphicon glyphicon-scissors"></span>Cortar</button>
             </div>
 
           </div>
@@ -190,7 +190,7 @@
 
         <button type="button" id="b-moldura" class="btn btn-default btn-lg hud-botao" data-toggle="modal" data-target="#moldura"><span id="s-moldura">Moldura</span></button>
 
-        <button id="comprar-botao" type="button" class="btn btn-default btn-lg hud-botao">Comprar <span id="s-preco" class="s-preco"></span> <br>
+        <button id="comprar-botao" type="button" class="btn btn-default btn-lg hud-botao ">Comprar <span id="s-preco" class="s-preco"></span> <br>
           
           <span class="iap_parcelamento"></span>
         </button>

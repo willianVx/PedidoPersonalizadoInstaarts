@@ -445,8 +445,8 @@ $("#comprar-botao-photobloco").click(function(){
 		$("#img_porta_retrato").show();
 		
 		$("#main_carregando").hide();
-		$("#drop-area").addClass("col-lg-8");
-		$(".img-upload-line").addClass("col-lg-8");
+		$("#drop-area").addClass("col-lg-10");
+		$(".img-upload-line").addClass("col-lg-10");
 		$("#sidebar").show();
 		$("#reset-image-button").hide();
 		$("#clear-image-button").hide();
@@ -466,7 +466,7 @@ $("#comprar-botao-photobloco").click(function(){
 			$("#iap_crop_porta_retrato").show();
 			$("#iap_reiniciar_porta_retrato").show();
 
-			$(".drop-zone").css("width","500px");
+			$(".drop-zone").css("width","60%");
 
 			$("#editable-image").css("width","500px");
 			$(".img-upload").css("width","500px");
@@ -485,9 +485,7 @@ $("#comprar-botao-photobloco").click(function(){
 		}
 
 		if ($(window).width() <= 425) {
-
 			var $sidebar = $("#sidebar");
-
 		}
 
 	}
