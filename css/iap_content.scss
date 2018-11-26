@@ -49,6 +49,14 @@ $cor_texto: #6e6e6e;
         transition: 0.4s ease;
     }
 }
+
+@media(max-width:1199px){
+    .iap_products_content{
+        .col-lg-6{
+            text-align: center;
+        }
+    }
+}
 .iap_display_none{
     display: none;
 }
@@ -105,4 +113,34 @@ $cor_texto: #6e6e6e;
             }
         }
     }
+}
+.iap_garantia_devolucao{
+    position: relative;
+    bottom: 50px;
+    font-size: 1.7em;
+    img{
+        max-width: 155px;
+    }
+    .col-lg-4{
+        text-align: center;
+    }
+    .col-lg-8{
+        padding: 15px;
+        border-radius: 12px;
+        background-color: #f7f7f7;
+        max-width: 58%;
+    }
+}
+
+@media(max-width:1199px){
+
+    .iap_garantia_devolucao{
+        .col-lg-8{
+            left: 0;
+            right: 0;
+            margin: auto;
+            top: 10px;
+        }
+    }
+
 }

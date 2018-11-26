@@ -6,16 +6,16 @@
   <div class="container envelope-pedido-personalizado" onload="formulaTotal()">
   <div class="row container-b">
     <!-- botoes editar - voltar - limpar --> 
-    <div class="col-md-2 iap_b_painel">
+    <div class="col-md-2 iap_b_painel" style="display:none;">
       <div class="row">
     
         <div class="col-md-12">
-          <button id="reset-image-button" class="btn btn-warning btn-block button-panel">
+          <button id="reset-image-button" class="btn btn-default btn-block button-panel">
             <span class="glyphicon glyphicon-repeat pull-left padleft" aria-hidden="true"></span> Voltar
           </button>
         </div>
         <div class="col-md-12">
-          <button id="clear-image-button" class="btn btn-danger btn-block button-panel">
+          <button id="clear-image-button" class="btn btn-default btn-block button-panel">
             <span class="glyphicon glyphicon-remove pull-left padleft" aria-hidden="true"></span> Limpar
           </button>
         </div>
@@ -32,7 +32,7 @@
     ?>
     </div> <!-- fim botoes --> 
 
-    <div class="col-lg-10 container_iap">
+    <div class="col-lg-12 container_iap">
     
       <input type="hidden" name="image_url" id="image_url">
       <input type="hidden" name="image_id" id="image_id">
@@ -862,6 +862,7 @@
 <div class="wp_footer">
   
   <?php
+    iap_garantia_devolucao();
 
     sidebar_saved_images();
     //fechando função --> iap_init_index

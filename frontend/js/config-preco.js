@@ -502,7 +502,7 @@ jQuery(document).ready(function($){
                     //$("#s-preco").html(data);
                     resposta = JSON.parse(data);
                     render_parcelamento(resposta);
-                    $("#comprar-botao").addClass("btn-success");
+                    $("#comprar-botao").addClass("btn-iap-comprar");
                     $("#comprar-botao").css('color', 'white');
                 }
             },

@@ -90,6 +90,8 @@ $("#comprar-botao-photobloco").click(function(){
 	var canvas = document.getElementById('iap_crop_image');
 	var dataUrl = canvas.toDataURL("image/png");
 
+	console.log(imagemOriginal);
+
 	//faz o tratamento da resposta da imagem cropada e envia o pedido 
 		var crop_image_data = JSON.stringify(window.meta_data_canvas);
 		$.ajax({

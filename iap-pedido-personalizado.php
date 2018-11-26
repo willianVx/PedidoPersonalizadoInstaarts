@@ -19,7 +19,6 @@ require 'iap-pedido-fields.php';
 require 'iap-pedido-bd-connection.php';
 require 'iap_order_status.php';
 require 'iap_shortcode.php';
-require 'iap_shortcode_template.php';
 require 'inc/ajax.php';
 require 'inc/woo.php';
 require 'calculadoraProdutosInsta/iap-get-preco.php';
@@ -30,6 +29,7 @@ require 'frontend/save_images.php';
 require 'frontend/side_banner.php';
 require 'frontend/quadro_na_parede.php';
 require 'frontend/iap_content.php';
+require 'frontend/garantia_devolucao.php';
 
 /*
  * Verifica se o WooCommerce tá presente
@@ -86,10 +86,28 @@ function iap_referal_init() {
 	if( is_single($produto->ID) ){	
 		//enfileira os scripts
 		add_action('wp_enqueue_scripts', 'iap_register_scripts');
+		//adiciona gtag do google ao header 
+		add_action('wp_head', 'iap_add_header_content');
 		$dir = plugin_dir_path( __FILE__ );
 		include($dir."frontend/index.php");
 		die();
 	}
+}
+
+
+//retorna conteudo para o header do pedido personalizado
+function iap_add_header_content(){
+	?>
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-75867908-2"></script>
+		<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-75867908-2');
+		</script>
+	<?php
 }
 
 add_action( 'wp', 'iap_referal_init' );

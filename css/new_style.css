@@ -50,7 +50,7 @@
     transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 .iap_box_upload:hover{
-    background-color: #BC4466;
+    background-color: #38974b;
 }
 .navbar a{
     color: rgb(255, 255, 255);
@@ -131,6 +131,13 @@
     width: 263px;
     height: 46px;
     margin-bottom: 50px;
+}
+.btn-iap-comprar{
+    border-color: #007bff;
+    background-color:#007bff;
+}
+.btn-iap-comprar:hover{
+    background-color: #1b6bc0;
 }
 #quadros_restantes{
     position: relative;
@@ -498,7 +505,7 @@ i{
 .b_quadro_na_parede{
     transition: 0.3s ease;
     color: white;
-    background-color: #BC4466;
+    background-color: #45b75b;
     width: 60px;
     height: 60px;
     font-size: 0.8em;
@@ -576,7 +583,9 @@ i{
         top: -460px;
         right: 130px;
     }
-
+    #envelope_container{
+        margin-top: 200px!important;
+    }
 }
 @media(max-width:991px){
     .sidebar_container{
