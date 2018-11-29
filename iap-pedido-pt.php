@@ -6,8 +6,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 function iap_register_post_type(){
 
-	$singular = 'pedido personalizado';
-	$plural   = 'pedidos personalizados'; 
+	$singular = 'Pedido personalizado';
+	$plural   = 'Pedidos personalizados'; 
 
 	$labels   = array(
 		'name' 		    => $plural,

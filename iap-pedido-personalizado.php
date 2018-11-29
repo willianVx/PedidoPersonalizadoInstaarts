@@ -78,7 +78,6 @@ function iap_referal_init() {
 		add_action('wp_enqueue_scripts', 'iap_register_scripts');
 		$dir = plugin_dir_path( __FILE__ );
 		include($dir."frontend/index.php");
-		
 		die();
 	}
 	

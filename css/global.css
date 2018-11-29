@@ -1,1 +1,33 @@
-.iap_botao_pedido a{padding:18px;border-radius:6px;background-color:#bc4466;border:1px solid #bc4466;color:#fff !important;transition:.3s ease;font-size:1.3em;font-family:sans-serif;font-weight:bold}.iap_botao_pedido :hover{padding:22px;background-color:#fff !important;color:#bc4466 !important}.produto_home{padding-left:20px;padding-right:20px;max-width:255px;border:1px solid #bebebe;text-align:center;transition:.4s}.produto_home img{max-width:200px}/*# sourceMappingURL=global.css.map */
+.iap_botao_pedido a {
+  padding: 18px;
+  border-radius: 6px;
+  background-color: #BC4466;
+  border: 1px solid #BC4466;
+  color: white !important;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+  font-size: 1.3em;
+  font-family: sans-serif;
+  font-weight: bold;
+}
+
+.iap_botao_pedido :hover {
+  padding: 22px;
+  background-color: white !important;
+  color: #BC4466 !important;
+}
+
+.produto_home {
+  padding-left: 20px;
+  padding-right: 20px;
+  max-width: 255px;
+  border: 1px solid #bebebe;
+  text-align: center;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.produto_home img {
+  max-width: 200px;
+}
+/*# sourceMappingURL=global.css.map */

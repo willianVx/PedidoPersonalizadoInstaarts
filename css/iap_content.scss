@@ -119,16 +119,11 @@ $cor_texto: #6e6e6e;
     bottom: 50px;
     font-size: 1.7em;
     img{
-        max-width: 155px;
+        max-width: 60px;
+        padding-bottom: 10px;
     }
-    .col-lg-4{
+    .col-lg-12{
         text-align: center;
-    }
-    .col-lg-8{
-        padding: 15px;
-        border-radius: 12px;
-        background-color: #f7f7f7;
-        max-width: 58%;
     }
 }
 
