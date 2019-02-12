@@ -1,0 +1,182 @@
+.m_londres_tabaco{
+    border: 10px solid transparent;
+    border-image:url(https://instaarts.com/wp-content/uploads/2018/07/molduras_instaarts_4.png);
+    border-image-repeat: round;
+    border-image-slice: 30;
+}
+.m_nova_york_preta{
+    border: 30px solid transparent;
+    border-image-repeat: round;
+    border-image-slice: 30;
+    background: #3c3c3c;
+    background: -moz-linear-gradient(top, #3c3c3c 0%, #4f4f4f 33%, #4f4f4f 67%, #4f4f4f 67%, #3c3c3c 100%);
+    background: -webkit-linear-gradient(top, #3c3c3c 0%,#4f4f4f 33%,#4f4f4f 67%,#4f4f4f 67%,#3c3c3c 100%);
+    background: linear-gradient(to bottom, #3c3c3c 0%,#4f4f4f 33%,#4f4f4f 67%,#4f4f4f 67%,#3c3c3c 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3c3c3c', endColorstr='#3c3c3c',GradientType=0 );
+}
+.m_nova_york_branca{        
+    border: 30px solid transparent;
+    border-image-repeat: round;
+    border-image-slice: 30;
+    background: #ededed;
+    background: -moz-linear-gradient(left, #ededed 0%, #ffffff 33%, #ffffff 78%, #ededed 100%);
+    background: -webkit-linear-gradient(left, #ededed 0%,#ffffff 33%,#ffffff 78%,#ededed 100%);
+    background: linear-gradient(to right, #ededed 0%,#ffffff 33%,#ffffff 78%,#ededed 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ededed', endColorstr='#ededed',GradientType=1 );
+}
+.m_nova_york_tabaco{
+    border: 30px solid transparent;
+    border-image:url(https://instaarts.com/wp-content/uploads/2018/08/m_nova_york_tabaco.png);
+    border-image-repeat: round;
+    border-image-slice: 30;
+}
+.m_basel_preta{
+    border: 8px solid transparent;
+    border-image:url(https://instaarts.com/wp-content/uploads/2018/07/m_basel_preta.png);
+    border-image-repeat: round;
+    border-image-slice: 30;
+}
+.m_basel_branca{
+    border: 8px solid transparent;
+    border-image-repeat: round;
+    border-image-slice: 30;
+    background: #ededed;
+    background: -moz-linear-gradient(left, #ededed 0%, #ffffff 33%, #ffffff 78%, #ededed 100%);
+    background: -webkit-linear-gradient(left, #ededed 0%,#ffffff 33%,#ffffff 78%,#ededed 100%);
+    background: linear-gradient(to right, #ededed 0%,#ffffff 33%,#ffffff 78%,#ededed 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ededed', endColorstr='#ededed',GradientType=1 );
+}
+.m_basel_tabacco{
+    border: 8px solid transparent;
+    border-image:url(https://instaarts.com/wp-content/uploads/2018/07/m_basel_tabaco.png);
+    border-image-repeat: round;
+    border-image-slice: 30;
+}
+.m_basel_bege{
+    border: 8px solid transparent;
+    border-image-repeat: round;
+    border-image-slice: 30;
+    background-color: #ffeeca;
+}
+.m_berlim_preto{
+    border: 5px solid transparent;
+    border-image:url(https://instaarts.com/wp-content/uploads/2018/07/m_berlim_preta.png);
+    border-image-repeat: round;
+    border-image-slice: 30;
+    background-color: black;
+}
+.m_berlim_branca{
+    border: 5px solid transparent;
+    border-image:url(https://instaarts.com/wp-content/uploads/2018/07/m_berlim_branca.png);
+    border-image-repeat: round;
+    border-image-slice: 30;
+    background-color: #f2f1f2;
+}
+.m_miami_preto{
+    border: 8px solid transparent;
+    border-image-repeat: round;
+    border-image-slice: 30;
+    background: #000000;
+    background: -moz-linear-gradient(left, #000000 0%, #606060 49%, #000000 100%);
+    background: -webkit-linear-gradient(left, #000000 0%,#606060 49%,#000000 100%);
+    background: linear-gradient(to right, #000000 0%,#606060 49%,#000000 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000',GradientType=1 );
+}
+.m_miami_branca{
+    border: 8px solid transparent;
+    border-image-repeat: round;
+    border-image-slice: 30;
+    background: #e8e8e8;
+    background: -moz-linear-gradient(left, #e8e8e8 0%, #ffffff 49%, #e8e8e8 100%);
+    background: -webkit-linear-gradient(left, #e8e8e8 0%,#ffffff 49%,#e8e8e8 100%);
+    background: linear-gradient(to right, #e8e8e8 0%,#ffffff 49%,#e8e8e8 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e8e8e8', endColorstr='#e8e8e8',GradientType=1 );
+}
+.m_amazonas_areia{
+    border: 10px solid transparent;
+    border-image:url(https://instaarts.com/wp-content/uploads/2018/08/amazonas-areia.png);
+    border-image-repeat: round;
+    border-image-slice: 30;
+}
+.m_buenos_aires_preta{
+    border: 15px solid transparent;
+    border-image-repeat: round;
+    border-image-slice: 30;
+    background: #3d3d3d;
+    background: -moz-linear-gradient(left, #3d3d3d 0%, #5e5d5d 50%, #3d3d3d 100%);
+    background: -webkit-linear-gradient(left, #3d3d3d 0%,#5e5d5d 50%,#3d3d3d 100%);
+    background: linear-gradient(to right, #3d3d3d 0%,#5e5d5d 50%,#3d3d3d 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3d3d3d', endColorstr='#3d3d3d',GradientType=1 );
+}
+.m_buenos_aires_branca{
+    border: 15px solid transparent;
+    border-image-repeat: round;
+    border-image-slice: 30;
+    background: #f2f2f2;
+    background: -moz-linear-gradient(left, #f2f2f2 1%, #d8d8d8 50%, #f2f2f2 100%);
+    background: -webkit-linear-gradient(left, #f2f2f2 1%,#d8d8d8 50%,#f2f2f2 100%);
+    background: linear-gradient(to right, #f2f2f2 1%,#d8d8d8 50%,#f2f2f2 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f2f2', endColorstr='#f2f2f2',GradientType=1 );
+}
+.m_londres_preta{
+    border: 8px solid transparent;
+    border-image-repeat: round;
+    border-image-slice: 30;
+    background: #3d3d3d;
+    background: -moz-linear-gradient(left, #3d3d3d 0%, #5e5d5d 50%, #3d3d3d 100%);
+    background: -webkit-linear-gradient(left, #3d3d3d 0%,#5e5d5d 50%,#3d3d3d 100%);
+    background: linear-gradient(to right, #3d3d3d 0%,#5e5d5d 50%,#3d3d3d 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3d3d3d', endColorstr='#3d3d3d',GradientType=1 );
+}
+.m_londres_branca{
+    border: 8px solid transparent;
+    border-image-repeat: round;
+    border-image-slice: 30;
+    background: #f2f2f2;
+    background: -moz-linear-gradient(left, #f2f2f2 1%, #d8d8d8 50%, #f2f2f2 100%);
+    background: -webkit-linear-gradient(left, #f2f2f2 1%,#d8d8d8 50%,#f2f2f2 100%);
+    background: linear-gradient(to right, #f2f2f2 1%,#d8d8d8 50%,#f2f2f2 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f2f2', endColorstr='#f2f2f2',GradientType=1 );
+}
+.m_londres_bege{
+    border: 8px solid transparent;
+    border-image:url(https://instaarts.com/wp-content/uploads/2018/08/m_londres_bege.png);
+    border-image-repeat: round;
+    border-image-slice: 30;
+}
+.m_florenca_dourada{
+    border: 21px solid transparent;
+    border-image: url(https://instaarts.com/wp-content/uploads/2018/08/m_florenca_dourada.png);
+    border-image-repeat: round;
+    border-image-slice: 100;
+}
+.m_istambul_dourada{
+    border: 15px solid transparent;
+    border-image: url(https://instaarts.com/wp-content/uploads/2018/08/m_instambul_dourada.png);
+    border-image-repeat: round;
+    border-image-slice: 30;
+}
+.m_paris_preta{
+    border: 30px solid transparent;
+    border-image: url(https://instaarts.com/wp-content/uploads/2018/08/m_paris_preta.png);
+    border-image-repeat: round;
+    border-image-slice: 128;
+}
+.m_paris_branca{
+    border: 30px solid transparent;
+    border-image: url(https://instaarts.com/wp-content/uploads/2018/08/m_paris_branca.png);
+    border-image-repeat: round;
+    border-image-slice: 128;
+}
+.m_roma_preto{
+    border: 25px solid transparent;
+    border-image: url(https://instaarts.com/wp-content/uploads/2018/08/m_roma_preta.png);
+    border-image-repeat: round;
+    border-image-slice: 66;
+}
+.m_roma_branca{
+    border: 25px solid transparent;
+    border-image: url(https://instaarts.com/wp-content/uploads/2018/08/m_roma_branca.png);
+    border-image-repeat: round;
+    border-image-slice: 66;
+}

@@ -1,207 +1,324 @@
-<?php get_header(); ?>
+<head>
+  <?php  get_header(); ?>
+</head>
 
-<div class="container" onload="formulaTotal()">
-  <div class="row">
-    <div class="col-md-2">
+<div id="envelope_container">
+  <div class="container envelope-pedido-personalizado" onload="formulaTotal()">
+  <div class="row container-b">
+    <!-- botoes editar - voltar - limpar --> 
+    <div class="col-md-2 iap_b_painel" style="display:none;">
       <div class="row">
+    
         <div class="col-md-12">
-          <button id="edit-image-button" class="btn btn-primary btn-block button-panel">
-            <span class="glyphicon glyphicon-pencil pull-left padleft" aria-hidden="true"></span> Editar
-          </button>
-        </div>
-        <div class="col-md-12">
-          <button id="reset-image-button" class="btn btn-warning btn-block button-panel">
+          <button id="reset-image-button" class="btn btn-default btn-block button-panel">
             <span class="glyphicon glyphicon-repeat pull-left padleft" aria-hidden="true"></span> Voltar
           </button>
         </div>
         <div class="col-md-12">
-          <button id="clear-image-button" class="btn btn-danger btn-block button-panel">
+          <button id="clear-image-button" class="btn btn-default btn-block button-panel">
             <span class="glyphicon glyphicon-remove pull-left padleft" aria-hidden="true"></span> Limpar
           </button>
         </div>
+        <div class="col-md-12">
+          <a href="#saved_images">
+            <button id="imagem_salva" class="btn btn-success btn-block button-panel">
+              <span class="glyphicon glyphicon-heart pull-left padleft" aria-hidden="true"></span><span class="imagens_salvas_contador">1</span> Imagens
+            </button>
+          </a>  
+        </div>
       </div>
-    </div>
+    <?php
+      side_banner();
+    ?>
+    </div> <!-- fim botoes --> 
 
-    <div class="col-md-10">
+    <div class="col-lg-12 container_iap">
     
       <input type="hidden" name="image_url" id="image_url">
       <input type="hidden" name="image_id" id="image_id">
       <input type="hidden" name="edited_image_url" id="edited_image_url">
       <input type="hidden" name="edited_image_id" id="edited_image_id">
+      
+      <!-- input id="click-upload" type="file"-->
 
-      <!--<input id="click-upload" type="file" >-->
       <div id="drop-area" class="drop-zone" data-toggle="modal" data-target="#modalUpload">
+
         <span>
-          <img src="<?php echo plugins_url( 'img/imagem-1.jpg', __FILE__ ); ?>" border="0" />
+          <img id="main_carregando" src="<?php echo plugins_url('img/carregando.gif', __FILE__ ); ?>" border="0" />
+          <a href="#"><img id="img_acrilico" src="<?php echo plugins_url('img/imagem-1.jpg', __FILE__ ); ?>" border="0" /></a>
+          <!-- <a href="#"><img id="img_photobloco" src="<?php echo plugins_url('img/imagem-2_photobloco.jpg', __FILE__ ); ?>" border="0" /></a> -->
+          <a href="#"><img id="img_porta_retrato_1" src="<?php echo plugins_url('img/img_portrait.png', __FILE__ ); ?>" border="0" /></a>
+          
+          <a href="#"> 
+            <video id="img_porta_retrato" src="<?php echo plugins_url('video/porta_retrato_video.mp4', __FILE__ ); ?>" autoplay loop muted></video>
+          </a>
+
+          <a href="#">
+            <video id="img_photobloco" src="<?php echo plugins_url('video/PHOTOBLOCO 10X15 B.mp4', __FILE__); ?>" autoplay loop muted></video>
+          </a>
+
+          <a href="#">
+            <img id="img_photobloco_2" src="<?php echo plugins_url('img/img_photobloco_310px.jpg', __FILE__); ?>">
+          </a>
+          
         </span>
-        <p>Click para fazer o Upload da sua imagem</p>
-        </span>
+        <div class="iap_box_upload">
+        Clique aqui para enviar sua imagem
+        
+        </div>
+        
+
       </div>
-      <img id="editable-image" class="img-responsive img-upload">
+
+        <div class="img-upload-line">
+
+          <img id="editable-image" class="img-responsive img-upload">
+          <button id="iap_crop_porta_retrato" class="btn btn-success btn-lg"><span class="glyphicon glyphicon-scissors"></span> Cortar</button>
+          
+          <button class="btn btn-info btn-lg ret-resize-vertical"><img src="<?php echo plugins_url('img/ret-vertical.png', __FILE__ ); ?>" border="0" />Retrato</button>
+          <button class="btn btn-info btn-lg ret-resize-horizontal"><img src="<?php echo plugins_url('img/ret-horizontal.png', __FILE__ ); ?>" border="0" />Paisagem</button>
+
+          <button id="iap_reiniciar_porta_retrato" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-trash"></span></button>
+          
+        </div>
+
+        <?php
+          sidebar_porta_retrato_mobile();
+        ?>
+        
+        <div id="sidebar" class="col-lg-4">
+          <?php 
+            sidebar_porta_retrato();
+          ?>
+        </div>
+<!-- Modal -->
+<div class="modal fade" id="iap_imagem_cortada" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content" style="position: relative; top: 200px;">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Prévia da imagem</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div id="iap_canvas">
+          <canvas id="iap_crop_image" width="0" height="0"></canvas>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button id="comprar-botao-photobloco" type="button" class="btn btn-default btn-lg col-lg-3">Comprar: <span id="s-preco-photobloco" class="s-preco-photobloco"></span> <br> <span class="iap_parcelamento_photobloco"></span></button>
+          <img id="body_loading" src="<?php echo plugins_url('img/carregando.gif', __FILE__ ); ?>" border="0" />
+        <button type="button" class="btn btn-secondary col-lg-3" data-dismiss="modal">Voltar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
       <div class="container">
         <!-- Modal upload de arquivos por click -->
-        <div class="modal fade" id="modalUpload" role="dialog">
-          <div class="modal-dialog modal-lg">
-            <div class="modal-content">
+        <div class="modal fade" id="modalUpload" role="dialog" tabindex="-1" style="position: absolute; top: 10px;" >
+          <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content col-sm-12">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Faça o Upload da Sua Imagem</h4>
+                <h5 class="modal-title">Faça o upload da sua imagem</h5>
               </div>
-              <div class="modal-body">
-                <p>Sua Imagem deve estar nos formatos: JPEG ou PNG</p>
+              <div class="modal-body texto_upload col-sm-12">
 
-                <form method="post" action="" id="myForm" enctype="multipart/form-data">
-                  Click no Botão para escolher a imagem:
-                  <input type="file" name="fileToUpload" id="fileToUpload">
-                  <br>
-                  <!--<input type="submit" name="submit" value="upload-image" class="btn btn-success">-->
-                  <input type="hidden" name="image-submission" value="1" />
-                  <?php wp_nonce_field( 'wp-img-nonce-iap', 'wp-img-nonce' ); ?>
-                </form>
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                  <p>A imagem deve estar nos formatos JPEG ou PNG</p>
+                  <form method="post" action="" id="myForm" enctype="multipart/form-data">
+                    Click para escolher uma imagem do seu dispositivo:
+                    <input type="file" name="fileToUpload" id="fileToUpload">
+
+                    <br>
+                    <!--<input type="submit" name="submit" value="upload-image" class="btn btn-success">-->
+                    <input type="hidden" name="image-submission" value="1"/>
+                    <?php wp_nonce_field( 'wp-img-nonce-iap', 'wp-img-nonce' ); ?>
+                  </form>
+                </div>
+                <br>
+                <div class="progress">
+                  <div id="progress-bar" class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"
+                    style="width:0%">
+                    <span class="percent"></span>
+                  </div>
+                </div>
+                
+                </div>
+                
+                  <div class="linha_div_vertical"></div>
+                  <div class="texto_upload_image">
+                    <aside>
+                      Caso sua imagem não esteja no formato correto ou precise de ajuda, por favor fale conosco pelo chat ou entre em contato pelo e-mail: <a title="mailto:contato@instaarts.com.br" href="mailto:contato@instaarts.com.br" target="_blank" rel="noopener noreferrer">contato@instaarts.com.br</a><br> ou  pelos telefones: </br> <a href="tel:+1146126019">(11) 4612-6019 </a> e <a href="tel:+1130316881">(11) 3031-6881</a>
+                    </aside>
+                  </div>
+                
+              <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-dismiss="modal">Cancelar</button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+        <div class="hud-botoes-mat">
+
+          <div class="iap_crop_div">
+
+            <div class="">
+              <button type="button" id="b-photobloco"  class="btn btn-default btn-lg col-lg-3" data-toggle="modal" data-target="#photobloco">Tamanho <span id="s-photobloco"> </span> </button>
+            </div>
+
+            <div class="">
+              <button id="iap_crop"  class="btn btn-default btn-lg col-lg-3 btn-iap-comprar"><span class="glyphicon glyphicon-scissors"></span>Cortar</button>
+            </div>
+
+          </div>
+
+        <button type="button" id="b-tamanho" class="btn btn-default btn-lg hud-botao" data-toggle="modal" data-target="#tamanho">Tamanho <span id="s-tamanho"> </span></button>
+
+        <button type="button" id="b-acabamento" class="btn btn-default btn-lg hud-botao" data-toggle="modal" data-target="#material"><span id="s-metacrilato"> Acabamento </span> </button>
+        
+        <?php
+          quandro_na_parede();
+        ?>
+
+        <button type="button" id="b-moldura" class="btn btn-default btn-lg hud-botao" data-toggle="modal" data-target="#moldura"><span id="s-moldura">Moldura</span></button>
+
+        <button id="comprar-botao" type="button" class="btn btn-default btn-lg hud-botao ">Comprar <span id="s-preco" class="s-preco"></span> <br>
+          
+          <span class="iap_parcelamento"></span>
+        </button>
+
+
+        </div>
+        
+        <!-- Modal -->
+        <div id="tamanho" class="modal fade" role="dialog" tabindex="-1">
+          <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content col-sm-12" style="position: relative; top: 200px;">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h5 class="modal-title">Escolha o tamanho do seu quadro</h5>
 
               </div>
-              <br>
-              <div class="progress">
-                <div id="progress-bar" class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"
-                  style="width:0%">
+              <div class="modal-body container-fluid">
+              <img id="tamanho_carregando" src="<?php echo plugins_url('img/carregando.gif', __FILE__ ); ?>" border="0" />
+                  <div id="msg_img_not"></div>
+                  
+                  <div class="iap_tamanho_personalizado ">
+                    <h4 class="iap_tp_titulo"></h4>
+                    <!-- <button class="btn btn-success iap_tp_botao"><span class="glyphicon glyphicon-scissors"></span> Cortar imagem</button> -->
+
+                    <div class="iap_tp_slider">
+                      <p>
+                        <input type="text" id="amount" readonly style="border:0; font-weight:bold;">
+                      </p>
+                      <div id="slider"></div>   
+                    </div>
+                    
+
+                  </div>
+                 
+                    <div class="checkbox">
+                      
+                      <form id="tamanhoPadrao">
+                      <h4>Tamanhos sugeridos</h4>
+                          <label  id="tamanho1">
+                            <input type="radio" name="tamanho" value="20x18" id="tamanho1_input" data-dismiss="modal"> 20x<span id="tamanhoY1">18</span>cm</label>
+                          <br>
+                          <label id="tamanho2">
+                            <input type="radio" name="tamanho" value="30x27" id="tamanho2_input" data-dismiss="modal"> 30x<span id="tamanhoY2">27</span>cm</label>
+                          <br>
+                          <label id="tamanho3">
+                            <input type="radio" name="tamanho" value="40x36" id="tamanho3_input" data-dismiss="modal"> 40x<span id="tamanhoY3">36</span>cm</label>
+                          <br>
+                          <label id="tamanho4">
+                            <input type="radio" name="tamanho" value="50x45" id="tamanho4_input" data-dismiss="modal"> 50x<span id="tamanhoY4">45</span>cm</label>
+                          <br>
+                          <label id="tamanho5">
+                            <input type="radio" name="tamanho" value="60x54" id="tamanho5_input" data-dismiss="modal"> 60x<span id="tamanhoY5">54</span>cm</label>
+                          <br>
+                          <label id="tamanho6">
+                            <input type="radio" name="tamanho" value="70x64" id="tamanho6_input" data-dismiss="modal"> 70x<span id="tamanhoY6">64</span>cm</label>
+                          <br>
+                          <label id="tamanho7">
+                            <input type="radio" name="tamanho" value="80x72" id="tamanho7_input" data-dismiss="modal"> 80x<span id="tamanhoY7">72</span>cm</label>
+                          <br>
+                          <label id="tamanho8">
+                            <input type="radio" name="tamanho" value="90x82" id="tamanho8_input" data-dismiss="modal"> 90x<span id="tamanhoY8">82</span>cm</label>
+                          <br>
+
+                          <div class="linha_div_vertical2"></div>
+
+                          <div class="texto_aviso_res">
+                            * Nosso sistema mostrará os tamanhos de acordo com a resolução da sua imagem. 
+                          </div>
+                          
+                      </form>
                 </div>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Ok</button>
+              <button type="button" class="btn btn-default" data-dismiss="modal">Continuar</button>
               </div>
             </div>
+
           </div>
+        </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="photobloco" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content" style="position: relative; top: 200px;">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Escolha o tamanho do seu Photobloco</h4>
+        </div>
+
+        <div class="modal-body">
+        
+          <div id="iap_texto_n_img"></div>
+          <div class="m-thumb iap_photo_content">
+            <div class="thumbnail" id="photobloco_10x10" data-dismiss="modal">
+              <img src="<?php echo plugins_url( 'img/Photobloco10x10.jpg', __FILE__ ); ?>" border="0" />
+              Photobloco 10x10cm
+            </div>
+            <div class="thumbnail" id="photobloco_10x15" data-dismiss="modal">
+              <img src="<?php echo plugins_url( 'img/Photobloco10x15.jpg', __FILE__ ); ?>" border="0" />
+              Photobloco 10x15cm
+            </div>
+          </div>
+
+        </div>
+
+        <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Voltar</button>
         </div>
       </div>
-      <div class="hud-produtos">
-        <div class="somaProdutos well well-sm">
-          <span id="s-tamanho" class="hud-calcularPreco">40x60cm </span>
-          <span class="badge">+</span>
-          <span id="s-metacrilato" class="hud-calcularPreco">Metacrilato 3mm </span>
-          <span id="s-moldura" class="hud-calcularPreco badge">Esolha sua moldura</span>
-          <span id="s-preco">Preço</span>
-        </div>
-        <div class="tamanhoMaterial">
-          <div class="b_tamanho col-sm-4">
-            <!-- Trigger the modal with a button -->
-            <button type="button" class="btn btn-default btn-lg hud-botao" data-toggle="modal" data-target="#tamanho">Tamanho</button>
-            <!-- Modal -->
-            <div class="modal fade" id="tamanho" role="dialog">
-              <div class="modal-dialog">
-                <!-- Modal content-->
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Escolha o tamanho do seu quadro</h4>
-                    <nav class="navbar navbar-inverse">
-                      <div class="container-fluid">
-                        <ul class="nav navbar-nav">
-                          <li>
-                            <a href="#" id="b-tamanhoPadrao">Padrão</a>
-                          </li>
-                          <li>
-                            <a href="#" id="b-tamanhoPersonalizado">Personalizado</a>
-                          </li>
-                        </ul>
-                      </div>
-                    </nav>
-                  </div>
-                  <div class="modal-body">
-                    <div class="checkbox">
-                      <form id="tamanhoPadrao">
-                        <div id="retangulares" class="col-sm-4">
-                          <p>Retangulares</p>
-                          <label onclick="T12x18()">
-                            <input type="radio" name="tamanho" value="12x18"> 12x18</label>
-                          <br>
-                          <label onclick="T20x30()">
-                            <input type="radio" name="tamanho" value="20x30"> 20x30</label>
-                          <br>
-                          <label onclick="T30x45()">
-                            <input type="radio" name="tamanho" value="30x45"> 30x45</label>
-                          <br>
-                          <label onclick="T40x60()">
-                            <input type="radio" name="tamanho" value="40x60" checked> 40x60</label>
-                          <br>
-                          <label onclick="T60x90()">
-                            <input type="radio" name="tamanho" value="60x90"> 60x90</label>
-                          <br>
-                          <label onclick="T90x45()">
-                            <input type="radio" name="tamanho" value="90x45"> 90x45</label>
-                          <br>
-                        </div>
-                        <div id="quadrados" class="col-sm-4">
-                          <p>Quadrados</p>
-                          <label onclick="T20x20()">
-                            <input type="radio" name="tamanho" value="20x20"> 20x20</label>
-                          <br>
-                          <label onclick="T30x30()">
-                            <input type="radio" name="tamanho" value="30x30"> 30x30</label>
-                          <br>
-                          <label onclick="T45x45()">
-                            <input type="radio" name="tamanho" value="45x45"> 45x45</label>
-                          <br>
-                          <label onclick="T60x60()">
-                            <input type="radio" name="tamanho" value="60x60"> 60x60</label>
-                          <br>
-                          <label onclick="T90x90()">
-                            <input type="radio" name="tamanho" value="90x90"> 90x90</label>
-                          <br>
-                        </div>
-                        <div id="panoramicos" class="col-sm-4">
-                          <p>Panoramicos</p>
-                          <label onclick="T18x12()">
-                            <input type="radio" name="tamanho" value="18x12"> 18x12</label>
-                          <br>
-                          <label onclick="T20x30()">
-                            <input type="radio" name="tamanho" value="20x30"> 20x30</label>
-                          <br>
-                          <label onclick="T30x45()">
-                            <input type="radio" name="tamanho" value="30x45"> 30x45</label>
-                          <br>
-                          <label onclick="T40x60()">
-                            <input type="radio" name="tamanho" value="40x60"> 40x60</label>
-                          <br>
-                        </div>
+    </div>
+  </div>
 
-                      </form>
-                    </div>
-                  </div>
-                  <div id="tamanhoPersonalizado">
-                    <form class="col-sm-6">
-                      <h4>Tamanho personalizado</h4>
-                      <div class="form-group">
-                        <label>X:</label>
-                        <input type="number" id="x" class="form-control" placeholder="Largura em cm">
-                      </div>
-                      <div class="form-group">
-                        <label>Y:</label>
-                        <input type="number" id="y" class="form-control" placeholder="Altura em cm">
-                      </div>
-                      <button type="button" class="btn btn-default" data-dismiss="modal" onclick="tamanhoUsuario()">Usar tamanho personalizado</button>
-                    </form>
-                  </div>
-                  <div class="modal-footer"></div>
-                  <button type="button" class="btn btn-default ok-modal-tamanho" data-dismiss="modal">OK</button>
-                </div>
-              </div>
-            </div>
-          </div>
           <!-- tamanho material e moldura -->
           <div class="container m_material col-sm-4">
-            <!-- Trigger the modal with a button -->
-            <button type="button" class="btn btn-default btn-lg hud-botao" data-toggle="modal" data-target="#material">Acabamento</button>
 
             <!-- Modal -->
-            <div class="modal fade" id="material" role="dialog">
-              <div class="modal-dialog">
+            <div class="modal fade" id="material" role="dialog"> 
+              <div class="modal-dialog modal-lg">
 
                 <!-- Modal content-->
-                <div class="modal-content">
+                <div class="modal-content" style="position: relative; top: 200px;">
                   <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <h4 class="modal-title">Acabamento</h4>
                   </div>
+<<<<<<< HEAD
                   <div class="modal-body col-sm-12">
                     <div class="checkbox">
                       <nav class="navbar navbar-inverse">
@@ -216,13 +333,36 @@
                             </li>
                             <li id="bUv">
                               <a href="#">UV Print</a>
+=======
+
+                  <div class="modal-body col-sm-12">
+                    <div id="acabamento_modal_body"></div>
+                    <div class="checkbox acabamento_modal_body_op">
+                      <nav class="navbar navbar-light" style="background-color: #47af58;">
+                        <div class="container-fluid">
+                          <div class="navbar-header"></div>
+                          <ul class="nav navbar-nav">
+                            <li id="bMeta" class="navbar_click">
+                             <a href="#">Metacrilato</a> 
+                            </li>
+                            <li id="bPrints">
+                              <a href="#">Prints</a> 
+                            </li>
+                            <li id="bUv">
+                              <a href="#">UV Print</a> 
+>>>>>>> 1.3.6
                             </li>
                           </ul>
                         </div>
                       </nav>
                       <div id="tMeta">
+<<<<<<< HEAD
                         <div class="col-sm-3 m-thumb" onclick="meta7()">
                           <div class="thumbnail" id="meta7-select-color">
+=======
+                        <div class="col-md-4 m-thumb" id="meta7mm">
+                          <div class="thumbnail" id="meta7-select-color" data-dismiss="modal">
+>>>>>>> 1.3.6
                             <label>
                               <img src="<?php echo plugins_url( 'img/meta7mm.png', __FILE__ ); ?>" border="0" />
                               <div>
@@ -231,7 +371,11 @@
                             </label>
                           </div>
                         </div>
+<<<<<<< HEAD
                         <div class="col-sm-3 m-thumb" onclick="meta5()">
+=======
+                        <div class="col-md-4 m-thumb" id="meta5mm" data-dismiss="modal">
+>>>>>>> 1.3.6
                           <div class="thumbnail" id="meta5-select-color">
                             <label>
                               <img src="<?php echo plugins_url( 'img/meta5mm.png', __FILE__ ); ?>" border="0" />
@@ -242,18 +386,30 @@
                           </div>
                         </div>
 
+<<<<<<< HEAD
                         <div class="col-sm-3 m-thumb" onclick="meta4()">
+=======
+                        <div class="col-md-4 m-thumb" id="meta4mm" data-dismiss="modal">
+>>>>>>> 1.3.6
                           <div class="thumbnail" id="meta4-select-color">
                             <label>
                               <img src="<?php echo plugins_url( 'img/meta4mm.png', __FILE__ ); ?>" border="0" />
                               <div>
+<<<<<<< HEAD
                                 <p>Metacrilato 4mm PS</p>
+=======
+                                <p>Metacrilato 4mm</p>
+>>>>>>> 1.3.6
                               </div>
                             </label>
                           </div>
                         </div>
 
+<<<<<<< HEAD
                         <div class="col-sm-3 m-thumb" onclick="meta3()">
+=======
+                        <div class="col-md-4 m-thumb" id="meta3mm" data-dismiss="modal">
+>>>>>>> 1.3.6
                           <div class="thumbnail" id="meta3-select-color">
                             <label>
                               <img src="<?php echo plugins_url( 'img/meta3mm.png', __FILE__ ); ?>" border="0" />
@@ -264,7 +420,11 @@
                           </div>
                         </div>
 
+<<<<<<< HEAD
                         <div class="col-sm-3 m-thumb" onclick="acm5()">
+=======
+                        <div class="col-md-4 m-thumb" id="acm5mm" data-dismiss="modal">
+>>>>>>> 1.3.6
                           <div class="thumbnail" id="acm-select-color">
                             <label>
                               <img src="<?php echo plugins_url( 'img/acm.png', __FILE__ ); ?>" border="0" />
@@ -279,7 +439,11 @@
 
                       <div id="tPapel">
 
+<<<<<<< HEAD
                         <div class="col-sm-3 m-thumb" onclick="papelAlgodao()">
+=======
+                        <div class="col-md-4 m-thumb" id="papelAlgodao" data-dismiss="modal">
+>>>>>>> 1.3.6
                           <div class="thumbnail" id="algodao-select-color">
                             <label>
                               <img src="<?php echo plugins_url( 'img/algodao.png', __FILE__ ); ?>" border="0" />
@@ -290,7 +454,11 @@
                           </div>
                         </div>
 
+<<<<<<< HEAD
                         <div class="col-sm-3 m-thumb" onclick="acetinato()">
+=======
+                        <div class="col-md-4 m-thumb" id="papelAcetinato" data-dismiss="modal">
+>>>>>>> 1.3.6
                           <div class="thumbnail" id="acetinato-select-color">
                             <label>
                               <img src="<?php echo plugins_url( 'img/acetinato.png', __FILE__ ); ?>" border="0" />
@@ -301,7 +469,11 @@
                           </div>
                         </div>
 
+<<<<<<< HEAD
                         <div class="col-sm-3 m-thumb" onclick="brilhante()">
+=======
+                        <div class="col-md-4 m-thumb" id="papelBrilhante" data-dismiss="modal">
+>>>>>>> 1.3.6
                           <div class="thumbnail" id="brilhante-select-color">
                             <label>
                               <img src="<?php echo plugins_url( 'img/brilhante.png', __FILE__ ); ?>" border="0" />
@@ -312,7 +484,11 @@
                           </div>
                         </div>
 
+<<<<<<< HEAD
                         <div class="col-sm-3 m-thumb" onclick="fosco()">
+=======
+                        <div class="col-md-4 m-thumb" id="papelFosco" data-dismiss="modal">
+>>>>>>> 1.3.6
                           <div class="thumbnail" id="fosco-select-color">
                             <label>
                               <img src="<?php echo plugins_url( 'img/fosco.png', __FILE__ ); ?>" border="0" />
@@ -322,12 +498,20 @@
                             </label>
                           </div>
                         </div>
+<<<<<<< HEAD
                         <div class="col-sm-3 m-thumb" onclick="canvas()">
+=======
+                        <div class="col-md-4 m-thumb" id="papelCanvas" data-dismiss="modal">
+>>>>>>> 1.3.6
                           <div class="thumbnail" id="canvas-select-color">
                             <label>
                               <img src="<?php echo plugins_url( 'img/canvas.png', __FILE__ ); ?>" border="0" />
                               <div>
+<<<<<<< HEAD
                                 <p>Impressão em Canvas</p>
+=======
+                                <p>Canvas</p>
+>>>>>>> 1.3.6
                               </div>
                             </label>
                           </div>
@@ -337,7 +521,11 @@
 
                       <div id="tUv">
 
+<<<<<<< HEAD
                         <div class="col-sm-3 m-thumb" onclick="uvPs()">
+=======
+                        <div class="col-md-4 m-thumb" id="uvPS" data-dismiss="modal">
+>>>>>>> 1.3.6
                           <div class="thumbnail" id="uv-select-color">
                             <label>
                               <img src="<?php echo plugins_url( 'img/uvps.png', __FILE__ ); ?>" border="0" />
@@ -348,7 +536,11 @@
                           </div>
                         </div>
 
+<<<<<<< HEAD
                         <div class="col-sm-3 m-thumb" onclick="uvAcm()">
+=======
+                        <div class="col-md-4 m-thumb" id="uvACM" data-dismiss="modal">
+>>>>>>> 1.3.6
                           <div class="thumbnail" id="uvacm-select-color">
                             <label>
                               <img src="<?php echo plugins_url( 'img/uvacm.png', __FILE__ ); ?>" border="0" />
@@ -362,13 +554,22 @@
                       </div>
                     </div>
                   </div>
+<<<<<<< HEAD
                   <div class="modal-footer">
                     <button type="button" class="btn btn-default ok-modal-acabamento" data-dismiss="modal">Ok</button>
                   </div>
+=======
+
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default ok-modal-acabamento" data-dismiss="modal">Continuar</button>
+                  </div>
+
+>>>>>>> 1.3.6
                 </div>
               </div>
             </div>
           </div>
+<<<<<<< HEAD
           <div class="moldura col-sm-4">
             <!-- Trigger the modal with a button -->
             <button type="button" class="btn btn-default btn-lg hud-botao" data-toggle="modal" data-target="#moldura">Moldura</button>
@@ -378,17 +579,38 @@
               <div class="modal-dialog">
                 <!-- Modal content-->
                 <div class="modal-content">
+=======
+          
+          <div class="moldura col-sm-4">
+           
+            <!-- Modal -->
+            <div class="modal fade" id="moldura" role="dialog">
+              <div class="modal-dialog modal-lg">
+                <!-- Modal content-->
+                <div class="modal-content" style="position: relative; top: 200px;">
+>>>>>>> 1.3.6
                   <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <h4 class="modal-title">Moldura</h4>
                   </div>
                   <div class="modal-body col-sm-12">
+<<<<<<< HEAD
                     <div class="checkbox">
                       <nav class="navbar navbar-inverse">
                         <div class="container-fluid">
                           <div class="navbar-header"></div>
                           <ul class="nav navbar-nav">
                             <li id="b-contemporanea">
+=======
+                  <div id="moldura_modal_body"></div>
+                    <div class="checkbox moldura_modal_body_op">
+                      
+                      <nav class="navbar navbar-light" style="background-color: #47af58;">
+                        <div class="container-fluid">
+                          <div class="navbar-header"></div>
+                          <ul class="nav navbar-nav">
+                            <li id="b-contemporanea" class="navbar_click">
+>>>>>>> 1.3.6
                               <a href="#">Contemporanea</a>
                             </li>
                             <li id="b-moderna">
@@ -400,6 +622,7 @@
                           </ul>
                         </div>
                       </nav>
+<<<<<<< HEAD
                       <div id="bMoldura">
 
                         <div id="m-contemporanea">
@@ -409,65 +632,189 @@
                                 <img src="<?php echo plugins_url( 'img/atenas.png', __FILE__ ); ?>" border="0" />
                                 <div>
                                   <p>Atenas</p>
+=======
+
+                      <div id="bMoldura" class="bMoldura">
+                      <div id="m-contemporanea">
+
+                      <div class="col-md-4 t-thumb" id="m_nova_york_preta" data-moldura="nova-york-preta" data-dismiss="modal">
+                            <div class="thumbnail b_moldura" id="novayork-select-color">
+                              <label>
+                                <img src="<?php echo plugins_url( 'img/nova-york-preta.jpg', __FILE__ ); ?>" border="0" />
+                                <div>
+                                  <p>Nova York Preta</p>
+                                </div>
+                              </label>
+                            </div>
+                      </div>
+
+                      <div class="col-md-4 t-thumb" id="m_nova_york_Branca" data-moldura="nova-york-branca" data-dismiss="modal">
+                            <div class="thumbnail b_moldura" id="novayork-select-color">
+                              <label>
+                                <img src="<?php echo plugins_url( 'img/nova-york-branca.jpg', __FILE__ ); ?>" border="0" />
+                                <div>
+                                  <p>Nova York Branca</p>
+                                </div>
+                              </label>
+                            </div>
+                      </div>
+                      
+                      <div class="col-md-4 t-thumb" id="m_nova_york_tabaco" data-moldura="nova-york-tabaco" data-dismiss="modal">
+                            <div class="thumbnail b_moldura" id="novayork-select-color">
+                              <label>
+                                <img src="<?php echo plugins_url( 'img/nova-york-tabaco.jpg', __FILE__ ); ?>" border="0" />
+                                <div>
+                                  <p>Nova York Tabaco</p>
+                                </div>
+                              </label>
+                            </div>
+                      </div>
+                      
+                      <div class="col-md-4 t-thumb" id="m_basel_preta">
+                            <div class="thumbnail b_moldura" id="basel-select-color" data-dismiss="modal">
+                              <label>
+                                <img src="<?php echo plugins_url( 'img/basel-preta.jpg', __FILE__ ); ?>" border="0" />
+                                <div>
+                                  <p>Basel Preta</p>
+                                </div>
+                              </label>
+                            </div>
+                          </div>
+                        
+                          <div class="col-md-4 t-thumb" id="m_basel_branca" data-dismiss="modal">
+                            <div class="thumbnail b_moldura" id="basel-select-color">
+                              <label>
+                                <img src="<?php echo plugins_url( 'img/basel-branca.jpg', __FILE__ ); ?>" border="0" />
+                                <div>
+                                  <p>Basel Branca</p>
+                                </div>
+                              </label>
+                            </div>
+                          </div>
+                          
+                          <div class="col-md-4 t-thumb" id="m_basel_tabaco" data-dismiss="modal">
+                            <div class="thumbnail b_moldura" id="basel-select-color">
+                              <label>
+                                <img src="<?php echo plugins_url( 'img/basel-tabaco.jpg', __FILE__ ); ?>" border="0" />
+                                <div>
+                                  <p>Basel Tabaco</p>
+>>>>>>> 1.3.6
                                 </div>
                               </label>
                             </div>
                           </div>
 
+<<<<<<< HEAD
                           <div class="col-md-4 t-thumb" onclick="basel()">
                             <div class="thumbnail" id="basel-select-color">
                               <label>
                                 <img src="<?php echo plugins_url( 'img/basel.png', __FILE__ ); ?>" border="0" />
                                 <div>
                                   <p>Basel</p>
+=======
+                          <div class="col-md-4 t-thumb" id="m_basel_bege" data-dismiss="modal">
+                            <div class="thumbnail b_moldura" id="basel-select-color">
+                              <label>
+                                <img src="<?php echo plugins_url( 'img/basel-bege.jpg', __FILE__ ); ?>" border="0" />
+                                <div>
+                                  <p>Basel Bege</p>
+>>>>>>> 1.3.6
                                 </div>
                               </label>
                             </div>
                           </div>
 
+<<<<<<< HEAD
                           <div class="col-md-4 t-thumb" onclick="berlim()">
                             <div class="thumbnail" id="berlim-select-color">
                               <label>
                                 <img src="<?php echo plugins_url( 'img/berlim.png', __FILE__ ); ?>" border="0" />
                                 <div>
                                   <p>Berlim</p>
+=======
+                          <div class="col-md-4 t-thumb" id="m_berlim_preta" data-dismiss="modal">
+                            <div class="thumbnail b_moldura" id="berlim-select-color">
+                              <label>
+                                <img src="<?php echo plugins_url( 'img/berlim-preta.jpg', __FILE__ ); ?>" border="0" />
+                                <div>
+                                  <p>Berlim Preta</p>
                                 </div>
                               </label>
                             </div>
                           </div>
 
+                          <div class="col-md-4 t-thumb" id="m_berlim_branca" data-dismiss="modal">
+                            <div class="thumbnail" id="berlim-select-color">
+                              <label>
+                                <img src="<?php echo plugins_url( 'img/berlim-branca.jpg', __FILE__ ); ?>" border="0" />
+                                <div>
+                                  <p>Berlim Branca</p>
+>>>>>>> 1.3.6
+                                </div>
+                              </label>
+                            </div>
+                          </div>
+
+<<<<<<< HEAD
                           <div class="col-md-4 t-thumb" onclick="miami()">
                             <div class="thumbnail" id="miami-select-color">
                               <label>
                                 <img src="<?php echo plugins_url( 'img/miami.png', __FILE__ ); ?>" border="0" />
                                 <div>
                                   <p>Miami</p>
+=======
+                          <div class="col-md-4 t-thumb" id="m_miami_preta" data-dismiss="modal">
+                            <div class="thumbnail" id="miami-select-color">
+                              <label>
+                                <img src="<?php echo plugins_url( 'img/miami-preta.jpg', __FILE__ ); ?>" border="0" />
+                                <div>
+                                  <p>Miami Preta</p>
+>>>>>>> 1.3.6
                                 </div>
                               </label>
                             </div>
                           </div>
 
+<<<<<<< HEAD
                           <div class="col-md-4 t-thumb" onclick="novaYork()">
                             <div class="thumbnail" id="novayork-select-color">
                               <label>
                                 <img src="<?php echo plugins_url( 'img/novayork.png', __FILE__ ); ?>" border="0" />
                                 <div>
                                   <p>Nova York</p>
+=======
+                          <div class="col-md-4 t-thumb" id="m_miami_branca" data-dismiss="modal">
+                            <div class="thumbnail" id="miami-select-color">
+                              <label>
+                                <img src="<?php echo plugins_url( 'img/miami-branca.jpg', __FILE__ ); ?>" border="0" />
+                                <div>
+                                  <p>Miami Branca</p>
+>>>>>>> 1.3.6
                                 </div>
                               </label>
                             </div>
                           </div>
 
+<<<<<<< HEAD
                           <div class="col-md-4 t-thumb" onclick="saoPaulo()">
                             <div class="thumbnail" id="saopaulo-select-color">
                               <label>
                                 <img src="<?php echo plugins_url( 'img/saopaulo.png', __FILE__ ); ?>" border="0" />
                                 <div>
                                   <p>São Paulo</p>
+=======
+                          <div class="col-md-4 t-thumb" id="n_moldura" data-dismiss="modal">
+                            <div class="thumbnail" id="miami-select-color">
+                              <label>
+                                <img src="<?php echo plugins_url( 'img/Block-icon.png', __FILE__ ); ?>" border="0" />
+                                <div>
+                                  <p>Sem moldura</p>
+>>>>>>> 1.3.6
                                 </div>
                               </label>
                             </div>
                           </div>
+<<<<<<< HEAD
 
                         </div>
                         <div id="m-moderna">
@@ -478,10 +825,23 @@
                                 <img src="<?php echo plugins_url( 'img/amazonas.png', __FILE__ ); ?>" border="0" />
                                 <div>
                                   <p>Amazonas</p>
+=======
+                         
+                        </div>
+                        <div id="m-moderna">
+
+                          <div class="col-md-4 t-thumb" id="m_amazonas_areia" data-dismiss="modal">
+                            <div class="thumbnail" id="amazonas-select-color">
+                              <label>
+                                <img src="<?php echo plugins_url( 'img/amazonas-areia.jpg', __FILE__ ); ?>" border="0" />
+                                <div>
+                                  <p>Amazonas Areia</p>
+>>>>>>> 1.3.6
                                 </div>
                               </label>
                             </div>
                           </div>
+<<<<<<< HEAD
 
                           <div class="col-md-4 t-thumb" onclick="amsterdam()">
                             <div class="thumbnail" id="amsterdam-select-color">
@@ -489,43 +849,90 @@
                                 <img src="<?php echo plugins_url( 'img/amsterdam.png', __FILE__ ); ?>" border="0" />
                                 <div>
                                   <p>Amsterdam</p>
+=======
+                          <div class="col-md-4 t-thumb" id="m_amazonas_tabaco" data-dismiss="modal">
+                            <div class="thumbnail" id="amazonas-select-color">
+                              <label>
+                                <img src="<?php echo plugins_url( 'img/amazonas-tabaco.jpg', __FILE__ ); ?>" border="0" />
+                                <div>
+                                  <p>Amazonas Tabaco</p>
+>>>>>>> 1.3.6
                                 </div>
                               </label>
                             </div>
                           </div>
 
+<<<<<<< HEAD
                           <div class="col-md-4 t-thumb" onclick="buenosAires()">
                             <div class="thumbnail" id="buenosaires-select-color">
                               <label>
                                 <img src="<?php echo plugins_url( 'img/buenosaires.png', __FILE__ ); ?>" border="0" />
                                 <div>
                                   <p>Buenos Aires</p>
+=======
+                          <div class="col-md-4 t-thumb" id="m_buenosaires_preta" data-dismiss="modal">
+                            <div class="thumbnail" id="buenosaires-select-color">
+                              <label>
+                                <img src="<?php echo plugins_url( 'img/buenos-aires-preta.jpg', __FILE__ ); ?>" border="0" />
+                                <div>
+                                  <p>Geneve</p>
+                                </div>
+                              </label>
+                            </div>
+                          </div>
+                          
+                          <div class="col-md-4 t-thumb" id="m_londres_preta" data-dismiss="modal">
+                            <div class="thumbnail" id="londres-select-color">
+                              <label>
+                                <img src="<?php echo plugins_url( 'img/londres-preta.jpg', __FILE__ ); ?>" border="0" />
+                                <div>
+                                  <p>Londres Preta</p>
+>>>>>>> 1.3.6
                                 </div>
                               </label>
                             </div>
                           </div>
 
+<<<<<<< HEAD
                           <div class="col-md-4 t-thumb" onclick="londres()">
                             <div class="thumbnail" id="londres-select-color">
                               <label>
                                 <img src="<?php echo plugins_url( 'img/londres.png', __FILE__ ); ?>" border="0" />
                                 <div>
                                   <p>Londres</p>
+=======
+                          <div class="col-md-4 t-thumb" id="m_londres_branca" data-dismiss="modal">
+                            <div class="thumbnail" id="londres-select-color">
+                              <label>
+                                <img src="<?php echo plugins_url( 'img/londres-branca.jpg', __FILE__ ); ?>" border="0" />
+                                <div>
+                                  <p>Londres Branca</p>
+>>>>>>> 1.3.6
                                 </div>
                               </label>
                             </div>
                           </div>
 
+<<<<<<< HEAD
                           <div class="col-md-4 t-thumb" onclick="santiago()">
                             <div class="thumbnail" id="santiago-select-color">
                               <label>
                                 <img src="<?php echo plugins_url( 'img/santiago.png', __FILE__ ); ?>" border="0" />
                                 <div>
                                   <p>Santiago</p>
+=======
+                          <div class="col-md-4 t-thumb" id="m_londres_bege" data-dismiss="modal">
+                            <div class="thumbnail" id="londres-select-color">
+                              <label>
+                                <img src="<?php echo plugins_url( 'img/londres-bege.jpg', __FILE__ ); ?>" border="0" />
+                                <div>
+                                  <p>Londres Bege</p>
+>>>>>>> 1.3.6
                                 </div>
                               </label>
                             </div>
                           </div>
+<<<<<<< HEAD
                         </div>
 
                         <div id="m-classica">
@@ -535,43 +942,127 @@
                                 <img src="<?php echo plugins_url( 'img/florenca.png', __FILE__ ); ?>" border="0" />
                                 <div>
                                   <p>Florença</p>
+=======
+
+                          <div class="col-md-4 t-thumb" id="n_moldura_moderna" data-dismiss="modal">
+                            <div class="thumbnail" id="miami-select-color">
+                              <label>
+                                <img src="<?php echo plugins_url( 'img/Block-icon.png', __FILE__ ); ?>" border="0" />
+                                <div>
+                                  <p>Sem moldura</p>
                                 </div>
                               </label>
                             </div>
                           </div>
 
+                        </div>
+                       
+                        <div id="m-classica">
+                          <div class="col-md-4 t-thumb" id="m_florenca" data-dismiss="modal">
+                            <div class="thumbnail" id="florenca-select-color">
+                              <label>
+                                <img src="<?php echo plugins_url( 'img/florenca-dourada.jpg', __FILE__ ); ?>" border="0" />
+                                <div>
+                                  <p>Florença Dourada</p>
+>>>>>>> 1.3.6
+                                </div>
+                              </label>
+                            </div>
+                          </div>
+
+<<<<<<< HEAD
                           <div class="col-md-4 t-thumb" onclick="instambul()">
                             <div class="thumbnail" id="istambul-select-color">
                               <label>
                                 <img src="<?php echo plugins_url( 'img/istambul.png', __FILE__ ); ?>" border="0" />
                                 <div>
                                   <p>Istambul</p>
+=======
+                          <div class="col-md-4 t-thumb" id="m_istambul" data-dismiss="modal">
+                            <div class="thumbnail" id="istambul-select-color">
+                              <label>
+                                <img src="<?php echo plugins_url( 'img/istambul-dourada.jpg', __FILE__ ); ?>" border="0" />
+                                <div>
+                                  <p>Istambul Dourada</p>
                                 </div>
                               </label>
                             </div>
                           </div>
 
+                          <div class="col-md-4 t-thumb" id="m_paris_preta" data-dismiss="modal">
+                            <div class="thumbnail" id="paris-select-color">
+                              <label>
+                                <img src="<?php echo plugins_url( 'img/paris-preta.jpg', __FILE__ ); ?>" border="0" />
+                                <div>
+                                  <p>Paris Preta</p>
+>>>>>>> 1.3.6
+                                </div>
+                              </label>
+                            </div>
+                          </div>
+
+<<<<<<< HEAD
                           <div class="col-md-4 t-thumb" onclick="paris()">
                             <div class="thumbnail" id="paris-select-color">
                               <label>
                                 <img src="<?php echo plugins_url( 'img/paris.png', __FILE__ ); ?>" border="0" />
                                 <div>
                                   <p>Paris</p>
+=======
+                          <div class="col-md-4 t-thumb" id="m_paris_branca" data-dismiss="modal">
+                            <div class="thumbnail" id="paris-select-color">
+                              <label>
+                                <img src="<?php echo plugins_url( 'img/paris-branca.jpg', __FILE__ ); ?>" border="0" />
+                                <div>
+                                  <p>Paris Branca</p>
+>>>>>>> 1.3.6
                                 </div>
                               </label>
                             </div>
                           </div>
 
+<<<<<<< HEAD
                           <div class="col-md-4 t-thumb" onclick="roma()">
                             <div class="thumbnail" id="roma-select-color">
                               <label>
                                 <img src="<?php echo plugins_url( 'img/roma.png', __FILE__ ); ?>" border="0" />
                                 <div>
                                   <p>Roma</p>
+=======
+                          <div class="col-md-4 t-thumb" id="m_roma_preta" data-dismiss="modal">
+                            <div class="thumbnail" id="roma-select-color">
+                              <label>
+                                <img src="<?php echo plugins_url( 'img/roma-preta.jpg', __FILE__ ); ?>" border="0" />
+                                <div>
+                                  <p>Roma Preta</p>
                                 </div>
                               </label>
                             </div>
                           </div>
+
+                          <div class="col-md-4 t-thumb" id="m_roma_branca" data-dismiss="modal">
+                            <div class="thumbnail" id="roma-select-color">
+                              <label>
+                                <img src="<?php echo plugins_url( 'img/roma-branca.jpg', __FILE__ ); ?>" border="0" />
+                                <div>
+                                  <p>Roma Branca</p>
+                                </div>
+                              </label>
+                            </div>
+                          </div>
+
+                          <div class="col-md-4 t-thumb" id="n_moldura_classica" data-dismiss="modal">
+                            <div class="thumbnail" id="miami-select-color">
+                              <label>
+                                <img src="<?php echo plugins_url( 'img/Block-icon.png', __FILE__ ); ?>" border="0" />
+                                <div>
+                                  <p>Sem moldura</p>
+>>>>>>> 1.3.6
+                                </div>
+                              </label>
+                            </div>
+                          </div>
+<<<<<<< HEAD
                         </div>
                       </div>
                     </div>
@@ -580,10 +1071,24 @@
                     <span onclick="semMoldura()" class="btn btn-default">Sem Moldura</span>
                     <button type="button" class="btn btn-default" data-dismiss="modal">Ok</button>
                   </div>
+=======
+
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Continuar</button>
+                  </div>
+
+>>>>>>> 1.3.6
                 </div>
               </div>
             </div>
           </div>
+<<<<<<< HEAD
         </div>
       </div>
     </div>
@@ -701,3 +1206,51 @@
 //call the wp foooter
 get_footer();
 ?>
+=======
+
+      </div>
+    </div>
+        
+        <!-- Modal -->
+        <div class="modal fade" id="modal_info" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title info_titulo" id="exampleModalLabel"> <span class="glyphicon glyphicon-warning-sign"></span> </h5>
+                <button type="button info_x_button" class="close info_x_button" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body info_body">
+                ...
+              </div>
+              <div class="modal-footer info_footer">
+                <button type="button" class="btn btn-secondary info_ok" data-dismiss="modal">OK</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        </div>
+  </div>
+  <!-- end .row -->
+  <br>
+
+<div class="wp_footer">
+  
+  <?php
+    iap_garantia_devolucao();
+
+    sidebar_saved_images();
+    //fechando função --> iap_init_index
+
+    //conteúdo do rodapé 
+    iap_content();
+    
+    //call the wp foooter
+    get_footer();
+  ?>
+
+</div>
+</div>
+>>>>>>> 1.3.6

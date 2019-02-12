@@ -1,5 +1,26 @@
 <?php 
+if ( ! defined( 'ABSPATH' ) ) {
+        exit; // Exit if accessed directly
+		}
 
+function iap_add_custom_box(){
+	$screens = ['personal'];
+	foreach ($screens as $screen) {
+		add_meta_box(
+			'iap_data_box_id',           // Unique ID
+      'Pedidos',  // Box title
+      'iap_data_box_html',  // Content callback, must be of type callable
+      $screen                   // Post type
+		);
+	}
+}
+
+function iap_data_box_html($post){
+
+}
+
+
+/*
 function iap_add_data_box()
 {
     $screens = ['personal'];
@@ -180,3 +201,4 @@ function iap_custom_box_html($post)
     </div>
     <?php
 }
+*/

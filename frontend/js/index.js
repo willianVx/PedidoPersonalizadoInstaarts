@@ -1,4 +1,6 @@
 jQuery(document).ready(function($) {
+	//carrega imagens favoritadas uploads passados 
+	fav();
 	// The visibility of these 2 elements is toggled by `toggleDragDrop()`
 	var imageElement = $("#editable-image").hide();
 	var dropArea = $("#drop-area");
@@ -26,22 +28,25 @@ jQuery(document).ready(function($) {
 					url: comprar.ajax_url,
 					data: {
 						action: "iap_order",
+						d2: "d2",
 						moldura: nome_moldura,
 						acabamento: nome_acabamento,
+						tipoMoldura: tipo_moldura,
 						largura: x,
 						altura: y,
-						preco: preco,
-						imagem: imagemOriginal
+						imagem: imagemOriginal,
+						cod_autor: localiza_autor.init(iap_resolve_url_acervo())
 					},
 					success: function(data) {
 						if (data == "0") {
-							alert("Erro no processamento. Tente mais tarde.");
+							modal_info.constructor("Erro no processamento. Tente mais tarde.", "aviso");
 						} else {
 							window.location = comprar.cart_url;
+							console.log(comprar.cart_url);
 						}
 					},
 					error: function(data) {
-						alert("Erro no processamento. Tente mais tarde.");
+						modal_info.constructor("Erro no processamento. Tente mais tarde.", "aviso");
 					}
 				});
 			}
@@ -51,139 +56,71 @@ jQuery(document).ready(function($) {
 				url: comprar.ajax_url,
 				data: {
 					action: "iap_order",
+					d2: "d2",
 					moldura: nome_moldura,
 					acabamento: nome_acabamento,
+					tipoMoldura: tipo_moldura,
 					largura: x,
 					altura: y,
-					preco: preco,
 					imagem: imagemOriginal,
-					imagemAdobe: editimage
+					imagemAdobe: editimage,
+					cod_autor: localiza_autor.init(iap_resolve_url_acervo())
 				},
 				success: function(data) {
-					console.log(data);
+					if (data == "0") {
+						modal_info.constructor("Erro no processamento. Tente mais tarde.", "aviso");
+					} else {
+						window.location = comprar.cart_url;
+					}
 				},
 				error: function(data) {
-					console.log("algo deu errado!");
-					console.log(data);
+					modal_info.constructor("Erro no processamento. Tente mais tarde.", "aviso");
 				}
 			});
 		}
 	});
 
-	// Image Editor configuration
-	var csdkImageEditor = new Aviary.Feather({
-		apiKey: comprar.api_val,
-		theme: `light`,
-		language: `pt_BR`,
-		tools: ["overlays", "orientation", "crop", "resize", "focus", "vignette"],
-		onSave: function(imageID, newURL) {
-			currentImage.src = newURL;
-
-			//Do the Upload
-			if (submittingImage === true) return;
-			submittingImage = true;
-
-			var form_data = new FormData();
-			form_data.append("file", newURL);
-			form_data.append("action", "iap_imageTransfer");
-
-			//Mimc the loading
-			csdkImageEditor.close();
-			$("body").addClass("loading");
-
-			$.ajax({
-				type: "post",
-				url: ajax_object.ajax_url,
-				contentType: false,
-				processData: false,
-				cache: false,
-				data: form_data,
-				success: function(result) {
-					if (result == "0") {
-						alert(
-							"Ocorreu um erro em nosso sistema. Por favor, tente novamente mais tarde."
-						);
-					} else {
-						results = result.split("|", 2);
-						$("#edited_image_url").val(results[1]);
-						$("#edited_image_id").val(results[0]);
-					}
-					$("body").removeClass("loading");
-					submittingImage = false;
-				},
-				error: function(response) {
-					alert(
-						"Ocorreu um erro em nosso sistema. Por favor, atualize a página e tente novamente."
-					);
-					$("body").removeClass("loading");
-					submittingImage = false;
-				}
-			});
-		},
-		onError: function(errorObj) {
-			console.log(errorObj.code);
-			console.log(errorObj.message);
-			console.log(errorObj.args);
-		}
-	});
-
-	// Edit
-	$("#edit-image-button").click(function() {
-		launchImageEditor();
-	});
 	// Reset
 	$("#reset-image-button").click(function() {
+		
 		if (
 			$("#editable-image").attr("src") === originalImageSrc ||
 			!originalImageSrc
 		) {
-			alert("Você ainda não fez alterações");
+			modal_info.constructor('Você ainda não fez alterações"','aviso');
 		} else {
 			$("#editable-image").attr("src", originalImageSrc);
 		}
 	});
 	// Clear
 	$("#clear-image-button").click(function() {
+		window.editar_unlock = 0;
 		if (imageElement.attr("src")) {
+			$("#s-tamanho").html(" ");
+			$("#s-metacrilato").html("Acabamento");
+			$("#s-moldura").html("Moldura");
+			$("#s-preco").html(" ");
+			escolherAcabamento = 0;
+			escolherPreco = 0;
 			clearImage();
 			toggleDragDrop();
+			if (iap_define_tipo() == 'photobloco') {
+				window.location.assign("https://instaarts.com/product/photobloco/");
+			}else{
+				window.location.assign("https://instaarts.com/product/quadro-personalizado-instaarts/");
+			}
 		} else {
-			alert("Nada para limpar");
+			modal_info.constructor("Nada para limpar.", "aviso");
 		}
 	});
 
-	// Drop
-	//// Prevent defaults on drag/drop events
-	dropArea
-		.on("drag dragstart dragend dragover dragenter dragleave drop", function(
-			e
-		) {
-			if (e.preventDefault) e.preventDefault();
-			if (e.stopPropagation) e.stopPropagation();
-		})
-		/*.on('click', function(e) {
-		//Click anywhere in Droparea to upload file
-	  	$('#fileToUpload').click();
-	})*/
-		.on("drop", function(e) {
-			// Get the dropped file
-			var file = e.originalEvent.dataTransfer.files[0];
-			validateFileType(file);
-		});
-	dropArea.on("dragover", function(e) {
-		this.className = "drop-zone dragover";
-		return false;
-	});
-	dropArea.on("dragleave", function(e) {
-		this.className = "drop-zone";
-		return false;
-	});
 	// Click
 	//Hold the submission
 	var submittingImage = false;
 	//// Takes file from file chooser
 	$("#fileToUpload").on("change", function(e) {
 		var file = e.originalEvent.target.files[0];
+		
 		//Do the Upload
 
 		if (submittingImage === true) return;
@@ -197,12 +134,13 @@ jQuery(document).ready(function($) {
 			file["type"] != "image/jpg" &&
 			file["type"] != "image/jpeg"
 		) {
-			alert("A imagem precisa estar em formato JPG ou PNG");
+			modal_info.constructor("A imagem precisa estar em formato JPG ou PNG", "aviso");
 			submittingImage = false;
 			return;
 		}
+		
 		if (file["size"] > "32000000") {
-			alert("A imagem não pode ser maior que 30 MB");
+			modal_info.constructor("A imagem não pode ser maior que 30 MB", "aviso");
 			submittingImage = false;
 			return;
 		}
@@ -213,7 +151,7 @@ jQuery(document).ready(function($) {
 
 		$.ajax({
 			type: "post",
-			url: ajax_object.ajax_url,
+			url: comprar.ajax_url,
 			contentType: false,
 			processData: false,
 			cache: false,
@@ -225,22 +163,23 @@ jQuery(document).ready(function($) {
 					if (ev.lengthComputable) {
 						var percentComplete = parseInt(ev.loaded / ev.total * 100);
 						$("#progress-bar").css("width", percentComplete + "%");
+						$(".percent").html(percentComplete + "%");
 					}
 				};
 				return myXhr;
 			},
 			success: function(result) {
+				$(".hud-botao").css("color","black");
+				
 				switch (result) {
 					case "0":
-						alert(
-							"Ocorreu um erro ao enviar a imagem. Por favor tente novamente."
-						);
+						modal_info.constructor('Ocorreu um erro ao enviar a imagem. Por favor tente novamente.', 'aviso');
 						break;
 					case "1":
-						alert("A imagem precisa estar no formato JPG ou PNG.");
+						modal_info.constructor('A imagem precisa estar no formato JPG ou PNG.', 'aviso');
 						break;
 					case "2":
-						alert("A imagem não pode ser maior que 32 MB");
+						modal_info.constructor('A imagem não pode ser maior que 32 MB.', 'aviso');
 						break;
 					default:
 						results = result.split("|", 2);
@@ -248,18 +187,51 @@ jQuery(document).ready(function($) {
 						$("#image_id").val(results[0]);
 						imageElement.attr("src", results[1]);
 						originalImageSrc = imageElement.attr("src");
-						toggleDragDrop();
+
+						$(imageElement).load(function(){
+							window.imgWidth = $(this)["0"].naturalWidth;
+							window.imgHeight = $(this)["0"].naturalHeight;
+							tamanahoProporcional(true);
+						});
+
+						if(fav().length == 8){
+							modal_info.constructor('Você já salvou muitas imagens!', 'aviso');
+						}else{
+							add_fav(originalImageSrc);
+						}
+
+						if (!window.porta_retrato_upload_controlador){
+							toggleDragDrop();
+						}
+						
+						cliente_imagem_url.add_lista(originalImageSrc);
+						//console.log(originalImageSrc);
+						if (iap_define_tipo() == "photobloco") {
+							iap_show_photobloco();
+						}
 						$(".modal .close").click();
+
+						if (typeof cropper == "undefined") {	
+							//console.log("cropper ainda não definido!");
+						}else{
+							cropper.replace(cliente_imagem_url.ultimo_item());
+							cropper.cropBoxData.minHeight = imagem_atual_info.minCropBoxHeight(1000);
+						}
+						init_quadro_na_parede(originalImageSrc);
+						
 						break;
 				}
 				submittingImage = false;
 				$("#progress-bar").css("width", "0%");
+				$(".percent").html(" ");
 			},
 			error: function(response) {
-				alert("Ocorreu um erro ao enviar a imagem. Por favor tente novamente.");
+				modal_info.constructor('Ocorreu um erro ao enviar a imagem. Por favor tente novamente.', 'aviso');
 				submittingImage = false;
 				$("#progress-bar").css("width", "0%");
+				$(".percent").html(" ");
 			}
+
 		});
 	});
 	// Checks if the file type is in the array of supported types
@@ -271,6 +243,7 @@ jQuery(document).ready(function($) {
 	function toggleDragDrop() {
 		dropArea.toggle();
 		imageElement.toggle();
+		$(".img-upload-line").toggle();
 	}
 	function setImage(file) {
 		imageElement.attr("src", window.URL.createObjectURL(file));
@@ -284,50 +257,172 @@ jQuery(document).ready(function($) {
 		if (fileIsSupported(file)) {
 			setImage(file);
 			toggleDragDrop();
-			//launchImageEditor();
 			return true;
 		} else {
-			alert("Por favor, tente nos formatos JPEG ou PNG");
+			modal_info.constructor('Por favor, tente nos formatos JPEG ou PNG', 'aviso');
 			return false;
 		}
 	}
-	function launchImageEditor() {
-		if (!originalImageSrc) {
-			alert("Faça o upload de alguma imagem primeiro!");
-			return false;
-		}
-		// Get the image to be edited
-		// `[0]` gets the image itself, not the jQuery object
 
-		currentImage = $("#editable-image")[0];
-		csdkImageEditor.launch({
-			image: currentImage.id
-			//url: currentImage.src
-		});
+	$("#b-tamanho").click(function(){
+		setTamanho();
+	});
+	
+	function setTamanho(){
+		window.imgWidth = imageElement["0"].naturalWidth;
+		window.imgHeight = imageElement["0"].naturalHeight;
 	}
 
-	//send data to PHP By Drop
-	function upload(files) {
-		var formData = new FormData(),
-			xhr = new XMLHttpRequest(),
-			x;
-		for (x = 0; x < files.length; x = x + 1) {
-			formData.append("file[]", files[x]);
+	if (iap_define_tipo() == "imagem_acrilico") {
+        $("#img_acrilico").show();
+        $("#main_carregando").hide();
+    }
+    
+    if (iap_define_tipo() == "photobloco") {
+		$("#img_photobloco").show();
+
+        $("#main_carregando").hide();
+        $("#b-tamanho").hide();
+        $("#b-acabamento").hide();
+        $("#b-moldura").hide();
+        $("#comprar-botao").hide();
+        $("#edit-image-button").hide();
+		$(".b_quadro_na_parede").hide();
+		$(".hud-botao").css("left","200px");
+		
+		$(".drop-zone").css("background-color","#fbffff");
+
+		if ($(window).width() <= 768) {
+			$("#img_photobloco").hide();
+			$("#img_photobloco_2").show();
 		}
-		xhr.onload = function() {
-			var data = this.responseText;
-		};
-		xhr.open("post", "upload.php");
-		xhr.send(formData);
 	}
 
-	//upload by drop (quando o usuario arrasta a imagem para o dropzone)
-	(function TheDrop() {
-		var dropzone = document.getElementById("drop-area");
-		dropzone.ondrop = function(e) {
-			e.preventDefault();
-			this.className = "drop-zone";
-			upload(e.dataTransfer.files);
-		};
-	})();
+	if(iap_define_tipo() == "porta_retrato") {
+		
+		$("#img_porta_retrato").show();
+		
+		$("#main_carregando").hide();
+		$("#drop-area").addClass("col-lg-10");
+		$(".img-upload-line").addClass("col-lg-10");
+		$("#sidebar").show();
+		$("#reset-image-button").hide();
+		$("#clear-image-button").hide();
+		$(".hud-botoes-mat").hide();
+
+		$(".drop-zone").css("background-color","#fbffff");
+
+		if (porta_retrato_13x13_config.d_porta_retrato_tamanho == "13x18cm") {
+			$(".ret-resize-horizontal").show();
+			$(".ret-resize-vertical").show();
+		}
+
+		$("#iap_crop_porta_retrato").show();
+		$("#iap_reiniciar_porta_retrato").show();
+		$(".iap_box_upload").css('display', 'block');
+		if ($(window).width() > 768) {
+			$("#iap_crop_porta_retrato").show();
+			$("#iap_reiniciar_porta_retrato").show();
+
+			$(".drop-zone").css("width","60%");
+
+			$("#editable-image").css("width","500px");
+			$(".img-upload").css("width","500px");
+			$(".img-upload-line").css("width","500px");
+			$("#img_porta_retrato").css("height","450px");
+
+		}
+
+		if ($(window).width() <= 768) {
+			$("#img_porta_retrato_1").show();
+			$("#img_porta_retrato").hide();
+
+			var $portaRetrato = $("#porta_retrato");
+			$portaRetrato.find("li");
+
+		}
+
+		if ($(window).width() <= 425) {
+			var $sidebar = $("#sidebar");
+		}
+
+	}
+
+	$(".iap_box_upload").show();
+	//mostra os botões photobloco e cortar quando a imagem é definida 
+	function  iap_show_photobloco(){
+        $(".iap_crop_div").show();
+        $("#comprar-botao-photobloco").show();
+	}
+	/*
+	*
+	*
+	*
+	*/
+	if (iap_resolve_url_acervo()) {
+		imageElement.attr('src', iap_resolve_url_acervo());
+		$(".hud-botao").css("color","black");
+		originalImageSrc = iap_resolve_url_acervo();
+		toggleDragDrop();
+		if(iap_define_tipo() == 'photobloco'){
+			iap_show_photobloco();
+			console.log('isso eh um photobloco com imagem para ser renderizada');
+		}
+	}
 });
+
+var cliente_imagem_url = {
+
+	lista: [],
+	controle: 0,
+	add_lista: function(url){
+		this.lista.push(url);
+		this.elemento_imagem();
+	},
+	remove_lista: function(){
+		this.lista.splice(this.lista.length - 1, 1);
+	},
+	ultimo_item: function(){
+		var ultimo = this.lista[this.lista.length - 1];
+
+		return ultimo; 
+	},
+	elemento_imagem: function(index){
+		
+		var nova_imagem = document.createElement('img');
+		var src = this.lista[index] || this.ultimo_item();
+		nova_imagem.src = src;
+		nova_imagem.width = 200;
+		nova_imagem.id = "user_img"+this.controle;
+
+		var user_img = document.getElementById("iap_user_img");
+
+		user_img.appendChild(nova_imagem);
+
+		++this.controle;		
+		return nova_imagem;
+	},
+
+}
+
+var metadata_canvas = {
+	lista: [],
+	add_lista: function(cropper_x, cropper_y, cropper_width,cropper_height,cropper_dx,cropper_dy,cropper_dWidth,cropper_dHeight,canvas_width,canvas_height, image_width,image_height){
+		
+		this.cropper_x = cropper_x;
+		this.cropper_y = cropper_y;
+		this.cropper_width = cropper_width;
+		this.cropper_height = cropper_height;
+		this.cropper_dx = cropper_dx;
+		this.cropper_dy = cropper_dy
+		this.cropper_dWidth = cropper_dWidth
+		this.cropper_dHeight = cropper_dHeight;
+		
+		this.canvas_width = canvas_width;
+		this.canvas_height = canvas_height;
+		this.image_width = image_width;
+		this.image_height = image_height;
+
+		this.lista.push(["metacanvas",["cropper_x", this.cropper_x],["cropper_y",this.cropper_y],["cropper_width",this.cropper_width],["cropper_height",this.cropper_height],["cropper_dx",this.cropper_dx],["cropper_dy",this.cropper_dy],["cropper_dWidth",this.cropper_dWidth],["cropper_dHeight",this.cropper_dHeight],["canvas_width",this.canvas_width],["canvas_height",this.canvas_height],["image_width",this.image_width],["image_height",this.image_height]]);
+	}
+}

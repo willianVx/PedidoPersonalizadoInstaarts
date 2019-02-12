@@ -1,0 +1,654 @@
+#click-upload {
+    display: none;
+}
+#comprar-botao-photobloco{
+    display: none;
+    width: 250px;
+}
+.s-preco{
+    color: rgb(255, 255, 255);
+}
+.texto_upload_image{
+    font-size: 12px;
+    color:rgb(150, 150, 150);
+    position: absolute;
+    width: 360px;
+    height: 150px;
+    top: 90px;
+    left: 470px;
+}
+.texto_tamanho_image{
+    font-size: 1em;
+    color:rgb(46, 46, 46);
+    position: absolute;
+    width: 250;
+    height: 150;
+    top: 10px;
+    left: 220px;
+}
+.texto_aviso_res{
+    font-size: 1em;
+    color:rgb(46, 46, 46);
+    position: absolute;
+    width: 250px;
+    height: 150px;
+    top: 70px;
+    left: 220px;
+}
+.texto_upload{
+    font-size: 12px;
+    color:rgb(150, 150, 150);
+}
+.iap_box_upload{
+    position: relative;
+    font-size: 0.9em;
+    padding: 5px;
+    cursor: pointer;
+    color: white;
+    background-color: #45b75b;
+    top: -30px;
+    transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.iap_box_upload:hover{
+    background-color: #38974b;
+}
+.navbar a{
+    color: rgb(255, 255, 255);
+}
+.navbar a:hover{
+    color: rgb(177, 177, 177);
+}
+.navbar_click a{ 
+    font-size: 2em;
+}
+.bloco{
+    position: relative;
+    width: 100%;
+    height: 10px;
+}
+#tamanho_carregando{
+    position: relative;
+    display: none;
+    margin: auto;
+  }
+#img_acrilico{
+    display: none;
+}
+#img_photobloco{
+    display: none;
+}
+.iap_box_upload{
+    display: none;
+}
+#b-photobloco{
+    position: relative;
+    width: 300px;
+}
+.thumbnail{
+    cursor: pointer;
+}
+#iap_crop{
+    position: relative;
+    display: none;
+    top: 5px;
+    width: 300px;
+}
+.iap_crop_div{
+    display: none;
+}
+.iap_photo_content{
+    position: relative;
+    padding: 10px;
+}
+#iap_canvas{
+    position: relative;
+    width: 100%;
+}
+#body_loading{
+    position: relative;
+    width: 50px;
+    left: -55px;
+    display: none;
+    margin: auto;
+}
+.sidebar_container{
+    position: relative;
+    float: right;
+    margin-bottom: 100px;
+}
+#sidebar_porta_retrato{
+
+    position: relative;
+    width: 263px;
+    height: 520px;
+    border: 1px solid #b3b3b3;
+    border-radius: 12px;
+    padding: 24px;
+
+}
+.b_comprar_porta_retrato{
+    position: relative;
+    top: 10px;
+    width: 263px;
+    height: 46px;
+    margin-bottom: 50px;
+}
+.btn-iap-comprar{
+    border-color: #007bff;
+    background-color:#007bff;
+}
+.btn-iap-comprar:hover{
+    background-color: #1b6bc0;
+}
+#quadros_restantes{
+    position: relative;
+    width: 140px;
+    height: 50px;
+    background-color: #45b75b;
+    color: white;
+    text-align: center;
+    line-height:23px;
+    margin-top: 2px;
+    margin-left: 35px;
+    border-radius: 12px;
+    cursor: pointer;
+}
+.img_add_novo_quadro{
+    position: relative;
+    cursor: pointer;
+    margin-top: 5px;
+    margin-left: 80px;
+}
+#iap_reiniciar_porta_retrato{
+    position: relative;
+    display: none;
+    margin-top: 10px;
+    margin-left: 25px;
+    height: 47px;
+}
+.ret-resize-vertical{
+    position: relative;
+    display: none;
+    height: 47px;
+    margin-top: 10px;
+    margin-left: 25px;
+    font-size: 0.9em;
+}
+.ret-resize-horizontal{
+    position: relative;
+    display: none;
+    height: 47px;
+    margin-top: 10px;
+    margin-left: 25px;
+    font-size: 0.9em;
+}
+#porta_retrato_module ul li{
+
+    padding:0px;
+    margin:0px;
+    list-style-type: none;
+    width: 208px;
+    height: 81px;
+    border-radius: 12px;
+    margin-bottom: 9px;
+    padding: 6px;
+
+    -webkit-box-shadow: -1px 4px 13px -1px rgba(0,0,0,0.21);
+    -moz-box-shadow: -1px 4px 13px -1px rgba(0,0,0,0.21);
+    box-shadow: -1px 4px 13px -1px rgba(0,0,0,0.21);
+
+}
+#info_painel_texto{
+    position: relative;
+    float: right;
+    color: #909090;
+    line-height: 2;
+    right: 35px;
+    width: 85px;
+    height: 56px;
+    font-size: 0.6em;
+}
+i{
+    position: relative;
+    float: right;
+    left: 80px;
+    cursor: pointer;
+    color: #909090;
+}
+.iap_porta_retrato_carregando{
+    position: relative;
+    display: block;
+    margin: auto;
+}
+.b_quadro_na_parede_img_icon{
+    padding: 10px;
+}
+#info_painel{
+    position: relative;
+    padding: 6px;
+    width: 208px;
+    height: 71px;
+    border: 1px dotted #b3b3b3;
+    border-radius: 12px;
+    margin-bottom: 9px;
+}
+.info_painel{
+    position: relative;
+    padding: 6px;
+    width: 208px;
+    height: 71px;
+    border: 1px dotted #b3b3b3;
+    border-radius: 12px;
+    margin-bottom: 9px;
+}
+.info_painel_shadow{
+    -webkit-box-shadow: -1px 4px 13px -1px rgba(0,0,0,0.21);
+    -moz-box-shadow: -1px 4px 13px -1px rgba(0,0,0,0.21);
+    box-shadow: -1px 4px 13px -1px rgba(0,0,0,0.21);
+}
+#sidebar{
+    position: initial;
+    display: none;
+}
+#iap_crop_porta_retrato{
+    display: none;
+    margin-top: 10px;
+    font-size: 0.9em;
+    height: 47px;
+}
+#iap_adiciona_imagem_porta_retrato{
+    display: none;
+    margin-top: 10px;
+}
+
+
+#info_painel_texto span{
+    line-height: 3;
+    font-size: 2em;
+}
+#img_porta_retrato{
+    display: none;
+    height: 550px;
+}
+#img_porta_retrato_1{
+    position: relative;
+    display: none;
+    max-height: 550px;
+}
+.iap_mobile_c{
+    display: none;
+    margin-top: 10px;
+    margin-left: 25px;
+    width: 53px;
+}
+.iap_tamanho_personalizado{
+    position: relative;
+    border-bottom: solid 1px rgb(184, 184, 184);
+    padding-bottom: 20px;
+}
+#slider{
+    max-width: 250px;
+    background-color: gray;
+}
+#slider span{
+    background-color: rgb(49, 49, 49);
+}
+.iap_tp_slider{
+    position: relative;
+    width: 250px;
+}
+.iap_tp_botao{
+    display: none;
+    position: relative;
+    float: right;
+    top: 35px;
+}
+
+.m_botton_menu{
+
+    position: relative;
+    display: none;
+    height: 160px;
+
+}
+.contador_bolinha{
+
+    position: relative;
+    background-color: #4eb862;
+    width: 17px;
+    height: 17px;
+
+    left: 64px;
+
+    border-radius: 50%;
+    display: none;
+    color: white;
+    text-align: center;
+    line-height: 17px;
+
+}
+.m_ret_horizontal{
+
+    position: relative;
+    background-color: #2db6e9;
+    width: 48px;
+    height: 21px;
+    border-radius: 6px;
+    margin-top: 11px;
+    text-align: center;
+    
+
+}
+.m_ret_horizontal img{
+
+    position: relative;
+    width: 18px;
+
+}
+.m_ret_vertical{
+
+    position: relative;
+    background-color: #2db6e9;
+    width: 48px;
+    height: 21px;
+    border-radius: 6px;
+    margin-top: 11px;
+    padding-left: 15px;
+}
+.m_ret_vertical img{
+
+    position: relative;
+    width: 18px;
+
+}
+.m_reiniciar_porta_retrato{
+
+    position: relative;
+    background-color: #d9534f;
+    width: 48px;
+    height: 52px;
+    border-radius: 6px;
+
+    left: 240px;
+    top: -75px;
+
+    text-align: center;
+    color: rgb(58, 19, 19);
+    font-size:18px;
+    line-height: 52px;
+
+}
+.m_add_novo_quadro{
+    position: relative;
+    width: 57px;
+    height: 53px;
+
+    left: 90px;
+    top: -32px
+}
+.m_grupo_ret{
+    position: relative;
+    width: 48px;
+    height: 53px;
+    top: 30px;
+}
+.m_cortar_adicionar{
+    position: relative;
+
+    width: 152px;
+    height: 38px;
+    border-radius: 6px;
+    left: 70px;
+    top: 5px;
+
+    color: white;
+    text-align: center;
+    line-height: 38px;
+    font-size: 0.9em;
+    background-color: #4eb862;
+}
+.glyphicon-trash{
+    color: white;
+    text-align: center;
+}
+#img_photobloco_2{
+    display: none;
+}
+.jumbotron{
+    position: relative;
+    float: right;
+    
+}
+.modal{
+    z-index: 2000;
+}
+.info_body{
+    padding: 50px;
+    text-align: center;
+}
+.saved_images{
+    position: relative;
+    display: none;
+    padding: 20px;
+    text-align: center;
+    color: white;
+    background-color: #4eb862;
+    margin-bottom: 10px;
+}
+.box_saved_images{
+    position: relative;
+    width: 1450px;  
+}
+.box_imagem_salva{
+    position: relative;
+    margin: 25px;
+    max-width: 300px;
+    max-height: 300px;
+    border: 1px white solid;
+    padding: 2px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.box_imagem_salva_hover{
+    background-color: #53C569;
+    border: 1px #4EB862 solid;
+    -webkit-box-shadow: 4px 14px 35px -7px rgba(29,56,34,0.52);
+    -moz-box-shadow: 4px 14px 35px -7px rgba(29,56,34,0.52);
+    box-shadow: 4px 14px 35px -7px rgba(29,56,34,0.52);
+}
+#imagem_salva{
+    display: none;
+}
+.x_exclui_imagem{
+    position: absolute;
+    right: 0px;
+    padding: 5px;
+    background-color: white;
+    color: #BD190E;
+    border-radius: 50%;
+    display: none;
+}
+.imagem_salva{
+    position: relative;
+    max-width: 200px;
+    max-height: 200px;
+    margin: 5px;
+}
+.glyphicon-chevron-up{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top:50%;
+    font-size: 2.5em;
+    margin: 20px;
+    background: -moz-linear-gradient(top, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.1) 98%, rgba(0,0,0,0.1) 99%);
+    background: -webkit-linear-gradient(top, rgba(0,0,0,0.1) 0%,rgba(0,0,0,0.1) 98%,rgba(0,0,0,0.1) 99%);
+    background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%,rgba(0,0,0,0.1) 98%,rgba(0,0,0,0.1) 99%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1a000000', endColorstr='#1a000000',GradientType=0 );
+    display: none;
+}
+.side_banner{
+    text-align: center;
+    max-width: 200px;
+    cursor:  pointer;
+    color: #9A9C95;
+    border: 1px #9A9C95 solid; 
+}
+.banner_img_1{
+    margin-bottom: 10px;
+}
+.iap_parcelamento{
+   font-size: 0.7em;
+}
+.iap_parcelamento_photobloco{
+    font-size: 0.7em;
+}
+.b_quadro_na_parede{
+    transition: 0.3s ease;
+    color: white;
+    background-color: #45b75b;
+    width: 60px;
+    height: 60px;
+    font-size: 0.8em;
+    line-height: initial;
+    border-radius: 50%;
+    position: relative;
+    z-index: 3;
+    margin-right: 12px;
+    cursor: pointer;
+    font-family: sans-serif;
+}
+.iap_img_ambiente{
+    position: relative;
+    width: 100%;
+}
+.ipa_canvas_img_a{
+    position: absolute;
+    top: 75px;
+    left: 330px;
+    background-color:rgb(255, 255, 255);
+}
+.ipa_canvas_img_a img{
+    position: relative;
+    max-width: 280px;
+    max-height: 210px;
+    -webkit-box-shadow: 6px 6px 8px 0px rgba(0,0,0,0.32);
+    -moz-box-shadow: 6px 6px 8px 0px rgba(0,0,0,0.32);
+    box-shadow: 6px 6px 8px 0px rgba(0,0,0,0.32);
+}
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+  }
+  
+  .prev {
+    left: 0;
+    border-radius: 3px 0 0 3px;
+  }
+
+  /* Position the "next button" to the right */
+  .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+  /* On hover, add a black background color with a little bit see-through */
+  .prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+  }
+.loading_img{
+    z-index: 1;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    opacity: 2;
+    background-color: rgb(255, 255, 255);
+}
+@media(max-width:1200px){
+    .side_banner{
+        display: none;
+    }
+}
+
+@media(max-width:1199px){
+
+    .sidebar_container{
+        top: -460px;
+        right: 130px;
+    }
+    #envelope_container{
+        margin-top: 200px!important;
+    }
+}
+@media(max-width:991px){
+    .sidebar_container{
+        right: -75px;
+    }
+    .b_quadro_na_parede{
+        width: 50px;
+        height: 50px;
+    }
+    .ipa_canvas_img_a img{
+        max-width: 130px;
+        max-height: 210px;
+    }
+}
+@media(max-width:850px){
+    .sidebar_container{
+        right: 354px;
+        top: 15px;
+    }
+}
+@media(max-width: 768px){
+
+    .texto_aviso_res{
+        display: none;
+    }
+    .btn-secondary{
+        top: 2px;
+    }
+}
+@media(max-width:668px){
+    .sidebar_container{
+        right: 245px;
+    }
+
+}
+@media(max-width:500px){
+    .b_quadro_na_parede{
+        top: 10px;
+        left: 35%;
+    }
+}
+@media(max-width:530px){
+    .sidebar_container{
+        right: 118px;
+    }
+    .ipa_canvas_img_a{
+        left: 225px;
+    }
+}
+@media(max-width:460px){
+    .ipa_canvas_img_a{
+        left: 159px;
+    }
+}
+@media(max-width:360px){
+    .ipa_canvas_img_a img{
+        max-width: 100px;
+        max-height: 150px;
+    }
+}
+@media(max-width:320px){
+    .sidebar_container{
+        right: 2px;
+    }
+}

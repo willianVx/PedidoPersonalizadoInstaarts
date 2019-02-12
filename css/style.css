@@ -1,0 +1,198 @@
+.container-b{
+    position: relative;
+    top: 20px;
+}
+#iap_image_crop{
+  position: relative;
+  width: 450px;
+  height: 250px;
+}
+ 
+    body {
+      min-height: 100vh;
+    }
+   
+    .padleft {
+      padding: 0px 0px 0px 20px;
+    }
+    .button-panel {
+      margin-bottom: 10px;
+      border-radius: 0;
+    }
+    .drop-zone {
+      border-style: solid;
+      border-width: 1px;
+      border-color: #b3b3b3;
+      border-radius: 12px;
+      text-align: center;
+      color: lightgray;
+      font-size: 24px;
+    }
+
+    .drop-zone.dragover {
+      opacity: 0.5;
+    }
+
+    .hud-botao {
+      position: relative;
+      width: 200px;
+      height: 60px;
+      font-size: 15px;
+      color: rgb(189, 189, 189);
+      margin-right: 12px;
+    }
+    .hud-botoes-mat{
+      display: flex;
+      justify-content: center;
+      padding: 20px;
+      position: relative;
+      margin-bottom: 50px;
+    }
+
+    .hud-calcularPreco {
+      position: relative;
+      padding: 1%;
+    }
+
+    .somaProdutos {
+      position: relative;
+      text-align: center;
+      width: 55%;
+      left: 35%;
+      top: 10px;
+      bottom: 20px;
+    }
+
+    .ok-modal-tamanho {
+      position: relative;
+      left: 480px;
+      bottom: 5px;
+    }
+
+    .thumbnail {
+      font-size: 10px;
+    }
+
+    .t-thumb {
+      position: relative;
+      width: 200px;
+    }
+
+    .m-thumb {
+      position: relative;
+      width: 200px;
+    }
+
+    .green {
+      border-style: solid;
+      border-color: green;
+    }
+
+    .img-upload{
+      position: relative;
+      max-width: 1000px;
+      max-height: 500px;
+      z-index: 10;
+
+      margin-left: auto;
+	    margin-right: auto;
+      display: block;
+    }
+
+    .img-upload-line{
+      padding: 5px;
+
+      border-style: solid;
+      border-width: 1px;
+      border-color: #b3b3b3;
+      border-radius: 12px;
+    }
+
+    body.loading {
+      position: relative;
+    }
+    body.loading:before {
+      content: ' ';
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background: rgba(0,0,0,0.5);
+      position: absolute;
+      z-index: 20;
+      display: block;
+    }
+    .progress{
+      position: relative;
+      width: 390px;
+      margin-left: 15px;
+    }
+    .linha_div_vertical{
+      position: absolute;
+      height: 120px;
+      width: 1px;
+      background-color: rgb(204, 204, 204);
+      top: 90px;
+      bottom: -2px;
+      left: 460px;
+    }
+    .linha_div_vertical2{
+      position: absolute;
+      height: 150px;
+      width: 1px;
+      background-color: rgb(204, 204, 204);
+      top: 20px;
+      bottom: -2px;
+      left: 200px;
+    }
+
+    @media(max-width: 500px){
+      .progress{
+        position: relative;
+        width: 150px;
+      }
+      .wp_footer{
+        position: relative;
+        top: 50px;
+      }
+      .linha_div_vertical2{
+        display: none;
+      }
+      .botao_editar{
+        display: none;
+      }
+      .iap_box_upload{
+        font-size: 0.7em!important;
+        padding: 2px!important;
+      }
+      #iap_crop{
+        margin-top: 10px;
+      }
+      .hud-botoes-mat{
+        display: grid;
+      }
+      .hud-botao{
+        margin-top: 20px;
+        margin-right: 0;
+        width: 24em;
+      }
+    }   
+    @media(max-width: 700px){
+      .texto_tamanho_image{
+        display: none !important;
+      }
+      .botao_editar{
+        display: none;
+      }
+    }
+    @media(max-width: 1200px){
+      .texto_upload_image{
+        display: none;
+      }
+      .linha_div_vertical{
+        display: none;
+      }
+      .b-comprar {
+        margin-bottom: 24px;
+      }
+    }

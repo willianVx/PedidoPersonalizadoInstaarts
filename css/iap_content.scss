@@ -1,0 +1,141 @@
+$background_color_1: #3bb44a;
+$background_color_2: #afebb6;
+$cor_texto: #6e6e6e;
+.iap_products_content{
+    max-width: 640px;
+    border: 1px solid #b7b7b7;
+    border-radius: 6px;
+    padding: 22px;
+    img{
+        width: 267px;
+    }
+    h5{
+        padding: 5px;
+        background-color: $background_color_1;
+        border-radius: 6px;
+        color: white;
+        text-align: center;
+    }
+    p{
+        color: $cor_texto;
+    }
+    a button{
+        padding: 3px;
+        background-color: $background_color_1;
+        color: white;
+        text-align: center;
+        border-radius: 3px;
+        right: 0px;
+        position: absolute;
+    }
+    .bullet_group{
+        display: flex;
+        justify-content: center;
+    }
+    .bullet{
+        position: relative;
+        width: 12px;
+        height: 12px;
+        margin: 10px;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: 0.4s ease;
+        background-color: $background_color_2;
+    }
+    .bullet_color_active{
+        background-color: $background_color_1;
+    }
+    img{
+        transition: 0.4s ease;
+    }
+}
+
+@media(max-width:1199px){
+    .iap_products_content{
+        .col-lg-6{
+            text-align: center;
+        }
+    }
+}
+.iap_display_none{
+    display: none;
+}
+.iap_content_recomendacoes{
+    $rosinha: #BC4466;
+    margin-top: 40px;
+    h2{
+        color: #6e6e6e;
+    }    
+    .col-lg-3{
+        max-width: 240px;
+        height: 282px;
+        cursor: pointer;
+        padding: 15px;
+        color: #6e6e6e;
+        border-radius: 6px;
+        text-align: center;
+        margin-right: 35px;
+        margin-top: 10px;
+        transition: 0.3s cubic-bezier(0.4, 0, 1, 1);;
+        
+        &:hover{
+            -webkit-box-shadow: -1px 18px 27px -6px rgba(54,54,54,0.79);
+            -moz-box-shadow: -1px 18px 27px -6px rgba(54,54,54,0.79);
+            box-shadow: -1px 18px 27px -6px rgba(54,54,54,0.79);
+            a{
+                color: #6e6e6e;
+            }
+        }
+        
+        p{
+            right: 0px;
+            left: 0px;
+            position: absolute;
+            bottom: 0;
+        }
+        .iap_content_preco{
+            color: $rosinha;
+            font-size: 2em;
+        }
+    }
+    .iap_content_btn{
+        transition: 0.3s cubic-bezier(0.4, 0, 1, 1);;
+        position: relative;
+        left: 30px;
+        background-color: $rosinha;
+        color:white;
+        &:hover{
+            background-color: white;
+            border: 1px solid $rosinha;
+            color: $rosinha;
+            a{
+                color: $rosinha!important;
+            }
+        }
+    }
+}
+.iap_garantia_devolucao{
+    position: relative;
+    bottom: 50px;
+    font-size: 1.7em;
+    img{
+        max-width: 60px;
+        padding-bottom: 10px;
+    }
+    .col-lg-12{
+        text-align: center;
+    }
+}
+
+@media(max-width:1199px){
+
+    .iap_garantia_devolucao{
+        .col-lg-8{
+            left: 0;
+            right: 0;
+            margin: auto;
+            top: 10px;
+        }
+    }
+
+}

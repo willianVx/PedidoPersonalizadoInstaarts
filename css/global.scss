@@ -1,0 +1,33 @@
+//botao shortcode
+$cor_verde: #BC4466;
+.iap_botao_pedido {
+    a{
+        padding: 18px;
+        border-radius: 6px;
+        background-color: $cor_verde;
+        border: 1px solid $cor_verde;
+        color: white!important;
+        transition: 0.3s ease;
+        font-size: 1.3em;
+        font-family: sans-serif;
+        font-weight: bold;
+    }
+    
+    :hover{
+        padding: 22px;
+        background-color: white!important;
+        color: $cor_verde!important;
+    }
+}
+
+.produto_home{
+    padding-left: 20px;
+    padding-right: 20px;
+    max-width: 255px;
+    border: 1px solid rgb(190, 190, 190);
+    text-align: center;
+    transition: 0.4s;
+    img{
+        max-width: 200px;
+    }
+}
