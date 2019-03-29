@@ -144,7 +144,7 @@ function iap_register_scripts(){
 	);
 	wp_enqueue_script('iap-index');
 
-	//wp_enqueue_script('bootstrap-modal', plugins_url('frontend/js/bootstrap.js', __FILE__), 'jquery', 1.0, true);
+	wp_enqueue_script('bootstrap-modal', plugins_url('frontend/js/bootstrap.js', __FILE__), 'jquery', 1.0, true);
 	wp_enqueue_script('validaTamanho', plugins_url('frontend/js/validaTamanho.js', __FILE__), 'jquery', 1.4, true);
 	wp_enqueue_script('config-preco', plugins_url('frontend/js/config-preco.js',__FILE__),'jquery', 1.0, true);
 	wp_enqueue_script('modal_info', plugins_url('frontend/js/modal_info.js',__FILE__),'jquery', 1.0, true);

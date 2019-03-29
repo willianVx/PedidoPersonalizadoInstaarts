@@ -1,1 +1,159 @@
-.iap_products_content{max-width:640px;border:1px solid #b7b7b7;border-radius:6px;padding:22px}.iap_products_content img{width:267px}.iap_products_content h5{padding:5px;background-color:#3bb44a;border-radius:6px;color:#fff;text-align:center}.iap_products_content p{color:#6e6e6e}.iap_products_content a button{padding:3px;background-color:#3bb44a;color:#fff;text-align:center;border-radius:3px;right:0;position:absolute}.iap_products_content .bullet_group{display:flex;justify-content:center}.iap_products_content .bullet{position:relative;width:12px;height:12px;margin:10px;border-radius:50%;cursor:pointer;transition:.4s ease;background-color:#afebb6}.iap_products_content .bullet_color_active{background-color:#3bb44a}.iap_products_content img{transition:.4s ease}@media(max-width: 1199px){.iap_products_content .col-lg-6{text-align:center}}.iap_display_none{display:none}.iap_content_recomendacoes{margin-top:40px}.iap_content_recomendacoes h2{color:#6e6e6e}.iap_content_recomendacoes .col-lg-3{max-width:240px;height:282px;cursor:pointer;padding:15px;color:#6e6e6e;border-radius:6px;text-align:center;margin-right:35px;margin-top:10px;transition:.3s cubic-bezier(0.4, 0, 1, 1)}.iap_content_recomendacoes .col-lg-3:hover{-webkit-box-shadow:-1px 18px 27px -6px rgba(54,54,54,.79);-moz-box-shadow:-1px 18px 27px -6px rgba(54,54,54,.79);box-shadow:-1px 18px 27px -6px rgba(54,54,54,.79)}.iap_content_recomendacoes .col-lg-3:hover a{color:#6e6e6e}.iap_content_recomendacoes .col-lg-3 p{right:0;left:0;position:absolute;bottom:0}.iap_content_recomendacoes .col-lg-3 .iap_content_preco{color:#bc4466;font-size:2em}.iap_content_recomendacoes .iap_content_btn{transition:.3s cubic-bezier(0.4, 0, 1, 1);position:relative;left:30px;background-color:#bc4466;color:#fff}.iap_content_recomendacoes .iap_content_btn:hover{background-color:#fff;border:1px solid #bc4466;color:#bc4466}.iap_content_recomendacoes .iap_content_btn:hover a{color:#bc4466 !important}.iap_garantia_devolucao{position:relative;bottom:50px;font-size:1.7em}.iap_garantia_devolucao img{max-width:60px;padding-bottom:10px}.iap_garantia_devolucao .col-lg-12{text-align:center}@media(max-width: 1199px){.iap_garantia_devolucao .col-lg-8{left:0;right:0;margin:auto;top:10px}}/*# sourceMappingURL=iap_content.css.map */
+.iap_products_content {
+  max-width: 640px;
+  border: 1px solid #b7b7b7;
+  border-radius: 6px;
+  padding: 22px;
+}
+
+.iap_products_content img {
+  width: 267px;
+}
+
+.iap_products_content h5 {
+  padding: 5px;
+  background-color: #3bb44a;
+  border-radius: 6px;
+  color: white;
+  text-align: center;
+}
+
+.iap_products_content p {
+  color: #6e6e6e;
+}
+
+.iap_products_content a button {
+  padding: 3px;
+  background-color: #3bb44a;
+  color: white;
+  text-align: center;
+  border-radius: 3px;
+  right: 0px;
+  position: absolute;
+}
+
+.iap_products_content .bullet_group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.iap_products_content .bullet {
+  position: relative;
+  width: 12px;
+  height: 12px;
+  margin: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  -webkit-transition: 0.4s ease;
+  transition: 0.4s ease;
+  background-color: #afebb6;
+}
+
+.iap_products_content .bullet_color_active {
+  background-color: #3bb44a;
+}
+
+.iap_products_content img {
+  -webkit-transition: 0.4s ease;
+  transition: 0.4s ease;
+}
+
+@media (max-width: 1199px) {
+  .iap_products_content .col-lg-6 {
+    text-align: center;
+  }
+}
+
+.iap_display_none {
+  display: none;
+}
+
+.iap_content_recomendacoes {
+  margin-top: 40px;
+}
+
+.iap_content_recomendacoes h2 {
+  color: #6e6e6e;
+}
+
+.iap_content_recomendacoes .col-lg-3 {
+  max-width: 240px;
+  height: 282px;
+  cursor: pointer;
+  padding: 15px;
+  color: #6e6e6e;
+  border-radius: 6px;
+  text-align: center;
+  margin-right: 35px;
+  margin-top: 10px;
+  -webkit-transition: 0.3s cubic-bezier(0.4, 0, 1, 1);
+  transition: 0.3s cubic-bezier(0.4, 0, 1, 1);
+}
+
+.iap_content_recomendacoes .col-lg-3:hover {
+  -webkit-box-shadow: -1px 18px 27px -6px rgba(54, 54, 54, 0.79);
+  box-shadow: -1px 18px 27px -6px rgba(54, 54, 54, 0.79);
+}
+
+.iap_content_recomendacoes .col-lg-3:hover a {
+  color: #6e6e6e;
+}
+
+.iap_content_recomendacoes .col-lg-3 p {
+  right: 0px;
+  left: 0px;
+  position: absolute;
+  bottom: 0;
+}
+
+.iap_content_recomendacoes .col-lg-3 .iap_content_preco {
+  color: #BC4466;
+  font-size: 2em;
+}
+
+.iap_content_recomendacoes .iap_content_btn {
+  -webkit-transition: 0.3s cubic-bezier(0.4, 0, 1, 1);
+  transition: 0.3s cubic-bezier(0.4, 0, 1, 1);
+  position: relative;
+  left: 30px;
+  background-color: #BC4466;
+  color: white;
+}
+
+.iap_content_recomendacoes .iap_content_btn:hover {
+  background-color: white;
+  border: 1px solid #BC4466;
+  color: #BC4466;
+}
+
+.iap_content_recomendacoes .iap_content_btn:hover a {
+  color: #BC4466 !important;
+}
+
+.iap_garantia_devolucao {
+  position: relative;
+  bottom: 50px;
+  font-size: 1.7em;
+}
+
+.iap_garantia_devolucao img {
+  max-width: 60px;
+  padding-bottom: 10px;
+}
+
+.iap_garantia_devolucao .col-lg-12 {
+  text-align: center;
+}
+
+@media (max-width: 1199px) {
+  .iap_garantia_devolucao .col-lg-8 {
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: 10px;
+  }
+}
+/*# sourceMappingURL=iap_content.css.map */

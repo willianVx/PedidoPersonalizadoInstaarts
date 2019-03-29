@@ -1,3 +1,6 @@
+.modal-backdrop.in{
+  display: none;
+}
 .container-b{
     position: relative;
     top: 20px;
