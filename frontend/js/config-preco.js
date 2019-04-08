@@ -149,8 +149,8 @@ jQuery(document).ready(function($){
     function getAcabamento(){
         return this.acabamento;
     }
-    function printAcabamento(TextoAcabamento){
-        $("#s-metacrilato").html(TextoAcabamento);
+    function printAcabamento(PrintAcabamento){
+        $("#s-metacrilato").html(PrintAcabamento);
     }
 
     window.setAcabamento = setAcabamento;
@@ -185,10 +185,10 @@ jQuery(document).ready(function($){
         enviaDados();
     });
 
-    $("#acm5mm").click(function(){
-        setAcabamento("acm5mm");
-        printAcabamento("Metacrilato ACM");
-        load_iap_content("acm5mm");
+    $("#ps5mm").click(function(){
+        setAcabamento("ps5mm");
+        printAcabamento("Metacrilato PS");
+        load_iap_content("ps5mm");
         enviaDados();
     });
 
@@ -515,13 +515,13 @@ jQuery(document).ready(function($){
 //renderiza formas de parcelamento 
 var render_parcelamento = function(resposta){
 
-    $("#s-preco").html("por R$ " + resposta[1]);
+    $("#s-preco").html("ou R$ " + resposta[1] + " á vista");
     var hud_botoes = $('.hud-botoes-mat');
     var div_parcelamentos = document.createElement('div');
 
     resposta_lista = Object.values(resposta);
 
-    $('.iap_parcelamento').html("ou parcele em até " + resposta_lista.length+"x de R$" + resposta_lista[resposta_lista.length -1]);
+    $('.iap_parcelamento').html("em até " + resposta_lista.length+"x de R$" + resposta_lista[resposta_lista.length -1]);
 }    
 
 
@@ -544,8 +544,8 @@ $("#photobloco_10x10").click(function(){
                 modal_info.constructor('Erro no processamento. Tente mais tarde.', 'aviso');
             } else {
                 resposta = JSON.parse(data);
-                $("#s-preco-photobloco").html("R$ " + resposta["0"] + ".00");
-                $(".iap_parcelamento_photobloco").html("ou por 3x de R$ " + resposta[1] + ".00");
+                $("#s-preco-photobloco").html(" R$ " + resposta["0"]  + " á vista");
+                $(".iap_parcelamento_photobloco").html("em até 3x de R$ " + resposta[1]);
 
                 $("#s-photobloco").html("10x10cm");
                 $("#comprar-botao-photobloco").addClass("btn-success");
@@ -576,8 +576,8 @@ $("#photobloco_10x15").click(function(){
                 modal_info.constructor('Erro no processamento. Tente mais tarde.', 'aviso');
             } else {
                 resposta = JSON.parse(data);
-                $("#s-preco-photobloco").html("R$ " + resposta["0"] + ".00");
-                $(".iap_parcelamento_photobloco").html("ou por 4x de R$ " + resposta[1]);
+                $("#s-preco-photobloco").html(" ou R$ " + resposta["0"] + " á vista");
+                $(".iap_parcelamento_photobloco").html("até 4x de R$ " + resposta[1]);
 
                 $("#s-photobloco").html("10x15cm");
                 $("#comprar-botao-photobloco").addClass("btn-success");
