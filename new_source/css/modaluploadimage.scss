@@ -1,0 +1,20 @@
+.iap_modal_container {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: 999;
+    width: 100%;
+    height: 100%;
+    background-color: #0000009a;
+    .iap_modal_content {
+        max-width: 320px;
+        max-height: 410px;
+        align-self: center;
+        background-color: white;
+        border-radius: 6px;
+        padding: 12px;
+    }
+}

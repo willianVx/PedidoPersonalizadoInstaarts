@@ -1,0 +1,69 @@
+@import './modaluploadimage.scss';
+.iap_product_container {
+    overflow: hidden;
+    .iap_product_images_container {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .iap_product_images {
+        div {
+            width: 90px;
+            height: 90px;
+            cursor: pointer;
+            background-color: grey;
+            margin-bottom: 10px;
+            overflow: hidden;
+            background-size:cover;
+            img {
+                max-width: fit-content;
+                max-height: 100%;
+            }
+        }
+    }
+
+    .iap_product_main {
+        height: 330px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .iap_product_order {
+        h3 {
+            margin-top: 16px;
+            font-weight: bolder;
+        }
+        p {
+            font-size: 18px;
+        }
+        button {
+            padding: 20px;
+            color: white;
+            background-color: #5cb85c;
+            width: 100%;
+            border-radius: 6px;
+        }
+    }
+
+    @media screen and (max-width: 420px) {
+        .iap_product_images_container {
+            display: block;
+        }
+        .iap_product_images {
+            display: flex;
+            justify-content: space-around;
+        }
+        .iap_product_main {
+            height: auto;
+        }
+    }
+
+    @media screen and (min-width: 720px) {
+        display: flex;
+        justify-content: space-between;
+        .iap_product_order{
+            min-width: 250px;
+        }
+    }
+
+}

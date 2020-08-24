@@ -1,0 +1,111 @@
+.iap_modal_container {
+  position: fixed;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: 999;
+  width: 100%;
+  height: 100%;
+  background-color: #0000009a;
+}
+
+.iap_modal_container .iap_modal_content {
+  max-width: 320px;
+  max-height: 410px;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  background-color: white;
+  border-radius: 6px;
+  padding: 12px;
+}
+
+.iap_product_container {
+  overflow: hidden;
+}
+
+.iap_product_container .iap_product_images_container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.iap_product_container .iap_product_images div {
+  width: 90px;
+  height: 90px;
+  cursor: pointer;
+  background-color: grey;
+  margin-bottom: 10px;
+  overflow: hidden;
+  background-size: cover;
+}
+
+.iap_product_container .iap_product_images div img {
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+  max-height: 100%;
+}
+
+.iap_product_container .iap_product_main {
+  height: 330px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.iap_product_container .iap_product_order h3 {
+  margin-top: 16px;
+  font-weight: bolder;
+}
+
+.iap_product_container .iap_product_order p {
+  font-size: 18px;
+}
+
+.iap_product_container .iap_product_order button {
+  padding: 20px;
+  color: white;
+  background-color: #5cb85c;
+  width: 100%;
+  border-radius: 6px;
+}
+
+@media screen and (max-width: 420px) {
+  .iap_product_container .iap_product_images_container {
+    display: block;
+  }
+  .iap_product_container .iap_product_images {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+  .iap_product_container .iap_product_main {
+    height: auto;
+  }
+}
+
+@media screen and (min-width: 720px) {
+  .iap_product_container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .iap_product_container .iap_product_order {
+    min-width: 250px;
+  }
+}
+/*# sourceMappingURL=style.css.map */
